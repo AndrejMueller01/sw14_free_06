@@ -1,0 +1,10 @@
+package com.example.studyprogress;
+
+public class Curriculum {
+	
+	private ArrayList<Course> courseList;
+	public Curriculum(){}
+	
+	
+
+}

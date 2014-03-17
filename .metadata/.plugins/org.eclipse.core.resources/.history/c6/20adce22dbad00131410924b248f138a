@@ -1,0 +1,8 @@
+package com.example.studyprogress.test;
+
+import junit.framework.TestCase;
+
+public class CurriculumViewTest extends ActivityInstrumentationTestCase2<"CurriculumView"> {
+	
+
+}

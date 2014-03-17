@@ -1,0 +1,9 @@
+package com.example.studyprogress;
+
+public class Course {
+	private String courseName;
+	public Course(){
+		
+	}
+	
+}

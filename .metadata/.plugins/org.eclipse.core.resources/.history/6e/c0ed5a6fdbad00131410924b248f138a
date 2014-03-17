@@ -1,0 +1,15 @@
+package com.example.studyprogress.test;
+
+import com.example.studyprogress.CurriculumView;
+
+import android.test.ActivityInstrumentationTestCase2;
+
+public class CurriculumViewTest extends ActivityInstrumentationTestCase2<CurriculumView> {
+	
+	public CurriculumViewTest()
+	{
+		super(CurriculumView.class);
+	}
+	
+
+}

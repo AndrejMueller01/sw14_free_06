@@ -1,0 +1,8 @@
+package com.example.studyprogress;
+
+public class Curriculum {
+	public Curriculum(){}
+	
+	
+
+}

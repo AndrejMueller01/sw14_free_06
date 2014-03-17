@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+/home/dodo/Uni/8 Semester/MobileApp/MobileApp/sw14_free_06/.metadata/.plugins/org.eclipse.jdt.core
+1818965137.index
+3080006861.index

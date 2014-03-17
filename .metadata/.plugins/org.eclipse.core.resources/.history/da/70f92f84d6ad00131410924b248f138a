@@ -1,0 +1,15 @@
+package com.example.studyprogress;
+
+public class Course {
+	private String courseName;
+	public Course(){
+		
+	}
+	private String getCourseName() {
+		return courseName;
+	}
+	private void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+	
+}
