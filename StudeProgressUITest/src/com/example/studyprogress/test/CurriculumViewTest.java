@@ -1,17 +1,17 @@
 package com.example.studyprogress.test;
 
-import com.example.studyprogress.CurriculumView;
+import com.example.studyprogress.CurriculumListViewActivity;
 import com.robotium.solo.Solo;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-public class CurriculumViewTest extends ActivityInstrumentationTestCase2<CurriculumView> {
+public class CurriculumViewTest extends ActivityInstrumentationTestCase2<CurriculumListViewActivity> {
 	
 	private Solo solo;
 
 	public CurriculumViewTest()
 	{
-		super(CurriculumView.class);
+		super(CurriculumListViewActivity.class);
 	}
 	
 	@Override 

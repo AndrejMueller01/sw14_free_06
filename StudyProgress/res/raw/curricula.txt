@@ -1,0 +1,23 @@
+19
+Computer Science# 
+Dominik Hirners Bauernlehrgang# 
+Architecture# 
+Civil Engineering with Environment and Construction Management# 
+Mechanical Engineering# 
+Mechanical Engineering and Business Economics# 
+Electrical Engineering# 
+Electrical Engineering and Audio Engineering# 
+Biomedical Engineering# 
+Mathematics# 
+Physics# 
+Geomatics Engineering# 
+Chemistry# 
+Molecular Biology# 
+Earth Sciences# 
+Chemical and Process Engineering# 
+Telematics# 
+Software Development and Business Management# 
+Environmental Systems Sciences / Natural Sciences-Technology# 
+
+1
+Analysis T1 # 7 # 1234444 # 1 # 1
