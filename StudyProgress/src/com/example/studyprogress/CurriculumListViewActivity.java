@@ -9,12 +9,17 @@ import com.example.tools.XMLParser;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class CurriculumListViewActivity extends Activity {
 
@@ -42,9 +47,11 @@ public class CurriculumListViewActivity extends Activity {
 		searchTextField = (EditText) findViewById(R.id.search_input);
 		// FileManager.getCurriculaNames(R.raw.curricula,this)
 
-		XMLParser parser = new XMLParser();
 
 		InputStream is = this.getResources().openRawResource(R.raw.curricula);
+		
+		XMLParser parser = new XMLParser(is);
+
 		String[] curriculumNames = null;
 		try {
 			curriculumNames = parser.getCurriculaNames(is);
@@ -62,6 +69,18 @@ public class CurriculumListViewActivity extends Activity {
 
 		curriculumListView.setAdapter(adapter);
 		updateListViewOnSearching();
+		 curriculumListView.setOnItemClickListener(new OnItemClickListener() {
+
+             public void onItemClick(AdapterView<?> parent, View view,
+                     int position, long id) {
+
+                 
+                     Intent intent = new Intent(CurriculumListViewActivity.this,
+                             MainActivity.class);
+                     intent.putExtra("Id", ((TextView)(view.findViewById(R.id.curriculum_text_view))).getText());
+                     startActivity(intent);
+                   
+             }});
 
 	}
 

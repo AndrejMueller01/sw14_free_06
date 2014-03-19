@@ -1,4 +1,4 @@
-package com.example.studyprogress;
+package com.example.objects;
 
 public class Course {
 	private String courseName;

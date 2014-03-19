@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <curricula>
     <curriculum>
-        <name>Werde Bauer mit Dominik</name>
+        <name>Werde Bauer1 mit Dominik</name>
+        <id>1</id>
     </curriculum>
     <curriculum>
-         <name>Werde Bauer mit Dominik</name>
+         <name>Werde Bauer2 mit Dominik</name>
     </curriculum>
     <curriculum>
-        <name>Werde Bauer mit Dominik</name>
+        <name>Werde Bauer3 mit Dominik</name>
     </curriculum>
     <curriculum>
-        <name>Werde Bauer mit Dominik</name>
+        <name>Werde Bauer4 mit Dominik</name>
     </curriculum>
     <curriculum>
-        <name>Werde Bauer mit Dominik</name>
+        <name>Werde Bauer5 mit Dominik</name>
     </curriculum>
 </curricula>

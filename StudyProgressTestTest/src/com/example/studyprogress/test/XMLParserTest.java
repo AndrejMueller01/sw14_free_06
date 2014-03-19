@@ -16,7 +16,9 @@ public class XMLParserTest extends InstrumentationTestCase {
 	XMLParser mClassToTest;
 
 	protected void setUp() throws Exception {
-		mClassToTest = new XMLParser();
+		InputStream is = getInstrumentation().getTargetContext().getResources()
+				.openRawResource(R.raw.test_curricula);
+		mClassToTest = new XMLParser(is);
 		super.setUp();
 	}
 

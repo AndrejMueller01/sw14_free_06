@@ -1,10 +1,11 @@
-package com.example.studyprogress;
+package com.example.objects;
 
 import java.util.ArrayList;
 
 public class Curriculum {
 	
 	private String name;
+	private int curriculumId;
 	private ArrayList<Course> mandatoryCourseList;
 	private ArrayList<Course> optionalCourseList;
 	private int yearOfRelease;
@@ -19,6 +20,12 @@ public class Curriculum {
 	}
 	public String getName(){
 		return name;
+	}
+	public void setCurriculumId(int curriculumId){
+		this.curriculumId = curriculumId;
+	}
+	public int getCurriculumId(){
+		return curriculumId;
 	}
 	
 	
