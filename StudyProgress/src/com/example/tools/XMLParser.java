@@ -59,8 +59,8 @@ public class XMLParser {
 			eventType = xpp.next();
 		}
 		String[] curriculaNames = new String[curricula.size()];
-
 		for (int i = 0; i < curricula.size(); i++) {
+			Log.d("SIZE", curricula.get(i).getName());
 			curriculaNames[i] = curricula.get(i).getName();
 		}
 
