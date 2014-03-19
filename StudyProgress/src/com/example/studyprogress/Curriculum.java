@@ -4,17 +4,23 @@ import java.util.ArrayList;
 
 public class Curriculum {
 	
+	private String name;
 	private ArrayList<Course> mandatoryCourseList;
 	private ArrayList<Course> optionalCourseList;
 	private int yearOfRelease;
 	private int nameOfMajor;
-	public Curriculum(int yearOfRelease, int nameOfMajor)
+	public Curriculum()
 	{
-		this.yearOfRelease = yearOfRelease;
-		this.nameOfMajor = nameOfMajor;
 		mandatoryCourseList = new ArrayList<Course>();
 		optionalCourseList = new ArrayList<Course>();
 	}
+	public void setName(String name){
+		this.name = name;
+	}
+	public String getName(){
+		return name;
+	}
+	
 	
 	
 

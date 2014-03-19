@@ -1,5 +1,11 @@
 package com.example.studyprogress;
-import com.example.tools.FileManager;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.xmlpull.v1.XmlPullParserException;
+
+import com.example.tools.XMLParser;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -30,15 +36,30 @@ public class CurriculumListViewActivity extends Activity {
 		return true;
 	}
 
-
 	public void initComponents() {
 
 		curriculumListView = (ListView) findViewById(R.id.curriculum_list_view);
 		searchTextField = (EditText) findViewById(R.id.search_input);
+		// FileManager.getCurriculaNames(R.raw.curricula,this)
+
+		XMLParser parser = new XMLParser();
+
+		InputStream is = this.getResources().openRawResource(R.raw.curricula);
+		String[] curriculumNames = null;
+		try {
+			curriculumNames = parser.getCurriculaNames(is);
+		} catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 		adapter = new ArrayAdapter<String>(this, R.layout.curriculum_list_item,
-				R.id.curriculum_name, FileManager.getCurriculaNames(
-						R.raw.curricula, this));
+				R.id.curriculum_text_view, curriculumNames);
+
 		curriculumListView.setAdapter(adapter);
 		updateListViewOnSearching();
 

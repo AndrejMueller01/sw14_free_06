@@ -28,7 +28,7 @@ public final class R {
         public static final int action_settings=0x7f090005;
         public static final int chooseCurriculaTextView=0x7f090001;
         public static final int curriculum_list_view=0x7f090003;
-        public static final int curriculum_name=0x7f090004;
+        public static final int curriculum_text_view=0x7f090004;
         public static final int search_input=0x7f090002;
     }
     public static final class layout {
