@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <curricula>
     <curriculum>
-        <name>Werde Bauer1 mit Dominik</name>
+        <name>Computer Science</name>
         <id>1</id>
+        <year>2010</year>
     </curriculum>
     <curriculum>
          <name>Werde Bauer2 mit Dominik</name>
