@@ -9,7 +9,7 @@ public class Curriculum {
 	private ArrayList<Course> mandatoryCourseList;
 	private ArrayList<Course> optionalCourseList;
 	private int yearOfRelease;
-	private int nameOfMajor;
+
 	public Curriculum()
 	{
 		mandatoryCourseList = new ArrayList<Course>();

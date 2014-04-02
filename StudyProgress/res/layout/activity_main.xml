@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
+<<<<<<< HEAD
     <ProgressBar
         android:id="@+id/progressBar1"
         style="?android:attr/progressBarStyleHorizontal"
@@ -24,5 +25,15 @@
         android:layout_below="@+id/curriculumNameInMainActivityTextView" />
 
    
+=======
+    <ListView
+        android:id="@+id/coursesListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/curriculumNameInMainActivityTextView"
+        android:layout_below="@+id/curriculumNameInMainActivityTextView"
+        android:layout_marginTop="28dp" >
+    </ListView>
+>>>>>>> 7c8a2028b025aef45dcecbb2e5a1e7959ed6a960
 
 </RelativeLayout>

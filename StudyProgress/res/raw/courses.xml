@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<courses>
+    <course>
+        <name>Einführung strukturierte Programmierung</name>
+        <id>1</id>
+        <ects>3</ects>
+        <semester>1</semester>
+        <bachelor>1</bachelor>
+    </course>
+    <course>
+        <name>Analysis T1</name>
+        <id>1</id>
+        <ects>7</ects>
+        <semester>1</semester>
+        <bachelor>1</bachelor>
+    </course>
+    <course>
+        <name>Grundlagen der Elektrotechnik</name>
+        <id>2</id>
+        <ects>4</ects>
+        <semester>1</semester>
+        <bachelor>1</bachelor>
+    </course>    
+</courses>

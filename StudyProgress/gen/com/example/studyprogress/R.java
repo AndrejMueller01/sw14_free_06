@@ -27,24 +27,32 @@ public final class R {
         public static final int CurriculumListTextView=0x7f090000;
         public static final int action_settings=0x7f090008;
         public static final int chooseCurriculaTextView=0x7f090001;
+        public static final int coursesListView=0x7f090005;
+        public static final int courses_text_view=0x7f090006;
         public static final int curriculumNameInMainActivityTextView=0x7f090004;
         public static final int curriculum_list_view=0x7f090003;
+<<<<<<< HEAD
         public static final int curriculum_list_view_item=0x7f090006;
         public static final int curriculum_text_view=0x7f090007;
         public static final int progressBar1=0x7f090005;
+=======
+        public static final int curriculum_text_view=0x7f090007;
+>>>>>>> 7c8a2028b025aef45dcecbb2e5a1e7959ed6a960
         public static final int search_input=0x7f090002;
     }
     public static final class layout {
         public static final int activity_curriculum_view=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int curriculum_list_item=0x7f030002;
+        public static final int courses_list_item=0x7f030002;
+        public static final int curriculum_list_item=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f080000;
     }
     public static final class raw {
-        public static final int curricula=0x7f040000;
-        public static final int test_curricula=0x7f040001;
+        public static final int courses=0x7f040000;
+        public static final int curricula=0x7f040001;
+        public static final int test_curricula=0x7f040002;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
