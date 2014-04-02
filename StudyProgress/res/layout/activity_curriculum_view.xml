@@ -6,13 +6,13 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/chooseCurriculaTextView"
+        android:id="@+id/choose_curricula_text_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/descrition_choose_curriculum"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText android:id="@+id/search_input"
+    <EditText android:id="@+id/crurriculum_list_view_search_input_field"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/search_text"
