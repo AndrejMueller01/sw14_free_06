@@ -13,7 +13,7 @@ import com.example.objects.Curriculum;
 import android.util.Log;
 
 public class XMLParser {
-	// Returns the entire XML document
+
 	private XmlPullParserFactory factory;
 	private XmlPullParser xpp;
 	ArrayList<Curriculum> curricula = null;
@@ -23,7 +23,7 @@ public class XMLParser {
 		parseCurricula(inputStream);
 	}
 
-// TODO: Variable names
+// TODO: Variable names, hc values
 	private void parseCurricula(InputStream inputStream) {
 		int eventType = 0;
 		try {
@@ -73,10 +73,8 @@ public class XMLParser {
 			}
 			
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
