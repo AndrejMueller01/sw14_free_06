@@ -7,14 +7,18 @@
     </curriculum>
     <curriculum>
          <name>Werde Bauer2 mit Dominik</name>
+         <id>2</id>
     </curriculum>
     <curriculum>
         <name>Werde Bauer3 mit Dominik</name>
+		<id>3</id>
     </curriculum>
     <curriculum>
         <name>Werde Bauer4 mit Dominik</name>
+        <id>4</id>
     </curriculum>
     <curriculum>
         <name>Werde Bauer5 mit Dominik</name>
+        <id>5</id>
     </curriculum>
 </curricula>

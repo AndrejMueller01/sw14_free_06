@@ -18,11 +18,26 @@ public class XMLParser {
 	private XmlPullParserFactory xmlPullParseFactory;
 	private XmlPullParser xmlPullParser;
 	private ArrayList<Curriculum> curricula = null;
-	private ArrayList<Course> courses = null;
+	private ArrayList<Course> allCourses = null;
+	private ArrayList<Course> currentCourses = null;
 	private InputStream inputStream;
+	private static XMLParser instance = null;
 
 	public XMLParser(InputStream inputStream) {
 		this.inputStream = inputStream;
+	}
+
+	public static XMLParser getInstance(InputStream is) {
+		if (instance == null) {
+			instance = new XMLParser(is);
+		} else {
+			instance.setInputStream(is);
+		}
+		return instance;
+	}
+
+	public void setInputStream(InputStream is) {
+		this.inputStream = is;
 	}
 
 	public void parseCourses() {
@@ -34,7 +49,8 @@ public class XMLParser {
 
 			xmlPullParser = xmlPullParseFactory.newPullParser();
 			xmlPullParser.setInput(inputStream, null);
-			xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+			xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES,
+					false);
 
 			eventType = xmlPullParser.getEventType();
 			Course currentCourse = null;
@@ -44,7 +60,7 @@ public class XMLParser {
 				String name = null;
 				switch (eventType) {
 				case XmlPullParser.START_DOCUMENT:
-					courses = new ArrayList<Course>();
+					allCourses = new ArrayList<Course>();
 					break;
 				case XmlPullParser.START_TAG:
 
@@ -55,11 +71,12 @@ public class XMLParser {
 						currentCourse = new Course();
 					} else if (currentCourse != null) {
 						if (name.equals("name")) {
-							currentCourse.setCourseName(xmlPullParser.nextText());
+							currentCourse.setCourseName(xmlPullParser
+									.nextText());
 						}
 						if (name.equals("id")) {
-							currentCourse.setCurricula(Integer.parseInt(xmlPullParser
-									.nextText()));
+							currentCourse.setCurricula(Integer
+									.parseInt(xmlPullParser.nextText()));
 						}
 						// TODO: more
 					}
@@ -68,7 +85,7 @@ public class XMLParser {
 
 					name = xmlPullParser.getName();
 					if (name.equals("course") && currentCourse != null) {
-						courses.add(currentCourse);
+						allCourses.add(currentCourse);
 						currentCourse = null;
 					}
 				}
@@ -95,7 +112,8 @@ public class XMLParser {
 			xmlPullParseFactory.setNamespaceAware(true);
 			xmlPullParser = xmlPullParseFactory.newPullParser();
 			xmlPullParser.setInput(inputStream, null);
-			xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+			xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES,
+					false);
 			eventType = xmlPullParser.getEventType();
 
 			Curriculum currentCurriculum = null;
@@ -145,25 +163,41 @@ public class XMLParser {
 
 	public ArrayList<String> getCurriculaNames(InputStream inputStream)
 			throws XmlPullParserException, IOException {
-
 		ArrayList<String> curriculaNames = new ArrayList<String>();
 
 		for (int i = 0; i < curricula.size(); i++) {
-			Log.d("SIZE", curricula.get(i).getName());
 			curriculaNames.add(curricula.get(i).getName());
 		}
-
 		return curriculaNames;
 	}
 
-	public String[] getCoursesNames(InputStream inputStream)
+
+
+	public int getCurriculumIdWithName(String name) {
+		for (int i = 0; i < curricula.size(); i++)
+			if (curricula.get(i).getName().equals(name)) {
+				return curricula.get(i).getCurriculumId();
+			}
+		return 0;
+	}
+
+	public void initializeCurrentCourses(int id) {
+		// TODO: loading
+		currentCourses = new ArrayList<Course>();
+		for (int i = 0; i < allCourses.size(); i++)
+			if (allCourses.get(i).getCurricula() == id) {
+				currentCourses.add(allCourses.get(i));
+			}
+	}
+
+	public String[] getCurrentCoursesNames(InputStream inputStream)
 			throws XmlPullParserException, IOException {
 
-		String[] coursesNames = new String[courses.size()];
+		String[] coursesNames = new String[currentCourses.size()];
 
-		for (int i = 0; i < courses.size(); i++) {
-			Log.d("SIZE", courses.get(i).getCourseName());
-			coursesNames[i] = courses.get(i).getCourseName();
+		for (int i = 0; i < currentCourses.size(); i++) {
+			Log.d("SIZE", currentCourses.get(i).getCourseName());
+			coursesNames[i] = currentCourses.get(i).getCourseName();
 		}
 
 		return coursesNames;

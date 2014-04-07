@@ -1,24 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <courses>
-    <course>
-        <name>Einführung strukturierte Programmierung</name>
-        <id>1</id>
-		<ects>3</ects>
-		<semester>1</semester>
-		<bachelor>1</bachelor>
-	</course>
 	<course>
 		<name>Analysis T1</name>
 		<id>1</id>
 		<ects>7</ects>
 		<semester>1</semester>
 		<bachelor>1</bachelor>
+		<cid>501.446</cid>
+		<steop>0</steop>
+		<mode>VU</mode>		
 	</course>
 	<course>
-		<name>Grundlagen der Elektrotechnik</name>
-		<id>2</id>
+		<name>Einführung in das Studium der Informatik</name>
+		<id>1</id>
+		<ects>1</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>710.104</cid>
+		<steop>1</steop>
+		<mode>VO</mode>
+	</course>
+	<course>
+		<name>Internet und neue Medien</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>706.003</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>
+		<name>Grundlagen der Elektrotechnik TE</name>
+		<id>1</id>
 		<ects>4</ects>
 		<semester>1</semester>
 		<bachelor>1</bachelor>
-	</course>    
+		<cid>437.161</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+	<course>
+		<name>Computermathematik 1</name>
+		<id>1</id>
+		<ects>1</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>503.516</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>
+		<name>Einführung in die strukturierte Programmierung</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>706.001</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>
+		<name>Grundlagen der Informatik</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>716.231</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>
+	<course>
+		<name>Grundlagen der Informatik</name>
+		<id>1</id>
+		<ects>6</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>716.232</cid>
+		<steop>1</steop>
+		<mode>VO</mode>
+	</course>
+	<course>
+		<name>Einführung in das Wissenschaftliche Arbeiten</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>710.023</cid>
+		<steop>0</steop>
+		<mode>SE</mode>
+	</course>
 </courses>

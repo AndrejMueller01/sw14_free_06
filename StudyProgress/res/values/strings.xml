@@ -8,5 +8,8 @@
     <string name="descrition_choose_curriculum">Please choose a curriculum:</string>
     <string name="file_invalid">DB File invalid!</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="choose_start_configuration">Please choose a start configuration:</string>
+    <string name="new_plan">NEW plan</string>
+    <string name="open_plan">OPEN plan</string>
 
 </resources>

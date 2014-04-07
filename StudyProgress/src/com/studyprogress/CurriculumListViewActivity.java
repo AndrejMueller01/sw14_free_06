@@ -31,6 +31,7 @@ public class CurriculumListViewActivity extends Activity {
 	private EditText searchTextField;
 	private ArrayList<String> curriculumNames = null;
 	private ArrayList<String> curriculumNamesSearchFaults = null;
+	private XMLParser parser ;
 
 	private int tempCsLength = 0;
 
@@ -56,8 +57,7 @@ public class CurriculumListViewActivity extends Activity {
 		// FileManager.getCurriculaNames(R.raw.curricula,this)
 
 		InputStream is = this.getResources().openRawResource(R.raw.curricula);
-
-		XMLParser parser = new XMLParser(is);
+		parser= XMLParser.getInstance(is);
 		parser.parseCurricula();
 
 		try {
@@ -82,8 +82,9 @@ public class CurriculumListViewActivity extends Activity {
 
 				Intent intent = new Intent(CurriculumListViewActivity.this,
 						MainActivity.class);
-				intent.putExtra("Id", ((TextView) (view
-						.findViewById(R.id.curriculum_text_view))).getText());
+				String name = (String) curriculumListView.getAdapter().getItem(position);
+				int curriculumId = parser.getCurriculumIdWithName(name);
+				intent.putExtra("Id", curriculumId );
 				startActivity(intent);
 
 			}

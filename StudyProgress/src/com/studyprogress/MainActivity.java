@@ -25,6 +25,8 @@ public class MainActivity extends Activity {
 	private static ArrayAdapter<String> adapter;
 	private TextView curriculumNameTextField;
 	private ListView courseListView;
+	private XMLParser parser;
+	private int curriculumId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +36,18 @@ public class MainActivity extends Activity {
 		curriculumNameTextField = (TextView) findViewById(R.id.curriculumNameInMainActivityTextView);
 		courseListView = (ListView) findViewById(R.id.courses_list_view);
 
-		String curriculumName;
 
 		if (savedInstanceState == null) {
 			Bundle extras = getIntent().getExtras();
 			if (extras == null) {
-				curriculumName = null;
+				curriculumId = 0;
 			} else {
 				// TODO: hardcoded
-				curriculumName = extras.getString("Id");
-				curriculumNameTextField.setText(curriculumName);
+				curriculumId = extras.getInt("Id");
+				curriculumNameTextField.setText(""+curriculumId);
 			}
 		} else {
-			curriculumName = (String) savedInstanceState.getSerializable("Id");
+			curriculumId = (Integer) savedInstanceState.getSerializable("Id");
 		}
 
 		initComponents();
@@ -55,13 +56,14 @@ public class MainActivity extends Activity {
 	private void initComponents() {
 		InputStream is = getResources().openRawResource(R.raw.courses);
 
+		parser = XMLParser.getInstance(is);
 
-		XMLParser parser = new XMLParser(is);
 		parser.parseCourses();
+		parser.initializeCurrentCourses(curriculumId);
 		String[] courseNames = null;
 
 		try {
-			courseNames = parser.getCoursesNames(is);
+			courseNames = parser.getCurrentCoursesNames(is);
 		} catch (XmlPullParserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,12 +72,11 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 
-	adapter = new ArrayAdapter<String>(this, R.layout.courses_list_item,
+		adapter = new ArrayAdapter<String>(this, R.layout.courses_list_item,
 				R.id.courses_text_view, courseNames);
 
 		courseListView.setAdapter(adapter);
 		// updateListViewOnSearching();
-	
 
 	}
 
