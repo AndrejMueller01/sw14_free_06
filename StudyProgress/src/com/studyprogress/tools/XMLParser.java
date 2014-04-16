@@ -179,7 +179,7 @@ public class XMLParser {
 				return curricula.get(i).getCurriculumId();
 			}
 		return 0;
-	}
+	}	
 
 	public void initializeCurrentCourses(int id) {
 		// TODO: loading

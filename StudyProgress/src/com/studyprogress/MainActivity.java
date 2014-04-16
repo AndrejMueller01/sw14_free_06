@@ -10,7 +10,13 @@ import com.studyprogress.tools.XMLParser;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.PaintDrawable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -76,8 +82,30 @@ public class MainActivity extends Activity {
 				R.id.courses_text_view, courseNames);
 
 		courseListView.setAdapter(adapter);
-		// updateListViewOnSearching();
-
+		courseListView.setOnItemClickListener(new OnItemClickListener() {
+			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				
+				final CharSequence[] process = {"To Do", "In Progress", "Done"};
+				
+				AlertDialog.Builder processDialog = new AlertDialog.Builder(MainActivity.this);
+				processDialog.setTitle("Select your course process!");
+				processDialog.setItems(process, new DialogInterface.OnClickListener() {
+				    public void onClick(DialogInterface dialog, int item) {
+				         // Do something with the selection
+				    }
+				});
+				AlertDialog alert = processDialog.create();
+				alert.show();
+				
+				
+				//courseListView.getChildAt(position).setBackgroundColor(Color.GREEN);
+			}
+		});
+		
+		
 	}
 
 	@Override
