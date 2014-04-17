@@ -2,11 +2,16 @@ package com.studyprogress;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.example.studyprogress.R;
 import com.studyprogress.tools.XMLParser;
+import com.studyprogress.objects.Course;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -33,6 +38,14 @@ public class MainActivity extends Activity {
 	private ListView courseListView;
 	private XMLParser parser;
 	private int curriculumId;
+	
+	private static Integer STATUS_DONE = 10;
+	private static Integer STATUS_IN_PROGRESS = 11;
+	private static Integer STATUS_TO_DO = 12;
+	
+	private Map<String, Integer> progressMap = new HashMap<String,Integer>();
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +79,7 @@ public class MainActivity extends Activity {
 
 		parser.parseCourses();
 		parser.initializeCurrentCourses(curriculumId);
+
 		String[] courseNames = null;
 
 		try {
@@ -76,6 +90,11 @@ public class MainActivity extends Activity {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		for(int i = 0; i< courseNames.length; i++)
+		{
+			progressMap.put(courseNames[i],STATUS_TO_DO);			
 		}
 
 		adapter = new ArrayAdapter<String>(this, R.layout.courses_list_item,
@@ -88,22 +107,54 @@ public class MainActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				
-				final CharSequence[] process = {"To Do", "In Progress", "Done"};
+				//final CharSequence[] process = {"To Do", "In Progress", "Done"};
 				
-				AlertDialog.Builder processDialog = new AlertDialog.Builder(MainActivity.this);
-				processDialog.setTitle("Select your course process!");
-				processDialog.setItems(process, new DialogInterface.OnClickListener() {
+				final View v = courseListView.getChildAt(position);
+			    final String courseName = courseListView.getItemAtPosition(position).toString();
+				AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+				builder.setTitle("Select your course process!");
+				/*processDialog.setItems(process, new DialogInterface.OnClickListener() {
 				    public void onClick(DialogInterface dialog, int item) {
-				         // Do something with the selection
+				    	
+				    	selectedProcess(item);
 				    }
-				});
-				AlertDialog alert = processDialog.create();
+				});*/
+				
+				builder.setPositiveButton("Done",  new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						v.setBackgroundColor(Color.GREEN);
+						setProgressOfCourse(courseName, STATUS_DONE);
+						
+						}
+					});
+				
+				builder.setNegativeButton("To Do",  new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						v.setBackgroundColor(Color.RED);
+						setProgressOfCourse(courseName, STATUS_TO_DO);
+
+						}
+					});		
+
+				builder.setNeutralButton("In Progress",  new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						v.setBackgroundColor(Color.YELLOW);
+						setProgressOfCourse(courseName, STATUS_IN_PROGRESS);
+						}
+					});	
+				
+				AlertDialog alert = builder.create();
 				alert.show();
 				
 				
 				//courseListView.getChildAt(position).setBackgroundColor(Color.GREEN);
 			}
 		});
+
+		
 		
 		
 	}
@@ -114,6 +165,11 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 
 		return true;
+	}
+	
+	private void setProgressOfCourse(String courseName, Integer Progress)
+	{
+		progressMap.put(courseName, Progress);
 	}
 
 }

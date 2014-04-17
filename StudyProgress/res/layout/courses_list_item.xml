@@ -3,7 +3,9 @@
     android:id="@+id/course_list_view_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/TODO"
+    >
 
     <TextView
         android:id="@+id/courses_text_view"

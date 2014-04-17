@@ -19,7 +19,7 @@ public class XMLParser {
 	private XmlPullParser xmlPullParser;
 	private ArrayList<Curriculum> curricula = null;
 	private ArrayList<Course> allCourses = null;
-	private ArrayList<Course> currentCourses = null;
+	private ArrayList<Course> currentCourses  = null;
 	private InputStream inputStream;
 	private static XMLParser instance = null;
 
@@ -188,6 +188,11 @@ public class XMLParser {
 			if (allCourses.get(i).getCurricula() == id) {
 				currentCourses.add(allCourses.get(i));
 			}
+	}
+	
+	public ArrayList<Course> getCurrentCourses()
+	{
+		return currentCourses;
 	}
 
 	public String[] getCurrentCoursesNames(InputStream inputStream)
