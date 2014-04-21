@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
-
     <ProgressBar
         android:id="@+id/progressBar1"
         style="?android:attr/progressBarStyleHorizontal"
@@ -24,17 +23,68 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/curriculumNameInMainActivityTextView" />
 
-   
+    <TextView 
+        android:id = "@+id/semester_line_description_text_view"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="8pt"
+        android:text="@string/semester_descr"
+         android:layout_below="@+id/progressBar1" />
 
-
-    <ListView
-        android:id="@+id/courses_list_view"
+    <HorizontalScrollView
+        android:id="@+id/sem_buttn_line_sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/curriculumNameInMainActivityTextView"
-        android:layout_below="@+id/curriculumNameInMainActivityTextView"
-        android:layout_marginTop="28dp" >
-    </ListView>
+        android:layout_below="@+id/semester_line_description_text_view" >
 
+        <LinearLayout
+        android:id="@+id/sem_buttn_line_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/semester_1_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sem_1" />
+
+        <Button
+            android:id="@+id/semester_2_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sem_2" />
+           <Button
+            android:id="@+id/semester3_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sem_3" />
+
+        <Button
+            android:id="@+id/semester_4_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sem_4" />
+           <Button
+            android:id="@+id/semester_5_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sem_5" />
+                      <Button
+            android:id="@+id/semester_6_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sem_6" />
+
+</LinearLayout>
+    </HorizontalScrollView>
+
+    <ListView
+        android:id="@+id/courses_list_view_sem1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_below="@+id/sem_buttn_line_sv" />
 
 </RelativeLayout>
