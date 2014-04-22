@@ -90,4 +90,54 @@
 		<steop>0</steop>
 		<mode>SE</mode>
 	</course>
+	<course>
+		<name>TestS2</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>710.023</cid>
+		<steop>0</steop>
+		<mode>SE</mode>
+	</course>
+		<course>
+		<name>TestS3</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>710.023</cid>
+		<steop>0</steop>
+		<mode>SE</mode>
+	</course>
+		<course>
+		<name>TestS4</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>710.023</cid>
+		<steop>0</steop>
+		<mode>SE</mode>
+	</course>
+		<course>
+		<name>TestS5</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>710.023</cid>
+		<steop>0</steop>
+		<mode>SE</mode>
+	</course>
+		<course>
+		<name>TestS6</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>710.023</cid>
+		<steop>0</steop>
+		<mode>SE</mode>
+	</course>
 </courses>

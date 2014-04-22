@@ -19,7 +19,7 @@ public class XMLParser {
 	private XmlPullParser xmlPullParser;
 	private ArrayList<Curriculum> curricula = null;
 	private ArrayList<Course> allCourses = null;
-	private ArrayList<Course> currentCourses  = null;
+	private ArrayList<Course> currentCourses = null;
 	private InputStream inputStream;
 	private static XMLParser instance = null;
 
@@ -75,7 +75,12 @@ public class XMLParser {
 									.nextText());
 						}
 						if (name.equals("id")) {
+							//TODO: int parser
 							currentCourse.setCurricula(Integer
+									.parseInt(xmlPullParser.nextText()));
+						}
+						if (name.equals("semester")) {
+							currentCourse.setSemester(Integer
 									.parseInt(xmlPullParser.nextText()));
 						}
 						// TODO: more
@@ -171,15 +176,13 @@ public class XMLParser {
 		return curriculaNames;
 	}
 
-
-
 	public int getCurriculumIdWithName(String name) {
 		for (int i = 0; i < curricula.size(); i++)
 			if (curricula.get(i).getName().equals(name)) {
 				return curricula.get(i).getCurriculumId();
 			}
 		return 0;
-	}	
+	}
 
 	public void initializeCurrentCourses(int id) {
 		// TODO: loading
@@ -189,14 +192,13 @@ public class XMLParser {
 				currentCourses.add(allCourses.get(i));
 			}
 	}
-	
-	public ArrayList<Course> getCurrentCourses()
-	{
+
+	public ArrayList<Course> getCurrentCourses() {
 		return currentCourses;
 	}
 
-	public String[] getCurrentCoursesNames(InputStream inputStream)
-			throws XmlPullParserException, IOException {
+	public String[] getCurrentCoursesNames() throws XmlPullParserException,
+			IOException {
 
 		String[] coursesNames = new String[currentCourses.size()];
 
@@ -206,6 +208,27 @@ public class XMLParser {
 		}
 
 		return coursesNames;
+	}
+
+	public String[] getCourseNamesOfSemester(int semesterNo) {
+		String[] coursesNames = new String[currentCourses.size()];
+		int j = 0;
+		int numNotUsedArraySlots = 0;
+		for (int i = 0; i < currentCourses.size(); i++) {
+			if (currentCourses.get(i).getSemester() == semesterNo) {
+				coursesNames[j] = currentCourses.get(i).getCourseName();
+				j++;
+			} else {
+				numNotUsedArraySlots++;
+			}
+		}
+		String[] coursesBySemester = new String[currentCourses.size()
+				- numNotUsedArraySlots];
+		for (int i = 0; i < (currentCourses.size() - numNotUsedArraySlots); i++)
+			coursesBySemester[i] = coursesNames[i];
+
+		return coursesBySemester;
+
 	}
 
 }

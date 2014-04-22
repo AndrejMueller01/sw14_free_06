@@ -18,13 +18,11 @@ public class Course {
 		this.semester = semester;
 		this.curricula = curricula;
 	}
-	
-	
-	
+
+
 	public Course() {
 		// TODO Auto-generated constructor stub
 	}
-
 
 
 	public String getCourseName() {

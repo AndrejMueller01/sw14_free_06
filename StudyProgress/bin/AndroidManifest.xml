@@ -19,7 +19,8 @@
         </activity>
         <activity
             android:name="com.studyprogress.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main" 
+            android:screenOrientation="landscape">"
         </activity>
         <activity
             android:name="com.studyprogress.ChooseStartConfigurationActivity"
