@@ -3,13 +3,13 @@ package com.studyprogress.objects;
 public class Course {
 	
 	private String courseName;
-	private int ects;
+	private float ects;
 	private String courseNumber;
 	private boolean isBachelorCourse;
 	private int semester;
 	private int curricula;
 	
-	public Course(String courseName, int ects, String courseNumber, boolean isBachelorCourse, int semester, int curricula)
+	public Course(String courseName, float ects, String courseNumber, boolean isBachelorCourse, int semester, int curricula)
 	{
 		this.courseName = courseName;
 		this.ects = ects;
@@ -31,10 +31,10 @@ public class Course {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	public int getEcts() {
+	public float getEcts() {
 		return ects;
 	}
-	public void setEcts(int ects) {
+	public void setEcts(float ects) {
 		this.ects = ects;
 	}
 	public String getCourseNumber() {

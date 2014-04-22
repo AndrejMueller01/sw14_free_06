@@ -82,9 +82,10 @@ public class CurriculumListViewActivity extends Activity {
 
 				Intent intent = new Intent(CurriculumListViewActivity.this,
 						MainActivity.class);
-				String name = (String) curriculumListView.getAdapter().getItem(position);
-				int curriculumId = parser.getCurriculumIdWithName(name);
+				String curriculumName = (String) curriculumListView.getAdapter().getItem(position);
+				int curriculumId = parser.getCurriculumIdWithName(curriculumName);
 				intent.putExtra("Id", curriculumId );
+				intent.putExtra("Name", curriculumName );
 				startActivity(intent);
 
 			}

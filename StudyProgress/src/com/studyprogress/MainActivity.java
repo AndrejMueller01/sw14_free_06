@@ -32,26 +32,34 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends Activity {
 
-	private static CourseListAdapter adapterS1;
-	private static CourseListAdapter adapterS2;
-	private static CourseListAdapter adapterS3;
-	private static CourseListAdapter adapterS4;
-	private static CourseListAdapter adapterS5;
-	private static CourseListAdapter adapterS6;
+	private ProgressBar studyProgressBar;
+	private TextView studyProgressPercentage;
+	
+	private float ectsPool = 0;
+	private static final int SEM_COUNT = 6;
+	private static CourseListAdapter[] adapters;
+	/*
+	 * private static CourseListAdapter adapterS2; private static
+	 * CourseListAdapter adapterS3; private static CourseListAdapter adapterS4;
+	 * private static CourseListAdapter adapterS5; private static
+	 * CourseListAdapter adapterS6;
+	 */
 
 	private TextView curriculumNameTextField;
-	private ListView courseListViewS1;
-	private ListView courseListViewS2;
-	private ListView courseListViewS3;
-	private ListView courseListViewS4;
-	private ListView courseListViewS5;
-	private ListView courseListViewS6;
+	private ListView[] courseListViews;
+	/*
+	 * private ListView courseListViewS2; private ListView courseListViewS3;
+	 * private ListView courseListViewS4; private ListView courseListViewS5;
+	 * private ListView courseListViewS6;
+	 */
 
 	private Button sem1Button;
 	private Button sem2Button;
@@ -61,6 +69,8 @@ public class MainActivity extends Activity {
 	private Button sem6Button;
 	private XMLParser parser;
 	private static int curriculumId = 0;
+	private static String curriculumName = null;
+
 
 	private static Integer STATUS_DONE = 10;
 	private static Integer STATUS_IN_PROGRESS = 11;
@@ -81,14 +91,19 @@ public class MainActivity extends Activity {
 
 		for (int i = 0; i < MAX_COURSES; i++)
 			isSelected[i] = false;
+		studyProgressBar = (ProgressBar) findViewById(R.id.study_progress_bar);
+		studyProgressBar.setMax(180);
 
+		studyProgressPercentage = (TextView) findViewById(R.id.progress_text_view);
 		curriculumNameTextField = (TextView) findViewById(R.id.curriculumNameInMainActivityTextView);
-		courseListViewS1 = (ListView) findViewById(R.id.courses_list_view_sem1);
-		courseListViewS2 = (ListView) findViewById(R.id.courses_list_view_sem2);
-		courseListViewS3 = (ListView) findViewById(R.id.courses_list_view_sem3);
-		courseListViewS4 = (ListView) findViewById(R.id.courses_list_view_sem4);
-		courseListViewS5 = (ListView) findViewById(R.id.courses_list_view_sem5);
-		courseListViewS6 = (ListView) findViewById(R.id.courses_list_view_sem6);
+		courseListViews = new ListView[SEM_COUNT];
+		adapters = new CourseListAdapter[SEM_COUNT];
+		courseListViews[0] = (ListView) findViewById(R.id.courses_list_view_sem1);
+		courseListViews[1] = (ListView) findViewById(R.id.courses_list_view_sem2);
+		courseListViews[2] = (ListView) findViewById(R.id.courses_list_view_sem3);
+		courseListViews[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
+		courseListViews[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
+		courseListViews[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
 
 		sem1Button = (Button) findViewById(R.id.semester_1_name_button);
 		sem2Button = (Button) findViewById(R.id.semester_2_name_button);
@@ -104,7 +119,8 @@ public class MainActivity extends Activity {
 			} else {
 				// TODO: hardcoded
 				curriculumId = extras.getInt("Id");
-				curriculumNameTextField.setText("" + curriculumId);
+				curriculumName = extras.getString("Name");
+				curriculumNameTextField.setText(curriculumName + "[Id:"+curriculumId+"]");
 			}
 		} else {
 			if (curriculumId == 0)
@@ -123,190 +139,65 @@ public class MainActivity extends Activity {
 		parser.parseCourses();
 		parser.initializeCurrentCourses(curriculumId);
 
-		String[] courseNamesS1 = null;
-		String[] courseNamesS2 = null;
-		String[] courseNamesS3 = null;
-		String[] courseNamesS4 = null;
-		String[] courseNamesS5 = null;
-		String[] courseNamesS6 = null;
-
-		courseNamesS1 = parser.getCourseNamesOfSemester(1);
-		courseNamesS2 = parser.getCourseNamesOfSemester(2);
-		courseNamesS3 = parser.getCourseNamesOfSemester(3);
-		courseNamesS4 = parser.getCourseNamesOfSemester(4);
-		courseNamesS5 = parser.getCourseNamesOfSemester(5);
-		courseNamesS6 = parser.getCourseNamesOfSemester(6);
-
-		for (int i = 0; i < courseNamesS1.length; i++) {
-			progressMap.put(courseNamesS1[i], STATUS_TO_DO);
-		}
-		adapterS1 = new CourseListAdapter(courseNamesS1, this);
-		adapterS2 = new CourseListAdapter(courseNamesS2, this);
-		adapterS3 = new CourseListAdapter(courseNamesS3, this);
-		adapterS4 = new CourseListAdapter(courseNamesS4, this);
-		adapterS5 = new CourseListAdapter(courseNamesS5, this);
-		adapterS6 = new CourseListAdapter(courseNamesS6, this);
+		String[][] courseNames = null;
+		courseNames = new String[SEM_COUNT][];
+		/*
+									 * String[] courseNamesS2 = null; String[]
+									 * courseNamesS3 = null; String[]
+									 * courseNamesS4 = null; String[]
+									 * courseNamesS5 = null; String[]
+									 * courseNamesS6 = null;
+									 */
+		for (int i = 0; i < SEM_COUNT; i++)
+			courseNames[i] = parser.getCourseNamesOfSemester(i+1);
+		/*
+		 * courseNamesS2 = parser.getCourseNamesOfSemester(2); courseNamesS3 =
+		 * parser.getCourseNamesOfSemester(3); courseNamesS4 =
+		 * parser.getCourseNamesOfSemester(4); courseNamesS5 =
+		 * parser.getCourseNamesOfSemester(5); courseNamesS6 =
+		 * parser.getCourseNamesOfSemester(6);
+		 * 
+		 * for (int i = 0; i < courseNamesS1.length; i++) {
+		 * progressMap.put(courseNamesS1[i], STATUS_TO_DO); }
+		 */
+		for (int i = 0; i < SEM_COUNT; i++)
+			adapters[i] = new CourseListAdapter(courseNames[i], this);
+		/*
+		 * adapterS2 = new CourseListAdapter(courseNamesS2, this); adapterS3 =
+		 * new CourseListAdapter(courseNamesS3, this); adapterS4 = new
+		 * CourseListAdapter(courseNamesS4, this); adapterS5 = new
+		 * CourseListAdapter(courseNamesS5, this); adapterS6 = new
+		 * CourseListAdapter(courseNamesS6, this);
+		 */
 
 		// adapter = new ArrayAdapter<String>(this, R.layout.courses_list_item,
 		// R.id.courses_text_view, courseNames);
+		for (int i = 0; i < SEM_COUNT; i++)
+			courseListViews[i].setAdapter(adapters[i]);
+		/*
+		 * courseListViewS2.setAdapter(adapterS2);
+		 * courseListViewS3.setAdapter(adapterS3);
+		 * courseListViewS4.setAdapter(adapterS4);
+		 * courseListViewS5.setAdapter(adapterS5);
+		 * courseListViewS6.setAdapter(adapterS6);
+		 */
 
-		courseListViewS1.setAdapter(adapterS1);
-		courseListViewS2.setAdapter(adapterS2);
-		courseListViewS3.setAdapter(adapterS3);
-		courseListViewS4.setAdapter(adapterS4);
-		courseListViewS5.setAdapter(adapterS5);
-		courseListViewS6.setAdapter(adapterS6);
+		sem1Button.setOnClickListener(setupOnClickListener(0));
+		sem2Button.setOnClickListener(setupOnClickListener(1));
+		sem3Button.setOnClickListener(setupOnClickListener(2));
+		sem4Button.setOnClickListener(setupOnClickListener(3));
+		sem5Button.setOnClickListener(setupOnClickListener(4));
+		sem6Button.setOnClickListener(setupOnClickListener(5));
 
-		sem1Button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				courseListViewS1.setVisibility(View.VISIBLE);
-				courseListViewS2.setVisibility(View.INVISIBLE);
-				courseListViewS3.setVisibility(View.INVISIBLE);
-				courseListViewS4.setVisibility(View.INVISIBLE);
-				courseListViewS5.setVisibility(View.INVISIBLE);
-				courseListViewS6.setVisibility(View.INVISIBLE);
-
-			}
-		});
-		sem2Button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				courseListViewS1.setVisibility(View.INVISIBLE);
-
-				courseListViewS2.setVisibility(View.VISIBLE);
-				courseListViewS3.setVisibility(View.INVISIBLE);
-				courseListViewS4.setVisibility(View.INVISIBLE);
-				courseListViewS5.setVisibility(View.INVISIBLE);
-				courseListViewS6.setVisibility(View.INVISIBLE);
-
-			}
-		});
-		sem3Button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				courseListViewS1.setVisibility(View.INVISIBLE);
-				courseListViewS2.setVisibility(View.INVISIBLE);
-
-				courseListViewS3.setVisibility(View.VISIBLE);
-				courseListViewS4.setVisibility(View.INVISIBLE);
-				courseListViewS5.setVisibility(View.INVISIBLE);
-				courseListViewS6.setVisibility(View.INVISIBLE);
-
-			}
-		});
-		sem4Button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				courseListViewS1.setVisibility(View.INVISIBLE);
-				courseListViewS2.setVisibility(View.INVISIBLE);
-				courseListViewS3.setVisibility(View.INVISIBLE);
-
-				courseListViewS4.setVisibility(View.VISIBLE);
-				courseListViewS5.setVisibility(View.INVISIBLE);
-				courseListViewS6.setVisibility(View.INVISIBLE);
-
-			}
-		});
-		sem5Button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				courseListViewS1.setVisibility(View.INVISIBLE);
-				courseListViewS2.setVisibility(View.INVISIBLE);
-				courseListViewS3.setVisibility(View.INVISIBLE);
-				courseListViewS4.setVisibility(View.INVISIBLE);
-
-				courseListViewS5.setVisibility(View.VISIBLE);
-				courseListViewS6.setVisibility(View.INVISIBLE);
-
-			}
-		});
-		sem6Button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				courseListViewS1.setVisibility(View.INVISIBLE);
-				courseListViewS2.setVisibility(View.INVISIBLE);
-				courseListViewS3.setVisibility(View.INVISIBLE);
-				courseListViewS4.setVisibility(View.INVISIBLE);
-				courseListViewS5.setVisibility(View.INVISIBLE);
-
-				courseListViewS6.setVisibility(View.VISIBLE);
-			}
-		});
 		// courseListView2.setAdapter(adapter);
 		// courseListView3.setAdapter(adapter);
 
-		courseListViewS1.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					final int position, long id) {
-
-				Log.d("t4", "" + id);
-				String item = (String) adapterS1.getItem(position);
-				Log.d("t4", "" + item);
-				/*
-				 * if (isSelected[(int) id] == false){ //v.setSelected(true);
-				 * adapter.setViewBackgroundColor(position, Color.GREEN);
-				 * isSelected[(int) id] = true; } else{
-				 * adapter.setViewBackgroundColor(position, Color.RED);
-				 * 
-				 * //v.setBackgroundColor(Color.RED); isSelected[(int) id] =
-				 * false; //v.setSelected(false);
-				 * 
-				 * 
-				 * }
-				 */
-
-				final String courseName = courseListViewS1.getItemAtPosition(
-						position).toString();
-
-				AlertDialog.Builder builder = new AlertDialog.Builder(
-						MainActivity.this);
-				builder.setTitle("Select your course process!");
-
-				builder.setPositiveButton("Done",
-						new DialogInterface.OnClickListener() {
-
-							public void onClick(DialogInterface dialog,
-									int which) {
-								adapterS1.setViewBackgroundColor(position,
-										Color.GREEN);
-								setProgressOfCourse(courseName, STATUS_DONE);
-
-							}
-						});
-
-				builder.setNegativeButton("To Do",
-						new DialogInterface.OnClickListener() {
-
-							public void onClick(DialogInterface dialog,
-									int which) {
-								adapterS1.setViewBackgroundColor(position,
-										Color.RED);
-								setProgressOfCourse(courseName, STATUS_TO_DO);
-
-							}
-						});
-
-				builder.setNeutralButton("In Progress",
-						new DialogInterface.OnClickListener() {
-
-							public void onClick(DialogInterface dialog,
-									int which) {
-								adapterS1.setViewBackgroundColor(position,
-										Color.YELLOW);
-								setProgressOfCourse(courseName,
-										STATUS_IN_PROGRESS);
-							}
-						});
-
-				AlertDialog alert = builder.create();
-				alert.show();
-
-				// courseListView.getChildAt(position).setBackgroundColor(Color.GREEN);
-			}
-		});
+		courseListViews[0].setOnItemClickListener(setupOnItemClickListener(0));
+		courseListViews[1].setOnItemClickListener(setupOnItemClickListener(1));
+		courseListViews[2].setOnItemClickListener(setupOnItemClickListener(2));
+		courseListViews[3].setOnItemClickListener(setupOnItemClickListener(3));
+		courseListViews[4].setOnItemClickListener(setupOnItemClickListener(4));
+		courseListViews[5].setOnItemClickListener(setupOnItemClickListener(5));
 
 	}
 
@@ -318,6 +209,84 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	public OnClickListener setupOnClickListener(final int semester) {
+		return new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				for (int i = 0; i < SEM_COUNT; i++)
+					if (i == semester)
+						courseListViews[i].setVisibility(View.VISIBLE);
+					else
+						courseListViews[i].setVisibility(View.INVISIBLE);
+			}
+		};
+	}
+
+	public OnItemClickListener setupOnItemClickListener(final int semester) {
+		return new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					final int position, long id) {
+
+				final String courseName = courseListViews[semester]
+						.getItemAtPosition(position).toString();
+
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						MainActivity.this);
+				builder.setTitle("Select your course process!");
+
+				builder.setPositiveButton("Done",
+						new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog,
+									int which) {
+								adapters[semester].setViewBackgroundColor(
+										position, Color.GREEN);
+								setProgressOfCourse(courseName, STATUS_DONE);
+								ectsPool-=parser.getEctsOfCurrentCourseByName(courseName);
+
+							}
+						});
+
+				builder.setNegativeButton("To Do",
+						new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog,
+									int which) {
+								adapters[semester].setViewBackgroundColor(
+										position, Color.RED);
+								setProgressOfCourse(courseName, STATUS_TO_DO);
+								ectsPool+=parser.getEctsOfCurrentCourseByName(courseName);
+
+
+							}
+						});
+
+				builder.setNeutralButton("In Progress",
+						new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog,
+									int which) {
+								adapters[semester].setViewBackgroundColor(
+										position, Color.YELLOW);
+								setProgressOfCourse(courseName,
+										STATUS_IN_PROGRESS);
+								ectsPool+=parser.getEctsOfCurrentCourseByName(courseName);
+
+							}
+						});
+
+				AlertDialog alert = builder.create();
+				alert.show();
+				refreshProgress();
+				// courseListView.getChildAt(position).setBackgroundColor(Color.GREEN);
+			}
+		};
+	}
+	public void refreshProgress(){
+		studyProgressBar.setProgress((int) ectsPool);
+	}
 	private void setProgressOfCourse(String courseName, Integer Progress) {
 		progressMap.put(courseName, Progress);
 	}

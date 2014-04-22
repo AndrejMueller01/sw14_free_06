@@ -35,11 +35,11 @@ public class XMLParser {
 		}
 		return instance;
 	}
-
+	
 	public void setInputStream(InputStream is) {
 		this.inputStream = is;
 	}
-
+	
 	public void parseCourses() {
 		int eventType = 0;
 		try {
@@ -82,6 +82,8 @@ public class XMLParser {
 						if (name.equals("semester")) {
 							currentCourse.setSemester(Integer
 									.parseInt(xmlPullParser.nextText()));
+						}if (name.equals("ects")) {
+							currentCourse.setEcts(Float.parseFloat(xmlPullParser.nextText()));
 						}
 						// TODO: more
 					}
@@ -228,6 +230,15 @@ public class XMLParser {
 			coursesBySemester[i] = coursesNames[i];
 
 		return coursesBySemester;
+
+	}
+	public float getEctsOfCurrentCourseByName(String name){
+		for (int i = 0; i < currentCourses.size(); i++){
+			if(currentCourses.get(i).getCourseName().equals(name)){
+				return currentCourses.get(i).getEcts();
+			}
+		}
+		return -1;
 
 	}
 
