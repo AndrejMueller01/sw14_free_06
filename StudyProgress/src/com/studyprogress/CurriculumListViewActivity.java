@@ -86,6 +86,7 @@ public class CurriculumListViewActivity extends Activity {
 				int curriculumId = parser.getCurriculumIdWithName(curriculumName);
 				intent.putExtra("Id", curriculumId );
 				intent.putExtra("Name", curriculumName );
+				intent.putExtra("firstOpen", true);
 				startActivity(intent);
 
 			}

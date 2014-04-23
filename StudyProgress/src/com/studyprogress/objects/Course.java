@@ -8,6 +8,7 @@ public class Course {
 	private boolean isBachelorCourse;
 	private int semester;
 	private int curricula;
+	private int status;
 	
 	public Course(String courseName, float ects, String courseNumber, boolean isBachelorCourse, int semester, int curricula)
 	{
@@ -21,6 +22,7 @@ public class Course {
 
 
 	public Course() {
+		status = 0;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -60,5 +62,15 @@ public class Course {
 	}
 	public void setCurricula(int curricula) {
 		this.curricula = curricula;
+	}
+
+
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
 	}	
 }

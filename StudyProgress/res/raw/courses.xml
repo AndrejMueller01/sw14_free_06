@@ -61,7 +61,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Grundlagen der Informatik</name>
+		<name>Grundlagen der Informatik UE</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>1</semester>
@@ -71,7 +71,7 @@
 		<mode>UE</mode>
 	</course>
 	<course>
-		<name>Grundlagen der Informatik</name>
+		<name>Grundlagen der Informatik VO</name>
 		<id>1</id>
 		<ects>6</ects>
 		<semester>1</semester>
@@ -91,53 +91,453 @@
 		<mode>SE</mode>
 	</course>
 	<course>
-		<name>TestS2</name>
+		<name>Diskrete Mathematik TE</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>503.007</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>
+		<name>Einführung in das Wissensmanagement</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>2</semester>
 		<bachelor>1</bachelor>
-		<cid>710.023</cid>
+		<cid>707.012</cid>
 		<steop>0</steop>
-		<mode>SE</mode>
+		<mode>VU</mode>
 	</course>
-		<course>
-		<name>TestS3</name>
+	<course>
+		<name>Mensch-Maschine-Kommunikation</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>706.021</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>
+		<name>Softwareentwicklung Praktikum</name>
+		<id>1</id>
+		<ects>5</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>706.007</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>			
+		<name>Rechnerorganisation VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>705.036</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+	<course>			
+		<name>Rechnerorganisation KU</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>705.037</cid>
+		<steop>0</steop>
+		<mode>KU</mode>
+	</course>
+	<course>			
+		<name>Datenbanken 1</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>706.004</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>			
+		<name>Wahrscheinlichkeitstheorie für Informatikstudien</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>3</semester>
 		<bachelor>1</bachelor>
-		<cid>710.023</cid>
+		<cid>506.000</cid>
 		<steop>0</steop>
-		<mode>SE</mode>
+		<mode>VU</mode>
 	</course>
-		<course>
-		<name>TestS4</name>
+    <course>			
+		<name>Statistik für Informatikstudien</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>506.004</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Numerisches Rechnen und lineare Algebra</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>501.072</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Objektorientierte Analyse und Design</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>716.068</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Einführung in die Informationssicherheit VO</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>705.026</cid>
+		<steop>0</steop>
+		<mode>V0</mode>
+	</course>
+    <course>			
+		<name>Einführung in die Informationssicherheit KU</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>705.027</cid>
+		<steop>0</steop>
+		<mode>KU</mode>
+	</course>
+    <course>			
+		<name>Datenstrukturen und Algorithmen VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>708.031</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+    <course>			
+		<name>Datenstrukturen und Algorithmen UE</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>708.032</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>
+    <course>			
+		<name>Datenbanken 2</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>707.030</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Neue Informationssysteme</name>
+		<id>1</id>
+		<ects>2.5</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>706.002</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Logik und Logische Programmierung</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>3</semester>
+		<bachelor>1</bachelor>
+		<cid>716.051</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Softwareparadigmen</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>716.060</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Entwurf und Entwicklung großer Systeme</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>711.013</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Architektur verteilter Systeme</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>4</semester>
 		<bachelor>1</bachelor>
-		<cid>710.023</cid>
+		<cid>448.020</cid>
 		<steop>0</steop>
-		<mode>SE</mode>
+		<mode>VO</mode>
 	</course>
-		<course>
-		<name>TestS5</name>
+    <course>			
+		<name>Computergrafik 1</name>
+		<id>1</id>
+		<ects>2.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>710.003</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>		
+    <course>			
+		<name>Computergrafik 2</name>
+		<id>1</id>
+		<ects>2</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>710.004</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>	
+    <course>			
+		<name>Computer Vision 1</name>
+		<id>1</id>
+		<ects>2</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>710.005</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Computer Vision 2</name>
+		<id>1</id>
+		<ects>2.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>710.006</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>	
+    <course>			
+		<name>Theoretische Informatik I VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>708.243</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+    <course>			
+		<name>Theoretische Informatik I UE</name>
+		<id>1</id>
+		<ects>1</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>708.244</cid>
+		<steop>0</steop>
+		<mode>KU</mode>
+	</course>
+    <course>			
+		<name>Geometrische Algorithmen VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>708.080</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+    <course>			
+		<name>Geometrische Algorithmen UE</name>
+		<id>1</id>
+		<ects>1</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>708.081</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>
+    <course>			
+		<name>Softwareentwicklung in Verteilten Umgebungen</name>
+		<id>1</id>
+		<ects>4</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>710.020</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Software-Maintenance</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>716.064</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+    <course>			
+		<name>Entwurf und Analyse von Algorithmen</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>5</semester>
 		<bachelor>1</bachelor>
-		<cid>710.023</cid>
+		<cid>716.033</cid>
 		<steop>0</steop>
-		<mode>SE</mode>
+		<mode>VO</mode>
 	</course>
-		<course>
-		<name>TestS6</name>
+    <course>			
+		<name>Entwurf von Echtzeitsystemen</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>448.023</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+    <course>			
+		<name>Betriebssysteme KU</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>705.047</cid>
+		<steop>0</steop>
+		<mode>KU</mode>
+	</course>
+    <course>			
+		<name>Betriebssysteme VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>705.056</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+    <course>			
+		<name>Klassische Themen der Computerwissenschaft VO</name>
+		<id>1</id>
+		<ects>4</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>716.113</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+   <course>			
+		<name>Klassische Themen der Computerwissenschaft UE</name>
+		<id>1</id>
+		<ects>2</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>716.114</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>
+   <course>			
+		<name>Logik und Berechenbarkeit VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>705.033</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+   <course>			
+		<name>Logik und Berechenbarkeit KU</name>
+		<id>1</id>
+		<ects>1</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>705.034</cid>
+		<steop>0</steop>
+		<mode>KU</mode>
+	</course>
+   <course>			
+		<name>Einführung in die Wissensverarbeitung UE</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>442.072</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>
+	<course>			
+		<name>Einführung in die Wissensverarbeitung VO</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>6</semester>
 		<bachelor>1</bachelor>
-		<cid>710.023</cid>
+		<cid>708.560</cid>
 		<steop>0</steop>
-		<mode>SE</mode>
+		<mode>VO</mode>
 	</course>
+	<course>			
+		<name>Rechner- und Kommunikationsnetze VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>705.088</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+	<course>			
+		<name>Rechner- und Kommunikationsnetze KU</name>
+		<id>1</id>
+		<ects>1.5</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>705.089</cid>
+		<steop>0</steop>
+		<mode>KU</mode>
+	</course>
+	<course>			
+		<name>Gesellschaftliche Aspekte der Informationstechnologie</name>
+		<id>1</id>
+		<ects>2.5</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>706.009</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>
+	<course>			
+		<name>Bachelorarbeit Informatik</name>
+		<id>1</id>
+		<ects>15</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid></cid>
+		<steop>0</steop>
+		<mode>SP</mode>
+	</course>							
 </courses>

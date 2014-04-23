@@ -41,7 +41,6 @@ public class CourseListAdapter extends BaseAdapter {
 	public void setViewBackgroundColor(int position, int color) {
 		colorList[position] = color;
 		notifyDataSetChanged();
-		Log.d("t4", ""+color);
 	}
 
 	public View getView(int position, View view, ViewGroup parent) {
@@ -65,6 +64,15 @@ public class CourseListAdapter extends BaseAdapter {
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return courses[position];
+	}
+
+	public int getPositionByString(String name) {
+		for (int i = 0; i < courses.length; i++) {
+			if (courses[i].equals(name))
+				return i;
+		}
+		return -1;
+
 	}
 
 	public long getItemId(int position) {

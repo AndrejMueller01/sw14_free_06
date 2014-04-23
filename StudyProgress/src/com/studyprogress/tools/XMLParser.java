@@ -3,6 +3,8 @@ package com.studyprogress.tools;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -35,12 +37,12 @@ public class XMLParser {
 		}
 		return instance;
 	}
-	
+
 	public void setInputStream(InputStream is) {
 		this.inputStream = is;
 	}
-	
-	public void parseCourses() {
+
+	public void parseCourses(boolean isSavedFile) {
 		int eventType = 0;
 		try {
 
@@ -84,6 +86,11 @@ public class XMLParser {
 									.parseInt(xmlPullParser.nextText()));
 						}if (name.equals("ects")) {
 							currentCourse.setEcts(Float.parseFloat(xmlPullParser.nextText()));
+						}if(isSavedFile){
+							if (name.equals("status")) {
+								currentCourse.setStatus(Integer
+										.parseInt(xmlPullParser.nextText()));
+							}
 						}
 						// TODO: more
 					}
@@ -194,9 +201,19 @@ public class XMLParser {
 				currentCourses.add(allCourses.get(i));
 			}
 	}
+	public void initializeAllActualCoursesToCurrentCourses() {
+		// TODO: loading
+		currentCourses = new ArrayList<Course>();
+		for (int i = 0; i < allCourses.size(); i++)
+				currentCourses.add(allCourses.get(i));
+	}
 
 	public ArrayList<Course> getCurrentCourses() {
 		return currentCourses;
+	}
+	public void setStatusOfCurrentCourseTo(int courseId, int status){
+		// 0-not 1-progress 2-done
+		currentCourses.get(courseId).setStatus(status);
 	}
 
 	public String[] getCurrentCoursesNames() throws XmlPullParserException,
@@ -232,13 +249,15 @@ public class XMLParser {
 		return coursesBySemester;
 
 	}
-	public float getEctsOfCurrentCourseByName(String name){
-		for (int i = 0; i < currentCourses.size(); i++){
-			if(currentCourses.get(i).getCourseName().equals(name)){
-				return currentCourses.get(i).getEcts();
-			}
+
+	public Map<String, Float> getEctsMapOfAllCurrentCourses() {
+		Map<String, Float> progressMap = new HashMap<String, Float>();
+
+		for (int i = 0; i < currentCourses.size(); i++) {
+			progressMap.put(currentCourses.get(i).getCourseName(),
+					currentCourses.get(i).getEcts());
 		}
-		return -1;
+		return progressMap;
 
 	}
 

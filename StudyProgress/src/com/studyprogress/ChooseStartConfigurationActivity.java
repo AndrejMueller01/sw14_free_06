@@ -36,7 +36,10 @@ public class ChooseStartConfigurationActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
+						MainActivity.class);
+				intent.putExtra("firstOpen", false);
+				startActivity(intent);
 
 			}
 		});

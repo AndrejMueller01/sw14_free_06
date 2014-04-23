@@ -1103,7 +1103,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_settings=0x7f06005b;
+        public static final int action_settings=0x7f06005c;
         public static final int activity_chooser_view_content=0x7f060025;
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
@@ -1113,19 +1113,19 @@ containing a value of this type.
         public static final int choose_start_configuration_button_open=0x7f06003e;
         public static final int choose_start_configuration_text_view=0x7f06003c;
         public static final int collapseActionView=0x7f06000d;
-        public static final int course_list_view_item=0x7f060057;
-        public static final int courses_list_view_sem1=0x7f060051;
-        public static final int courses_list_view_sem2=0x7f060052;
-        public static final int courses_list_view_sem3=0x7f060053;
-        public static final int courses_list_view_sem4=0x7f060054;
-        public static final int courses_list_view_sem5=0x7f060055;
-        public static final int courses_list_view_sem6=0x7f060056;
-        public static final int courses_text_view=0x7f060058;
+        public static final int course_list_view_item=0x7f060058;
+        public static final int courses_list_view_sem1=0x7f060052;
+        public static final int courses_list_view_sem2=0x7f060053;
+        public static final int courses_list_view_sem3=0x7f060054;
+        public static final int courses_list_view_sem4=0x7f060055;
+        public static final int courses_list_view_sem5=0x7f060056;
+        public static final int courses_list_view_sem6=0x7f060057;
+        public static final int courses_text_view=0x7f060059;
         public static final int crurriculum_list_view_search_input_field=0x7f060041;
         public static final int curriculumNameInMainActivityTextView=0x7f060044;
         public static final int curriculum_list_view=0x7f060042;
-        public static final int curriculum_list_view_item=0x7f060059;
-        public static final int curriculum_text_view=0x7f06005a;
+        public static final int curriculum_list_view_item=0x7f06005a;
+        public static final int curriculum_text_view=0x7f06005b;
         public static final int default_activity_button=0x7f060028;
         public static final int dialog=0x7f06000e;
         public static final int disableHome=0x7f060008;
@@ -1150,6 +1150,7 @@ containing a value of this type.
         public static final int progress_line_ll=0x7f060043;
         public static final int progress_text_view=0x7f060046;
         public static final int radio=0x7f06002f;
+        public static final int save_item=0x7f06005d;
         public static final int search_badge=0x7f060032;
         public static final int search_bar=0x7f060031;
         public static final int search_button=0x7f060033;
@@ -1169,6 +1170,7 @@ containing a value of this type.
         public static final int semester_4_name_button=0x7f06004e;
         public static final int semester_5_name_button=0x7f06004f;
         public static final int semester_6_name_button=0x7f060050;
+        public static final int semester_add_name_button=0x7f060051;
         public static final int semester_line_description_text_view=0x7f060048;
         public static final int shortcut=0x7f06002e;
         public static final int showCustom=0x7f060007;
@@ -1297,6 +1299,7 @@ containing a value of this type.
         public static final int descrition_choose_curriculum=0x7f0b0011;
         public static final int file_invalid=0x7f0b0012;
         public static final int hello_world=0x7f0b000f;
+        public static final int menu_item_save=0x7f0b001f;
         public static final int new_plan=0x7f0b0015;
         public static final int open_plan=0x7f0b0016;
         public static final int search_text=0x7f0b0010;
@@ -1306,6 +1309,7 @@ containing a value of this type.
         public static final int sem_4=0x7f0b001b;
         public static final int sem_5=0x7f0b001c;
         public static final int sem_6=0x7f0b001d;
+        public static final int sem_add=0x7f0b001e;
         public static final int semester_descr=0x7f0b0017;
         public static final int title_activity_main=0x7f0b0013;
     }

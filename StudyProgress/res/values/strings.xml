@@ -2,18 +2,18 @@
 <resources>
 
     <string name="app_name">StudyProgress</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="search_text">Insert search text here!</string>
-    <string name="descrition_choose_curriculum">Please choose a curriculum:</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="hello_world">Hallo Welt!</string>
+    <string name="search_text">Suchtext hier eingeben!</string>
+    <string name="descrition_choose_curriculum">Bitte wählen Sie einen Studium:</string>
     <string name="file_invalid">DB File invalid!</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="choose_start_configuration">Please choose a start configuration:</string>
-    <string name="new_plan">NEW plan</string>
-    <string name="open_plan">OPEN plan</string>
+    <string name="choose_start_configuration">Bitte wählen Sie einen Modus aus:</string>
+    <string name="new_plan">NEU</string>
+    <string name="open_plan">ÖFFNEN</string>
     
     
-        <string name="semester_descr">SEMESTER</string>
+    <string name="semester_descr">SEMESTER</string>
     
     <string name="sem_1">1</string>
     <string name="sem_2">2</string>
@@ -21,5 +21,8 @@
     <string name="sem_4">4</string>
     <string name="sem_5">5</string>
     <string name="sem_6">6</string>
+    <string name="sem_add">+</string>
+    
+        <string name="menu_item_save">Speichern</string>
 
 </resources>
