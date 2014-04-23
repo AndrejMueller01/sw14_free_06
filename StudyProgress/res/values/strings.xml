@@ -9,12 +9,10 @@
     <string name="file_invalid">DB File invalid!</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="choose_start_configuration">Bitte wählen Sie einen Modus aus:</string>
+
     <string name="new_plan">NEU</string>
     <string name="open_plan">ÖFFNEN</string>
-    
-    
     <string name="semester_descr">SEMESTER</string>
-    
     <string name="sem_1">1</string>
     <string name="sem_2">2</string>
     <string name="sem_3">3</string>
@@ -22,7 +20,9 @@
     <string name="sem_5">5</string>
     <string name="sem_6">6</string>
     <string name="sem_add">+</string>
+    <string name="save_text_succ">Speichern erfolgreich!</string>
+    <string name="file_not_found">Datei nicht gefunden. Entweder haben Sie noch nie gespeichert oder die Datei wurde vom internen Speicher entfernt!</string>
     
-        <string name="menu_item_save">Speichern</string>
+    <string name="menu_item_save">Speichern</string>
 
 </resources>

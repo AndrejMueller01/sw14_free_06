@@ -3,48 +3,32 @@ package com.studyprogress;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import org.xmlpull.v1.XmlPullParserException;
 
 import com.example.studyprogress.R;
 import com.studyprogress.tools.XMLParser;
 import com.studyprogress.tools.XMLSave;
 import com.studyprogress.adapter.CourseListAdapter;
-import com.studyprogress.objects.Course;
 
 import android.os.Bundle;
 import android.os.Environment;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.PaintDrawable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -52,6 +36,7 @@ public class MainActivity extends Activity {
 	private TextView studyProgressPercentage;
 
 	private static final int SEM_COUNT = 6;
+
 	private static CourseListAdapter[] adapters;
 
 	private TextView curriculumNameTextField;
@@ -71,35 +56,22 @@ public class MainActivity extends Activity {
 	private static int curriculumId = 0;
 	private static String curriculumName = null;
 
-	private static Integer STATUS_DONE = 10;
-	private static Integer STATUS_IN_PROGRESS = 11;
-	private static Integer STATUS_TO_DO = 12;
-	private static int MAX_COURSES_PER_SEM = 30;
+	private static Integer STATUS_DONE = 2;
+	private static Integer STATUS_IN_PROGRESS = 1;
+	private static Integer STATUS_TO_DO = 0;
 	public View row;
-
-	private boolean[] isSelected;
-
-	private Map<String, Float> initialProgressMap;
-	private Map<String, Float> currentProgressMap;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		// if (savedInstanceState == null) {
 		Bundle extras = getIntent().getExtras();
 		firstTimeOpened = extras.getBoolean("firstOpen");
+
 		if (firstTimeOpened) {
 			curriculumId = extras.getInt("Id");
 			curriculumName = extras.getString("Name");
-
-			// } else {
-			// if (curriculumId == 0)
-			// curriculumId = (Integer) savedInstanceState
-			// .getSerializable("Id");
-			// }
-
 			InputStream is = getResources().openRawResource(R.raw.courses);
 			parser = XMLParser.getInstance(is);
 			parser.parseCourses(false);
@@ -109,33 +81,25 @@ public class MainActivity extends Activity {
 			File file = new File(Environment.getExternalStorageDirectory()
 					.getAbsolutePath() + "/studyprogress_save",
 					"my_curriculum.xml");
-			Log.d("t4", Environment.getExternalStorageDirectory()
-					.getAbsolutePath()
-					+ "/studyprogress_save/my_curriculum.xml");
+
 			InputStream fileInputStream = null;
+
 			try {
 				fileInputStream = new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Toast.makeText(getBaseContext(), R.string.file_not_found, Toast.LENGTH_LONG).show();return;
 			}
-			if (fileInputStream == null) {
-			}
+
 			parser = XMLParser.getInstance(fileInputStream);
 			parser.parseCourses(true);
 			parser.initializeAllActualCoursesToCurrentCourses();
 		}
+
 		initComponents();
-		setMainLayoutTitle(savedInstanceState);
 
 	}
 
 	private void initComponents() {
-
-		isSelected = new boolean[MAX_COURSES_PER_SEM];
-
-		for (int i = 0; i < MAX_COURSES_PER_SEM; i++)
-			isSelected[i] = false;
 
 		studyProgressBar = (ProgressBar) findViewById(R.id.study_progress_bar);
 
@@ -161,9 +125,7 @@ public class MainActivity extends Activity {
 		sem5Button = (Button) findViewById(R.id.semester_5_name_button);
 		sem6Button = (Button) findViewById(R.id.semester_6_name_button);
 
-		initialProgressMap = parser.getEctsMapOfAllCurrentCourses();
-		currentProgressMap = parser.getEctsMapOfAllCurrentCourses();
-		maxEcts = getAllEctsTodo();
+		maxEcts = getAllEcts();
 		refreshProgress();
 
 		String[][] courseNames = null;
@@ -182,18 +144,6 @@ public class MainActivity extends Activity {
 
 		if (!firstTimeOpened) {
 			setBackgroudColors();
-			setCurrentProgressMap();
-		}
-
-	}
-
-	private void setCurrentProgressMap() {
-		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-			if (parser.getCurrentCourses().get(i).getStatus() == 2) {
-				currentProgressMap.put(parser.getCurrentCourses().get(i)
-						.getCourseName(), (float) 0.0);
-			}
-			refreshProgress();
 		}
 
 	}
@@ -201,19 +151,19 @@ public class MainActivity extends Activity {
 	private void setBackgroudColors() {
 		for (int j = 0; j < SEM_COUNT; j++)
 			for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-				if (parser.getCurrentCourses().get(i).getStatus() == 2) {
+				if (parser.getCurrentCourses().get(i).getStatus() == STATUS_DONE) {
 					int position = adapters[j].getPositionByString(parser
 							.getCurrentCourses().get(i).getCourseName());
 					if (position != -1)
 						adapters[j].setViewBackgroundColor(position,
 								Color.GREEN);
-				} else if (parser.getCurrentCourses().get(i).getStatus() == 1) {
+				} else if (parser.getCurrentCourses().get(i).getStatus() == STATUS_IN_PROGRESS) {
 					int position = adapters[j].getPositionByString(parser
 							.getCurrentCourses().get(i).getCourseName());
 					if (position != -1)
 						adapters[j].setViewBackgroundColor(position,
 								Color.YELLOW);
-				} else if (parser.getCurrentCourses().get(i).getStatus() == 0) {
+				} else if (parser.getCurrentCourses().get(i).getStatus() == STATUS_TO_DO) {
 
 					int position = adapters[j].getPositionByString(parser
 							.getCurrentCourses().get(i).getCourseName());
@@ -232,16 +182,9 @@ public class MainActivity extends Activity {
 		sem5Button.setOnClickListener(setupOnClickListener(4));
 		sem6Button.setOnClickListener(setupOnClickListener(5));
 
-		courseListViews[0].setOnItemClickListener(setupOnItemClickListener(0));
-		courseListViews[1].setOnItemClickListener(setupOnItemClickListener(1));
-		courseListViews[2].setOnItemClickListener(setupOnItemClickListener(2));
-		courseListViews[3].setOnItemClickListener(setupOnItemClickListener(3));
-		courseListViews[4].setOnItemClickListener(setupOnItemClickListener(4));
-		courseListViews[5].setOnItemClickListener(setupOnItemClickListener(5));
-
-	}
-
-	private void setMainLayoutTitle(Bundle savedInstanceState) {
+		for (int i = 0; i < SEM_COUNT; i++)
+			courseListViews[i]
+					.setOnItemClickListener(setupOnItemClickListener(i));
 
 	}
 
@@ -257,17 +200,9 @@ public class MainActivity extends Activity {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.save_item:
-			for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-				if (currentProgressMap.get(parser.getCurrentCourses().get(i)
-						.getCourseName()) == 0.0) {
-					parser.setStatusOfCurrentCourseTo(i, 2);
-				} else {
-					parser.setStatusOfCurrentCourseTo(i, 0);
-
-				}
-			}
 			XMLSave saver = new XMLSave(parser.getCurrentCourses());
 			saver.saveXML();
+			Toast.makeText(getBaseContext(), R.string.save_text_succ, Toast.LENGTH_SHORT).show();
 			return true;
 		}
 		return super.onMenuItemSelected(featureId, item);
@@ -322,6 +257,7 @@ public class MainActivity extends Activity {
 
 							public void onClick(DialogInterface dialog,
 									int which) {
+
 								adapters[semester].setViewBackgroundColor(
 										position, Color.RED);
 
@@ -335,10 +271,11 @@ public class MainActivity extends Activity {
 
 							public void onClick(DialogInterface dialog,
 									int which) {
+
 								adapters[semester].setViewBackgroundColor(
 										position, Color.YELLOW);
 
-								setProgressOfCourseTodo(courseName);
+								setProgressOfCourseInProgress(courseName);
 
 							}
 						});
@@ -350,8 +287,10 @@ public class MainActivity extends Activity {
 		};
 	}
 
+	
+
 	public void refreshProgress() {
-		float currentEcts = maxEcts - getCurrentEctsTodo();
+		float currentEcts = getCurrentEcts();
 		studyProgressBar.setMax((int) maxEcts);
 		studyProgressBar.setProgress((int) currentEcts);
 		studyProgressBar.refreshDrawableState();
@@ -363,28 +302,30 @@ public class MainActivity extends Activity {
 				+ progressInPercent + "%)");
 	}
 
-	private float getAllEctsTodo() {
+	private float getAllEcts() {
 		float allEcts = 0;
-		for (float f : initialProgressMap.values()) {
-			allEcts += f;
+		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
+			if ((parser.getCurrentCourses().get(i).getStatus() == STATUS_TO_DO)
+					|| (parser.getCurrentCourses().get(i).getStatus() == STATUS_IN_PROGRESS))
+				allEcts += parser.getCurrentCourses().get(i).getEcts();
 		}
-		Log.d("t4", "ECTS_all: " + allEcts);
 		return allEcts;
 	}
 
-	private float getCurrentEctsTodo() {
+	private float getCurrentEcts() {
 		float currentEcts = 0;
-		for (float f : currentProgressMap.values()) {
-			currentEcts += f;
+		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
+			if ((parser.getCurrentCourses().get(i).getStatus() == STATUS_DONE))
+				currentEcts += parser.getCurrentCourses().get(i).getEcts();
 		}
-		Log.d("t4", "ECTS_done: " + currentEcts);
-
 		return currentEcts;
 	}
 
 	private void setProgressOfCourseDone(String courseName) {
-		if (initialProgressMap.containsKey(courseName)) {
-			currentProgressMap.put(courseName, (float) 0.0);
+		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
+			if (parser.getCurrentCourses().get(i).getCourseName()
+					.equals(courseName))
+				parser.setStatusOfCurrentCourseTo(i, STATUS_DONE);
 		}
 
 		refreshProgress();
@@ -392,12 +333,24 @@ public class MainActivity extends Activity {
 	}
 
 	private void setProgressOfCourseTodo(String courseName) {
-		if (initialProgressMap.containsKey(courseName)) {
-			currentProgressMap.put(courseName,
-					initialProgressMap.get(courseName));
+		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
+			if (parser.getCurrentCourses().get(i).getCourseName()
+					.equals(courseName))
+				parser.setStatusOfCurrentCourseTo(i, STATUS_TO_DO);
 		}
+
 		refreshProgress();
 
 	}
 
+	private void setProgressOfCourseInProgress(String courseName) {
+		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
+			if (parser.getCurrentCourses().get(i).getCourseName()
+					.equals(courseName))
+				parser.setStatusOfCurrentCourseTo(i, STATUS_IN_PROGRESS);
+		}
+
+		refreshProgress();
+
+	}
 }
