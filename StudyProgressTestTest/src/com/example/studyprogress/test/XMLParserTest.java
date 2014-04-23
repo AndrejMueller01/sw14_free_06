@@ -32,13 +32,11 @@ public class XMLParserTest extends InstrumentationTestCase {
 		InputStream is = getInstrumentation().getTargetContext().getResources()
 				.openRawResource(R.raw.test_curricula);
 		ArrayList<String> testCurricula = new ArrayList<String>();
+		
 		testCurricula.add("TestCurriculum1");
 		testCurricula.add("TestCurriculum2");
-
 		testCurricula.add("TestCurriculum3");
-
 		testCurricula.add("TestCurriculum4");
-
 		testCurricula.add("TestCurriculum5");
 
 		ArrayList<String> actualCurricula;

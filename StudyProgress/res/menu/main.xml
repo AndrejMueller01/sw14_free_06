@@ -4,7 +4,8 @@
         android:id="@+id/save_item"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="@string/menu_item_save">
+        android:title="@string/menu_item_save"
+        android:icon="@drawable/ic_action_save">
     </item>
 
 </menu>
