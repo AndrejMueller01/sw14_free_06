@@ -24,5 +24,11 @@
     <string name="file_not_found">Datei nicht gefunden. Entweder haben Sie noch nie gespeichert oder die Datei wurde vom internen Speicher entfernt!</string>
     
     <string name="menu_item_save">Speichern</string>
+    <string name="in_progress">In Progress</string>
+    <string name="done">Done</string>
+    <string name="to_do">To Do</string>
+    
+    
+    
 
 </resources>
