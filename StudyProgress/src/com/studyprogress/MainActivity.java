@@ -305,8 +305,6 @@ public class MainActivity extends Activity {
 	private float getAllEcts() {
 		float allEcts = 0;
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-			if ((parser.getCurrentCourses().get(i).getStatus() == STATUS_TO_DO)
-					|| (parser.getCurrentCourses().get(i).getStatus() == STATUS_IN_PROGRESS))
 				allEcts += parser.getCurrentCourses().get(i).getEcts();
 		}
 		return allEcts;
