@@ -8,6 +8,9 @@
 package com.example.studyprogress;
 
 public final class R {
+    public static final class array {
+        public static final int opt_course_mode_array=0x7f080000;
+    }
     public static final class attr {
     }
     public static final class color {
@@ -67,53 +70,62 @@ public final class R {
         public static final int start_button_shape_released=0x7f02001e;
     }
     public static final class id {
-        public static final int CurriculumListTextView=0x7f0a0003;
-        public static final int action_settings=0x7f0a0021;
-        public static final int choose_curricula_text_field=0x7f0a0004;
-        public static final int choose_start_configuration_button_new=0x7f0a0001;
-        public static final int choose_start_configuration_button_open=0x7f0a0002;
-        public static final int choose_start_configuration_text_view=0x7f0a0000;
-        public static final int course_list_view_item=0x7f0a001d;
-        public static final int courses_list_view_sem1=0x7f0a0016;
-        public static final int courses_list_view_sem2=0x7f0a0017;
-        public static final int courses_list_view_sem3=0x7f0a0018;
-        public static final int courses_list_view_sem4=0x7f0a0019;
-        public static final int courses_list_view_sem5=0x7f0a001a;
-        public static final int courses_list_view_sem6=0x7f0a001b;
-        public static final int courses_text_view=0x7f0a001e;
-        public static final int crurriculum_list_view_search_input_field=0x7f0a0005;
-        public static final int curriculumNameInMainActivityTextView=0x7f0a0008;
-        public static final int curriculum_list_view=0x7f0a0006;
-        public static final int curriculum_list_view_item=0x7f0a001f;
-        public static final int curriculum_text_view=0x7f0a0020;
-        public static final int imgLogo=0x7f0a001c;
-        public static final int progress_line_ll=0x7f0a0007;
-        public static final int progress_text_view=0x7f0a000a;
-        public static final int save_item=0x7f0a0022;
-        public static final int sem_buttn_line_ll=0x7f0a000e;
-        public static final int sem_buttn_line_sv=0x7f0a000d;
-        public static final int sem_line_ll=0x7f0a000b;
-        public static final int semester_1_name_button=0x7f0a000f;
-        public static final int semester_2_name_button=0x7f0a0010;
-        public static final int semester_3_name_button=0x7f0a0011;
-        public static final int semester_4_name_button=0x7f0a0012;
-        public static final int semester_5_name_button=0x7f0a0013;
-        public static final int semester_6_name_button=0x7f0a0014;
-        public static final int semester_add_name_button=0x7f0a0015;
-        public static final int semester_line_description_text_view=0x7f0a000c;
-        public static final int study_progress_bar=0x7f0a0009;
+        public static final int CurriculumListTextView=0x7f0b0009;
+        public static final int action_settings=0x7f0b0028;
+        public static final int add_item=0x7f0b002a;
+        public static final int choose_curricula_text_field=0x7f0b000a;
+        public static final int choose_start_configuration_button_new=0x7f0b0001;
+        public static final int choose_start_configuration_button_open=0x7f0b0002;
+        public static final int choose_start_configuration_text_view=0x7f0b0000;
+        public static final int course_list_view_item=0x7f0b0024;
+        public static final int courses_list_view_opt_courses=0x7f0b0022;
+        public static final int courses_list_view_sem1=0x7f0b001c;
+        public static final int courses_list_view_sem2=0x7f0b001d;
+        public static final int courses_list_view_sem3=0x7f0b001e;
+        public static final int courses_list_view_sem4=0x7f0b001f;
+        public static final int courses_list_view_sem5=0x7f0b0020;
+        public static final int courses_list_view_sem6=0x7f0b0021;
+        public static final int courses_text_view=0x7f0b0025;
+        public static final int crurriculum_list_view_search_input_field=0x7f0b000b;
+        public static final int curriculumNameInMainActivityTextView=0x7f0b000e;
+        public static final int curriculum_list_view=0x7f0b000c;
+        public static final int curriculum_list_view_item=0x7f0b0026;
+        public static final int curriculum_text_view=0x7f0b0027;
+        public static final int editText1=0x7f0b0004;
+        public static final int editText2=0x7f0b0006;
+        public static final int imgLogo=0x7f0b0023;
+        public static final int progress_line_ll=0x7f0b000d;
+        public static final int progress_text_view=0x7f0b0010;
+        public static final int save_item=0x7f0b0029;
+        public static final int sem_buttn_line_ll=0x7f0b0014;
+        public static final int sem_buttn_line_sv=0x7f0b0013;
+        public static final int sem_line_ll=0x7f0b0011;
+        public static final int semester_1_name_button=0x7f0b0015;
+        public static final int semester_2_name_button=0x7f0b0016;
+        public static final int semester_3_name_button=0x7f0b0017;
+        public static final int semester_4_name_button=0x7f0b0018;
+        public static final int semester_5_name_button=0x7f0b0019;
+        public static final int semester_6_name_button=0x7f0b001a;
+        public static final int semester_line_description_text_view=0x7f0b0012;
+        public static final int semester_optional_courses=0x7f0b001b;
+        public static final int spinner1=0x7f0b0008;
+        public static final int study_progress_bar=0x7f0b000f;
+        public static final int textView1=0x7f0b0003;
+        public static final int textView2=0x7f0b0005;
+        public static final int textView3=0x7f0b0007;
     }
     public static final class layout {
         public static final int activity_choose_start_configuration=0x7f030000;
-        public static final int activity_curriculum_view=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_splash=0x7f030003;
-        public static final int courses_list_item=0x7f030004;
-        public static final int curriculum_list_item=0x7f030005;
+        public static final int activity_create_optional_course=0x7f030001;
+        public static final int activity_curriculum_view=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_splash=0x7f030004;
+        public static final int courses_list_item=0x7f030005;
+        public static final int curriculum_list_item=0x7f030006;
     }
     public static final class menu {
-        public static final int choose_start_configuration=0x7f090000;
-        public static final int main=0x7f090001;
+        public static final int choose_start_configuration=0x7f0a0000;
+        public static final int main=0x7f0a0001;
     }
     public static final class raw {
         public static final int courses=0x7f040000;
@@ -124,16 +136,22 @@ public final class R {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
         public static final int choose_start_configuration=0x7f070007;
+        public static final int course_name=0x7f070019;
+        public static final int course_name_hint=0x7f07001a;
         public static final int descrition_choose_curriculum=0x7f070004;
-        public static final int done=0x7f070016;
+        public static final int done=0x7f070017;
+        public static final int ects_hint=0x7f07001c;
+        public static final int ects_name=0x7f07001b;
         public static final int file_invalid=0x7f070005;
-        public static final int file_not_found=0x7f070013;
+        public static final int file_not_found=0x7f070014;
         public static final int hello_world=0x7f070002;
-        public static final int in_progress=0x7f070015;
-        public static final int menu_item_save=0x7f070014;
+        public static final int in_progress=0x7f070016;
+        public static final int menu_item_add=0x7f070012;
+        public static final int menu_item_save=0x7f070015;
         public static final int new_plan=0x7f070008;
         public static final int open_plan=0x7f070009;
-        public static final int save_text_succ=0x7f070012;
+        public static final int opt_course_mode=0x7f07001d;
+        public static final int save_text_succ=0x7f070013;
         public static final int search_text=0x7f070003;
         public static final int sem_1=0x7f07000b;
         public static final int sem_2=0x7f07000c;
@@ -144,7 +162,7 @@ public final class R {
         public static final int sem_add=0x7f070011;
         public static final int semester_descr=0x7f07000a;
         public static final int title_activity_main=0x7f070006;
-        public static final int to_do=0x7f070017;
+        public static final int to_do=0x7f070018;
     }
     public static final class style {
         /** 
@@ -168,10 +186,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
 }

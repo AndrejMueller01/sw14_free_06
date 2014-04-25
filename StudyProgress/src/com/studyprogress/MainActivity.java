@@ -15,6 +15,7 @@ import android.os.Environment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Menu;
@@ -35,7 +36,7 @@ public class MainActivity extends Activity {
 	private ProgressBar studyProgressBar;
 	private TextView studyProgressPercentage;
 
-	private static final int SEM_COUNT = 6;
+	private static final int SEM_COUNT = 7;
 
 	private static CourseListAdapter[] adapters;
 
@@ -48,7 +49,8 @@ public class MainActivity extends Activity {
 	private Button sem4Button;
 	private Button sem5Button;
 	private Button sem6Button;
-
+	private Button semOptCourses;
+	
 	private float maxEcts;
 	private XMLParser parser;
 	private boolean firstTimeOpened;
@@ -117,6 +119,9 @@ public class MainActivity extends Activity {
 		courseListViews[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
 		courseListViews[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
 		courseListViews[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
+		
+		courseListViews[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
+
 
 		sem1Button = (Button) findViewById(R.id.semester_1_name_button);
 		sem2Button = (Button) findViewById(R.id.semester_2_name_button);
@@ -124,6 +129,8 @@ public class MainActivity extends Activity {
 		sem4Button = (Button) findViewById(R.id.semester_4_name_button);
 		sem5Button = (Button) findViewById(R.id.semester_5_name_button);
 		sem6Button = (Button) findViewById(R.id.semester_6_name_button);
+		
+		semOptCourses = (Button) findViewById(R.id.semester_optional_courses);
 
 		maxEcts = getAllEcts();
 		refreshProgress();
@@ -181,6 +188,8 @@ public class MainActivity extends Activity {
 		sem4Button.setOnClickListener(setupOnClickListener(3));
 		sem5Button.setOnClickListener(setupOnClickListener(4));
 		sem6Button.setOnClickListener(setupOnClickListener(5));
+		
+		semOptCourses.setOnClickListener(setupOnClickListener(6));
 
 		for (int i = 0; i < SEM_COUNT; i++)
 			courseListViews[i]
@@ -204,6 +213,17 @@ public class MainActivity extends Activity {
 			saver.saveXML();
 			Toast.makeText(getBaseContext(), R.string.save_text_succ, Toast.LENGTH_SHORT).show();
 			return true;
+			
+		case R.id.add_item:
+			Intent intent = new Intent(MainActivity.this,
+					CreateOptionalCourses.class);
+			startActivity(intent);
+
+			
+			
+			
+			return true;
+			
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}

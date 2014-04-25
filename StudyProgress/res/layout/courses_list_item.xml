@@ -10,8 +10,9 @@
     <TextView
         android:id="@+id/courses_text_view"
         android:layout_width="fill_parent"
-        android:layout_height="30dp"
         android:textColor="@android:color/black"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_height="30dp"
+         />
 
 </LinearLayout>
