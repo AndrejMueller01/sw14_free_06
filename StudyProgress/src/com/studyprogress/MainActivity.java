@@ -201,7 +201,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.save_item:
 			XMLSave saver = new XMLSave(parser.getCurrentCourses());
-			saver.saveXML();
+			saver.saveXML(curriculumName, curriculumId);
 			Toast.makeText(getBaseContext(), R.string.save_text_succ, Toast.LENGTH_SHORT).show();
 			return true;
 		}

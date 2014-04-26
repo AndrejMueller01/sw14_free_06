@@ -1,18 +1,13 @@
 package com.studyprogress.tools;
 
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
-
 import org.xmlpull.v1.XmlSerializer;
 
-import android.content.Context;
 import android.os.Environment;
-import android.util.Log;
 import android.util.Xml;
 
 import com.studyprogress.objects.Course;
@@ -27,7 +22,7 @@ public class XMLSave {
 		courseList = currentCourses;
 	}
 
-	public void saveXML() {
+	public void saveXML(String curriculumName, int curriculumId) {
 
 		try {
 			File file = new File(appDir, "my_curriculum.xml");
@@ -42,18 +37,18 @@ public class XMLSave {
 			serializer.setFeature(
 					"http://xmlpull.org/v1/doc/features.html#indent-output",
 					true);
-
+			serializer.startTag(null, "curriculum");
+			serializer.startTag(null, "name");
+			serializer.text(curriculumName);
+			serializer.endTag(null, "name");
+			serializer.startTag(null, "id");
+			serializer.text(""+curriculumId);
+			serializer.endTag(null, "id");
+			serializer.endTag(null, "curriculum");
 			serializer.startTag(null, "courses");
 
 			for (int j = 0; j < courseList.size(); j++) {
-				/*<name>Entwurf von Echtzeitsystemen</name>
-				<id>1</id>
-				<ects>3</ects>
-				<semester>5</semester>
-				<bachelor>1</bachelor>
-				<cid>448.023</cid>
-				<steop>0</steop>
-				<mode>VO</mode>*/
+				//TODO: more informations
 				serializer.startTag(null, "course");
 				serializer.startTag(null, "name");
 				serializer.text(""+courseList.get(j).getCourseName());
@@ -83,7 +78,6 @@ public class XMLSave {
 
 			}
 			serializer.endTag(null, "courses");
-
 			serializer.endDocument();
 			serializer.flush();
 			out.close();
