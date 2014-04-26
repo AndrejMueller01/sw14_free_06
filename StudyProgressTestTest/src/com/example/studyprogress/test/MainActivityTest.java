@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -23,6 +24,7 @@ public class MainActivityTest extends
 	ListView sem4lv;
 	ListView sem5lv;
 	ListView sem6lv;
+	MenuItem safeitem;
 
 	public MainActivityTest() {
 		super(MainActivity.class);
@@ -82,6 +84,20 @@ public class MainActivityTest extends
 		solo.clickOnView(sem6lv.getChildAt(0));
 		solo.goBack();
 
+	}
+	
+	public void testAlertDialog() throws Exception
+	{
+		solo.waitForActivity(MainActivity.class);
+		solo.clickOnButton("1");
+		solo.clickOnView(sem1lv.getChildAt(0));
+		solo.clickOnButton("Done");
+		solo.pressMenuItem(0);
+		solo.goBack();
+		
+		
+
+		
 	}
 
 }

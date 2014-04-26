@@ -20,9 +20,29 @@
     <string name="sem_5">5</string>
     <string name="sem_6">6</string>
     <string name="sem_add">+</string>
+  	<string  name ="menu_item_add">Wahlfach hinzufügen</string>
     <string name="save_text_succ">Speichern erfolgreich!</string>
     <string name="file_not_found">Datei nicht gefunden. Entweder haben Sie noch nie gespeichert oder die Datei wurde vom internen Speicher entfernt!</string>
     
     <string name="menu_item_save">Speichern</string>
+    <string name="in_progress">In Progress</string>
+    <string name="done">Done</string>
+    <string name="to_do">To Do</string>
+    
+    <string  name ="course_name">Name des Kurses</string>
+    <string name="course_name_hint">Kursname</string>
+    <string name="ects_name">ECTS</string>
+    <string name="ects_hint">2.5</string>
+    
+    <string name="opt_course_mode">Modus</string>
+    
+    <string-array name="opt_course_mode_array">
+        <item>VO</item>
+        <item>VU</item>
+        <item>UE</item>
+        <item>KU</item>
+        <item>SE</item>
+    </string-array>
+        
 
 </resources>
