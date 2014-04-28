@@ -6,8 +6,9 @@
         <year>2010</year>
     </curriculum>
     <curriculum>
-         <name>Werde Bauer2 mit Dominik</name>
-         <id>2</id>
+         <name>Diplomstudium der Rechtswissenschaften</name>
+         <id>99</id>
+         <diplst>1</diplst>
     </curriculum>
     <curriculum>
         <name>Werde Bauer3 mit Dominik</name>

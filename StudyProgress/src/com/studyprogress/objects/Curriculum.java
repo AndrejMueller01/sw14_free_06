@@ -9,11 +9,14 @@ public class Curriculum {
 	private ArrayList<Course> mandatoryCourseList;
 	private ArrayList<Course> optionalCourseList;
 	private int yearOfRelease;
+	private int isDiplSt;
 
 	public Curriculum()
 	{
 		mandatoryCourseList = new ArrayList<Course>();
 		optionalCourseList = new ArrayList<Course>();
+		isDiplSt = 0;
+
 	}
 	public void setName(String name){
 		this.name = name;
@@ -28,7 +31,11 @@ public class Curriculum {
 		return curriculumId;
 	}
 	
-	
-	
+	public void setDiplSt(int diplSt) {
+		isDiplSt = diplSt;
+	}
+	public int getDiplSt() {
+		return isDiplSt;
+	}		
 
 }

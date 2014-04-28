@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -84,7 +85,10 @@ public class CurriculumListViewActivity extends Activity {
 						MainActivity.class);
 				String curriculumName = (String) curriculumListView.getAdapter().getItem(position);
 				int curriculumId = parser.getCurriculumIdWithName(curriculumName);
+				int isDiplSt = parser.getCurriculumMode(curriculumName);
+				Log.d("t4", ""+isDiplSt);
 				intent.putExtra("Id", curriculumId );
+				intent.putExtra("IsDiplSt",  isDiplSt);
 				intent.putExtra("Name", curriculumName );
 				intent.putExtra("firstOpen", true);
 				startActivity(intent);

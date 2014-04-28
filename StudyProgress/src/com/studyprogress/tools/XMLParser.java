@@ -22,6 +22,8 @@ public class XMLParser {
 	private ArrayList<Curriculum> curricula = null;
 	private ArrayList<Course> allCourses = null;
 	private ArrayList<Course> currentCourses = null;
+	private Curriculum currentCurriculum = null;
+
 	private InputStream inputStream;
 	private static XMLParser instance = null;
 
@@ -41,7 +43,11 @@ public class XMLParser {
 	public void setInputStream(InputStream is) {
 		this.inputStream = is;
 	}
-
+	public void addCourseToCurrentCourses(Course course){
+		Log.d("t4", "Course added!");
+		currentCourses.add(course);
+		
+	}
 	public void parseCourses(boolean isSavedFile) {
 		int eventType = 0;
 		try {
@@ -68,6 +74,19 @@ public class XMLParser {
 
 					name = xmlPullParser.getName();
 
+					if (name.equals("courses")) {
+						currentCurriculum = new Curriculum();
+						if(xmlPullParser.getAttributeCount() > 0){
+						currentCurriculum.setName(xmlPullParser.getAttributeValue(
+								null, "cname"));
+						currentCurriculum.setCurriculumId(Integer
+								.parseInt(xmlPullParser.getAttributeValue(null,
+										"cid")));
+						currentCurriculum.setDiplSt(Integer.parseInt(xmlPullParser
+								.getAttributeValue(null, "cisDiplSt")));
+						}
+						allCourses = new ArrayList<Course>();
+					}
 					if (name.equals("course")) {
 
 						currentCourse = new Course();
@@ -77,16 +96,19 @@ public class XMLParser {
 									.nextText());
 						}
 						if (name.equals("id")) {
-							//TODO: int parser
+							// TODO: int parser
 							currentCourse.setCurricula(Integer
 									.parseInt(xmlPullParser.nextText()));
 						}
 						if (name.equals("semester")) {
 							currentCourse.setSemester(Integer
 									.parseInt(xmlPullParser.nextText()));
-						}if (name.equals("ects")) {
-							currentCourse.setEcts(Float.parseFloat(xmlPullParser.nextText()));
-						}if(isSavedFile){
+						}
+						if (name.equals("ects")) {
+							currentCourse.setEcts(Float
+									.parseFloat(xmlPullParser.nextText()));
+						}
+						if (isSavedFile) {
 							if (name.equals("status")) {
 								currentCourse.setStatus(Integer
 										.parseInt(xmlPullParser.nextText()));
@@ -141,12 +163,15 @@ public class XMLParser {
 					break;
 				case XmlPullParser.START_TAG:
 					name = xmlPullParser.getName();
-
 					if (name.equals("curriculum")) {
 						currentCurriculum = new Curriculum();
 					} else if (currentCurriculum != null) {
 						if (name.equals("name")) {
 							currentCurriculum.setName(xmlPullParser.nextText());
+						}
+						if (name.equals("diplst")) {
+							currentCurriculum.setDiplSt(Integer
+									.parseInt(xmlPullParser.nextText()));
 						}
 						if (name.equals("id")) {
 							// TODO: test with no int
@@ -175,6 +200,18 @@ public class XMLParser {
 
 	}
 
+	public int getCurriculumMode(String name) {
+		for (int i = 0; i < curricula.size(); i++)
+			if (curricula.get(i).getName().equals(name)) {
+				return curricula.get(i).getDiplSt();
+			}
+		return 0;
+	}
+
+	public Curriculum getCurrentCurriculum() {
+		return currentCurriculum;
+	}
+
 	public ArrayList<String> getCurriculaNames(InputStream inputStream)
 			throws XmlPullParserException, IOException {
 		ArrayList<String> curriculaNames = new ArrayList<String>();
@@ -201,17 +238,19 @@ public class XMLParser {
 				currentCourses.add(allCourses.get(i));
 			}
 	}
+
 	public void initializeAllActualCoursesToCurrentCourses() {
 		// TODO: loading
 		currentCourses = new ArrayList<Course>();
 		for (int i = 0; i < allCourses.size(); i++)
-				currentCourses.add(allCourses.get(i));
+			currentCourses.add(allCourses.get(i));
 	}
 
 	public ArrayList<Course> getCurrentCourses() {
 		return currentCourses;
 	}
-	public void setStatusOfCurrentCourseTo(int courseId, int status){
+
+	public void setStatusOfCurrentCourseTo(int courseId, int status) {
 		// 0-not 1-progress 2-done
 		currentCourses.get(courseId).setStatus(status);
 	}
@@ -235,6 +274,7 @@ public class XMLParser {
 		int numNotUsedArraySlots = 0;
 		for (int i = 0; i < currentCourses.size(); i++) {
 			if (currentCourses.get(i).getSemester() == semesterNo) {
+				Log.d("t4", "S"+i +currentCourses.get(i).getCourseName() );
 				coursesNames[j] = currentCourses.get(i).getCourseName();
 				j++;
 			} else {

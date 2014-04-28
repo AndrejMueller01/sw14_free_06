@@ -25,16 +25,21 @@
     <string name="file_not_found">Datei nicht gefunden. Entweder haben Sie noch nie gespeichert oder die Datei wurde vom internen Speicher entfernt!</string>
     
     <string name="menu_item_save">Speichern</string>
+    <string name="menu_item_cancel">Abbrechen</string>
     <string name="in_progress">In Progress</string>
     <string name="done">Done</string>
     <string name="to_do">To Do</string>
     
     <string  name ="course_name">Name des Kurses</string>
-    <string name="course_name_hint">Kursname</string>
+    <string name="course_name_hint">z.B.: Mathematik 1</string>
     <string name="ects_name">ECTS</string>
-    <string name="ects_hint">2.5</string>
+    <string name="ects_hint">z.B.: 2.5</string>
     
     <string name="opt_course_mode">Modus</string>
+    <string name="opt_course_sem">Semester(bzw. Abschnitt)</string>
+    <string name="opt_course_sem_hint">z.B.: 2</string>
+    
+    
     
     <string-array name="opt_course_mode_array">
         <item>VO</item>

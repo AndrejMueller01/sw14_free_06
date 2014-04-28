@@ -5,13 +5,13 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/create_course_course_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/course_name" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/create_course_course_name_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -20,13 +20,13 @@
     </EditText>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/create_course_ects_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ects_name" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/create_course_ects_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,10 +35,11 @@
         >
 
         <requestFocus />
+
     </EditText>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/create_course_mode_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/opt_course_mode"
@@ -46,12 +47,24 @@
     
     
         <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/create_course_mode_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/opt_course_mode_array"
         android:prompt="@string/opt_course_mode" />
-        
-        
+
+        <TextView
+            android:id="@+id/create_course_sem_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opt_course_sem" />
+
+        <EditText
+            android:id="@+id/create_course_sem_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/opt_course_sem_hint"
+            android:inputType="number" />
 
 </LinearLayout>

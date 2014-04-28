@@ -41,6 +41,8 @@ public class MainActivity extends Activity {
 	private static CourseListAdapter[] adapters;
 
 	private TextView curriculumNameTextField;
+	private TextView semesterTextField;
+
 	private ListView[] courseListViews;
 
 	private Button sem1Button;
@@ -56,6 +58,7 @@ public class MainActivity extends Activity {
 	private boolean firstTimeOpened;
 
 	private static int curriculumId = 0;
+	private static int isDiplSt = 0;
 	private static String curriculumName = null;
 
 	private static Integer STATUS_DONE = 2;
@@ -70,16 +73,24 @@ public class MainActivity extends Activity {
 
 		Bundle extras = getIntent().getExtras();
 		firstTimeOpened = extras.getBoolean("firstOpen");
+		boolean fromCreateNew = extras.getBoolean("fromCreateNew");
+
 
 		if (firstTimeOpened) {
 			curriculumId = extras.getInt("Id");
 			curriculumName = extras.getString("Name");
+			isDiplSt = extras.getInt("IsDiplSt");
 			InputStream is = getResources().openRawResource(R.raw.courses);
 			parser = XMLParser.getInstance(is);
 			parser.parseCourses(false);
 			parser.initializeCurrentCourses(curriculumId);
 
-		} else {
+		} else if(fromCreateNew){
+			parser = XMLParser.getInstance(null);
+
+			// Already opened
+		}
+		else if(!firstTimeOpened){
 			File file = new File(Environment.getExternalStorageDirectory()
 					.getAbsolutePath() + "/studyprogress_save",
 					"my_curriculum.xml");
@@ -89,12 +100,17 @@ public class MainActivity extends Activity {
 			try {
 				fileInputStream = new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				Toast.makeText(getBaseContext(), R.string.file_not_found, Toast.LENGTH_LONG).show();return;
+				Toast.makeText(getBaseContext(), R.string.file_not_found, Toast.LENGTH_LONG).show();
+				return;
 			}
 
 			parser = XMLParser.getInstance(fileInputStream);
 			parser.parseCourses(true);
 			parser.initializeAllActualCoursesToCurrentCourses();
+			
+			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
+			curriculumName = parser.getCurrentCurriculum().getName();
+			isDiplSt = parser.getCurrentCurriculum().getDiplSt();
 		}
 
 		initComponents();
@@ -112,7 +128,7 @@ public class MainActivity extends Activity {
 
 		courseListViews = new ListView[SEM_COUNT];
 		adapters = new CourseListAdapter[SEM_COUNT];
-
+		semesterTextField = (TextView) findViewById(R.id.semester_line_description_text_view);
 		courseListViews[0] = (ListView) findViewById(R.id.courses_list_view_sem1);
 		courseListViews[1] = (ListView) findViewById(R.id.courses_list_view_sem2);
 		courseListViews[2] = (ListView) findViewById(R.id.courses_list_view_sem3);
@@ -129,8 +145,15 @@ public class MainActivity extends Activity {
 		sem4Button = (Button) findViewById(R.id.semester_4_name_button);
 		sem5Button = (Button) findViewById(R.id.semester_5_name_button);
 		sem6Button = (Button) findViewById(R.id.semester_6_name_button);
-		
 		semOptCourses = (Button) findViewById(R.id.semester_optional_courses);
+		
+		if(isDiplSt == 1){
+			Log.d("t4", "isDiplST");
+			sem4Button.setVisibility(View.INVISIBLE);
+			sem5Button.setVisibility(View.INVISIBLE);
+			sem6Button.setVisibility(View.INVISIBLE);
+			semesterTextField.setText("Abschnitt");
+		}
 
 		maxEcts = getAllEcts();
 		refreshProgress();
@@ -188,7 +211,6 @@ public class MainActivity extends Activity {
 		sem4Button.setOnClickListener(setupOnClickListener(3));
 		sem5Button.setOnClickListener(setupOnClickListener(4));
 		sem6Button.setOnClickListener(setupOnClickListener(5));
-		
 		semOptCourses.setOnClickListener(setupOnClickListener(6));
 
 		for (int i = 0; i < SEM_COUNT; i++)
@@ -210,7 +232,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.save_item:
 			XMLSave saver = new XMLSave(parser.getCurrentCourses());
-			saver.saveXML(curriculumName, curriculumId);
+			saver.saveXML(curriculumName, curriculumId, isDiplSt);
 			Toast.makeText(getBaseContext(), R.string.save_text_succ, Toast.LENGTH_SHORT).show();
 			return true;
 			
@@ -236,7 +258,6 @@ public class MainActivity extends Activity {
 
 				for (int i = 0; i < SEM_COUNT; i++) {
 					if (i == semester) {
-						Log.d("t4", "VISIBLE");
 						courseListViews[i].setVisibility(View.VISIBLE);
 					} else
 						courseListViews[i].setVisibility(View.INVISIBLE);
@@ -260,7 +281,7 @@ public class MainActivity extends Activity {
 						MainActivity.this);
 				builder.setTitle("Select your course process!");
 
-				builder.setPositiveButton("Done",
+				builder.setPositiveButton("Geschafft",
 						new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog,
@@ -272,7 +293,7 @@ public class MainActivity extends Activity {
 							}
 						});
 
-				builder.setNegativeButton("To Do",
+				builder.setNegativeButton("zu machen",
 						new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog,
@@ -286,7 +307,7 @@ public class MainActivity extends Activity {
 							}
 						});
 
-				builder.setNeutralButton("In Progress",
+				builder.setNeutralButton("In Arbeit",
 						new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog,

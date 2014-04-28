@@ -22,7 +22,7 @@ public class XMLSave {
 		courseList = currentCourses;
 	}
 
-	public void saveXML(String curriculumName, int curriculumId) {
+	public void saveXML(String curriculumName, int curriculumId, int isDiplSt) {
 
 		try {
 			File file = new File(appDir, "my_curriculum.xml");
@@ -37,15 +37,11 @@ public class XMLSave {
 			serializer.setFeature(
 					"http://xmlpull.org/v1/doc/features.html#indent-output",
 					true);
-			serializer.startTag(null, "curriculum");
-			serializer.startTag(null, "name");
-			serializer.text(curriculumName);
-			serializer.endTag(null, "name");
-			serializer.startTag(null, "id");
-			serializer.text(""+curriculumId);
-			serializer.endTag(null, "id");
-			serializer.endTag(null, "curriculum");
+
 			serializer.startTag(null, "courses");
+			serializer.attribute(null, "cname", curriculumName);
+			serializer.attribute(null, "cid", ""+curriculumId);
+			serializer.attribute(null, "cisDiplSt", ""+isDiplSt);
 
 			for (int j = 0; j < courseList.size(); j++) {
 				//TODO: more informations

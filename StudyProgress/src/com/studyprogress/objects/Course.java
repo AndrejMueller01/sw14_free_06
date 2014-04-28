@@ -9,6 +9,7 @@ public class Course {
 	private int semester;
 	private int curricula;
 	private int status;
+
 	
 	public Course(String courseName, float ects, String courseNumber, boolean isBachelorCourse, int semester, int curricula)
 	{
@@ -72,5 +73,8 @@ public class Course {
 
 	public void setStatus(int status) {
 		this.status = status;
-	}	
+	}
+
+
+
 }
