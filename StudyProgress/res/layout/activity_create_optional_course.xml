@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/course_name_hint"
-         >
+        android:hint="@string/course_name_hint" >
     </EditText>
 
     <TextView
@@ -30,41 +29,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="numberDecimal" 
         android:hint="@string/ects_hint"
-        >
+        android:inputType="numberDecimal" >
 
         <requestFocus />
-
     </EditText>
 
     <TextView
         android:id="@+id/create_course_mode_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/opt_course_mode"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    
-    
-        <Spinner
+        android:ems="10"
+        android:text="@string/opt_course_mode" />
+
+    <Spinner
         android:id="@+id/create_course_mode_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/opt_course_mode_array"
         android:prompt="@string/opt_course_mode" />
 
-        <TextView
-            android:id="@+id/create_course_sem_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/opt_course_sem" />
+    <TextView
+        android:id="@+id/create_course_sem_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/opt_course_sem" />
 
-        <EditText
-            android:id="@+id/create_course_sem_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/opt_course_sem_hint"
-            android:inputType="number" />
+    <Spinner
+        android:id="@+id/create_course_sem_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/opt_course_sem_array"
+        android:prompt="@string/opt_course_sem" />
 
 </LinearLayout>

@@ -15,25 +15,26 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class CreateOptionalCourses extends Activity{
+public class CreateOptionalCourses extends Activity {
+	private static final int SEM_PLUS = 7;
 	private XMLParser parser;
 	private EditText courseNameET;
 	private EditText ectsET;
-	private EditText semET;
+	private Spinner semSP;
 
 	private Spinner modeSP;
-	
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_optional_course);
 		courseNameET = (EditText) findViewById(R.id.create_course_course_name_edit_text);
 		ectsET = (EditText) findViewById(R.id.create_course_ects_edit_text);
-		semET = (EditText) findViewById(R.id.create_course_sem_edit_text);
+		semSP = (Spinner) findViewById(R.id.create_course_sem_spinner);
 		modeSP = (Spinner) findViewById(R.id.create_course_mode_spinner);
 		parser = XMLParser.getInstance(null);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -50,25 +51,36 @@ public class CreateOptionalCourses extends Activity{
 		case R.id.create_courses_ok_item:
 			Course newCourse = new Course();
 			newCourse.setCourseName(courseNameET.getText().toString());
+			try {
+
 			newCourse.setEcts(Float.parseFloat(ectsET.getText().toString()));
-			newCourse.setSemester(7);
-			newCourse.setCurricula(parser.getCurrentCurriculum().getCurriculumId());
-			newCourse.setSemester(Integer.parseInt(semET.getText().toString()));
+			}catch(NumberFormatException ex){
+				Toast.makeText(getApplicationContext(), "Bitte eine Zahl eingeben. Danke!", Toast.LENGTH_LONG).show();
+			}
+			newCourse.setCurricula(parser.getCurrentCurriculum()
+					.getCurriculumId());
+			String semesterNo = semSP.getSelectedItem().toString();
+			
+			try {
+				newCourse.setSemester(Integer.parseInt(semesterNo));
+			} catch (NumberFormatException ex) {
+				newCourse.setSemester(SEM_PLUS);
+			}
 
 			parser.addCourseToCurrentCourses(newCourse);
-			
+
 			intent.putExtra("firstOpen", false);
 			intent.putExtra("fromCreateNew", true);
 			startActivity(intent);
 			return true;
-			
+
 		case R.id.create_courses_cancel_item:
 
 			intent.putExtra("firstOpen", false);
 			startActivity(intent);
-			
+
 			return true;
-			
+
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}

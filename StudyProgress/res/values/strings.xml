@@ -36,11 +36,19 @@
     <string name="ects_hint">z.B.: 2.5</string>
     
     <string name="opt_course_mode">Modus</string>
-    <string name="opt_course_sem">Semester(bzw. Abschnitt)</string>
-    <string name="opt_course_sem_hint">z.B.: 2</string>
+    <string name="opt_course_sem">Semester(bzw. Abschnitt):</string>
+    <string name="opt_course_sem_hint">z.B.: 2</string>    
     
-    
-    
+    <string-array name="opt_course_sem_array">  
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+		<item>+</item>
+    </string-array>
+
     <string-array name="opt_course_mode_array">
         <item>VO</item>
         <item>VU</item>

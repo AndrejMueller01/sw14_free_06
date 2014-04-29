@@ -17,7 +17,8 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
     }
     public static final class array {
-        public static final int opt_course_mode_array=0x7f0d0000;
+        public static final int opt_course_mode_array=0x7f0d0001;
+        public static final int opt_course_sem_array=0x7f0d0000;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1161,7 +1162,7 @@ containing a value of this type.
         public static final int create_course_ects_text_view=0x7f060041;
         public static final int create_course_mode_spinner=0x7f060044;
         public static final int create_course_mode_text_view=0x7f060043;
-        public static final int create_course_sem_edit_text=0x7f060046;
+        public static final int create_course_sem_spinner=0x7f060046;
         public static final int create_course_sem_text_view=0x7f060045;
         public static final int create_courses_cancel_item=0x7f060068;
         public static final int create_courses_ok_item=0x7f060067;

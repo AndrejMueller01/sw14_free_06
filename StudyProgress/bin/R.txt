@@ -4,7 +4,8 @@ int anim abc_slide_in_bottom 0x7f040002
 int anim abc_slide_in_top 0x7f040003
 int anim abc_slide_out_bottom 0x7f040004
 int anim abc_slide_out_top 0x7f040005
-int array opt_course_mode_array 0x7f0d0000
+int array opt_course_mode_array 0x7f0d0001
+int array opt_course_sem_array 0x7f0d0000
 int attr actionBarDivider 0x7f01000f
 int attr actionBarItemBackground 0x7f010010
 int attr actionBarSize 0x7f01000e
@@ -310,7 +311,7 @@ int id create_course_ects_edit_text 0x7f060042
 int id create_course_ects_text_view 0x7f060041
 int id create_course_mode_spinner 0x7f060044
 int id create_course_mode_text_view 0x7f060043
-int id create_course_sem_edit_text 0x7f060046
+int id create_course_sem_spinner 0x7f060046
 int id create_course_sem_text_view 0x7f060045
 int id create_courses_cancel_item 0x7f060068
 int id create_courses_ok_item 0x7f060067
