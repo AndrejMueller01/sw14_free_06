@@ -279,7 +279,7 @@ public class MainActivity extends Activity {
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
-				builder.setTitle("Select your course process!");
+				builder.setTitle("Wähle deinen Fortschritt!");
 
 				builder.setPositiveButton("Geschafft",
 						new DialogInterface.OnClickListener() {
@@ -317,7 +317,6 @@ public class MainActivity extends Activity {
 										position, Color.YELLOW);
 
 								setProgressOfCourseInProgress(courseName);
-
 							}
 						});
 

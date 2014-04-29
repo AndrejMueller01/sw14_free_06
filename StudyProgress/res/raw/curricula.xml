@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <curricula>
     <curriculum>
-        <name>Computer Science</name>
+        <name>Informatik</name>
         <id>1</id>
         <year>2010</year>
     </curriculum>
@@ -11,11 +11,11 @@
          <diplst>1</diplst>
     </curriculum>
     <curriculum>
-        <name>Werde Bauer3 mit Dominik</name>
+        <name>Telematik</name>
 		<id>3</id>
     </curriculum>
     <curriculum>
-        <name>Werde Bauer4 mit Dominik</name>
+        <name></name>
         <id>4</id>
     </curriculum>
     <curriculum>
