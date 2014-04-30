@@ -56,6 +56,21 @@
         <item>KU</item>
         <item>SE</item>
     </string-array>
-        
+    
+    <string name="choose_existing_new_curriculum">Bitte wählen Sie ein neues oder vorgefertigtes Curriculum aus!</string>
+    <string name="open_predefined_curriculum">Template</string>
+    <string name="create_new_curriculum">Lege ein neues Curriculum an</string>
+    <string name="add_new_curriculum_name">Name des Curriculums</string>
+    
+        <string-array name="Curriculum_type_array">
+        <item>Bachelor</item>
+        <item>Master</item>
+        <item>Diplomstudium</item>
+        <item>Lehramt</item>
+    </string-array>
+    
+        <string name="create_new_curriculum_hint">Curriculum Name</string>
+    
+        <string name="create_new_curriculum_modus">Typ des Curriculums</string>
 
 </resources>

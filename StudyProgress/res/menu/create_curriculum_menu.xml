@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/create_curriculum_ok_item"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/menu_item_save"
+      >
+    </item>
+    
+       <item
+        android:id="@+id/create_curriculum_cancel_item"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/menu_item_cancel"
+        >
+    </item>
+
+</menu>

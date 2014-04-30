@@ -38,6 +38,16 @@
             android:label="@string/choose_start_configuration" >
           
         </activity>
+        <activity
+            android:name="com.studyprogress.ChooseExistingOrNewCurriculum"
+            android:label="@string/choose_existing_new_curriculum" >
+        </activity>
+        
+                <activity
+            android:name="com.studyprogress.CreateNewCurriculum"
+            android:label="@string/create_new_curriculum" >
+        </activity>
+        
          <activity
             android:name="com.studyprogress.SplashScreenActivity"
            >

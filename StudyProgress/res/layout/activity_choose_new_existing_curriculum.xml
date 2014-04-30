@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/choose_existing_new_curriculum"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.00"
+        android:text="@string/choose_existing_new_curriculum" />
+
+    <Button
+        android:id="@+id/choose_existing_new_curriculum_button_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.50"
+        android:background="@drawable/start_button_selector"
+        android:text="@string/new_plan"
+        android:textColor="#399829"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/choose_existing_new_curriculum_button_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.50"
+        android:background="@drawable/start_button_selector"
+        android:paddingLeft="150dp"
+        android:text="@string/open_predefined_curriculum"
+        android:textColor="#399829"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

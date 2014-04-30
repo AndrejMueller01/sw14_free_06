@@ -27,7 +27,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
-						CurriculumListViewActivity.class);
+						ChooseExistingOrNewCurriculum.class);
 				startActivity(intent);
 
 			}
