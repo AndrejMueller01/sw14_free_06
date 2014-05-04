@@ -830,4 +830,17 @@
 		<steop>0</steop>
 		<mode>K</mode>
 	</course>
+		<course>
+		<name>Analysis T2</name>
+		<id>3</id>
+		<ects>5</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>XXXX.XXXX</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+	
+	
+	
 </courses>

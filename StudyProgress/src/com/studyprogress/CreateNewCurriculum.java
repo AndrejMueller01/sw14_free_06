@@ -40,7 +40,6 @@ public class CreateNewCurriculum extends Activity{
 		case R.id.create_curriculum_cancel_item:
 			startActivity(intent);
 			return true;
-
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}
