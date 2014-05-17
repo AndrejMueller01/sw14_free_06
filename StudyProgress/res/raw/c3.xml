@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<courses>
+	<course>
+		<name>Analysis T2</name>
+		<id>3</id>
+		<ects>5</ects>
+		<semester>2</semester>
+		<bachelor>1</bachelor>
+		<cid>XXXX.XXXX</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+</courses>

@@ -9,8 +9,8 @@
     <string name="file_invalid">DB File invalid!</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="choose_start_configuration">Bitte wählen Sie einen Modus aus:</string>
-    <string name="new_plan">NEU</string>
-    <string name="open_plan">ÖFFNEN</string>
+    <string name="new_plan">Neues Studium erstellen</string>
+    <string name="open_plan">Vorhandenes Studium öffnen</string>
     <string name="about">ÜBER</string>
     <string name="rate">BEWERTEN</string>
     <string name="site">PROJEKTSEITE</string>

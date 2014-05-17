@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -53,8 +54,9 @@ public class MainActivity extends Activity {
 	private Button sem5Button;
 	private Button sem6Button;
 	private Button semOptCourses;
-	
-	private boolean configChanged = false;
+
+	private boolean studyStateChanged = false;
+
 	private float maxEcts;
 	private XMLParser parser;
 	private boolean firstTimeOpened;
@@ -77,22 +79,23 @@ public class MainActivity extends Activity {
 		firstTimeOpened = extras.getBoolean("firstOpen");
 		boolean fromCreateNew = extras.getBoolean("fromCreateNew");
 
-
 		if (firstTimeOpened) {
+
 			curriculumId = extras.getInt("Id");
 			curriculumName = extras.getString("Name");
 			isDiplSt = extras.getInt("IsDiplSt");
-			InputStream is = getResources().openRawResource(R.raw.courses);
+			InputStream is = getResources().openRawResource(
+					getResources().getIdentifier("c" + curriculumId, "raw",
+							getPackageName()));
 			parser = XMLParser.getInstance(is);
 			parser.parseCourses(false);
-			parser.initializeCurrentCourses(curriculumId);
+			// parser.initializeCurrentCourses(curriculumId);
 
-		} else if(fromCreateNew){
+		} else if (fromCreateNew) {
 			parser = XMLParser.getInstance(null);
 
 			// Already opened
-		}
-		else if(!firstTimeOpened){
+		} else if (!firstTimeOpened) {
 			File file = new File(Environment.getExternalStorageDirectory()
 					.getAbsolutePath() + "/studyprogress_save",
 					"my_curriculum.xml");
@@ -102,14 +105,15 @@ public class MainActivity extends Activity {
 			try {
 				fileInputStream = new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				Toast.makeText(getBaseContext(), R.string.file_not_found, Toast.LENGTH_LONG).show();
+				Toast.makeText(getBaseContext(), R.string.file_not_found,
+						Toast.LENGTH_LONG).show();
 				return;
 			}
 
 			parser = XMLParser.getInstance(fileInputStream);
 			parser.parseCourses(true);
-			parser.initializeAllActualCoursesToCurrentCourses();
-			
+			// parser.initializeAllActualCoursesToCurrentCourses();
+
 			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
 			curriculumName = parser.getCurrentCurriculum().getName();
 			isDiplSt = parser.getCurrentCurriculum().getDiplSt();
@@ -130,7 +134,7 @@ public class MainActivity extends Activity {
 
 		courseListViews = new ListView[SEM_COUNT];
 		adapters = new CourseListAdapter[SEM_COUNT];
-		
+
 		semesterTextField = (TextView) findViewById(R.id.semester_line_description_text_view);
 		courseListViews[0] = (ListView) findViewById(R.id.courses_list_view_sem1);
 		courseListViews[1] = (ListView) findViewById(R.id.courses_list_view_sem2);
@@ -138,9 +142,8 @@ public class MainActivity extends Activity {
 		courseListViews[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
 		courseListViews[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
 		courseListViews[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
-		
-		courseListViews[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
 
+		courseListViews[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
 
 		sem1Button = (Button) findViewById(R.id.semester_1_name_button);
 		sem2Button = (Button) findViewById(R.id.semester_2_name_button);
@@ -149,8 +152,8 @@ public class MainActivity extends Activity {
 		sem5Button = (Button) findViewById(R.id.semester_5_name_button);
 		sem6Button = (Button) findViewById(R.id.semester_6_name_button);
 		semOptCourses = (Button) findViewById(R.id.semester_optional_courses);
-		
-		if(isDiplSt == 1){
+
+		if (isDiplSt == 1) {
 
 			sem4Button.setVisibility(View.INVISIBLE);
 			sem5Button.setVisibility(View.INVISIBLE);
@@ -234,21 +237,25 @@ public class MainActivity extends Activity {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.save_item:
-			XMLSave saver = new XMLSave(parser.getCurrentCourses());
-			saver.saveXML(curriculumName, curriculumId, isDiplSt);
-			Toast.makeText(getBaseContext(), R.string.save_text_succ, Toast.LENGTH_SHORT).show();
+			saveCourse();
 			return true;
-			
+
 		case R.id.add_item:
 			Intent intent = new Intent(MainActivity.this,
 					CreateOptionalCourses.class);
 			startActivity(intent);
 			return true;
-			
+
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}
 
+	private void saveCourse(){
+		XMLSave saver = new XMLSave(parser.getCurrentCourses());
+		saver.saveXML(curriculumName, curriculumId, isDiplSt);
+		Toast.makeText(getBaseContext(), R.string.save_text_succ,
+				Toast.LENGTH_SHORT).show();
+	}
 	public OnClickListener setupOnClickListener(final int semester) {
 		return new OnClickListener() {
 			@Override
@@ -271,7 +278,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					final int position, long id) {
-
+				studyStateChanged = true;
 				final String courseName = courseListViews[semester]
 						.getItemAtPosition(position).toString();
 
@@ -325,17 +332,18 @@ public class MainActivity extends Activity {
 		};
 	}
 
-	
-
 	public void refreshProgress() {
 		float currentEcts = getCurrentEcts();
 		studyProgressBar.setMax((int) maxEcts);
 		studyProgressBar.setProgress((int) currentEcts);
 		studyProgressBar.refreshDrawableState();
 		int progressInPercent = 0;
+
 		if (studyProgressBar.getMax() != 0)
+			// percentage calculation
 			progressInPercent = studyProgressBar.getProgress() * 100
 					/ studyProgressBar.getMax();
+
 		studyProgressPercentage.setText(currentEcts + "/" + maxEcts + " ECTS ("
 				+ progressInPercent + "%)");
 	}
@@ -343,7 +351,7 @@ public class MainActivity extends Activity {
 	private float getAllEcts() {
 		float allEcts = 0;
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-				allEcts += parser.getCurrentCourses().get(i).getEcts();
+			allEcts += parser.getCurrentCourses().get(i).getEcts();
 		}
 		return allEcts;
 	}
@@ -389,4 +397,34 @@ public class MainActivity extends Activity {
 		refreshProgress();
 
 	}
+
+	@Override
+	public void onBackPressed() {
+		if (studyStateChanged) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("Es sind Änderungen vorhanden! Speichern?")
+					.setCancelable(false)
+					.setPositiveButton("Ja",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									saveCourse();
+									MainActivity.this.finish();
+								}
+							})
+					.setNegativeButton("Nein",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									MainActivity.this.finish();
+								}
+							});
+			AlertDialog alert = builder.create();
+			alert.show();
+		}
+		else{
+			super.onBackPressed();
+		}
+	}
+
 }
