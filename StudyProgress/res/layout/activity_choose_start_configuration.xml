@@ -6,31 +6,50 @@
     <TextView
         android:id="@+id/choose_start_configuration_text_view"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="0.00"
+        android:layout_height="wrap_content"
         android:text="@string/choose_start_configuration" />
 
     <Button
         android:id="@+id/choose_start_configuration_button_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.50"
         android:background="@drawable/start_button_selector"
         android:text="@string/new_plan"
-        android:textColor="#399829"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+/>
 
     <Button
         android:id="@+id/choose_start_configuration_button_open"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.50"
         android:background="@drawable/start_button_selector"
-        android:paddingLeft="150dp"
         android:text="@string/open_plan"
-        android:textColor="#399829"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+ />
+
+
+    <Button
+        android:id="@+id/choose_start_configuration_button_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/start_button_selector"
+        android:enabled="false"
+        android:text="@string/about"
+ />
+
+    <Button
+        android:id="@+id/choose_start_configuration_button_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/start_button_selector"
+        android:enabled="false"
+        android:text="@string/rate"
+ />
+    <Button
+        android:id="@+id/choose_start_configuration_button_site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/start_button_selector"
+        android:enabled="false"
+        android:text="@string/site"
+/>
 
 </LinearLayout>

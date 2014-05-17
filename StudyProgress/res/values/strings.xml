@@ -9,9 +9,15 @@
     <string name="file_invalid">DB File invalid!</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="choose_start_configuration">Bitte wählen Sie einen Modus aus:</string>
-
     <string name="new_plan">NEU</string>
     <string name="open_plan">ÖFFNEN</string>
+    <string name="about">ÜBER</string>
+    <string name="rate">BEWERTEN</string>
+    <string name="site">PROJEKTSEITE</string>
+    <string name="done">GESCHAFFT</string>
+    <string name="todo">ZU MACHEN</string>
+    <string name="inprogress">IN ARBEIT</string>
+    <string name="choose_progress">Wähle deinen Fortschritt:</string>
     <string name="semester_descr">SEMESTER</string>
     <string name="sem_1">1</string>
     <string name="sem_2">2</string>
@@ -20,35 +26,28 @@
     <string name="sem_5">5</string>
     <string name="sem_6">6</string>
     <string name="sem_add">+</string>
-  	<string  name ="menu_item_add">Wahlfach hinzufügen</string>
+    <string name="menu_item_add">Wahlfach hinzufügen</string>
     <string name="save_text_succ">Speichern erfolgreich!</string>
     <string name="file_not_found">Datei nicht gefunden. Entweder haben Sie noch nie gespeichert oder die Datei wurde vom internen Speicher entfernt!</string>
-    
     <string name="menu_item_save">Speichern</string>
     <string name="menu_item_cancel">Abbrechen</string>
-    <string name="in_progress">In Progress</string>
-    <string name="done">Done</string>
-    <string name="to_do">To Do</string>
-    
-    <string  name ="course_name">Name des Kurses</string>
+    <string name="course_name">Name des Kurses</string>
     <string name="course_name_hint">z.B.: Mathematik 1</string>
     <string name="ects_name">ECTS</string>
     <string name="ects_hint">z.B.: 2.5</string>
-    
     <string name="opt_course_mode">Modus</string>
     <string name="opt_course_sem">Semester(bzw. Abschnitt):</string>
-    <string name="opt_course_sem_hint">z.B.: 2</string>    
-    
-    <string-array name="opt_course_sem_array">  
+    <string name="opt_course_sem_hint">z.B.: 2</string>
+
+    <string-array name="opt_course_sem_array">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
         <item>6</item>
-		<item>+</item>
+        <item>+</item>
     </string-array>
-
     <string-array name="opt_course_mode_array">
         <item>VO</item>
         <item>VU</item>
@@ -56,21 +55,20 @@
         <item>KU</item>
         <item>SE</item>
     </string-array>
-    
+
     <string name="choose_existing_new_curriculum">Bitte wählen Sie ein neues oder vorgefertigtes Curriculum aus!</string>
     <string name="open_predefined_curriculum">Template</string>
     <string name="create_new_curriculum">Lege ein neues Curriculum an</string>
     <string name="add_new_curriculum_name">Name des Curriculums</string>
-    
-        <string-array name="Curriculum_type_array">
+
+    <string-array name="Curriculum_type_array">
         <item>Bachelor</item>
         <item>Master</item>
         <item>Diplomstudium</item>
         <item>Lehramt</item>
     </string-array>
-    
-        <string name="create_new_curriculum_hint">Curriculum Name</string>
-    
-        <string name="create_new_curriculum_modus">Typ des Curriculums</string>
+
+    <string name="create_new_curriculum_hint">Curriculum Name</string>
+    <string name="create_new_curriculum_modus">Typ des Curriculums</string>
 
 </resources>

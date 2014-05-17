@@ -30,8 +30,8 @@
         <activity
             android:name="com.studyprogress.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="landscape" >
-"
+android:configChanges="orientation|screenSize"            >
+
         </activity>
         <activity
             android:name="com.studyprogress.ChooseStartConfigurationActivity"

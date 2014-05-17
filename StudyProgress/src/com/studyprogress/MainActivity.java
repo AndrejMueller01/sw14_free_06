@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Menu;
@@ -53,6 +54,7 @@ public class MainActivity extends Activity {
 	private Button sem6Button;
 	private Button semOptCourses;
 	
+	private boolean configChanged = false;
 	private float maxEcts;
 	private XMLParser parser;
 	private boolean firstTimeOpened;
@@ -128,6 +130,7 @@ public class MainActivity extends Activity {
 
 		courseListViews = new ListView[SEM_COUNT];
 		adapters = new CourseListAdapter[SEM_COUNT];
+		
 		semesterTextField = (TextView) findViewById(R.id.semester_line_description_text_view);
 		courseListViews[0] = (ListView) findViewById(R.id.courses_list_view_sem1);
 		courseListViews[1] = (ListView) findViewById(R.id.courses_list_view_sem2);
@@ -148,7 +151,7 @@ public class MainActivity extends Activity {
 		semOptCourses = (Button) findViewById(R.id.semester_optional_courses);
 		
 		if(isDiplSt == 1){
-			Log.d("t4", "isDiplST");
+
 			sem4Button.setVisibility(View.INVISIBLE);
 			sem5Button.setVisibility(View.INVISIBLE);
 			sem6Button.setVisibility(View.INVISIBLE);
@@ -240,10 +243,6 @@ public class MainActivity extends Activity {
 			Intent intent = new Intent(MainActivity.this,
 					CreateOptionalCourses.class);
 			startActivity(intent);
-
-			
-			
-			
 			return true;
 			
 		}
@@ -254,7 +253,6 @@ public class MainActivity extends Activity {
 		return new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Log.d("t4", "Button klicked");
 
 				for (int i = 0; i < SEM_COUNT; i++) {
 					if (i == semester) {
@@ -279,9 +277,9 @@ public class MainActivity extends Activity {
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
-				builder.setTitle("Wähle deinen Fortschritt!");
+				builder.setTitle(R.string.choose_progress);
 
-				builder.setPositiveButton("Geschafft",
+				builder.setPositiveButton(R.string.done,
 						new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog,
@@ -293,7 +291,7 @@ public class MainActivity extends Activity {
 							}
 						});
 
-				builder.setNegativeButton("zu machen",
+				builder.setNegativeButton(R.string.todo,
 						new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog,
@@ -307,7 +305,7 @@ public class MainActivity extends Activity {
 							}
 						});
 
-				builder.setNeutralButton("In Arbeit",
+				builder.setNeutralButton(R.string.inprogress,
 						new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog,

@@ -35,7 +35,7 @@
              android:layout_height="wrap_content"
              android:text="@string/hello_world"
              android:textAlignment="center"
-             android:textSize="@dimen/small_text" />
+/>
 
     </LinearLayout>
 
@@ -49,11 +49,10 @@
 
         <TextView
             android:id="@+id/semester_line_description_text_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/semester_descr"
-            android:textSize="8pt"
-            android:textStyle="bold" />
+            android:visibility="invisible"
+            android:text="@string/semester_descr" />
 
         <HorizontalScrollView
             android:id="@+id/sem_buttn_line_sv"
