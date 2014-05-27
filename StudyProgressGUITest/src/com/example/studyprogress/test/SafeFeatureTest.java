@@ -40,6 +40,7 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 				.getView(R.id.choose_start_configuration_button_new);
 		openCurriculum = (Button) solo
 				.getView(R.id.choose_start_configuration_button_open);
+		parser = XMLParser.getInstance(null);
 
 	}
 	
@@ -52,10 +53,10 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 	public void testSafeCurriculum() throws Exception {
 		solo.waitForActivity(ChooseStartConfigurationActivity.class);
 
-		solo.clickOnButton("NEU");
+		solo.clickOnButton(solo.getString(R.string.new_plan));
 		solo.waitForActivity(ChooseExistingOrNewCurriculum.class);
 		solo = new Solo(getInstrumentation(), getActivity());
-		solo.clickOnButton("Template");
+		solo.clickOnButton(solo.getString(R.string.open_predefined_curriculum));
 		
 		solo.waitForActivity(CurriculumListViewActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
@@ -66,16 +67,18 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 		solo.clickOnView(curriculumListView.getChildAt(2));
 
 		solo.waitForActivity(MainActivity.class);
-		solo = new Solo(getInstrumentation(), getActivity());
-		//solo.clickOnButton("2");
-		//solo.clickOnView(sem2lv.getChildAt(0));
-		//solo.clickOnButton("Geschafft");
-		solo.goBack();
-		solo.goBack();
-		solo.goBack();
-		solo.clickOnButton("ÖFFNEN");
+		solo.pressMenuItem(0);
 		
-		//TODO: hier jetzt checken ob sich Telematik Curriculum öffnet!
+		
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.goBack();
+		solo.goBack();
+		solo.goBack();
+		solo.clickOnButton(solo.getString(R.string.open_plan));
+
+		String telematik = new String("Telematik");
+		assert(parser.getCurrentCurriculum().getName().equals(telematik));
+		//TODO: hier jetzt checken ob sich Telematik Curriculum ï¿½ffnet!
 
 
 		
