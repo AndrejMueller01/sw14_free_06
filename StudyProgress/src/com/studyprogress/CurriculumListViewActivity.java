@@ -85,13 +85,12 @@ public class CurriculumListViewActivity extends Activity {
 						MainActivity.class);
 				String curriculumName = (String) curriculumListView.getAdapter().getItem(position);
 				int curriculumId = parser.getCurriculumIdWithName(curriculumName);
-				int isDiplSt = parser.getCurriculumMode(curriculumName);
-				Log.d("t4", ""+isDiplSt);
-				intent.putExtra("Id", curriculumId );
-				intent.putExtra("IsDiplSt",  isDiplSt);
-				intent.putExtra("Name", curriculumName );
-				intent.putExtra("firstOpen", true);
+				int studMode = parser.getCurriculumMode(curriculumName);
+				parser.setCurrentCurriculum(curriculumName, studMode, curriculumId);
+
+				intent.putExtra("firstOpen", 1);
 				startActivity(intent);
+				finish();
 
 			}
 		});

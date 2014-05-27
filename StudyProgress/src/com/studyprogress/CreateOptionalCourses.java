@@ -21,7 +21,6 @@ public class CreateOptionalCourses extends Activity {
 	private EditText courseNameET;
 	private EditText ectsET;
 	private Spinner semSP;
-
 	private Spinner modeSP;
 
 	@Override
@@ -51,12 +50,9 @@ public class CreateOptionalCourses extends Activity {
 		case R.id.create_courses_ok_item:
 			Course newCourse = new Course();
 			newCourse.setCourseName(courseNameET.getText().toString());
-			try {
 
 			newCourse.setEcts(Float.parseFloat(ectsET.getText().toString()));
-			}catch(NumberFormatException ex){
-				Toast.makeText(getApplicationContext(), "Bitte eine Zahl eingeben. Danke!", Toast.LENGTH_LONG).show();
-			}
+		
 			newCourse.setCurricula(parser.getCurrentCurriculum()
 					.getCurriculumId());
 			String semesterNo = semSP.getSelectedItem().toString();
@@ -69,14 +65,14 @@ public class CreateOptionalCourses extends Activity {
 
 			parser.addCourseToCurrentCourses(newCourse);
 
-			intent.putExtra("firstOpen", false);
-			intent.putExtra("fromCreateNew", true);
+			intent.putExtra("firstOpen", -1);
 			startActivity(intent);
+			finish();
 			return true;
 
 		case R.id.create_courses_cancel_item:
 
-			intent.putExtra("firstOpen", false);
+			intent.putExtra("firstOpen", -1);
 			startActivity(intent);
 
 			return true;

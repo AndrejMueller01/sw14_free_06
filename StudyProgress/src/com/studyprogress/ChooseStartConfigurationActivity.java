@@ -38,7 +38,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
 						MainActivity.class);
-				intent.putExtra("firstOpen", false);
+				intent.putExtra("firstOpen", 0);
 				startActivity(intent);
 
 			}

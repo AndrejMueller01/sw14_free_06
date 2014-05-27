@@ -15,5 +15,12 @@
         android:title="@string/menu_item_add"
         android:icon="@drawable/ic_action_mail_add">
     </item>
-
+   <item
+        android:id="@+id/delete_item"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/menu_item_delete"
+        android:icon="@drawable/ic_action_delete">
+    </item>
+       
 </menu>

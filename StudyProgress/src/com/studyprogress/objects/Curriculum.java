@@ -9,13 +9,13 @@ public class Curriculum {
 	private ArrayList<Course> mandatoryCourseList;
 	private ArrayList<Course> optionalCourseList;
 	private int yearOfRelease;
-	private int isDiplSt;
+	private int mode;
 
 	public Curriculum()
 	{
 		mandatoryCourseList = new ArrayList<Course>();
 		optionalCourseList = new ArrayList<Course>();
-		isDiplSt = 0;
+		mode = 0;
 
 	}
 	public void setName(String name){
@@ -31,11 +31,11 @@ public class Curriculum {
 		return curriculumId;
 	}
 	
-	public void setDiplSt(int diplSt) {
-		isDiplSt = diplSt;
+	public void setMode(int mode) {
+		this.mode = mode;
 	}
-	public int getDiplSt() {
-		return isDiplSt;
+	public int getMode() {
+		return mode;
 	}		
 
 }

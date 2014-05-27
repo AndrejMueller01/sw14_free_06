@@ -15,11 +15,12 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:theme="@style/AppTheme"
+        android:theme ="@style/AppTheme"
          >
         <activity
             android:name="com.studyprogress.CurriculumListViewActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+>
         </activity>
 
         <activity
@@ -29,27 +30,29 @@
         
         <activity
             android:name="com.studyprogress.MainActivity"
-            android:label="@string/title_activity_main"
-android:configChanges="orientation|screenSize"            >
+            android:label="@string/app_name"
+			android:configChanges="orientation|screenSize"            >
 
         </activity>
         <activity
             android:name="com.studyprogress.ChooseStartConfigurationActivity"
-            android:label="@string/choose_start_configuration" >
+            android:label="@string/app_name"
+           >
           
         </activity>
         <activity
             android:name="com.studyprogress.ChooseExistingOrNewCurriculum"
-            android:label="@string/choose_existing_new_curriculum" >
+            android:label="@string/app_name" >
         </activity>
         
                 <activity
             android:name="com.studyprogress.CreateNewCurriculum"
-            android:label="@string/create_new_curriculum" >
+            android:label="@string/app_name" >
         </activity>
         
          <activity
             android:name="com.studyprogress.SplashScreenActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

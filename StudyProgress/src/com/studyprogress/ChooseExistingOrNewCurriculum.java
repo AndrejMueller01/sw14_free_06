@@ -29,6 +29,7 @@ public class ChooseExistingOrNewCurriculum extends Activity{
 				Intent intent = new Intent(ChooseExistingOrNewCurriculum.this,
 						CreateNewCurriculum.class);
 				startActivity(intent);
+				finish();
 
 			}
 		});
@@ -40,6 +41,7 @@ public class ChooseExistingOrNewCurriculum extends Activity{
 				Intent intent = new Intent(ChooseExistingOrNewCurriculum.this,
 						CurriculumListViewActivity.class);
 				startActivity(intent);
+				finish();
 
 			}
 		});

@@ -18,6 +18,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Menu;
@@ -26,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -55,20 +57,32 @@ public class MainActivity extends Activity {
 	private Button sem6Button;
 	private Button semOptCourses;
 
-	private boolean studyStateChanged = false;
+	private static boolean studyStateChanged = false;
 
 	private float maxEcts;
 	private XMLParser parser;
-	private boolean firstTimeOpened;
+	private int firstTimeOpened;
 
 	private static int curriculumId = 0;
-	private static int isDiplSt = 0;
+	private static int studMode = 0;
+
 	private static String curriculumName = null;
 
 	private static Integer STATUS_DONE = 2;
 	private static Integer STATUS_IN_PROGRESS = 1;
 	private static Integer STATUS_TO_DO = 0;
+
+	private static Integer FIRST_TIME = 1;
+	private static Integer NOT_FIRST_TIME = 0;
+
+	private static Integer DIPL_STUD = 1;
+	private static Integer BACH_STUD = 0;
+	private static Integer MAST_STUD = 2;
+	private static Integer PHD_STUD = 3;
+	private static Integer LA_STUD = 4;
+
 	public View row;
+	private boolean onDelButtonFlag = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,26 +90,32 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		Bundle extras = getIntent().getExtras();
-		firstTimeOpened = extras.getBoolean("firstOpen");
-		boolean fromCreateNew = extras.getBoolean("fromCreateNew");
+		firstTimeOpened = extras.getInt("firstOpen");
+		parser = XMLParser.getInstance(null);
 
-		if (firstTimeOpened) {
+		if (firstTimeOpened == FIRST_TIME) {
 
-			curriculumId = extras.getInt("Id");
-			curriculumName = extras.getString("Name");
-			isDiplSt = extras.getInt("IsDiplSt");
-			InputStream is = getResources().openRawResource(
-					getResources().getIdentifier("c" + curriculumId, "raw",
-							getPackageName()));
-			parser = XMLParser.getInstance(is);
-			parser.parseCourses(false);
-			// parser.initializeCurrentCourses(curriculumId);
+			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
+			curriculumName = parser.getCurrentCurriculum().getName();
+			studMode = parser.getCurrentCurriculum().getMode();
 
-		} else if (fromCreateNew) {
-			parser = XMLParser.getInstance(null);
+			InputStream is = null;
+			try {
+				is = getResources().openRawResource(
+						getResources().getIdentifier("c" + curriculumId, "raw",
+								getPackageName()));
 
-			// Already opened
-		} else if (!firstTimeOpened) {
+				parser = XMLParser.getInstance(is);
+				parser.parseCourses(false);
+			} catch (NotFoundException ex) {
+				Toast.makeText(getBaseContext(), R.string.curr_not_found,
+						Toast.LENGTH_LONG);
+				parser.clearCurrentCourses();
+
+			}
+		}
+
+		else if (firstTimeOpened == NOT_FIRST_TIME) {
 			File file = new File(Environment.getExternalStorageDirectory()
 					.getAbsolutePath() + "/studyprogress_save",
 					"my_curriculum.xml");
@@ -116,7 +136,7 @@ public class MainActivity extends Activity {
 
 			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
 			curriculumName = parser.getCurrentCurriculum().getName();
-			isDiplSt = parser.getCurrentCurriculum().getDiplSt();
+			studMode = parser.getCurrentCurriculum().getMode();
 		}
 
 		initComponents();
@@ -142,7 +162,6 @@ public class MainActivity extends Activity {
 		courseListViews[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
 		courseListViews[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
 		courseListViews[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
-
 		courseListViews[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
 
 		sem1Button = (Button) findViewById(R.id.semester_1_name_button);
@@ -153,12 +172,17 @@ public class MainActivity extends Activity {
 		sem6Button = (Button) findViewById(R.id.semester_6_name_button);
 		semOptCourses = (Button) findViewById(R.id.semester_optional_courses);
 
-		if (isDiplSt == 1) {
+		if (studMode == DIPL_STUD) {
 
 			sem4Button.setVisibility(View.INVISIBLE);
 			sem5Button.setVisibility(View.INVISIBLE);
 			sem6Button.setVisibility(View.INVISIBLE);
 			semesterTextField.setText("Abschnitt");
+		} else if (studMode == MAST_STUD) {
+			sem5Button.setVisibility(View.INVISIBLE);
+			sem6Button.setVisibility(View.INVISIBLE);
+		} else if (studMode == LA_STUD) {
+			// TODO:+3 Sem Buttons
 		}
 
 		maxEcts = getAllEcts();
@@ -177,10 +201,7 @@ public class MainActivity extends Activity {
 			courseListViews[i].setAdapter(adapters[i]);
 
 		setClickListneners();
-
-		if (!firstTimeOpened) {
-			setBackgroudColors();
-		}
+		setBackgroudColors();
 
 	}
 
@@ -219,9 +240,10 @@ public class MainActivity extends Activity {
 		sem6Button.setOnClickListener(setupOnClickListener(5));
 		semOptCourses.setOnClickListener(setupOnClickListener(6));
 
-		for (int i = 0; i < SEM_COUNT; i++)
+		for (int i = 0; i < SEM_COUNT; i++) {
 			courseListViews[i]
 					.setOnItemClickListener(setupOnItemClickListener(i));
+		}
 
 	}
 
@@ -239,23 +261,70 @@ public class MainActivity extends Activity {
 		case R.id.save_item:
 			saveCourse();
 			return true;
+		case R.id.delete_item:
 
+			if (onDelButtonFlag) {
+				for (int i = 0; i < SEM_COUNT; i++) {
+					courseListViews[i]
+							.setOnItemClickListener(setupOnDeleteOptionSelectedClickListener(i + 1));
+
+				}
+				item.getIcon().setAlpha(125);
+				onDelButtonFlag = false;
+			} else {
+				for (int i = 0; i < SEM_COUNT; i++) {
+					courseListViews[i]
+							.setOnItemClickListener(setupOnItemClickListener(i));
+
+				}
+				item.getIcon().setAlpha(255);
+
+				onDelButtonFlag = true;
+			}
+
+			return true;
 		case R.id.add_item:
 			Intent intent = new Intent(MainActivity.this,
 					CreateOptionalCourses.class);
 			startActivity(intent);
+			studyStateChanged = true;
+			finish();
 			return true;
 
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-	private void saveCourse(){
+	public OnItemClickListener setupOnDeleteOptionSelectedClickListener(
+			final int semester) {
+		return new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					final int position, long id) {
+				final String courseName = courseListViews[semester - 1]
+						.getItemAtPosition(position).toString();
+				parser.deleteCourse(courseName);
+				String[] courseNames = null;
+				courseNames = parser.getCourseNamesOfSemester(semester);
+				adapters[semester - 1].setCourseNames(courseNames, position);
+//				adapters[semester - 1] = new CourseListAdapter(courseNames,
+//						view.getContext());
+//				courseListViews[semester - 1]
+//						.setAdapter(adapters[semester - 1]);
+
+			}
+		};
+	}
+
+	private void saveCourse() {
+		studyStateChanged = false;
 		XMLSave saver = new XMLSave(parser.getCurrentCourses());
-		saver.saveXML(curriculumName, curriculumId, isDiplSt);
+		saver.saveXML(curriculumName, curriculumId, studMode);
 		Toast.makeText(getBaseContext(), R.string.save_text_succ,
 				Toast.LENGTH_SHORT).show();
 	}
+
 	public OnClickListener setupOnClickListener(final int semester) {
 		return new OnClickListener() {
 			@Override
@@ -402,9 +471,9 @@ public class MainActivity extends Activity {
 	public void onBackPressed() {
 		if (studyStateChanged) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Es sind Änderungen vorhanden! Speichern?")
+			builder.setMessage(R.string.changes_save)
 					.setCancelable(false)
-					.setPositiveButton("Ja",
+					.setPositiveButton(R.string.yes,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int id) {
@@ -412,7 +481,7 @@ public class MainActivity extends Activity {
 									MainActivity.this.finish();
 								}
 							})
-					.setNegativeButton("Nein",
+					.setNegativeButton(R.string.no,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int id) {
@@ -421,8 +490,7 @@ public class MainActivity extends Activity {
 							});
 			AlertDialog alert = builder.create();
 			alert.show();
-		}
-		else{
+		} else {
 			super.onBackPressed();
 		}
 	}
