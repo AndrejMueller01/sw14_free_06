@@ -57,7 +57,7 @@
     </string-array>
 
     <string name="choose_existing_new_curriculum">Bitte wählen Sie ein neues oder vorgefertigtes Curriculum aus!</string>
-    <string name="open_predefined_curriculum">Template</string>
+    <string name="open_predefined_curriculum">VORGEFERTIGT</string>
     <string name="create_new_curriculum">Lege ein neues Curriculum an</string>
     <string name="add_new_curriculum_name">Name des Curriculums</string>
 

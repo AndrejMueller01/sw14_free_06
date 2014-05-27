@@ -51,7 +51,6 @@
             android:id="@+id/semester_line_description_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
             android:text="@string/semester_descr" />
 
         <HorizontalScrollView
