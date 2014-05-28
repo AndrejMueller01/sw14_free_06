@@ -217,7 +217,7 @@ public class AddNewCoursesTests extends
 		solo.pressSpinnerItem(1, 6);
 		solo.pressMenuItem(0);
 		solo.waitForActivity(MainActivity.class);
-		solo = new Solo(getInstrumentation(), getAdctivity());		
+		solo = new Solo(getInstrumentation(), getActivity());		
 		
 		
 		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);

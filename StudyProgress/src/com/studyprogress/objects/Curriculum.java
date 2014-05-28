@@ -10,6 +10,7 @@ public class Curriculum {
 	private ArrayList<Course> optionalCourseList;
 	private int yearOfRelease;
 	private int isDiplSt;
+	private int isMasterSt;
 
 	public Curriculum()
 	{

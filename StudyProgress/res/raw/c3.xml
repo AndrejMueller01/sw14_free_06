@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <courses>
 	<course>
-		<name>Analysis T1a</name>
+		<name>Analysis T1a VU</name>
 		<id>3</id>
 		<ects>4.5</ects>
 		<semester>1</semester>
@@ -11,7 +11,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Analysis T1b</name>
+		<name>Analysis T1b VU</name>
 		<id>3</id>
 		<ects>2.5</ects>
 		<semester>1</semester>
@@ -21,7 +21,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Numerisches Rechnen und lineare Algebra</name>
+		<name>Numerisches Rechnen und lineare Algebra VU</name>
 		<id>3</id>
 		<ects>2.5</ects>
 		<semester>1</semester>
@@ -31,7 +31,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Grundlagen der Elektrotechnik TE</name>
+		<name>Grundlagen der Elektrotechnik TE VO</name>
 		<id>3</id>
 		<ects>4</ects>
 		<semester>1</semester>
@@ -41,7 +41,7 @@
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Grundlagen der Informatik</name>
+		<name>Grundlagen der Informatik VO</name>
 		<id>3</id>
 		<ects>4</ects>
 		<semester>1</semester>
@@ -51,7 +51,7 @@
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Grundlagen der Informatik</name>
+		<name>Grundlagen der Informatik UE</name>
 		<id>3</id>
 		<ects>1.5</ects>
 		<semester>1</semester>
@@ -61,7 +61,7 @@
 		<mode>UE</mode>
 	</course>
 	<course>
-		<name>Einführung in die strukturierte Programmierung</name>
+		<name>Einführung in die strukturierte Programmierung VU</name>
 		<id>3</id>
 		<ects>3</ects>
 		<semester>1</semester>
@@ -71,7 +71,7 @@
 		<mode>VU</mode>
 	</course>	
 	<course>
-		<name>Einführung in die Telematik</name>
+		<name>Einführung in die Telematik VO</name>
 		<id>3</id>
 		<ects>1</ects>
 		<semester>1</semester>
@@ -81,7 +81,7 @@
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Internet und neue Medien</name>
+		<name>Internet und neue Medien VU</name>
 		<id>3</id>
 		<ects>1</ects>
 		<semester>1</semester>
@@ -91,7 +91,7 @@
 		<mode>VU</mode>
 	</course>	
 	<course>
-		<name>Diskrete Mathematik TE</name>
+		<name>Diskrete Mathematik TE VU</name>
 		<id>3</id>
 		<ects>4.5</ects>
 		<semester>2</semester>
@@ -101,7 +101,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Analysis T2</name>
+		<name>Analysis T2 VU</name>
 		<id>3</id>
 		<ects>5.5</ects>
 		<semester>2</semester>
@@ -111,7 +111,7 @@
 		<mode>VU</mode>
 	</course>	
 	<course>
-		<name>Grundlagen elektrischer Netzwerke</name>
+		<name>Grundlagen elektrischer Netzwerke VO</name>
 		<id>3</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -121,7 +121,7 @@
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Grundlagen elektrischer Netzwerke</name>
+		<name>Grundlagen elektrischer Netzwerke UE</name>
 		<id>3</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -131,7 +131,7 @@
 		<mode>UE</mode>
 	</course>	
 	<course>
-		<name>Grundlagen der Elektrotechnik, Labor</name>
+		<name>Grundlagen der Elektrotechnik, Labor LU</name>
 		<id>3</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -141,7 +141,7 @@
 		<mode>LU</mode>
 	</course>		
 	<course>
-		<name>Rechnerorganisation</name>
+		<name>Rechnerorganisation VO</name>
 		<id>3</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -151,7 +151,7 @@
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Rechnerorganisation</name>
+		<name>Rechnerorganisation UE</name>
 		<id>3</id>
 		<ects>1.5</ects>
 		<semester>2</semester>
@@ -161,7 +161,7 @@
 		<mode>UE</mode>
 	</course>	
 	<course>
-		<name>Softwareentwicklung Praktikum</name>
+		<name>Softwareentwicklung Praktikum VU</name>
 		<id>3</id>
 		<ects>5</ects>
 		<semester>2</semester>
@@ -171,7 +171,7 @@
 		<mode>VU</mode>
 	</course>		
 	<course>
-		<name>Technische Berichte/Präsentation</name>
+		<name>Technische Berichte/Präsentation LU</name>
 		<id>3</id>
 		<ects>1.5</ects>
 		<semester>2</semester>
@@ -181,103 +181,433 @@
 		<mode>LU</mode>
 	</course>	
 	<course>
-		<name>Wahrscheinlichkeitstheorie für Informatikstudien</name>
+		<name>Wahrscheinlichkeitstheorie für Informatikstudien VU</name>
 		<id>3</id>
 		<ects>3</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>506.000</cid>
 		<steop>0</steop>
 		<mode>VU</mode>
 	</course>	
 	<course>
-		<name>Differentialgleichungen</name>
+		<name>Differentialgleichungen VU</name>
 		<id>3</id>
 		<ects>3</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>501.209</cid>
 		<steop>0</steop>
 		<mode>VU</mode>
 	</course>	
 	<course>
-		<name>Stochastische Prozesse für Informatikstudien</name>
+		<name>Stochastische Prozesse für Informatikstudien VU</name>
 		<id>3</id>
 		<ects>1.5</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>506.007</cid>
 		<steop>0</steop>
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Physik TE</name>
+		<name>Physik TE VO</name>
 		<id>3</id>
 		<ects>4.5</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>511.027</cid>
 		<steop>0</steop>
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Messtechnik 1</name>
+		<name>Messtechnik 1 VO</name>
 		<id>3</id>
 		<ects>3</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>438.007</cid>
 		<steop>0</steop>
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Elektronische Schaltungstechnik 1</name>
+		<name>Elektronische Schaltungstechnik 1 VO</name>
 		<id>3</id>
 		<ects>3</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>439.001</cid>
 		<steop>0</steop>
 		<mode>VO</mode>
 	</course>	
 	<course>
-		<name>Nichtlineare elektrische Systeme</name>
+		<name>Nichtlineare elektrische Systeme VO</name>
 		<id>3</id>
 		<ects>3</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>443.505</cid>
 		<steop>0</steop>
 		<mode>VO</mode>
 	</course>
 	<course>
-		<name>Datenstrukturen und Algorithmen</name>
+		<name>Datenstrukturen und Algorithmen VO</name>
 		<id>3</id>
 		<ects>3</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>708.031</cid>
 		<steop>0</steop>
 		<mode>VO</mode>
 	</course>
 	<course>
-		<name>Datenstrukturen und Algorithmen</name>
+		<name>Datenstrukturen und Algorithmen UE</name>
 		<id>3</id>
 		<ects>1.5</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>708.032</cid>
 		<steop>0</steop>
 		<mode>UE</mode>
 	</course>
 	<course>
-		<name>Objektorientierte Analyse und Design</name>
+		<name>Objektorientierte Analyse und Design VU</name>
 		<id>3</id>
 		<ects>4.5</ects>
-		<semester>2</semester>
+		<semester>3</semester>
 		<bachelor>1</bachelor>
 		<cid>716.068</cid>
 		<steop>0</steop>
 		<mode>VU</mode>
-	</course>																
+	</course>		
+	<course>
+		<name>Control Systems 1 VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>443.500</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+	<course>
+		<name>Signalverarbeitung VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>442.001</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>			
+	<course>
+		<name>Signalverarbeitung UE</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>442.002</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>																			
+	<course>
+		<name>Control Systems 1 UE</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>443.503</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>																			
+	<course>
+		<name>Messtechnik, Labor LU</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>438.009</cid>
+		<steop>0</steop>
+		<mode>LU</mode>
+	</course>	
+	<course>
+		<name>Nachrichtentechnik VO</name>
+		<id>3</id>
+		<ects>4</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>440.201</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>																					
+	<course>
+		<name>Nachrichtentechnik UE</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>440.202</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>	
+	<course>
+		<name>Elektronische Schaltungstechnik 2  VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>439.002</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>																					
+	<course>
+		<name>Architektur verteilter Systeme  VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>448.020</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>	
+	<course>
+		<name>Architektur verteilter Systeme  UE</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>448.020</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>
+	<course>
+		<name>Datenbanken 1 VU</name>
+		<id>3</id>
+		<ects>2</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>706.004</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>	
+	<course>
+		<name>Projektmanagement VO</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>4</semester>
+		<bachelor>1</bachelor>
+		<cid>706.022</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>	
+	<course>
+		<name>Control Systems 2  VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>443.501</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>
+	<course>
+		<name>Control Systems 2  UE</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>443.502</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>	
+	<course>
+		<name>Nachrichtentechnik, Labor LU</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>440.320</cid>
+		<steop>0</steop>
+		<mode>LU</mode>
+	</course>	
+	<course>
+		<name>Elektronische Schaltungstechnik, Labor LU</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>439.007</cid>
+		<steop>0</steop>
+		<mode>LU</mode>
+	</course>
+	<course>
+		<name>Entwurf von Echtzeitsystemen VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>448.023</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>	
+	<course>
+		<name>Entwurf von Echtzeitsystemen UE</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>448.023</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>
+	<course>
+		<name>Entwurf und Analyse von Algorithmen VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>716.033</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>	
+	<course>
+		<name>Betriebssysteme VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>705.056</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>			
+	<course>
+		<name>Betriebssysteme KU</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>705.047</cid>
+		<steop>0</steop>
+		<mode>KU</mode>
+	</course>																																	
+	<course>
+		<name>Neue Informationssysteme VU</name>
+		<id>3</id>
+		<ects>2.5</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>706.002</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>																																	
+	<course>
+		<name>Einführung in die Informationssicherheit VO</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>705.026</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>																																	
+	<course>
+		<name>Verfassen wissenschaftlicher Arbeiten SE</name>
+		<id>3</id>
+		<ects>2</ects>
+		<semester>5</semester>
+		<bachelor>1</bachelor>
+		<cid>707.016</cid>
+		<steop>0</steop>
+		<mode>SE</mode>
+	</course>
+	<course>
+		<name>Elektrodynamik TE VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>437.169</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>																																			
+	<course>
+		<name>Computational Intelligence VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>442.070</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>																																			
+	<course>
+		<name>Computational Intelligence UE</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>708.070</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>																																			
+	<course>
+		<name>Rechner- und Kommunikationsnetze VO</name>
+		<id>3</id>
+		<ects>3</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>705.088</cid>
+		<steop>0</steop>
+		<mode>VO</mode>
+	</course>																																			
+	<course>
+		<name>Rechner- und Kommunikationsnetze UE</name>
+		<id>3</id>
+		<ects>1.5</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>705.089</cid>
+		<steop>0</steop>
+		<mode>UE</mode>
+	</course>	
+	<course>
+		<name>Computergrafik 1 VU</name>
+		<id>3</id>
+		<ects>2.5</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>710.003</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>	
+	<course>
+		<name>Computer Vision 1 VU</name>
+		<id>3</id>
+		<ects>2</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>710.005</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>																																									
+	<course>
+		<name>Gesellschaftliche Aspekte der Informationstechnologie VU</name>
+		<id>3</id>
+		<ects>2.5</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>706.009</cid>
+		<steop>0</steop>
+		<mode>VU</mode>
+	</course>	
+	<course>
+		<name>Bachelorarbeit Telematik SP</name>
+		<id>3</id>
+		<ects>6</ects>
+		<semester>6</semester>
+		<bachelor>1</bachelor>
+		<cid>XXX.XXX</cid>
+		<steop>0</steop>
+		<mode>SP</mode>
+	</course>																																												
 </courses>

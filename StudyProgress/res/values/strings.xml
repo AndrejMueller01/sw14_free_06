@@ -54,6 +54,9 @@
         <item>UE</item>
         <item>KU</item>
         <item>SE</item>
+        <item>LU</item>
+        <item>SE</item>
+        <item>SP</item>     
     </string-array>
 
     <string name="choose_existing_new_curriculum">Bitte wählen Sie ein neues oder vorgefertigtes Curriculum aus!</string>

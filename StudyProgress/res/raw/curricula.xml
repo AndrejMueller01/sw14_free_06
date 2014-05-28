@@ -6,6 +6,11 @@
         <year>2010</year>
     </curriculum>
     <curriculum>
+        <name>Informatik Master</name>
+        <id>4</id>
+        <year>2010</year>
+    </curriculum>
+    <curriculum>
          <name>Diplomstudium der Rechtswissenschaften</name>
          <id>99</id>
          <diplst>1</diplst>
