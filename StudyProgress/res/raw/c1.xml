@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<courses>
+<courses cname="Informatik" ci ="1" cisDiplStud="0">
 	<course>
 		<name>Analysis T1</name>
 		<id>1</id>

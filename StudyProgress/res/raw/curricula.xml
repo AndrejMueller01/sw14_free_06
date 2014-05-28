@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Um ein neues Curriculum hinzuzuuegen wird mind. ein Name und eine Id benoetigt.
+Die Id darf den Wert 99999 nicht ueberschreiten.
+Wichtig: Wenn ein Curriculum hinzugefügt wird MUSS auch eine zum Studium passende XML Datei hinzugefügt werden(c<id>.xml)
+Der Modus(mode-tag) wird hinzugefügt wenn es sich um ein Diplomstudium( = 1) Masterstudium (= 2) Doktoratsstudium (= 3) Lehramt (=4)
+-->
 <curricula>
     <curriculum>
         <name>Informatik</name>
         <id>1</id>
-        <year>2010</year>
+         <mode>0</mode>
     </curriculum>
     <curriculum>
         <name>Informatik Master</name>
@@ -13,10 +19,11 @@
     <curriculum>
          <name>Diplomstudium der Rechtswissenschaften</name>
          <id>99</id>
-         <diplst>1</diplst>
+         <mode>1</mode>
     </curriculum>
     <curriculum>
         <name>Telematik</name>
 		<id>3</id>
+		<mode>0</mode>
     </curriculum>
 </curricula>

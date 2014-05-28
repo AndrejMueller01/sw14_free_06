@@ -22,7 +22,7 @@ public class XMLSave {
 		courseList = currentCourses;
 	}
 
-	public void saveXML(String curriculumName, int curriculumId, int isDiplSt) {
+	public void saveXML(String curriculumName, int curriculumId, int studMode) {
 
 		try {
 			File file = new File(appDir, "my_curriculum.xml");
@@ -41,7 +41,7 @@ public class XMLSave {
 			serializer.startTag(null, "courses");
 			serializer.attribute(null, "cname", curriculumName);
 			serializer.attribute(null, "cid", ""+curriculumId);
-			serializer.attribute(null, "cisDiplSt", ""+isDiplSt);
+			serializer.attribute(null, "cisDiplSt", ""+studMode);
 
 			for (int j = 0; j < courseList.size(); j++) {
 				//TODO: more informations

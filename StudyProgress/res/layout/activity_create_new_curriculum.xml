@@ -5,14 +5,14 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/create_new_curr_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_new_curriculum_name"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/create_new_curr_name_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -21,9 +21,14 @@
 
         <requestFocus />
     </EditText>
-
+  <TextView
+        android:id="@+id/create_new_curr_mode_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_curriculum_mode"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
         <Spinner
-        android:id="@+id/create_new_curriculum_spinner"
+        android:id="@+id/create_new_curr_mode_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/Curriculum_type_array"

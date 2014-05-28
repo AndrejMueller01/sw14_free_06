@@ -20,9 +20,9 @@ public class XMLParser {
 	private XmlPullParserFactory xmlPullParseFactory;
 	private XmlPullParser xmlPullParser;
 	private ArrayList<Curriculum> curricula = null;
-	//private ArrayList<Course> allCourses = null;
-	private ArrayList<Course> currentCourses = null;
-	private Curriculum currentCurriculum = null;
+	// private ArrayList<Course> allCourses = null;
+	private static ArrayList<Course> currentCourses = null;
+	private static Curriculum currentCurriculum = null;
 
 	private InputStream inputStream;
 	private static XMLParser instance = null;
@@ -34,6 +34,10 @@ public class XMLParser {
 	public static XMLParser getInstance(InputStream is) {
 		if (instance == null) {
 			instance = new XMLParser(is);
+			currentCurriculum = new Curriculum();
+
+			currentCourses = new ArrayList<Course>();
+
 		} else {
 			instance.setInputStream(is);
 		}
@@ -43,16 +47,18 @@ public class XMLParser {
 	public void setInputStream(InputStream is) {
 		this.inputStream = is;
 	}
+	public void clearCurrentCourses(){
+		currentCourses.clear();
 
+	}
 	public void addCourseToCurrentCourses(Course course) {
-		Log.d("t4", "Course added!");
 		currentCourses.add(course);
 
 	}
 
 	public void parseCourses(boolean isSavedFile) {
 		if (currentCourses != null)
-			currentCourses.clear();
+			clearCurrentCourses();
 		int eventType = 0;
 		try {
 
@@ -72,23 +78,23 @@ public class XMLParser {
 				String name = null;
 				switch (eventType) {
 				case XmlPullParser.START_DOCUMENT:
-					currentCourses = new ArrayList<Course>();
 					break;
 				case XmlPullParser.START_TAG:
 
 					name = xmlPullParser.getName();
 
 					if (name.equals("courses")) {
-						currentCurriculum = new Curriculum();
-						if (xmlPullParser.getAttributeCount() > 0) {
-							currentCurriculum.setName(xmlPullParser
-									.getAttributeValue(null, "cname"));
-							currentCurriculum.setCurriculumId(Integer
-									.parseInt(xmlPullParser.getAttributeValue(
-											null, "cid")));
-							currentCurriculum.setDiplSt(Integer
-									.parseInt(xmlPullParser.getAttributeValue(
-											null, "cisDiplSt")));
+						if (xmlPullParser.getAttributeCount() > 0
+								&& isSavedFile == true) {
+							String studName = xmlPullParser.getAttributeValue(
+									null, "cname");
+							int studId = Integer.parseInt(xmlPullParser
+									.getAttributeValue(null, "cid"));
+							int studMode = Integer.parseInt(xmlPullParser
+									.getAttributeValue(null, "cisDiplSt"));
+
+							setCurrentCurriculum(studName,studMode,studId);
+
 						}
 						currentCourses = new ArrayList<Course>();
 					}
@@ -144,6 +150,13 @@ public class XMLParser {
 
 	}
 
+	public void setCurrentCurriculum(String studName, int studMode, int studId) {
+
+		currentCurriculum.setName(studName);
+		currentCurriculum.setCurriculumId(studId);
+		currentCurriculum.setMode(studMode);
+	}
+
 	// TODO: Variable names
 	public void parseCurricula() {
 		int eventType = 0;
@@ -174,8 +187,8 @@ public class XMLParser {
 						if (name.equals("name")) {
 							currentCurriculum.setName(xmlPullParser.nextText());
 						}
-						if (name.equals("diplst")) {
-							currentCurriculum.setDiplSt(Integer
+						if (name.equals("mode")) {
+							currentCurriculum.setMode(Integer
 									.parseInt(xmlPullParser.nextText()));
 						}
 						if (name.equals("id")) {
@@ -208,7 +221,7 @@ public class XMLParser {
 	public int getCurriculumMode(String name) {
 		for (int i = 0; i < curricula.size(); i++)
 			if (curricula.get(i).getName().equals(name)) {
-				return curricula.get(i).getDiplSt();
+				return curricula.get(i).getMode();
 			}
 		return 0;
 	}
@@ -234,23 +247,8 @@ public class XMLParser {
 			}
 		return 0;
 	}
-/*
-	public void initializeCurrentCourses(int id) {
-		// TODO: loading
-		currentCourses = new ArrayList<Course>();
-		for (int i = 0; i < allCourses.size(); i++)
-			if (allCourses.get(i).getCurricula() == id) {
-				currentCourses.add(allCourses.get(i));
-			}
-	}
 
-	public void initializeAllActualCoursesToCurrentCourses() {
-		// TODO: loading
-		currentCourses = new ArrayList<Course>();
-		for (int i = 0; i < allCourses.size(); i++)
-			currentCourses.add(allCourses.get(i));
-	}
-*/
+
 	public ArrayList<Course> getCurrentCourses() {
 		return currentCourses;
 	}
@@ -304,6 +302,13 @@ public class XMLParser {
 		}
 		return progressMap;
 
+	}
+
+	public void deleteCourse(String courseName) {
+		for (int i = 0; i < currentCourses.size(); i++) {
+			if(currentCourses.get(i).getCourseName().equals(courseName))
+				currentCourses.remove(i);
+		}
 	}
 
 }
