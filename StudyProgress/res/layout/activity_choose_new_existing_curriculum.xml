@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/start_button_selector"
-        android:text="@string/new_plan"
+        android:text="@string/empty_plan"
  />
 
     <Button

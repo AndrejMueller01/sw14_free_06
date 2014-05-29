@@ -11,6 +11,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="choose_start_configuration">Bitte wählen Sie einen Modus aus:</string>
     <string name="new_plan">Neues Studium erstellen</string>
+    <string name="empty_plan">Leeren Studienplan erstellen</string>
     <string name="open_plan">Gespeichertes Studium öffnen</string>
     <string name="about">ÜBER</string>
     <string name="rate">BEWERTEN</string>
@@ -42,7 +43,7 @@
     <string name="opt_course_sem">Semester(bzw. Abschnitt):</string>
     <string name="opt_course_sem_hint">z.B.: 2</string>
     <string name="ok">OK</string>
-    <string name="changes_save">Es sind Änderungen vorhanden!\n Wollen Sie den Änderungen speichern?</string>
+    <string name="changes_save">Es sind Änderungen vorhanden!\n Wollen Sie die Änderungen speichern?</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
         
@@ -71,7 +72,7 @@
     
     <string name="choose_existing_new_curriculum">Das von Ihnen gewählte Studium konnte nich gefunden werden. XML Datei fehlerhaft!</string>
     <string name="curr_not_found">Bitte wählen Sie ein neues oder vorgefertigtes Curriculum aus!</string>
-    <string name="open_predefined_curriculum">Vorgefertigtes Studium öffnen</string>
+    <string name="open_predefined_curriculum">Vorgefertigten Studienplan auswählen</string>
     <string name="create_new_curriculum">Lege ein neues Curriculum an</string>
     <string name="add_new_curriculum_name">Name des Studiums:</string>
     <string name="add_new_curriculum_mode">Modus des Studiums:</string>
