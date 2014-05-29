@@ -6,6 +6,7 @@
     <string name="hello_world">Hallo Welt!</string>
     <string name="search_text">Suchtext hier eingeben!</string>
     <string name="descrition_choose_curriculum">Bitte wählen Sie einen Studium:</string>
+    <string name="descrition_choose_university">Bitte wählen Sie eine Universität:</string>
     <string name="file_invalid">DB File invalid!</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="choose_start_configuration">Bitte wählen Sie einen Modus aus:</string>

@@ -12,7 +12,6 @@ import com.studyprogress.tools.XMLParser;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources.NotFoundException;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -25,15 +24,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class CurriculumListViewActivity extends Activity {
+public class UniversityListViewActivity extends Activity {
 
 	private static ArrayAdapter<String> adapter;
-	private ListView curriculumListView;
+	private ListView universityListView;
 	private EditText searchTextField;
-	private ArrayList<String> curriculumNames = null;
-	private ArrayList<String> curriculumNamesSearchFaults = null;
+	private ArrayList<String> universityNames = null;
+	private ArrayList<String> universityNamesSearchFaults = null;
 	private XMLParser parser ;
 
 	private int tempCsLength = 0;
@@ -41,7 +39,7 @@ public class CurriculumListViewActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_curriculum_view);
+		setContentView(R.layout.activity_university_view);
 		initComponents();
 	}
 
@@ -49,34 +47,21 @@ public class CurriculumListViewActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
-		curriculumNamesSearchFaults = new ArrayList<String>();
+		universityNamesSearchFaults = new ArrayList<String>();
 		return true;
 	}
 
 	public void initComponents() {
 
-		curriculumListView = (ListView) findViewById(R.id.curriculum_list_view);
-		searchTextField = (EditText) findViewById(R.id.crurriculum_list_view_search_input_field);
-		// FileManager.getCurriculaNames(R.raw.curricula,this)
+		universityListView = (ListView) findViewById(R.id.university_list_view);
+		searchTextField = (EditText) findViewById(R.id.university_list_view_search_input_field);
 
-		InputStream is = null;
-		parser = XMLParser.getInstance(is);
-
-		try {
-			is = getResources().openRawResource(
-					getResources().getIdentifier("curricula" + parser.getCurrentUniversity().getId(), "raw",
-							getPackageName()));
-			parser.setInputStream(is);
-			parser.parseCurricula();
-
-		} catch (NotFoundException ex) {
-			// TODO: error handling
-
-		}
+		InputStream is = this.getResources().openRawResource(R.raw.universities);
 		parser= XMLParser.getInstance(is);
+		parser.parseUniversities();
 
 		try {
-			curriculumNames = parser.getCurriculaNames(is);
+			universityNames = parser.getUniversityNames(is);
 		} catch (XmlPullParserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,24 +70,22 @@ public class CurriculumListViewActivity extends Activity {
 			e.printStackTrace();
 		}
 
-		adapter = new ArrayAdapter<String>(this, R.layout.curriculum_list_item,
-				R.id.curriculum_text_view, curriculumNames);
+		adapter = new ArrayAdapter<String>(this, R.layout.university_list_item,
+				R.id.university_text_view, universityNames);
 
-		curriculumListView.setAdapter(adapter);
+		Log.d("t6", "Name: "+universityNames.get(0)+adapter.toString());
+		universityListView.setAdapter(adapter);
 		updateListViewOnSearching();
-		curriculumListView.setOnItemClickListener(new OnItemClickListener() {
+		universityListView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				Intent intent = new Intent(CurriculumListViewActivity.this,
-						MainActivity.class);
-				String curriculumName = (String) curriculumListView.getAdapter().getItem(position);
-				int curriculumId = parser.getCurriculumIdWithName(curriculumName);
-				int studMode = parser.getCurriculumMode(curriculumName);
-				parser.setCurrentCurriculum(curriculumName, studMode, curriculumId);
-
-				intent.putExtra("firstOpen", 1);
+				Intent intent = new Intent(UniversityListViewActivity.this,
+						CurriculumListViewActivity.class);
+				String universityName = (String) universityListView.getAdapter().getItem(position);
+				int universityId = parser.getUniversityIdWithName(universityName);
+				parser.setCurrentUniversity(universityName, universityId);
 				startActivity(intent);
 				finish();
 
@@ -119,11 +102,11 @@ public class CurriculumListViewActivity extends Activity {
 			public void onTextChanged(CharSequence cs, int arg1, int arg2,
 					int arg3) {
 				if (cs.length() < tempCsLength) {
-					for (int i = 0; i < curriculumNamesSearchFaults.size(); i++)
-						curriculumNames.add(curriculumNamesSearchFaults.get(i));
+					for (int i = 0; i < universityNamesSearchFaults.size(); i++)
+						universityNamesSearchFaults.add(universityNamesSearchFaults.get(i));
 
 					adapter.notifyDataSetChanged();
-					curriculumNamesSearchFaults.clear();
+					universityNamesSearchFaults.clear();
 
 				}
 				if (cs.length() >= 1) {
@@ -147,10 +130,10 @@ public class CurriculumListViewActivity extends Activity {
 	}
 
 	public void filterOnSearchTextChanged(CharSequence cs) {
-		for (int i = 0; i < curriculumNames.size(); i++) {
-			if (!curriculumNames.get(i).startsWith(cs.toString())) {
-				curriculumNamesSearchFaults.add(curriculumNames.get(i));
-				curriculumNames.remove(i);
+		for (int i = 0; i < universityNames.size(); i++) {
+			if (!universityNames.get(i).startsWith(cs.toString())) {
+				universityNamesSearchFaults.add(universityNames.get(i));
+				universityNames.remove(i);
 				i--;
 				adapter.notifyDataSetChanged();
 			}

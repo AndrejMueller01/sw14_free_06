@@ -29,6 +29,8 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -64,6 +66,8 @@ public class MainActivity extends Activity {
 	private int firstTimeOpened;
 
 	private static int curriculumId = 0;
+	private static int universityId = 0;
+
 	private static int studMode = 0;
 
 	private static String curriculumName = null;
@@ -96,21 +100,21 @@ public class MainActivity extends Activity {
 		if (firstTimeOpened == FIRST_TIME) {
 
 			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
+			universityId = parser.getCurrentUniversity().getId();
+
 			curriculumName = parser.getCurrentCurriculum().getName();
 			studMode = parser.getCurrentCurriculum().getMode();
 
 			InputStream is = null;
 			try {
 				is = getResources().openRawResource(
-						getResources().getIdentifier("c" + curriculumId, "raw",
+						getResources().getIdentifier("c" + universityId+"_"+curriculumId , "raw",
 								getPackageName()));
 
 				parser = XMLParser.getInstance(is);
 				parser.parseCourses(false);
 			} catch (NotFoundException ex) {
-				Toast.makeText(getBaseContext(), R.string.curr_not_found,
-						Toast.LENGTH_LONG);
-				parser.clearCurrentCourses();
+				//TODO:error handling
 
 			}
 		}
@@ -267,7 +271,7 @@ public class MainActivity extends Activity {
 				for (int i = 0; i < SEM_COUNT; i++) {
 					courseListViews[i]
 							.setOnItemClickListener(setupOnDeleteOptionSelectedClickListener(i + 1));
-
+					adapters[i].setDelMode(true);
 				}
 				item.getIcon().setAlpha(125);
 				onDelButtonFlag = false;
@@ -275,6 +279,7 @@ public class MainActivity extends Activity {
 				for (int i = 0; i < SEM_COUNT; i++) {
 					courseListViews[i]
 							.setOnItemClickListener(setupOnItemClickListener(i));
+					adapters[i].setDelMode(false);
 
 				}
 				item.getIcon().setAlpha(255);
@@ -308,10 +313,10 @@ public class MainActivity extends Activity {
 				String[] courseNames = null;
 				courseNames = parser.getCourseNamesOfSemester(semester);
 				adapters[semester - 1].setCourseNames(courseNames, position);
-//				adapters[semester - 1] = new CourseListAdapter(courseNames,
-//						view.getContext());
-//				courseListViews[semester - 1]
-//						.setAdapter(adapters[semester - 1]);
+				// adapters[semester - 1] = new CourseListAdapter(courseNames,
+				// view.getContext());
+				// courseListViews[semester - 1]
+				// .setAdapter(adapters[semester - 1]);
 
 			}
 		};

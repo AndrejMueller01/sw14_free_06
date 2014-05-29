@@ -12,6 +12,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.studyprogress.objects.Course;
 import com.studyprogress.objects.Curriculum;
+import com.studyprogress.objects.University;
 
 import android.util.Log;
 
@@ -20,9 +21,12 @@ public class XMLParser {
 	private XmlPullParserFactory xmlPullParseFactory;
 	private XmlPullParser xmlPullParser;
 	private ArrayList<Curriculum> curricula = null;
+	private ArrayList<University> universities = null;
+
 	// private ArrayList<Course> allCourses = null;
 	private static ArrayList<Course> currentCourses = null;
 	private static Curriculum currentCurriculum = null;
+	private static University currentUniversity = null;
 
 	private InputStream inputStream;
 	private static XMLParser instance = null;
@@ -35,7 +39,7 @@ public class XMLParser {
 		if (instance == null) {
 			instance = new XMLParser(is);
 			currentCurriculum = new Curriculum();
-
+			currentUniversity = new University();
 			currentCourses = new ArrayList<Course>();
 
 		} else {
@@ -55,7 +59,58 @@ public class XMLParser {
 		currentCourses.add(course);
 
 	}
+	public void parseUniversities(){
+		try {
+			int eventType = 0;
 
+			xmlPullParseFactory = XmlPullParserFactory.newInstance();
+			xmlPullParseFactory.setNamespaceAware(true);
+			xmlPullParser = xmlPullParseFactory.newPullParser();
+			xmlPullParser.setInput(inputStream, null);
+			xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES,
+					false);
+			eventType = xmlPullParser.getEventType();
+			University currentUniversity = null;
+			while (eventType != XmlPullParser.END_DOCUMENT) {
+
+				String name = null;
+				switch (eventType) {
+				case XmlPullParser.START_DOCUMENT:
+					universities = new ArrayList<University>();
+					break;
+				case XmlPullParser.START_TAG:
+					name = xmlPullParser.getName();
+					if (name.equals("university")) {
+						currentUniversity = new University();
+					} else if (currentUniversity != null) {
+						if (name.equals("name")) {
+							currentUniversity.setName(xmlPullParser.nextText());
+						}
+						if (name.equals("id")) {
+							// TODO: test with no int
+							currentUniversity.setId(Integer
+									.parseInt(xmlPullParser.nextText()));
+						}
+						// TODO: more
+					}
+					break;
+				case XmlPullParser.END_TAG:
+
+					name = xmlPullParser.getName();
+					if (name.equals("university") && currentUniversity != null) {
+						universities.add(currentUniversity);
+						currentUniversity = null;
+					}
+				}
+				eventType = xmlPullParser.next();
+			}
+
+		} catch (XmlPullParserException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public void parseCourses(boolean isSavedFile) {
 		if (currentCourses != null)
 			clearCurrentCourses();
@@ -156,7 +211,11 @@ public class XMLParser {
 		currentCurriculum.setCurriculumId(studId);
 		currentCurriculum.setMode(studMode);
 	}
+	public void setCurrentUniversity(String name, int id) {
 
+		currentUniversity.setName(name);
+		currentUniversity.setId(id);
+	}
 	// TODO: Variable names
 	public void parseCurricula() {
 		int eventType = 0;
@@ -229,7 +288,9 @@ public class XMLParser {
 	public Curriculum getCurrentCurriculum() {
 		return currentCurriculum;
 	}
-
+	public University getCurrentUniversity() {
+		return currentUniversity;
+	}
 	public ArrayList<String> getCurriculaNames(InputStream inputStream)
 			throws XmlPullParserException, IOException {
 		ArrayList<String> curriculaNames = new ArrayList<String>();
@@ -239,7 +300,15 @@ public class XMLParser {
 		}
 		return curriculaNames;
 	}
+	public ArrayList<String> getUniversityNames(InputStream inputStream)
+			throws XmlPullParserException, IOException {
+		ArrayList<String> universityNames = new ArrayList<String>();
 
+		for (int i = 0; i < universities.size(); i++) {
+			universityNames.add(universities.get(i).getName());
+		}
+		return universityNames;
+	}
 	public int getCurriculumIdWithName(String name) {
 		for (int i = 0; i < curricula.size(); i++)
 			if (curricula.get(i).getName().equals(name)) {
@@ -248,7 +317,13 @@ public class XMLParser {
 		return 0;
 	}
 
-
+	public int getUniversityIdWithName(String name) {
+		for (int i = 0; i < universities.size(); i++)
+			if (universities.get(i).getName().equals(name)) {
+				return universities.get(i).getId();
+			}
+		return 0;
+	}
 	public ArrayList<Course> getCurrentCourses() {
 		return currentCourses;
 	}

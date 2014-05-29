@@ -15,7 +15,12 @@
         android:layout_height="30dp"
          />
 
-
-
+    <ImageView
+        android:id="@+id/courses_list_view_item_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        android:src="@drawable/ic_action_x"
+        android:visibility="invisible" />
 
 </LinearLayout>
