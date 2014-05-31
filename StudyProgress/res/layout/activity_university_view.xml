@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/choose_university_text_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descrition_choose_university"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText android:id="@+id/university_list_view_search_input_field"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search_text"
+        android:inputType="textVisiblePassword"/>
+  
+
+    <ListView
+        android:id="@+id/university_list_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+  
+
+</LinearLayout>

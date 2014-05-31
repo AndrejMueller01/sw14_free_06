@@ -39,7 +39,7 @@ public class ChooseExistingOrNewCurriculum extends Activity{
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(ChooseExistingOrNewCurriculum.this,
-						CurriculumListViewActivity.class);
+						UniversityListViewActivity.class);
 				startActivity(intent);
 				finish();
 
