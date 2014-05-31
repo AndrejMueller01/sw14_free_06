@@ -13,7 +13,7 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title="@string/menu_item_add"
-        android:icon="@drawable/ic_action_mail_add">
+        android:icon="@drawable/ic_action_course_add">
     </item>
    <item
         android:id="@+id/delete_item"
