@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<courses>
+	<course>
+		<name>Geometrie für Informatiker VU</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>1</semester>
+		<bachelor>0</bachelor>
+		<cid>507.100</cid>
+		<steop>0</steop>
+		<mode>VU</mode>		
+	</course>
+	<course>
+		<name>Numerische Optimierungsverfahren VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>1</semester>
+		<bachelor>0</bachelor>
+		<cid>437.133</cid>
+		<steop>0</steop>
+		<mode>VO</mode>		
+	</course>
+	<course>
+		<name>Numerische Optimierungsverfahren UE</name>
+		<id>1</id>
+		<ects>2</ects>
+		<semester>1</semester>
+		<bachelor>0</bachelor>
+		<cid>437.134</cid>
+		<steop>0</steop>
+		<mode>UE</mode>		
+	</course>
+	<course>
+		<name>Compilerbau VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>2</semester>
+		<bachelor>0</bachelor>
+		<cid>716.076</cid>
+		<steop>0</steop>
+		<mode>VO</mode>		
+	</course>
+	<course>
+		<name>Compilerbau KU</name>
+		<id>1</id>
+		<ects>2</ects>
+		<semester>2</semester>
+		<bachelor>0</bachelor>
+		<cid>716.077</cid>
+		<steop>0</steop>
+		<mode>KU</mode>		
+	</course>
+	<course>
+		<name>Diskrete Stochastik und Informationstheorie UE</name>
+		<id>1</id>
+		<ects>1</ects>
+		<semester>2</semester>
+		<bachelor>0</bachelor>
+		<cid>MAT.908</cid>
+		<steop>0</steop>
+		<mode>UE</mode>		
+	</course>
+	<course>
+		<name>Diskrete Stochastik und Informationstheorie VO</name>
+		<id>1</id>
+		<ects>4.5</ects>
+		<semester>2</semester>
+		<bachelor>0</bachelor>
+		<cid>503.737</cid>
+		<steop>0</steop>
+		<mode>VO</mode>		
+	</course>	
+	<course>
+		<name>Enumerative Combinatoric Algorithms VU</name>
+		<id>1</id>
+		<ects>3.5</ects>
+		<semester>2</semester>
+		<bachelor>0</bachelor>
+		<cid>716.035</cid>
+		<steop>0</steop>
+		<mode>VU</mode>		
+	</course>				
+	<course>
+		<name>IT-Sicherheit VO</name>
+		<id>1</id>
+		<ects>3</ects>
+		<semester>2</semester>
+		<bachelor>0</bachelor>
+		<cid>705.058</cid>
+		<steop>0</steop>
+		<mode>VO</mode>		
+	</course>				
+	<course>
+		<name>IT-Sicherheit KU</name>
+		<id>1</id>
+		<ects>2</ects>
+		<semester>2</semester>
+		<bachelor>0</bachelor>
+		<cid>705.059</cid>
+		<steop>0</steop>
+		<mode>KU</mode>		
+	</course>						
+</courses>

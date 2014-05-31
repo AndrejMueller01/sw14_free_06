@@ -14,6 +14,7 @@ Der Modus(mode-tag) wird hinzugefügt wenn es sich um ein Diplomstudium( = 1) Ma
     <curriculum>
         <name>Informatik Master</name>
         <id>4</id>
+        <mode>2</mode>
         <year>2010</year>
     </curriculum>
     <curriculum>

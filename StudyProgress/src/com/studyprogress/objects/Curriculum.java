@@ -9,12 +9,9 @@ public class Curriculum {
 	private ArrayList<Course> mandatoryCourseList;
 	private ArrayList<Course> optionalCourseList;
 	private int yearOfRelease;
-<<<<<<< HEAD
 	private int isDiplSt;
 	private int isMasterSt;
-=======
 	private int mode;
->>>>>>> d977bacfb00eca38cc175dde7070d9c51c1ab4fe
 
 	public Curriculum()
 	{
