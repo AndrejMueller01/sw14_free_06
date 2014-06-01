@@ -161,6 +161,19 @@ public class XMLParser {
 							currentCourse.setCourseName(xmlPullParser
 									.nextText());
 						}
+						if (name.equals("cid")) {
+							currentCourse.setCourseNumber(xmlPullParser
+									.nextText());
+						}
+						if (name.equals("steop")) {
+							currentCourse.setSteop(Integer
+									.parseInt(xmlPullParser.nextText()));
+						}
+						if (name.equals("mode")) {
+							currentCourse.setMode(xmlPullParser
+									.nextText());
+						}
+
 						if (name.equals("id")) {
 							// TODO: int parser
 							currentCourse.setCurricula(Integer
@@ -385,5 +398,50 @@ public class XMLParser {
 				currentCourses.remove(i);
 		}
 	}
+	
+	public float getEctsByName(String courseName)
+	{
+		for (int i = 0; i < currentCourses.size(); i++) {
+			if(currentCourses.get(i).getCourseName().equals(courseName))
+			{
+				return currentCourses.get(i).getEcts();
+			}	
+		}
+		return 0;	
+	}
+	
+	public String getCourseNumberByName(String courseName)
+	{
+		for (int i = 0; i < currentCourses.size(); i++) {
+			if(currentCourses.get(i).getCourseName().equals(courseName))
+			{
+				return currentCourses.get(i).getCourseNumber();
+			}	
+		}
+		return "";	
+	}
+
+	public int getCourseSteopByName(String courseName)
+	{
+		for (int i = 0; i < currentCourses.size(); i++) {
+			if(currentCourses.get(i).getCourseName().equals(courseName))
+			{
+				return currentCourses.get(i).getSteop();
+			}	
+		}
+		return -1;	
+	}
+
+	public String getCourseModeByName(String courseName)
+	{
+		for (int i = 0; i < currentCourses.size(); i++) {
+			if(currentCourses.get(i).getCourseName().equals(courseName))
+			{
+				return currentCourses.get(i).getMode();
+			}	
+		}
+		return "";	
+	}
+
 
 }

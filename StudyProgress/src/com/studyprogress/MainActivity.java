@@ -345,7 +345,7 @@ public class MainActivity extends Activity {
 			}
 		};
 	}
-
+	
 	public OnItemClickListener setupOnItemClickListener(final int semester) {
 		return new OnItemClickListener() {
 
@@ -358,8 +358,30 @@ public class MainActivity extends Activity {
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
-				builder.setTitle(R.string.choose_progress);
-
+				//build title with course information
+				builder.setTitle(courseName);
+				//builder.setTitle(R.string.choose_progress);
+				String courseInformation = "ECTS: ";
+				float courseEcts = parser.getEctsByName(courseName);
+				String ectsString = Float.valueOf(courseEcts).toString();
+				courseInformation += ectsString +"\n";
+				courseInformation += "Kursnummer: ";
+				courseInformation += parser.getCourseNumberByName(courseName);
+				courseInformation += "\n";
+				courseInformation += "Steop: ";
+				int courseSteop = parser.getCourseSteopByName(courseName);
+				if(courseSteop == 1)
+				{
+					courseInformation += "Ja\n";					
+				}
+				else courseInformation += "Nein\n";		
+				
+				courseInformation += "Modus: ";
+				courseInformation += parser.getCourseModeByName(courseName);
+				courseInformation += "\n";
+				
+				
+				builder.setMessage(courseInformation);
 				builder.setPositiveButton(R.string.done,
 						new DialogInterface.OnClickListener() {
 

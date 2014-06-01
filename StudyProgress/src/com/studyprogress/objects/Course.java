@@ -9,6 +9,8 @@ public class Course {
 	private int semester;
 	private int curricula;
 	private int status;
+	private int steop;
+	private String mode;
 
 	
 	public Course(String courseName, float ects, String courseNumber, boolean isBachelorCourse, int semester, int curricula)
@@ -74,7 +76,26 @@ public class Course {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	
+	public int getSteop()
+	{
+		return steop;
+	}
 
+	public void setSteop(int steop)
+	{
+		this.steop = steop;
+	}
+
+	public String getMode()
+	{
+		return mode;
+	}
+
+	public void setMode(String mode)
+	{
+		this.mode = mode;
+	}
 
 
 }
