@@ -7,13 +7,13 @@ import android.widget.ListView;
 
 import com.example.studyprogress.R;
 import com.robotium.solo.Solo;
-import com.studyprogress.ChooseExistingOrNewCurriculum;
+import com.studyprogress.ChooseExistingOrNewCurriculumActivity;
 import com.studyprogress.ChooseStartConfigurationActivity;
 import com.studyprogress.CurriculumListViewActivity;
 import com.studyprogress.MainActivity;
 import com.studyprogress.tools.XMLParser;
 
-public class SafeFeatureTest extends
+public class SafeFeatureTests extends
 ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 	
 	private Solo solo;
@@ -26,7 +26,7 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 	XMLParser parser;
 
 	
-	public SafeFeatureTest() {
+	public SafeFeatureTests() {
 		super(ChooseStartConfigurationActivity.class);
 	}
 
@@ -54,7 +54,7 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 		solo.waitForActivity(ChooseStartConfigurationActivity.class);
 
 		solo.clickOnButton(solo.getString(R.string.new_plan));
-		solo.waitForActivity(ChooseExistingOrNewCurriculum.class);
+		solo.waitForActivity(ChooseExistingOrNewCurriculumActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		solo.clickOnButton(solo.getString(R.string.open_predefined_curriculum));
 		

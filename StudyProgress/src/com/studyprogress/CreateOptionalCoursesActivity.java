@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class CreateOptionalCourses extends Activity {
+public class CreateOptionalCoursesActivity extends Activity {
 	private static final int SEM_PLUS = 7;
 	private XMLParser parser;
 	private EditText courseNameET;
@@ -44,18 +44,28 @@ public class CreateOptionalCourses extends Activity {
 
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		Intent intent = new Intent(CreateOptionalCourses.this,
+		Intent intent = new Intent(CreateOptionalCoursesActivity.this,
 				MainActivity.class);
 		switch (item.getItemId()) {
 		case R.id.create_courses_ok_item:
 			Course newCourse = new Course();
-			newCourse.setCourseName(courseNameET.getText().toString());
-
-			newCourse.setEcts(Float.parseFloat(ectsET.getText().toString()));
-		
-			newCourse.setCurricula(parser.getCurrentCurriculum()
-					.getCurriculumId());
+			
+			String courseName = courseNameET.getText().toString();
+			String ects = ectsET.getText().toString();
 			String semesterNo = semSP.getSelectedItem().toString();
+			
+			
+			newCourse.setCourseName(courseName);
+			try {
+			newCourse.setEcts(Float.parseFloat(ects));
+			} catch (NumberFormatException ex) {
+				Toast.makeText(getApplicationContext(), R.string.new_course_ects_exception, Toast.LENGTH_LONG).show();
+				return false;
+			}
+
+//		
+//			newCourse.setCurricula(parser.getCurrentCurriculum()
+//					.getCurriculumId());
 			
 			try {
 				newCourse.setSemester(Integer.parseInt(semesterNo));

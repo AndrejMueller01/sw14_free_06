@@ -11,28 +11,28 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ChooseStartConfigurationActivity extends Activity {
-	private Button newPlan;
-	private Button openPlan;
+	private Button newPlanButton;
+	private Button openPlanButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_start_configuration);
 
-		newPlan = (Button) findViewById(R.id.choose_start_configuration_button_new);
-		openPlan = (Button) findViewById(R.id.choose_start_configuration_button_open);
+		newPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_new);
+		openPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_open);
 
-		newPlan.setOnClickListener(new OnClickListener() {
+		newPlanButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
-						ChooseExistingOrNewCurriculum.class);
+						ChooseExistingOrNewCurriculumActivity.class);
 				startActivity(intent);
 
 			}
 		});
-		openPlan.setOnClickListener(new OnClickListener() {
+		openPlanButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

@@ -26,6 +26,7 @@ public class Course {
 
 	public Course() {
 		status = 0;
+		steop = 0;
 		// TODO Auto-generated constructor stub
 	}
 

@@ -64,6 +64,7 @@ public class XMLSave {
 				//serializer.text(""+courseList.get(j).getCourseNumber());
 				serializer.endTag(null, "cid");
 				serializer.startTag(null, "steop");
+				serializer.text(""+courseList.get(j).getSteop());
 				serializer.endTag(null, "steop");
 				serializer.startTag(null, "mode");
 				serializer.endTag(null, "mode");

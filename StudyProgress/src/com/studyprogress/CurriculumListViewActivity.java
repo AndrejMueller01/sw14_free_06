@@ -111,6 +111,7 @@ public class CurriculumListViewActivity extends Activity {
 
 	}
 
+	//TODO: ListView Activity super class
 	public void updateListViewOnSearching() {
 
 		searchTextField.addTextChangedListener(new TextWatcher() {

@@ -2,9 +2,9 @@ package com.example.studyprogress.test;
 
 import com.example.studyprogress.R;
 import com.robotium.solo.Solo;
-import com.studyprogress.ChooseExistingOrNewCurriculum;
+import com.studyprogress.ChooseExistingOrNewCurriculumActivity;
 import com.studyprogress.ChooseStartConfigurationActivity;
-import com.studyprogress.CreateOptionalCourses;
+import com.studyprogress.CreateOptionalCoursesActivity;
 import com.studyprogress.CurriculumListViewActivity;
 import com.studyprogress.MainActivity;
 import com.studyprogress.tools.XMLParser;
@@ -67,7 +67,7 @@ public class AddNewCoursesTests extends
 		solo.waitForActivity(ChooseStartConfigurationActivity.class);
 
 		solo.clickOnButton(solo.getString(R.string.new_plan));
-		solo.waitForActivity(ChooseExistingOrNewCurriculum.class);
+		solo.waitForActivity(ChooseExistingOrNewCurriculumActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		solo.clickOnButton(solo.getString(R.string.open_predefined_curriculum));
 		
@@ -83,7 +83,7 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());
 		solo.pressMenuItem(1);
 
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 
 		courseNameET = (EditText) solo
@@ -119,7 +119,7 @@ public class AddNewCoursesTests extends
 		
 		solo.pressMenuItem(1);
 
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 
 		courseNameET = (EditText) solo
@@ -136,7 +136,7 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());	
 		
 		solo.pressMenuItem(1);
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		courseNameET = (EditText) solo
 				.getView(R.id.create_course_course_name_edit_text);
@@ -150,7 +150,7 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());
 
 		solo.pressMenuItem(1);
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		courseNameET = (EditText) solo
 				.getView(R.id.create_course_course_name_edit_text);
@@ -164,7 +164,7 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());		
 
 		solo.pressMenuItem(1);
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		courseNameET = (EditText) solo
 				.getView(R.id.create_course_course_name_edit_text);
@@ -178,7 +178,7 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());	
 		
 		solo.pressMenuItem(1);
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		courseNameET = (EditText) solo
 				.getView(R.id.create_course_course_name_edit_text);
@@ -192,7 +192,7 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());		
 			
 		solo.pressMenuItem(1);
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		courseNameET = (EditText) solo
 				.getView(R.id.create_course_course_name_edit_text);
@@ -206,7 +206,7 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());				
 		
 		solo.pressMenuItem(1);
-		solo.waitForActivity(CreateOptionalCourses.class);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		courseNameET = (EditText) solo
 				.getView(R.id.create_course_course_name_edit_text);

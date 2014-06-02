@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import com.example.studyprogress.R;
 
-public class MainActivityTest extends
+public class MainActivityFuctionTests extends
 		ActivityInstrumentationTestCase2<MainActivity> {
 
 	private Solo solo;
@@ -26,7 +26,7 @@ public class MainActivityTest extends
 	ListView sem6lv;
 	MenuItem safeitem;
 
-	public MainActivityTest() {
+	public MainActivityFuctionTests() {
 		super(MainActivity.class);
 
 	}

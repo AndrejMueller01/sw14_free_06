@@ -15,7 +15,7 @@ import android.widget.ListView;
 
 import com.example.studyprogress.R;
 
-public class CurriculumListViewActivityTest extends
+public class ListViewTests extends
 		ActivityInstrumentationTestCase2<CurriculumListViewActivity> {
 
 	private Solo solo;
@@ -25,7 +25,7 @@ public class CurriculumListViewActivityTest extends
 	// private ArrayAdapter<String> exampleAdapter;
 	// private ArrayList<String> curriculumSampleNames;
 
-	public CurriculumListViewActivityTest() {
+	public ListViewTests() {
 		super(CurriculumListViewActivity.class);
 
 	}

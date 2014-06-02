@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -106,15 +107,18 @@ public class MainActivity extends Activity {
 			studMode = parser.getCurrentCurriculum().getMode();
 
 			InputStream is = null;
+			parser.clearCurrentCourses();
+
 			try {
 				is = getResources().openRawResource(
-						getResources().getIdentifier("c" + universityId+"_"+curriculumId , "raw",
+						getResources().getIdentifier(
+								"c" + universityId + "_" + curriculumId, "raw",
 								getPackageName()));
 
 				parser = XMLParser.getInstance(is);
 				parser.parseCourses(false);
 			} catch (NotFoundException ex) {
-				//TODO:error handling
+				// TODO:error handling
 
 			}
 		}
@@ -260,6 +264,13 @@ public class MainActivity extends Activity {
 	}
 
 	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		MenuItem item = menu.findItem(R.id.delete_item);
+		item.getIcon().setAlpha(130);
+		return true;
+	}
+
+	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.save_item:
@@ -273,7 +284,7 @@ public class MainActivity extends Activity {
 							.setOnItemClickListener(setupOnDeleteOptionSelectedClickListener(i + 1));
 					adapters[i].setDelMode(true);
 				}
-				item.getIcon().setAlpha(125);
+				item.getIcon().setAlpha(255);
 				onDelButtonFlag = false;
 			} else {
 				for (int i = 0; i < SEM_COUNT; i++) {
@@ -282,7 +293,7 @@ public class MainActivity extends Activity {
 					adapters[i].setDelMode(false);
 
 				}
-				item.getIcon().setAlpha(255);
+				item.getIcon().setAlpha(130);
 
 				onDelButtonFlag = true;
 			}
@@ -290,7 +301,7 @@ public class MainActivity extends Activity {
 			return true;
 		case R.id.add_item:
 			Intent intent = new Intent(MainActivity.this,
-					CreateOptionalCourses.class);
+					CreateOptionalCoursesActivity.class);
 			startActivity(intent);
 			studyStateChanged = true;
 			finish();
@@ -345,7 +356,7 @@ public class MainActivity extends Activity {
 			}
 		};
 	}
-	
+
 	public OnItemClickListener setupOnItemClickListener(final int semester) {
 		return new OnItemClickListener() {
 
@@ -358,29 +369,27 @@ public class MainActivity extends Activity {
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
-				//build title with course information
+				// build title with course information
 				builder.setTitle(courseName);
-				//builder.setTitle(R.string.choose_progress);
+				// builder.setTitle(R.string.choose_progress);
 				String courseInformation = "ECTS: ";
 				float courseEcts = parser.getEctsByName(courseName);
 				String ectsString = Float.valueOf(courseEcts).toString();
-				courseInformation += ectsString +"\n";
+				courseInformation += ectsString + "\n";
 				courseInformation += "Kursnummer: ";
 				courseInformation += parser.getCourseNumberByName(courseName);
 				courseInformation += "\n";
 				courseInformation += "Steop: ";
 				int courseSteop = parser.getCourseSteopByName(courseName);
-				if(courseSteop == 1)
-				{
-					courseInformation += "Ja\n";					
-				}
-				else courseInformation += "Nein\n";		
-				
+				if (courseSteop == 1) {
+					courseInformation += "Ja\n";
+				} else
+					courseInformation += "Nein\n";
+
 				courseInformation += "Modus: ";
 				courseInformation += parser.getCourseModeByName(courseName);
 				courseInformation += "\n";
-				
-				
+
 				builder.setMessage(courseInformation);
 				builder.setPositiveButton(R.string.done,
 						new DialogInterface.OnClickListener() {
