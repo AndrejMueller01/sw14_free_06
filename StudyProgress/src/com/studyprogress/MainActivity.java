@@ -77,6 +77,7 @@ public class MainActivity extends Activity {
 	private static Integer STATUS_TO_DO = 0;
 
 	private static Integer FIRST_TIME = 1;
+	private static Integer NOT_FIRST_TIME = 0;
 
 	
 
@@ -119,7 +120,7 @@ public class MainActivity extends Activity {
 			}
 		}
 
-		else if (firstTimeOpened != FIRST_TIME) {
+		else if (firstTimeOpened == NOT_FIRST_TIME) {
 			File file = new File(Environment.getExternalStorageDirectory()
 					.getAbsolutePath() + GlobalProperties.SAVE_FILE_DIR,
 					GlobalProperties.SAVE_FILE_NAME);
