@@ -2,6 +2,8 @@ package com.example.studyprogress.test;
 
 import java.util.ArrayList;
 
+import com.studyprogress.properties.GlobalProperties;
+
 import com.example.studyprogress.R;
 import com.robotium.solo.Solo;
 import com.studyprogress.ChooseExistingOrNewCurriculumActivity;
@@ -297,9 +299,8 @@ public class AddNewCoursesTests extends
 				"SemOpt");		
 	}
 	
-	
-	public void testProgressSafed() throws Exception
-	{
+	public void testAddMoreCoursesToOneSemester() throws Exception {
+
 		solo.waitForActivity(ChooseStartConfigurationActivity.class);
 
 		solo.clickOnButton(solo.getString(R.string.new_plan));
@@ -323,34 +324,58 @@ public class AddNewCoursesTests extends
 
 		solo.waitForActivity(MainActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
-		
-		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
-		solo.clickOnButton(solo.getString(R.string.sem_1));
-		solo.clickOnView(sem1lv.getChildAt(0));
-		solo.clickOnButton(solo.getString(R.string.done));
-		solo.pressMenuItem(0);
-		solo.goBack();
-		
-		solo.waitForActivity(ChooseExistingOrNewCurriculumActivity.class);
+		solo.pressMenuItem(1);
+
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
-		solo.clickOnButton(solo.getString(R.id.choose_existing_new_curriculum_button_open));
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		solo.enterText(courseNameET, "TestKurs");
+		solo.enterText(ectsET, "3");
+		solo.pressMenuItem(0);
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		solo.enterText(courseNameET, "TestKurs2");
+		solo.enterText(ectsET, "3");
+		solo.pressMenuItem(0);
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
+
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		solo.enterText(courseNameET, "TestKurs3");
+		solo.enterText(ectsET, "3");
+		solo.pressMenuItem(0);
+
 		solo.waitForActivity(MainActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
 		solo.clickOnButton(solo.getString(R.string.sem_1));
-		String text = sem1lv.getItemAtPosition(0).toString();
-		ArrayList<Course> currCourses = XMLParser.getInstance(null).getCurrentCourses();
-		for(int i = 0; i<currCourses.size();i++)
-		{
-			if(text.equals(currCourses.get(i).getCourseName()))
-			{
-				//assertFalse(currCourses.get(i).getStatus())
-			}
-		}
-
-
-		
-	}
-
+		assertEquals(sem1lv.getAdapter().getItem(sem1lv.getCount() - 1),
+				"TestKurs3");
+		assertEquals(sem1lv.getAdapter().getItem(sem1lv.getCount() - 2),
+				"TestKurs2");
+		assertEquals(sem1lv.getAdapter().getItem(sem1lv.getCount() - 3),
+				"TestKurs");
+	}	
 	
 }
