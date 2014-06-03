@@ -58,7 +58,7 @@ public class CreateNewCurriculumActivity extends Activity {
 			return true;
 			
 		case R.id.create_curriculum_cancel_item:
-			startActivity(intent);
+			onBackPressed();
 			finish();
 			return true;
 		}

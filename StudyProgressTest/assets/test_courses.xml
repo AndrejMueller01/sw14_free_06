@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<courses cname="Informatik" ci ="1" cisDiplStud="0">
+	<course>
+		<name>Analysis T1 VU</name>
+		<id>1</id>
+		<ects>7</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>501.446</cid>
+		<steop>0</steop>
+		<mode>VU</mode>		
+	</course>
+	<course>
+		<name>Einführung in das Studium der Informatik VO</name>
+		<id>1</id>
+		<ects>1</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>710.104</cid>
+		<steop>1</steop>
+		<mode>VO</mode>
+	</course>	
+</courses>

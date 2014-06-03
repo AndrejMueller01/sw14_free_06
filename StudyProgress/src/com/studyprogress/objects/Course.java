@@ -7,20 +7,18 @@ public class Course {
 	private String courseNumber;
 	private boolean isBachelorCourse;
 	private int semester;
-	private int curricula;
+	private int curriculaNumber;
 	private int status;
 	private int steop;
 	private String mode;
 
 	
-	public Course(String courseName, float ects, String courseNumber, boolean isBachelorCourse, int semester, int curricula)
+	public Course(String courseName, float ects, int semester, String mode)
 	{
 		this.courseName = courseName;
 		this.ects = ects;
-		this.courseNumber = courseNumber;
-		this.isBachelorCourse = isBachelorCourse;
 		this.semester = semester;
-		this.curricula = curricula;
+		this.mode = mode;
 	}
 
 
@@ -61,18 +59,15 @@ public class Course {
 	public void setSemester(int semester) {
 		this.semester = semester;
 	}
-	public int getCurricula() {
-		return curricula;
+	public int getCurriculaNumber() {
+		return curriculaNumber;
 	}
-	public void setCurricula(int curricula) {
-		this.curricula = curricula;
+	public void setCurriculaNumber(int curricula) {
+		this.curriculaNumber = curricula;
 	}
-
-
 	public int getStatus() {
 		return status;
 	}
-
 
 	public void setStatus(int status) {
 		this.status = status;
