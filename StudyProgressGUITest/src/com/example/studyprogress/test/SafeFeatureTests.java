@@ -11,6 +11,7 @@ import com.studyprogress.ChooseExistingOrNewCurriculumActivity;
 import com.studyprogress.ChooseStartConfigurationActivity;
 import com.studyprogress.CurriculumListViewActivity;
 import com.studyprogress.MainActivity;
+import com.studyprogress.UniversityListViewActivity;
 import com.studyprogress.tools.XMLParser;
 
 public class SafeFeatureTests extends
@@ -57,6 +58,12 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 		solo.waitForActivity(ChooseExistingOrNewCurriculumActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		solo.clickOnButton(solo.getString(R.string.open_predefined_curriculum));
+
+		solo.waitForActivity(UniversityListViewActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		ListView universityListView = (ListView) solo
+				.getView(R.id.university_list_view);
+		solo.clickOnView(universityListView.getChildAt(0));	
 		
 		solo.waitForActivity(CurriculumListViewActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
@@ -72,14 +79,10 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 		
 		solo = new Solo(getInstrumentation(), getActivity());
 		solo.goBack();
-		solo.goBack();
-		solo.goBack();
 		solo.clickOnButton(solo.getString(R.string.open_plan));
 
 		String telematik = new String("Telematik");
 		assert(parser.getCurrentCurriculum().getName().equals(telematik));
-		//TODO: hier jetzt checken ob sich Telematik Curriculum �ffnet!
-
 
 		
 		
