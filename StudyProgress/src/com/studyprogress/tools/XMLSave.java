@@ -50,7 +50,7 @@ public class XMLSave {
 				serializer.text(""+courseList.get(j).getCourseName());
 				serializer.endTag(null, "name");
 				serializer.startTag(null, "id");
-				serializer.text(""+courseList.get(j).getCurricula());
+				serializer.text(""+courseList.get(j).getCurriculaNumber());
 				serializer.endTag(null, "id");
 				serializer.startTag(null, "ects");
 				serializer.text(""+courseList.get(j).getEcts());

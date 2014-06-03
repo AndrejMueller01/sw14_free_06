@@ -10,6 +10,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import properties.GlobalProperties;
+
 import com.studyprogress.objects.Course;
 import com.studyprogress.objects.Curriculum;
 import com.studyprogress.objects.University;
@@ -111,6 +113,11 @@ public class XMLParser {
 			e.printStackTrace();
 		}
 	}
+	
+	public ArrayList<University> getAllUniversities(){
+		return universities;
+	}
+	
 	public void parseCourses(boolean isSavedFile) {
 		if (currentCourses != null)
 			clearCurrentCourses();
@@ -176,7 +183,7 @@ public class XMLParser {
 
 						if (name.equals("id")) {
 							// TODO: int parser
-							currentCourse.setCurricula(Integer
+							currentCourse.setCurriculaNumber(Integer
 									.parseInt(xmlPullParser.nextText()));
 						}
 						if (name.equals("semester")) {
@@ -442,6 +449,13 @@ public class XMLParser {
 		}
 		return "";	
 	}
-
+	public float getCurrentEcts() {
+		float currentEcts = 0;
+		for (int i = 0; i < getCurrentCourses().size(); i++) {
+			if ((getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_DONE))
+				currentEcts += getCurrentCourses().get(i).getEcts();
+		}
+		return currentEcts;
+	}
 
 }

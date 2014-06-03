@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import properties.GlobalProperties;
+
 import com.example.studyprogress.R;
+import com.studyprogress.tools.ProgressCalculator;
 import com.studyprogress.tools.XMLParser;
 import com.studyprogress.tools.XMLSave;
 import com.studyprogress.adapter.CourseListAdapter;
@@ -43,8 +46,6 @@ public class MainActivity extends Activity {
 	private ProgressBar studyProgressBar;
 	private TextView studyProgressPercentage;
 
-	private static final int SEM_COUNT = 7;
-
 	private static CourseListAdapter[] adapters;
 
 	private TextView curriculumNameTextField;
@@ -62,7 +63,6 @@ public class MainActivity extends Activity {
 
 	private static boolean studyStateChanged = false;
 
-	private float maxEcts;
 	private XMLParser parser;
 	private int firstTimeOpened;
 
@@ -78,13 +78,10 @@ public class MainActivity extends Activity {
 	private static Integer STATUS_TO_DO = 0;
 
 	private static Integer FIRST_TIME = 1;
-	private static Integer NOT_FIRST_TIME = 0;
 
-	private static Integer DIPL_STUD = 1;
-	private static Integer BACH_STUD = 0;
-	private static Integer MAST_STUD = 2;
-	private static Integer PHD_STUD = 3;
-	private static Integer LA_STUD = 4;
+	
+
+
 
 	public View row;
 	private boolean onDelButtonFlag = true;
@@ -112,7 +109,7 @@ public class MainActivity extends Activity {
 			try {
 				is = getResources().openRawResource(
 						getResources().getIdentifier(
-								"c" + universityId + "_" + curriculumId, "raw",
+								GlobalProperties.COURSE_XML_PREFIX + universityId + "_" + curriculumId, "raw",
 								getPackageName()));
 
 				parser = XMLParser.getInstance(is);
@@ -123,24 +120,22 @@ public class MainActivity extends Activity {
 			}
 		}
 
-		else if (firstTimeOpened == NOT_FIRST_TIME) {
+		else if (firstTimeOpened != FIRST_TIME) {
 			File file = new File(Environment.getExternalStorageDirectory()
-					.getAbsolutePath() + "/studyprogress_save",
-					"my_curriculum.xml");
+					.getAbsolutePath() + GlobalProperties.SAVE_FILE_DIR,
+					GlobalProperties.SAVE_FILE_NAME);
 
 			InputStream fileInputStream = null;
 
 			try {
 				fileInputStream = new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				Toast.makeText(getBaseContext(), R.string.file_not_found,
-						Toast.LENGTH_LONG).show();
-				return;
+				e.printStackTrace();
 			}
+
 
 			parser = XMLParser.getInstance(fileInputStream);
 			parser.parseCourses(true);
-			// parser.initializeAllActualCoursesToCurrentCourses();
 
 			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
 			curriculumName = parser.getCurrentCurriculum().getName();
@@ -157,11 +152,10 @@ public class MainActivity extends Activity {
 
 		studyProgressPercentage = (TextView) findViewById(R.id.progress_text_view);
 		curriculumNameTextField = (TextView) findViewById(R.id.curriculumNameInMainActivityTextView);
-		curriculumNameTextField.setText(curriculumName + "[Id:" + curriculumId
-				+ "]");
+		curriculumNameTextField.setText(curriculumName);
 
-		courseListViews = new ListView[SEM_COUNT];
-		adapters = new CourseListAdapter[SEM_COUNT];
+		courseListViews = new ListView[GlobalProperties.SEM_COUNT];
+		adapters = new CourseListAdapter[GlobalProperties.SEM_COUNT];
 
 		semesterTextField = (TextView) findViewById(R.id.semester_line_description_text_view);
 		courseListViews[0] = (ListView) findViewById(R.id.courses_list_view_sem1);
@@ -180,32 +174,32 @@ public class MainActivity extends Activity {
 		sem6Button = (Button) findViewById(R.id.semester_6_name_button);
 		semOptCourses = (Button) findViewById(R.id.semester_optional_courses);
 
-		if (studMode == DIPL_STUD) {
+		if (studMode == GlobalProperties.DIPL_STUD) {
 
 			sem4Button.setVisibility(View.INVISIBLE);
 			sem5Button.setVisibility(View.INVISIBLE);
 			sem6Button.setVisibility(View.INVISIBLE);
 			semesterTextField.setText("Abschnitt");
-		} else if (studMode == MAST_STUD) {
+		} else if (studMode == GlobalProperties.MAST_STUD) {
 			sem5Button.setVisibility(View.INVISIBLE);
 			sem6Button.setVisibility(View.INVISIBLE);
-		} else if (studMode == LA_STUD) {
+		} else if (studMode == GlobalProperties.LA_STUD) {
 			// TODO:+3 Sem Buttons
 		}
 
-		maxEcts = getAllEcts();
+		//maxEcts = getAllEcts();
 		refreshProgress();
 
 		String[][] courseNames = null;
-		courseNames = new String[SEM_COUNT][];
+		courseNames = new String[GlobalProperties.SEM_COUNT][];
 
-		for (int i = 0; i < SEM_COUNT; i++)
+		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
 			courseNames[i] = parser.getCourseNamesOfSemester(i + 1);
 
-		for (int i = 0; i < SEM_COUNT; i++)
+		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
 			adapters[i] = new CourseListAdapter(courseNames[i], this);
 
-		for (int i = 0; i < SEM_COUNT; i++)
+		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
 			courseListViews[i].setAdapter(adapters[i]);
 
 		setClickListneners();
@@ -214,7 +208,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void setBackgroudColors() {
-		for (int j = 0; j < SEM_COUNT; j++)
+		for (int j = 0; j < GlobalProperties.SEM_COUNT; j++)
 			for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
 				if (parser.getCurrentCourses().get(i).getStatus() == STATUS_DONE) {
 					int position = adapters[j].getPositionByString(parser
@@ -248,7 +242,7 @@ public class MainActivity extends Activity {
 		sem6Button.setOnClickListener(setupOnClickListener(5));
 		semOptCourses.setOnClickListener(setupOnClickListener(6));
 
-		for (int i = 0; i < SEM_COUNT; i++) {
+		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 			courseListViews[i]
 					.setOnItemClickListener(setupOnItemClickListener(i));
 		}
@@ -279,7 +273,7 @@ public class MainActivity extends Activity {
 		case R.id.delete_item:
 
 			if (onDelButtonFlag) {
-				for (int i = 0; i < SEM_COUNT; i++) {
+				for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 					courseListViews[i]
 							.setOnItemClickListener(setupOnDeleteOptionSelectedClickListener(i + 1));
 					adapters[i].setDelMode(true);
@@ -287,7 +281,7 @@ public class MainActivity extends Activity {
 				item.getIcon().setAlpha(255);
 				onDelButtonFlag = false;
 			} else {
-				for (int i = 0; i < SEM_COUNT; i++) {
+				for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 					courseListViews[i]
 							.setOnItemClickListener(setupOnItemClickListener(i));
 					adapters[i].setDelMode(false);
@@ -324,10 +318,7 @@ public class MainActivity extends Activity {
 				String[] courseNames = null;
 				courseNames = parser.getCourseNamesOfSemester(semester);
 				adapters[semester - 1].setCourseNames(courseNames, position);
-				// adapters[semester - 1] = new CourseListAdapter(courseNames,
-				// view.getContext());
-				// courseListViews[semester - 1]
-				// .setAdapter(adapters[semester - 1]);
+
 
 			}
 		};
@@ -346,7 +337,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				for (int i = 0; i < SEM_COUNT; i++) {
+				for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 					if (i == semester) {
 						courseListViews[i].setVisibility(View.VISIBLE);
 					} else
@@ -438,37 +429,23 @@ public class MainActivity extends Activity {
 	}
 
 	public void refreshProgress() {
-		float currentEcts = getCurrentEcts();
-		studyProgressBar.setMax((int) maxEcts);
+		ProgressCalculator calculator = new ProgressCalculator(parser);
+		float currentEcts = calculator.calcuateCurrentECTS();
+		int maxECTS = calculator.getMaxECTS();
+		
+		studyProgressBar.setMax(maxECTS);
 		studyProgressBar.setProgress((int) currentEcts);
 		studyProgressBar.refreshDrawableState();
-		int progressInPercent = 0;
+		
+		float progressInPercent = calculator.calculatePercentage();
 
-		if (studyProgressBar.getMax() != 0)
-			// percentage calculation
-			progressInPercent = studyProgressBar.getProgress() * 100
-					/ studyProgressBar.getMax();
 
-		studyProgressPercentage.setText(currentEcts + "/" + maxEcts + " ECTS ("
+		studyProgressPercentage.setText(currentEcts + "/" + maxECTS + " ECTS ("
 				+ progressInPercent + "%)");
 	}
 
-	private float getAllEcts() {
-		float allEcts = 0;
-		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-			allEcts += parser.getCurrentCourses().get(i).getEcts();
-		}
-		return allEcts;
-	}
 
-	private float getCurrentEcts() {
-		float currentEcts = 0;
-		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-			if ((parser.getCurrentCourses().get(i).getStatus() == STATUS_DONE))
-				currentEcts += parser.getCurrentCourses().get(i).getEcts();
-		}
-		return currentEcts;
-	}
+
 
 	private void setProgressOfCourseDone(String courseName) {
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
