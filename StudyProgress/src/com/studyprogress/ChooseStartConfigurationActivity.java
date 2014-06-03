@@ -22,6 +22,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 
 		newPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_new);
 		openPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_open);
+		aboutButton = (Button) findViewById(R.id.choose_start_configuration_button_about);
 
 		newPlanButton.setOnClickListener(new OnClickListener() {
 
@@ -45,7 +46,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 			}
 		});
 		
-		/*aboutButton.setOnClickListener(new OnClickListener() {
+		aboutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -55,7 +56,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 				startActivity(intent);
 
 			}
-		});*/
+		});
 		
 		
 	}
