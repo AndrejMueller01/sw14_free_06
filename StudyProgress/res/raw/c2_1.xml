@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <courses>
 	<course>			
-		<name>Orientierungslehrveranstaltung</name>
+		<name>Orientierungslehrveranstaltung LV</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>0.5</ects>
@@ -11,7 +11,7 @@
 		<mode>LV</mode>
 	</course>
 	<course>			
-		<name>Der juristische Fall als Einstieg in das Recht</name>
+		<name>Der juristische Fall als Einstieg in das Recht LV</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>2</ects>
@@ -21,7 +21,7 @@
 		<mode>LV</mode>
 	</course>	
 	<course>			
-		<name>Ausgewählte Kapitel des Privatrechts, Strafrechts und öffentlichen Recht</name>
+		<name>Ausgewählte Kapitel des Privatrechts, Strafrechts und öffentlichen Recht LV</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>16.5</ects>
@@ -31,7 +31,7 @@
 		<mode>LV</mode>
 	</course>	
 	<course>			
-		<name>Einführung in die Internationalen Dimensionen des Rechts</name>
+		<name>Einführung in die Internationalen Dimensionen des Rechts LV</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>4</ects>
@@ -41,7 +41,7 @@
 		<mode>LV</mode>
 	</course>
 	<course>			
-		<name>Rechtsethik und Rechtspolitik</name>
+		<name>Rechtsethik und Rechtspolitik LV</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>4</ects>
@@ -51,7 +51,7 @@
 		<mode>LV</mode>
 	</course>
 	<course>			
-		<name>Einführung in die Rechtsinformatik</name>
+		<name>Einführung in die Rechtsinformatik K</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -61,7 +61,7 @@
 		<mode>K</mode>
 	</course>	
 	<course>			
-		<name>Römisches Recht 1</name>
+		<name>Römisches Recht 1 VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>2</ects>
@@ -71,7 +71,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Römisches Recht 2</name>
+		<name>Römisches Recht 2 K</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -81,7 +81,7 @@
 		<mode>K</mode>
 	</course>
 	<course>			
-		<name>Österreichische und Europäische Rechtsentwicklung 1</name>
+		<name>Österreichische und Europäische Rechtsentwicklung 1 VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>3</ects>
@@ -91,7 +91,7 @@
 		<mode>VO</mode>
 	</course>	
 	<course>			
-		<name>Österreichische und Europäische Rechtsentwicklung 2</name>
+		<name>Österreichische und Europäische Rechtsentwicklung 2 VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>3</ects>
@@ -101,7 +101,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Österreichische und Europäische Rechtsentwicklung 3</name>
+		<name>Österreichische und Europäische Rechtsentwicklung 3 K</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -201,7 +201,7 @@
 		<mode>K</mode>
 	</course>
 	 	<course>			
-		<name>Arbeits- und Sozialrecht</name>
+		<name>Arbeits- und Sozialrecht VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>7.5</ects>
@@ -211,7 +211,7 @@
 		<mode>VO</mode>
 	</course>
 	 	<course>			
-		<name>Unternehmensrecht</name>
+		<name>Unternehmensrecht VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>7.5</ects>
@@ -221,7 +221,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Zivilgerichtliches Verfahren</name>
+		<name>Zivilgerichtliches Verfahren VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>7.5</ects>
@@ -231,7 +231,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Finanzrecht</name>
+		<name>Finanzrecht VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -241,7 +241,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Völkerrecht</name>
+		<name>Völkerrecht VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -251,7 +251,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Europarecht</name>
+		<name>Europarecht VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -261,7 +261,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Methodenlehre</name>
+		<name>Methodenlehre VO</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>4.5</ects>
@@ -271,7 +271,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Wahpflichtkurs 1</name>
+		<name>Wahpflichtkurs 1 K</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -281,7 +281,7 @@
 		<mode>K</mode>
 	</course>
 	<course>			
-		<name>Wahpflichtkurs 2</name>
+		<name>Wahpflichtkurs 2 K</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>

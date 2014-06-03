@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class ChooseStartConfigurationActivity extends Activity {
 	private Button newPlanButton;
 	private Button openPlanButton;
+	private Button aboutButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +44,19 @@ public class ChooseStartConfigurationActivity extends Activity {
 
 			}
 		});
+		
+		/*aboutButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
+						AboutActivity.class);
+				intent.putExtra("firstOpen", 0);
+				startActivity(intent);
+
+			}
+		});*/
+		
+		
 	}
 }

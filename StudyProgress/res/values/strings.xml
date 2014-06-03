@@ -47,7 +47,9 @@
     <string name="changes_save">Es sind Änderungen vorhanden!\n Wollen Sie die Änderungen speichern?</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
-        
+    <string name="about_authors">Authoren: Dominik Hirner, Andrej Müller</string>    
+    <string name="about_designer">Designer: Priska Rothammer</string>    
+    <string name="about_information">Dieses App wurde im Laufe der Lehrveranstaltung Mobile Applications im SS 2014 entwickelt.</string>    
     
     
 

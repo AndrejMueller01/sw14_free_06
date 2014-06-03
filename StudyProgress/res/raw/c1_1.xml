@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <courses cname="Informatik" ci ="1" cisDiplStud="0">
 	<course>
-		<name>Analysis T1</name>
+		<name>Analysis T1 VU</name>
 		<id>1</id>
 		<ects>7</ects>
 		<semester>1</semester>
@@ -11,7 +11,7 @@
 		<mode>VU</mode>		
 	</course>
 	<course>
-		<name>Einführung in das Studium der Informatik</name>
+		<name>Einführung in das Studium der Informatik VO</name>
 		<id>1</id>
 		<ects>1</ects>
 		<semester>1</semester>
@@ -21,7 +21,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>
-		<name>Internet und neue Medien</name>
+		<name>Internet und neue Medien VU</name>
 		<id>1</id>
 		<ects>1.5</ects>
 		<semester>1</semester>
@@ -31,7 +31,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Grundlagen der Elektrotechnik TE</name>
+		<name>Grundlagen der Elektrotechnik TE VO</name>
 		<id>1</id>
 		<ects>4</ects>
 		<semester>1</semester>
@@ -41,7 +41,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>
-		<name>Computermathematik 1</name>
+		<name>Computermathematik 1 VU</name>
 		<id>1</id>
 		<ects>1</ects>
 		<semester>1</semester>
@@ -51,7 +51,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Einführung in die strukturierte Programmierung</name>
+		<name>Einführung in die strukturierte Programmierung VU</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>1</semester>
@@ -81,7 +81,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>
-		<name>Einführung in das Wissenschaftliche Arbeiten</name>
+		<name>Einführung in das Wissenschaftliche Arbeiten SE</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>1</semester>
@@ -91,7 +91,7 @@
 		<mode>SE</mode>
 	</course>
 	<course>
-		<name>Diskrete Mathematik TE</name>
+		<name>Diskrete Mathematik TE VU</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>2</semester>
@@ -101,7 +101,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Einführung in das Wissensmanagement</name>
+		<name>Einführung in das Wissensmanagement VU</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -111,7 +111,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Mensch-Maschine-Kommunikation</name>
+		<name>Mensch-Maschine-Kommunikation VU</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>2</semester>
@@ -121,7 +121,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>
-		<name>Softwareentwicklung Praktikum</name>
+		<name>Softwareentwicklung Praktikum VU</name>
 		<id>1</id>
 		<ects>5</ects>
 		<semester>2</semester>
@@ -151,7 +151,7 @@
 		<mode>KU</mode>
 	</course>
 	<course>			
-		<name>Datenbanken 1</name>
+		<name>Datenbanken 1 VU</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -161,7 +161,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>			
-		<name>Wahrscheinlichkeitstheorie für Informatikstudien</name>
+		<name>Wahrscheinlichkeitstheorie für Informatikstudien VU</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>3</semester>
@@ -171,7 +171,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Statistik für Informatikstudien</name>
+		<name>Statistik für Informatikstudien VU</name>
 		<id>1</id>
 		<ects>1.5</ects>
 		<semester>3</semester>
@@ -181,7 +181,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Numerisches Rechnen und lineare Algebra</name>
+		<name>Numerisches Rechnen und lineare Algebra VU</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>3</semester>
@@ -191,7 +191,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Objektorientierte Analyse und Design</name>
+		<name>Objektorientierte Analyse und Design VU</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>3</semester>
@@ -241,7 +241,7 @@
 		<mode>UE</mode>
 	</course>
     <course>			
-		<name>Datenbanken 2</name>
+		<name>Datenbanken 2 VU</name>
 		<id>1</id>
 		<ects>1.5</ects>
 		<semester>3</semester>
@@ -251,7 +251,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Neue Informationssysteme</name>
+		<name>Neue Informationssysteme VU</name>
 		<id>1</id>
 		<ects>2.5</ects>
 		<semester>3</semester>
@@ -261,7 +261,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Logik und Logische Programmierung</name>
+		<name>Logik und Logische Programmierung VU</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>3</semester>
@@ -271,7 +271,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Softwareparadigmen</name>
+		<name>Softwareparadigmen VU</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>4</semester>
@@ -281,7 +281,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Entwurf und Entwicklung großer Systeme</name>
+		<name>Entwurf und Entwicklung großer Systeme VU</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>4</semester>
@@ -291,7 +291,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Architektur verteilter Systeme</name>
+		<name>Architektur verteilter Systeme VO</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>4</semester>
@@ -301,7 +301,7 @@
 		<mode>VO</mode>
 	</course>
     <course>			
-		<name>Computergrafik 1</name>
+		<name>Computergrafik 1 VU</name>
 		<id>1</id>
 		<ects>2.5</ects>
 		<semester>4</semester>
@@ -311,7 +311,7 @@
 		<mode>VU</mode>
 	</course>		
     <course>			
-		<name>Computergrafik 2</name>
+		<name>Computergrafik 2 VU</name>
 		<id>1</id>
 		<ects>2</ects>
 		<semester>4</semester>
@@ -321,7 +321,7 @@
 		<mode>VU</mode>
 	</course>	
     <course>			
-		<name>Computer Vision 1</name>
+		<name>Computer Vision 1 VU</name>
 		<id>1</id>
 		<ects>2</ects>
 		<semester>4</semester>
@@ -331,7 +331,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Computer Vision 2</name>
+		<name>Computer Vision 2 VU</name>
 		<id>1</id>
 		<ects>2.5</ects>
 		<semester>4</semester>
@@ -381,7 +381,7 @@
 		<mode>UE</mode>
 	</course>
     <course>			
-		<name>Softwareentwicklung in Verteilten Umgebungen</name>
+		<name>Softwareentwicklung in Verteilten Umgebungen VU</name>
 		<id>1</id>
 		<ects>4</ects>
 		<semester>5</semester>
@@ -391,7 +391,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Software-Maintenance</name>
+		<name>Software-Maintenance VU</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>5</semester>
@@ -401,7 +401,7 @@
 		<mode>VU</mode>
 	</course>
     <course>			
-		<name>Entwurf und Analyse von Algorithmen</name>
+		<name>Entwurf und Analyse von Algorithmen VO</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>5</semester>
@@ -411,7 +411,7 @@
 		<mode>VO</mode>
 	</course>
     <course>			
-		<name>Entwurf von Echtzeitsystemen</name>
+		<name>Entwurf von Echtzeitsystemen VO</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>5</semester>
@@ -521,7 +521,7 @@
 		<mode>KU</mode>
 	</course>
 	<course>			
-		<name>Gesellschaftliche Aspekte der Informationstechnologie</name>
+		<name>Gesellschaftliche Aspekte der Informationstechnologie VU</name>
 		<id>1</id>
 		<ects>2.5</ects>
 		<semester>6</semester>
@@ -531,7 +531,7 @@
 		<mode>VU</mode>
 	</course>
 	<course>			
-		<name>Bachelorarbeit Informatik</name>
+		<name>Bachelorarbeit Informatik SP</name>
 		<id>1</id>
 		<ects>15</ects>
 		<semester>6</semester>
