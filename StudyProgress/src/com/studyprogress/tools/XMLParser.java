@@ -10,11 +10,10 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import properties.GlobalProperties;
-
 import com.studyprogress.objects.Course;
 import com.studyprogress.objects.Curriculum;
 import com.studyprogress.objects.University;
+import com.studyprogress.properties.GlobalProperties;
 
 import android.util.Log;
 
@@ -34,15 +33,16 @@ public class XMLParser {
 	private static XMLParser instance = null;
 
 	public XMLParser(InputStream inputStream) {
+		currentCurriculum = new Curriculum();
+		currentUniversity = new University();
+		currentCourses = new ArrayList<Course>();
 		this.inputStream = inputStream;
 	}
 
 	public static XMLParser getInstance(InputStream is) {
 		if (instance == null) {
 			instance = new XMLParser(is);
-			currentCurriculum = new Curriculum();
-			currentUniversity = new University();
-			currentCourses = new ArrayList<Course>();
+			
 
 		} else {
 			instance.setInputStream(is);
@@ -153,7 +153,7 @@ public class XMLParser {
 							int studId = Integer.parseInt(xmlPullParser
 									.getAttributeValue(null, "cid"));
 							int studMode = Integer.parseInt(xmlPullParser
-									.getAttributeValue(null, "cisDiplSt"));
+									.getAttributeValue(null, "cmode"));
 
 							setCurrentCurriculum(studName,studMode,studId);
 

@@ -41,7 +41,7 @@ public class XMLSave {
 			serializer.startTag(null, "courses");
 			serializer.attribute(null, "cname", curriculumName);
 			serializer.attribute(null, "cid", ""+curriculumId);
-			serializer.attribute(null, "cisDiplSt", ""+studMode);
+			serializer.attribute(null, "cmode", ""+studMode);
 
 			for (int j = 0; j < courseList.size(); j++) {
 				//TODO: more informations

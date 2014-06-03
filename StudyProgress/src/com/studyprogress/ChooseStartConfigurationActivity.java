@@ -2,9 +2,8 @@ package com.studyprogress;
 
 import java.io.File;
 
-import properties.GlobalProperties;
-
 import com.example.studyprogress.R;
+import com.studyprogress.properties.GlobalProperties;
 
 import android.app.Activity;
 import android.content.Intent;

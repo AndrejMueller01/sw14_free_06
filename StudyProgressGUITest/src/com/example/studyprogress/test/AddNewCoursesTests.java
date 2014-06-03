@@ -2,7 +2,7 @@ package com.example.studyprogress.test;
 
 import java.util.ArrayList;
 
-import properties.GlobalProperties;
+import com.studyprogress.properties.GlobalProperties;
 
 import com.example.studyprogress.R;
 import com.robotium.solo.Solo;
@@ -377,10 +377,5 @@ public class AddNewCoursesTests extends
 		assertEquals(sem1lv.getAdapter().getItem(sem1lv.getCount() - 3),
 				"TestKurs");
 	}	
-	
-
-	
-	
-	
 	
 }
