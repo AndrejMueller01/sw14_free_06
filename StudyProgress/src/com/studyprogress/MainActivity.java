@@ -5,9 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import properties.GlobalProperties;
-
 import com.example.studyprogress.R;
+import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.ProgressCalculator;
 import com.studyprogress.tools.XMLParser;
 import com.studyprogress.tools.XMLSave;

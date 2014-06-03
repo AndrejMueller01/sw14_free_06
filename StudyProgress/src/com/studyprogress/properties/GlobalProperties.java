@@ -1,4 +1,4 @@
-package properties;
+package com.studyprogress.properties;
 
 public class GlobalProperties {
 	

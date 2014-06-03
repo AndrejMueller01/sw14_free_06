@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<courses cname="Informatik" cid="1" cmode="1">
+    <course>
+		<name>Analysis T1 VU</name>
+		<id>1</id>
+		<ects>7</ects>
+		<semester>1</semester>
+		<bachelor>1</bachelor>
+		<cid>501.446</cid>
+		<steop>0</steop>
+		<mode>VU</mode>		
+	</course>
+</courses>

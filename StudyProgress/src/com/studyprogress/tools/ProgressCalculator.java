@@ -1,6 +1,6 @@
 package com.studyprogress.tools;
 
-import properties.GlobalProperties;
+import com.studyprogress.properties.GlobalProperties;
 
 public class ProgressCalculator {
 	private XMLParser parser;

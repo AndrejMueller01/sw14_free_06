@@ -349,7 +349,6 @@ public class AddNewCoursesTests extends
 		}
 
 
-
 		
 	}
 
