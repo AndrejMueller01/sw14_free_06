@@ -866,12 +866,13 @@ containing a value of this type.
         public static final int DONE=0x7f080003;
         public static final int INPROGRESS=0x7f080005;
         public static final int TODO=0x7f080004;
-        public static final int abc_search_url_text_holo=0x7f080008;
+        public static final int abc_search_url_text_holo=0x7f080009;
         public static final int abc_search_url_text_normal=0x7f080000;
         public static final int abc_search_url_text_pressed=0x7f080002;
         public static final int abc_search_url_text_selected=0x7f080001;
         public static final int background_green=0x7f080006;
-        public static final int background_red=0x7f080007;
+        public static final int background_red=0x7f080008;
+        public static final int background_standard=0x7f080007;
     }
     public static final class dimen {
         /**  Default height of an action bar. 

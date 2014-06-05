@@ -3,6 +3,7 @@
     android:id="@+id/CurriculumListTextView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/background_standard"
     android:orientation="vertical" >
 
     <TextView

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_standard"
     android:orientation="vertical" >
 
     <TextView
@@ -16,23 +17,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/create_new_curriculum_hint"
-         >
+        android:hint="@string/create_new_curriculum_hint" >
 
         <requestFocus />
     </EditText>
-  <TextView
+
+    <TextView
         android:id="@+id/create_new_curr_mode_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_new_curriculum_mode"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-        <Spinner
+
+    <Spinner
         android:id="@+id/create_new_curr_mode_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/Curriculum_type_array"
         android:prompt="@string/opt_course_mode" />
-    
 
 </LinearLayout>

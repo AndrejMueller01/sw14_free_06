@@ -126,12 +126,13 @@ int bool abc_split_action_bar_is_narrow 0x7f070002
 int color DONE 0x7f080003
 int color INPROGRESS 0x7f080005
 int color TODO 0x7f080004
-int color abc_search_url_text_holo 0x7f080008
+int color abc_search_url_text_holo 0x7f080009
 int color abc_search_url_text_normal 0x7f080000
 int color abc_search_url_text_pressed 0x7f080002
 int color abc_search_url_text_selected 0x7f080001
 int color background_green 0x7f080006
-int color background_red 0x7f080007
+int color background_red 0x7f080008
+int color background_standard 0x7f080007
 int dimen abc_action_bar_default_height 0x7f090002
 int dimen abc_action_bar_icon_vertical_padding 0x7f090003
 int dimen abc_action_bar_progress_bar_size 0x7f09000a

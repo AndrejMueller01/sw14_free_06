@@ -4,7 +4,8 @@
     <color name="DONE">#FF00FF00</color>
     <color name="TODO">#FFFF0000</color>
     <color name="INPROGRESS">#FFFFFF00</color>
-    <color name="background_green">#90ee90</color>
-    <color name="background_red">#ffa07a</color>
+    <color name="background_green">#84bc25</color>
+    <color name="background_standard">#f3ee82</color>
+    <color name="background_red">#bc1d1f</color>
 
 </resources>
