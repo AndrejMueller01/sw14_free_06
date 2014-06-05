@@ -21,6 +21,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 	private XMLParser parser;
 	private EditText courseNameET;
 	private EditText ectsET;
+	private EditText cidET;
 	private Spinner semSP;
 	private Spinner modeSP;
 
@@ -30,6 +31,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 		setContentView(R.layout.activity_create_optional_course);
 		courseNameET = (EditText) findViewById(R.id.create_course_course_name_edit_text);
 		ectsET = (EditText) findViewById(R.id.create_course_ects_edit_text);
+		cidET = (EditText) findViewById(R.id.create_course_cid_edit_text);
 		semSP = (Spinner) findViewById(R.id.create_course_sem_spinner);
 		modeSP = (Spinner) findViewById(R.id.create_course_mode_spinner);
 		parser = XMLParser.getInstance(null);
@@ -54,6 +56,10 @@ public class CreateOptionalCoursesActivity extends Activity {
 			String courseName = courseNameET.getText().toString();
 			String ects = ectsET.getText().toString();
 			String semesterNo = semSP.getSelectedItem().toString();
+			String cid = cidET.getText().toString();
+			String courseMode = modeSP.getSelectedItem().toString();
+			if(TextUtils.isEmpty(cid))
+				cid = "000.000";
 			
 			
 			newCourse.setCourseName(courseName);
@@ -70,6 +76,14 @@ public class CreateOptionalCoursesActivity extends Activity {
 				return false;
 			}
 
+			try {
+			newCourse.setCourseNumber(cid);;
+			} catch (NumberFormatException ex) {
+				Toast.makeText(getApplicationContext(), R.string.new_course_ects_exception, Toast.LENGTH_LONG).show();
+				return false;
+			}
+
+			
 			if(newCourse.getEcts() == 0)
 			{
 				Toast.makeText(getApplicationContext(), R.string.new_course_ects_exception, Toast.LENGTH_LONG).show();
@@ -82,6 +96,13 @@ public class CreateOptionalCoursesActivity extends Activity {
 			} catch (NumberFormatException ex) {
 				newCourse.setSemester(SEM_PLUS);
 			}
+			
+			try {
+				newCourse.setMode(courseMode);
+			} catch (NumberFormatException ex) {
+				newCourse.setMode(courseMode);
+			}
+
 
 			parser.addCourseToCurrentCourses(newCourse);
 

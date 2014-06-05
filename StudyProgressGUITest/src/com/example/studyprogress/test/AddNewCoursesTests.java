@@ -138,9 +138,7 @@ public class AddNewCoursesTests extends
 		solo.enterText(courseNameET, "Sem1");
 		solo.enterText(ectsET, "3");
         semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
-        modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
-		solo.pressSpinnerItem(0, 1);
-		solo.pressSpinnerItem(1, 0);
+		//solo.pressSpinnerItem(1, 0);
 
 	  /*    getActivity().runOnUiThread(new Runnable() {
 	          public void run() {
@@ -154,7 +152,7 @@ public class AddNewCoursesTests extends
 		solo.waitForActivity(MainActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());	
 		
-		/*solo.pressMenuItem(1);
+		solo.pressMenuItem(1);
 		solo.waitForActivity(CreateOptionalCoursesActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		courseNameET = (EditText) solo
@@ -162,11 +160,10 @@ public class AddNewCoursesTests extends
 		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
 		solo.enterText(courseNameET, "Sem2");
 		solo.enterText(ectsET, "3");
-		solo.pressSpinnerItem(0, 0);
 		solo.pressSpinnerItem(1, 1);
 		solo.pressMenuItem(0);
 		solo.waitForActivity(MainActivity.class);
-		solo = new Solo(getInstrumentation(), getActivity());*/
+		solo = new Solo(getInstrumentation(), getActivity());
 
 		solo.pressMenuItem(1, 3);
 		solo.waitForActivity(CreateOptionalCoursesActivity.class);
@@ -178,7 +175,6 @@ public class AddNewCoursesTests extends
 		solo.enterText(ectsET, "3");
         semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
         modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
-		solo.pressSpinnerItem(0, 1);
 		solo.pressSpinnerItem(1, 2);
 
 		solo.pressMenuItem(0);
@@ -196,7 +192,6 @@ public class AddNewCoursesTests extends
 		solo.enterText(ectsET, "3");
         semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
         modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
-		solo.pressSpinnerItem(0, 1);
 		solo.pressSpinnerItem(1, 3);
 		solo.pressMenuItem(0);
 		solo.waitForActivity(MainActivity.class);
@@ -213,7 +208,6 @@ public class AddNewCoursesTests extends
 		solo.enterText(ectsET, "3");
         semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
         modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
-		solo.pressSpinnerItem(0, 1);
 		solo.pressSpinnerItem(1, 4);
 
         solo.pressMenuItem(0);
@@ -230,7 +224,6 @@ public class AddNewCoursesTests extends
 		solo.enterText(ectsET, "3");
         semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
         modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
-		solo.pressSpinnerItem(0, 1);
 		solo.pressSpinnerItem(1, 5);
 		solo.pressMenuItem(0);
 		solo.waitForActivity(MainActivity.class);
@@ -247,7 +240,6 @@ public class AddNewCoursesTests extends
 		solo.enterText(ectsET, "3");
         semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
         modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
-		solo.pressSpinnerItem(0, 1);
 		solo.pressSpinnerItem(1, 6);
 		solo.pressMenuItem(0);
 		solo.waitForActivity(MainActivity.class);
@@ -259,11 +251,12 @@ public class AddNewCoursesTests extends
 		Log.d("t5", "Count: "+sem1lv.getAdapter().getCount());
 		assertEquals(sem1lv.getAdapter().getItem(sem1lv.getAdapter().getCount() -1),
 				"Sem1");	
-	
-		/*Log.d("t5", "Count: "+sem2lv.getAdapter().getCount());
+		
+		sem2lv = (ListView) solo.getView(R.id.courses_list_view_sem2);
+		Log.d("t5", "Count: "+sem2lv.getAdapter().getCount());
 		solo.clickOnButton(solo.getString(R.string.sem_2));
-		assertEquals(sem2lv.getAdapter().getItem(1),
-				"Sem2");	*/		
+		assertEquals(sem2lv.getAdapter().getItem(sem2lv.getAdapter().getCount() -1),
+				"Sem2");
 
 		sem3lv = (ListView) solo.getView(R.id.courses_list_view_sem3);
 		Log.d("t5", "Count: "+sem3lv.getAdapter().getCount());
@@ -279,21 +272,18 @@ public class AddNewCoursesTests extends
 
 		sem5lv = (ListView) solo.getView(R.id.courses_list_view_sem5);
 		Log.d("t5", "Count: "+sem5lv.getAdapter().getCount());
-
 		solo.clickOnButton(solo.getString(R.string.sem_5));
 		assertEquals(sem5lv.getAdapter().getItem(sem5lv.getAdapter().getCount() -1),
 				"Sem5");		
 				
 		sem6lv = (ListView) solo.getView(R.id.courses_list_view_sem6);
 		Log.d("t5", "Count: "+sem6lv.getAdapter().getCount());
-
 		solo.clickOnButton(solo.getString(R.string.sem_6));
 		assertEquals(sem6lv.getAdapter().getItem(sem6lv.getAdapter().getCount() -1),
 				"Sem6");
 		
 		semopt = (ListView) solo.getView(R.id.courses_list_view_opt_courses);
 		Log.d("t5", "Count: "+semopt.getAdapter().getCount());
-
 		solo.clickOnButton(solo.getString(R.string.sem_add));
 		assertEquals(semopt.getAdapter().getItem(semopt.getAdapter().getCount() -1),
 				"SemOpt");		
@@ -376,6 +366,142 @@ public class AddNewCoursesTests extends
 				"TestKurs2");
 		assertEquals(sem1lv.getAdapter().getItem(sem1lv.getCount() - 3),
 				"TestKurs");
-	}	
+	}
 	
+	//dieser TC failed! KursID und Mode werden nicht eingetragen!!
+	public void testCourseModes() throws Exception {
+		
+		solo.waitForActivity(ChooseStartConfigurationActivity.class);
+
+		solo.clickOnButton(solo.getString(R.string.new_plan));
+		solo.waitForActivity(ChooseExistingOrNewCurriculumActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.clickOnButton(solo.getString(R.string.open_predefined_curriculum));
+		
+		solo.waitForActivity(UniversityListViewActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		ListView universityListView = (ListView) solo
+				.getView(R.id.university_list_view);
+		solo.clickOnView(universityListView.getChildAt(0));	
+		
+		solo.waitForActivity(CurriculumListViewActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		
+		ListView curriculumListView = (ListView) solo
+				.getView(R.id.curriculum_list_view);
+		solo.clickOnView(curriculumListView.getChildAt(0));
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
+
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		
+		solo.enterText(courseNameET, "VO");
+		solo.enterText(ectsET, "1");
+        semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
+        modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
+        solo.pressSpinnerItem(0, 0);
+		solo.pressSpinnerItem(1, 6);
+		solo.pressMenuItem(0);
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
+
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		solo.enterText(courseNameET, "VU");
+		solo.enterText(ectsET, "1");
+        semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
+        modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
+        solo.pressSpinnerItem(0, 1);
+		solo.pressSpinnerItem(1, 6);
+
+		solo.pressMenuItem(0);
+		
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
+
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		solo.enterText(courseNameET, "KU");
+		solo.enterText(ectsET, "1");
+        semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
+        modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
+        solo.pressSpinnerItem(0, 2);
+		solo.pressSpinnerItem(1, 6);
+
+		solo.pressMenuItem(0);
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
+
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		solo.enterText(courseNameET, "SE");
+		solo.enterText(ectsET, "1");
+        semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
+        modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
+        solo.pressSpinnerItem(0, 3);
+		solo.pressSpinnerItem(1, 6);
+
+		solo.pressMenuItem(0);
+		
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
+
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+
+		solo.enterText(courseNameET, "SP");
+		solo.enterText(ectsET, "1");
+        semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
+        modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
+        solo.pressSpinnerItem(0, 4);
+		solo.pressSpinnerItem(1, 6);
+
+		solo.pressMenuItem(0);
+		
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		semopt = (ListView) solo.getView(R.id.courses_list_view_opt_courses);
+		solo.clickOnButton(solo.getString(R.string.sem_add));
+
+		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 5).toString()), "VO");
+		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 4).toString()), "VU");
+		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 3).toString()), "KU");
+		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 2).toString()), "SE");
+		assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 1).toString()), "SP");		
+	}
 }

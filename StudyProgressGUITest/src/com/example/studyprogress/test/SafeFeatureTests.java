@@ -3,15 +3,19 @@ package com.example.studyprogress.test;
 import java.util.ArrayList;
 
 import com.studyprogress.properties.GlobalProperties;
+
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.studyprogress.R;
 import com.robotium.solo.Solo;
 import com.studyprogress.ChooseExistingOrNewCurriculumActivity;
 import com.studyprogress.ChooseStartConfigurationActivity;
+import com.studyprogress.CreateOptionalCoursesActivity;
 import com.studyprogress.CurriculumListViewActivity;
 import com.studyprogress.MainActivity;
 import com.studyprogress.UniversityListViewActivity;
@@ -248,6 +252,123 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 			}
 		}
 	}	
-	
 
+	
+	//this TC fails!!
+	public void testAllCoursesDone() throws Exception
+	{
+		solo.waitForActivity(ChooseStartConfigurationActivity.class);
+
+		solo.clickOnButton(solo.getString(R.string.new_plan));
+		solo.waitForActivity(ChooseExistingOrNewCurriculumActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.clickOnButton(solo.getString(R.string.open_predefined_curriculum));
+		
+		solo.waitForActivity(UniversityListViewActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		ListView universityListView = (ListView) solo
+				.getView(R.id.university_list_view);
+		solo.clickOnView(universityListView.getChildAt(0));	
+		
+		solo.waitForActivity(CurriculumListViewActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		
+		ListView curriculumListView = (ListView) solo
+				.getView(R.id.curriculum_list_view);
+		solo.clickOnView(curriculumListView.getChildAt(0));
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		
+		solo.pressMenuItem(1);
+		solo.waitForActivity(CreateOptionalCoursesActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		EditText courseNameET = (EditText) solo
+				.getView(R.id.create_course_course_name_edit_text);
+		EditText ectsET = (EditText) solo.getView(R.id.create_course_ects_edit_text);
+		solo.enterText(courseNameET, "Freifach");
+		solo.enterText(ectsET, "12");
+        Spinner semSP = (Spinner) solo.getView(R.id.create_course_sem_spinner);
+		solo.pressSpinnerItem(1, 6);
+		solo.pressMenuItem(0);
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());	
+		
+		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
+		solo.clickOnButton(solo.getString(R.string.sem_1));
+		for(int i = 0; i< XMLParser.getInstance(null).getCourseNamesOfSemester(1).length;i++)
+		{
+			solo.clickOnView(sem1lv.getChildAt(i));
+			solo.clickOnButton(solo.getString(R.string.done));
+			solo.waitForDialogToClose();
+		}
+		
+		
+		sem2lv = (ListView) solo.getView(R.id.courses_list_view_sem2);
+		solo.clickOnButton(solo.getString(R.string.sem_2));
+		for(int i = 0; i< XMLParser.getInstance(null).getCourseNamesOfSemester(2).length;i++)
+		{
+			solo.clickOnView(sem2lv.getChildAt(i));
+			solo.clickOnButton(solo.getString(R.string.done));
+			solo.waitForDialogToClose();
+		}
+
+		sem3lv = (ListView) solo.getView(R.id.courses_list_view_sem3);
+		solo.clickOnButton(solo.getString(R.string.sem_3));
+		for(int i = 0; i< XMLParser.getInstance(null).getCourseNamesOfSemester(3).length;i++)
+		{
+			solo.clickOnView(sem3lv.getChildAt(i));
+			solo.clickOnButton(solo.getString(R.string.done));
+			solo.waitForDialogToClose();
+		}
+
+		sem4lv = (ListView) solo.getView(R.id.courses_list_view_sem4);
+		solo.clickOnButton(solo.getString(R.string.sem_4));
+		for(int i = 0; i< XMLParser.getInstance(null).getCourseNamesOfSemester(4).length;i++)
+		{
+			solo.clickOnView(sem4lv.getChildAt(i));
+			solo.clickOnButton(solo.getString(R.string.done));
+			solo.waitForDialogToClose();
+		}
+	
+		sem5lv = (ListView) solo.getView(R.id.courses_list_view_sem5);
+		solo.clickOnButton(solo.getString(R.string.sem_5));
+		for(int i = 0; i< XMLParser.getInstance(null).getCourseNamesOfSemester(5).length;i++)
+		{
+			solo.clickOnView(sem5lv.getChildAt(i));
+			solo.clickOnButton(solo.getString(R.string.done));
+			solo.waitForDialogToClose();
+		}
+		
+		sem6lv = (ListView) solo.getView(R.id.courses_list_view_sem5);
+		solo.clickOnButton(solo.getString(R.string.sem_6));
+		for(int i = 0; i< XMLParser.getInstance(null).getCourseNamesOfSemester(6).length;i++)
+		{
+			solo.clickOnView(sem6lv.getChildAt(i));
+			solo.clickOnButton(solo.getString(R.string.done));
+			solo.waitForDialogToClose();
+		}
+		
+		semopt = (ListView) solo.getView(R.id.courses_list_view_opt_courses);
+		solo.clickOnButton(solo.getString(R.string.sem_add));
+		for(int i = 0; i< XMLParser.getInstance(null).getCourseNamesOfSemester(7).length;i++)
+		{
+			solo.clickOnView(semopt.getChildAt(i));
+			solo.clickOnButton(solo.getString(R.string.done));
+			solo.waitForDialogToClose();
+		}
+	
+		solo.goBack();
+		solo.clickOnButton("Ja");
+		
+		solo.waitForActivity(ChooseStartConfigurationActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.clickOnButton(solo.getString(R.string.open_plan));
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		
+		assertEquals(180, XMLParser.getInstance(null).getCurrentEcts());
+		
+	}	
 }

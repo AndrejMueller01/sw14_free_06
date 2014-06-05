@@ -40,7 +40,9 @@
     <string name="menu_item_cancel">Abbrechen</string>
     <string name="course_name">Name des Kurses</string>
     <string name="course_name_hint">z.B.: Mathematik 1</string>
+    <string name="cid_hint">z.B.: XXX.XXX</string>
     <string name="ects_name">ECTS</string>
+    <string name="cid_name">Kursnummer</string>
     <string name="ects_hint">z.B.: 2.5</string>
     <string name="opt_course_mode">Modus</string>
     <string name="opt_course_sem">Semester(bzw. Abschnitt):</string>
@@ -71,7 +73,6 @@
         <item>KU</item>
         <item>SE</item>
         <item>LU</item>
-        <item>SE</item>
         <item>SP</item>     
     </string-array>
     
