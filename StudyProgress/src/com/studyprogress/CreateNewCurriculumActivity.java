@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -49,6 +50,12 @@ public class CreateNewCurriculumActivity extends Activity {
 			
 			parser = XMLParser.getInstance(null);
 			String studName = currNameField.getText().toString();
+			if(TextUtils.isEmpty(studName))
+			{
+				Toast.makeText(getApplicationContext(), R.string.new_curriculum_name_exception, Toast.LENGTH_LONG).show();
+				return false;
+			}
+
 			int studMode = currModeSpinner.getSelectedItemPosition();
 			studId++;
 			parser.setCurrentCurriculum(studName, studMode, studId);

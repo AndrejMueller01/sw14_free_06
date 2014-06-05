@@ -8,6 +8,7 @@ import com.studyprogress.tools.XMLSave;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -56,6 +57,12 @@ public class CreateOptionalCoursesActivity extends Activity {
 			
 			
 			newCourse.setCourseName(courseName);
+			if(TextUtils.isEmpty(newCourse.getCourseName()))
+			{
+				Toast.makeText(getApplicationContext(), R.string.new_course_name_exception, Toast.LENGTH_LONG).show();
+				return false;
+			}
+			
 			try {
 			newCourse.setEcts(Float.parseFloat(ects));
 			} catch (NumberFormatException ex) {
@@ -63,9 +70,12 @@ public class CreateOptionalCoursesActivity extends Activity {
 				return false;
 			}
 
-//		
-//			newCourse.setCurricula(parser.getCurrentCurriculum()
-//					.getCurriculumId());
+			if(newCourse.getEcts() == 0)
+			{
+				Toast.makeText(getApplicationContext(), R.string.new_course_ects_exception, Toast.LENGTH_LONG).show();
+				return false;
+			}
+			
 			
 			try {
 				newCourse.setSemester(Integer.parseInt(semesterNo));
