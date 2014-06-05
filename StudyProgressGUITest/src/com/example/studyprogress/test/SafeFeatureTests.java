@@ -2,7 +2,7 @@ package com.example.studyprogress.test;
 
 import java.util.ArrayList;
 
-import properties.GlobalProperties;
+import com.studyprogress.properties.GlobalProperties;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -154,7 +154,100 @@ ActivityInstrumentationTestCase2<ChooseStartConfigurationActivity> {
 		
 	}
 
-	
+	public void testProgressSafedMoreCourses() throws Exception
+	{
+		solo.waitForActivity(ChooseStartConfigurationActivity.class);
+
+		solo.clickOnButton(solo.getString(R.string.new_plan));
+		solo.waitForActivity(ChooseExistingOrNewCurriculumActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.clickOnButton(solo.getString(R.string.open_predefined_curriculum));
+		
+		solo.waitForActivity(UniversityListViewActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		ListView universityListView = (ListView) solo
+				.getView(R.id.university_list_view);
+		solo.clickOnView(universityListView.getChildAt(0));	
+		
+		solo.waitForActivity(CurriculumListViewActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		
+		ListView curriculumListView = (ListView) solo
+				.getView(R.id.curriculum_list_view);
+		solo.clickOnView(curriculumListView.getChildAt(0));
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+
+		
+		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
+		solo.clickOnButton(solo.getString(R.string.sem_1));
+		solo.clickOnView(sem1lv.getChildAt(0));
+		solo.clickOnButton(solo.getString(R.string.done));
+		solo.waitForDialogToClose();
+		
+		solo.clickOnView(sem1lv.getChildAt(1));
+		solo.clickOnButton(solo.getString(R.string.inprogress));
+		solo.waitForDialogToClose();
+
+		solo.clickOnView(sem1lv.getChildAt(2));
+		solo.clickOnButton(solo.getString(R.string.inprogress));
+		solo.waitForDialogToClose();
+
+		solo.clickOnView(sem1lv.getChildAt(3));
+		solo.clickOnButton(solo.getString(R.string.done));
+		solo.waitForDialogToClose();
+
+		
+		solo.goBack();
+		solo.clickOnButton("Ja");
+		
+		solo.waitForActivity(ChooseStartConfigurationActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.clickOnButton(solo.getString(R.string.open_plan));
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
+		solo.clickOnButton(solo.getString(R.string.sem_1));
+		
+		String text = sem1lv.getItemAtPosition(0).toString();
+		ArrayList<Course> currCourses = XMLParser.getInstance(null).getCurrentCourses();
+		for(int i = 0; i<currCourses.size();i++)
+		{
+			if(text.equals(currCourses.get(i).getCourseName()))
+			{
+				assertEquals(GlobalProperties.STATUS_DONE, currCourses.get(i).getStatus());
+			}
+		}
+
+		String text2 = sem1lv.getItemAtPosition(1).toString();
+		for(int i = 0; i<currCourses.size();i++)
+		{
+			if(text2.equals(currCourses.get(i).getCourseName()))
+			{
+				assertEquals(GlobalProperties.STATUS_IN_PROGRESS, currCourses.get(i).getStatus());
+			}
+		}
+		
+		String text3 = sem1lv.getItemAtPosition(2).toString();
+		for(int i = 0; i<currCourses.size();i++)
+		{
+			if(text3.equals(currCourses.get(i).getCourseName()))
+			{
+				assertEquals(GlobalProperties.STATUS_IN_PROGRESS, currCourses.get(i).getStatus());
+			}
+		}
+		
+		String text4 = sem1lv.getItemAtPosition(3).toString();
+		for(int i = 0; i<currCourses.size();i++)
+		{
+			if(text4.equals(currCourses.get(i).getCourseName()))
+			{
+				assertEquals(GlobalProperties.STATUS_DONE, currCourses.get(i).getStatus());
+			}
+		}
+	}	
 	
 
 }
