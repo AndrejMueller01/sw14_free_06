@@ -318,6 +318,7 @@ public class MainActivity extends Activity {
 				String[] courseNames = null;
 				courseNames = parser.getCourseNamesOfSemester(semester);
 				adapters[semester - 1].setCourseNames(courseNames, position);
+				studyStateChanged = true;
 
 
 			}
