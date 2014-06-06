@@ -41,5 +41,11 @@
         android:background="@drawable/start_button_selector"
         android:enabled="false"
         android:text="@string/site" />
+     <Button
+        android:id="@+id/choose_start_configuration_button_bug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/start_button_selector"
+        android:text="@string/bug" />
 
 </LinearLayout>

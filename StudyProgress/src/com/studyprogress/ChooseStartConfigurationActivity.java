@@ -7,6 +7,7 @@ import com.studyprogress.properties.GlobalProperties;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -19,6 +20,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 	private Button newPlanButton;
 	private Button openPlanButton;
 	private Button aboutButton;
+	private Button bugButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 		newPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_new);
 		openPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_open);
 		aboutButton = (Button) findViewById(R.id.choose_start_configuration_button_about);
+		bugButton = (Button) findViewById(R.id.choose_start_configuration_button_bug);
 
 		newPlanButton.setOnClickListener(new OnClickListener() {
 
@@ -69,8 +72,19 @@ public class ChooseStartConfigurationActivity extends Activity {
 				startActivity(intent);
 
 			}
-		});
 		
+		});
+		bugButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				final String url = "fb://page/1503204023244122";
+						Intent facebookAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+						facebookAppIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+						startActivity(facebookAppIntent);
+
+			}
+		});
 		
 	}
 }
