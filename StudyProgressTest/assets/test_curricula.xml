@@ -2,17 +2,32 @@
 <curricula>
     <curriculum>
         <name>TestCurriculum1</name>
+        <id>1</id>
+        <mode>2</mode>
+        <year>2010</year>
     </curriculum>
     <curriculum>
-         <name>TestCurriculum2</name>
+        <name>TestCurriculum2</name>
+        <id>2</id>
+        <mode>2</mode>
+        <year>2010</year>
     </curriculum>
     <curriculum>
         <name>TestCurriculum3</name>
+        <id>3</id>
+        <mode>3</mode>
+        <year>2010</year>
     </curriculum>
     <curriculum>
         <name>TestCurriculum4</name>
+        <id>4</id>
+        <mode>3</mode>
+        <year>2010</year>
     </curriculum>
     <curriculum>
         <name>TestCurriculum5</name>
+        <id>5</id>
+        <mode>1</mode>
+        <year>2010</year>
     </curriculum>
 </curricula>

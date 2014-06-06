@@ -57,6 +57,10 @@ public class XMLParser {
 		currentCourses.clear();
 
 	}
+	public ArrayList<Curriculum> getCurricula(){
+		return curricula;
+
+	}
 	public void addCourseToCurrentCourses(Course course) {
 		currentCourses.add(course);
 
