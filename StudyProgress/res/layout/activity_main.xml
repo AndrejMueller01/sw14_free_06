@@ -2,12 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_standard"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="@color/background_standard"
-    
     tools:context=".MainActivity" >
 
     <LinearLayout
@@ -27,26 +26,24 @@
         <ProgressBar
             android:id="@+id/study_progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
-   			android:progressDrawable="@drawable/custom_progress_bar"  
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:progressDrawable="@drawable/custom_progress_bar" />
 
-         <TextView
-             android:id="@+id/progress_text_view"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/hello_world"
-             android:textAlignment="center"
-/>
-
+        <TextView
+            android:id="@+id/progress_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world"
+            android:textAlignment="center" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/sem_line_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_red"
         android:layout_below="@+id/progress_line_ll"
+        android:background="@color/background_red"
         android:orientation="vertical" >
 
         <TextView
@@ -59,7 +56,7 @@
             android:id="@+id/sem_buttn_line_sv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:fadeScrollbars="false" >
 
             <LinearLayout
                 android:id="@+id/sem_buttn_line_ll"
@@ -103,12 +100,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/sem_6" />
 
-                   <Button
+                <Button
                     android:id="@+id/semester_optional_courses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sem_add" />
-                  
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
@@ -118,49 +114,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"
-        android:visibility="invisible" 
-       />
-     <ListView
+        android:visibility="invisible" />
+
+    <ListView
         android:id="@+id/courses_list_view_sem2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"
-        android:visibility="invisible" 
-       />
-      <ListView
+        android:visibility="invisible" />
+
+    <ListView
         android:id="@+id/courses_list_view_sem3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"
-        android:visibility="invisible" 
-       />
-       <ListView
+        android:visibility="invisible" />
+
+    <ListView
         android:id="@+id/courses_list_view_sem4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"
-        android:visibility="invisible" 
-       />
-        <ListView
+        android:visibility="invisible" />
+
+    <ListView
         android:id="@+id/courses_list_view_sem5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"
-        android:visibility="invisible" 
-       />
-         <ListView
+        android:visibility="invisible" />
+
+    <ListView
         android:id="@+id/courses_list_view_sem6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"
-        android:visibility="invisible" 
-       />
-         <ListView
+        android:visibility="invisible" />
+
+    <ListView
         android:id="@+id/courses_list_view_opt_courses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"
-        android:visibility="invisible" 
-       />
-         
+        android:visibility="invisible" />
+
 </RelativeLayout>
