@@ -27,10 +27,11 @@ public class XMLParserTest extends InstrumentationTestCase {
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
-
+	private void openAndParseXMLFile(String fileName){
+		
+	}
 	public void testGetCurriculaNames() {
 		parser = new XMLParser(null);
-
 		try {
 			is = getInstrumentation().getContext().getAssets()
 					.open("test_curricula.xml");
@@ -153,10 +154,11 @@ public class XMLParserTest extends InstrumentationTestCase {
 		parser.setInputStream(is);
 		parser.parseCurricula();
 		for (int i = 0; i < parser.getCurricula().size(); i++)
-			assertEquals("TestCurriculum" + (i+1) , parser.getCurricula().get(i)
-					.getName());
+			assertEquals("TestCurriculum" + (i + 1),
+					parser.getCurricula().get(i).getName());
 
 	}
+
 	public void testGetCurriculumMode() {
 		parser = new XMLParser(null);
 
@@ -168,19 +170,81 @@ public class XMLParserTest extends InstrumentationTestCase {
 		}
 		parser.setInputStream(is);
 		parser.parseCurricula();
-		assertEquals(parser.getCurriculumMode("TestCurriculum1"),2);
+		assertEquals(parser.getCurriculumMode("TestCurriculum1"), 2);
 
+	}
+
+	public void testGetUniversityNames() {
+		parser = new XMLParser(null);
+
+		try {
+			is = getInstrumentation().getContext().getAssets()
+					.open("test_universities.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		parser.setInputStream(is);
+		parser.parseUniversities();
+
+		ArrayList<String> testUniversities = new ArrayList<String>();
+
+		testUniversities.add("TU Graz");
+		testUniversities.add("KFU Graz");
+
+		ArrayList<String> actualUniversities;
+
+		try {
+			actualUniversities = parser.getUniversityNames(is);
+
+			assertEquals(testUniversities.get(0), actualUniversities.get(0));
+			assertEquals(testUniversities.get(1), actualUniversities.get(1));
+
+		} catch (XmlPullParserException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+	}
+	public void testGetCurriculumIdWithName(){
+		parser = new XMLParser(null);
+
+		try {
+			is = getInstrumentation().getContext().getAssets()
+					.open("test_curricula.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		parser.setInputStream(is);
+		parser.parseCurricula();
+
+		
+		assertEquals("1",parser.getCurriculumIdWithName("TestCurriculum1"));
+	}
+	public void testGetUniversityIdWithName(){
+		parser = new XMLParser(null);
+
+		try {
+			is = getInstrumentation().getContext().getAssets()
+					.open("test_univeristies.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		parser.setInputStream(is);
+		parser.parseCurricula();
+
+		
+		assertEquals("1",parser.getUniversityIdWithName("TestCurriculum1"));
 	}
 }
 // --------------------------------
 /*
  * 
- * public ArrayList<String> getCurriculaNames(InputStream inputStream) throws
- * XmlPullParserException, IOException {
- * 
- * public ArrayList<String> getUniversityNames(InputStream inputStream)
- * 
- * public int getCurriculumIdWithName(String name) {
  * 
  * 
  * public int getUniversityIdWithName(String name) {

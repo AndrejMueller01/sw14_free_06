@@ -1,80 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_standard"
-    android:orientation="vertical" >
+    android:background="@color/background_standard" >
 
-    <TextView
-        android:id="@+id/create_course_course_name_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/course_name" />
-
-    <EditText
-        android:id="@+id/create_course_course_name_edit_text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/course_name_hint" >
-    </EditText>
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/create_course_ects_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ects_name" />
+        <TextView
+            android:id="@+id/create_course_course_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/course_name" />
 
-    <EditText
-        android:id="@+id/create_course_ects_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/ects_hint"
-        android:inputType="numberDecimal" >
+        <EditText
+            android:id="@+id/create_course_course_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/course_name_hint" >
+        </EditText>
 
-        <requestFocus />
-    </EditText>
+        <TextView
+            android:id="@+id/create_course_ects_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ects_name" />
 
-    <TextView
-        android:id="@+id/create_course_cid_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cid_name" />
+        <EditText
+            android:id="@+id/create_course_ects_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/ects_hint"
+            android:inputType="numberDecimal" >
 
-    <EditText
-        android:id="@+id/create_course_cid_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/cid_hint" 
-        android:inputType="numberDecimal" />
+            <requestFocus />
+        </EditText>
 
-    <TextView
-        android:id="@+id/create_course_mode_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="@string/opt_course_mode" />
+        <TextView
+            android:id="@+id/create_course_cid_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cid_name" />
 
-    <Spinner
-        android:id="@+id/create_course_mode_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/opt_course_mode_array"
-        android:prompt="@string/opt_course_mode" />
+        <EditText
+            android:id="@+id/create_course_cid_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/cid_hint"
+            android:inputType="numberDecimal" />
 
-    <TextView
-        android:id="@+id/create_course_sem_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/opt_course_sem" />
+        <TextView
+            android:id="@+id/create_course_mode_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/opt_course_mode" />
 
-    <Spinner
-        android:id="@+id/create_course_sem_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/opt_course_sem_array"
-        android:prompt="@string/opt_course_sem" />
+        <Spinner
+            android:id="@+id/create_course_mode_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/opt_course_mode_array"
+            android:prompt="@string/opt_course_mode" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/create_course_sem_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opt_course_sem" />
+
+        <Spinner
+            android:id="@+id/create_course_sem_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/opt_course_sem_array"
+            android:prompt="@string/opt_course_sem" />
+    </LinearLayout>
+
+</ScrollView>

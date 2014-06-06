@@ -107,6 +107,8 @@ public class CreateOptionalCoursesActivity extends Activity {
 			parser.addCourseToCurrentCourses(newCourse);
 
 			intent.putExtra("firstOpen", -1);
+			intent.putExtra("changed", true);
+
 			startActivity(intent);
 			finish();
 			return true;
@@ -114,8 +116,9 @@ public class CreateOptionalCoursesActivity extends Activity {
 		case R.id.create_courses_cancel_item:
 
 			intent.putExtra("firstOpen", -1);
+			intent.putExtra("changed", false);
 			startActivity(intent);
-
+			finish();
 			return true;
 
 		}

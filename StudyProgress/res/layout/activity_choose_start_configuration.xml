@@ -1,51 +1,58 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/background_standard"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_standard" >
 
-    <Button
-        android:id="@+id/choose_start_configuration_button_new"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/start_button_selector"
-        android:text="@string/new_plan" />
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/choose_start_configuration_button_open"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/start_button_selector"
-        android:text="@string/open_plan" />
+        <Button
+            android:id="@+id/choose_start_configuration_button_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/start_button_selector"
+            android:text="@string/new_plan" />
 
-    <Button
-        android:id="@+id/choose_start_configuration_button_about"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/start_button_selector"
-        android:enabled="true"
-        android:text="@string/about" />
+        <Button
+            android:id="@+id/choose_start_configuration_button_open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/start_button_selector"
+            android:text="@string/open_plan" />
 
-    <Button
-        android:id="@+id/choose_start_configuration_button_rate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/start_button_selector"
-        android:enabled="false"
-        android:text="@string/rate" />
+        <Button
+            android:id="@+id/choose_start_configuration_button_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/start_button_selector"
+            android:enabled="true"
+            android:text="@string/about" />
 
-    <Button
-        android:id="@+id/choose_start_configuration_button_site"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/start_button_selector"
-        android:enabled="false"
-        android:text="@string/site" />
-     <Button
-        android:id="@+id/choose_start_configuration_button_bug"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/start_button_selector"
-        android:text="@string/bug" />
+        <Button
+            android:id="@+id/choose_start_configuration_button_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/start_button_selector"
+            android:enabled="false"
+            android:text="@string/rate" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/choose_start_configuration_button_site"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/start_button_selector"
+            android:enabled="false"
+            android:text="@string/site" />
+
+        <Button
+            android:id="@+id/choose_start_configuration_button_bug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/start_button_selector"
+            android:text="@string/bug" />
+    </LinearLayout>
+
+</ScrollView>

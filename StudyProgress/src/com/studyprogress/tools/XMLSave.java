@@ -61,12 +61,13 @@ public class XMLSave {
 				serializer.startTag(null, "bachelor");
 				serializer.endTag(null, "bachelor");
 				serializer.startTag(null, "cid");
-				//serializer.text(""+courseList.get(j).getCourseNumber());
+				serializer.text(""+courseList.get(j).getCourseNumber());
 				serializer.endTag(null, "cid");
 				serializer.startTag(null, "steop");
 				serializer.text(""+courseList.get(j).getSteop());
 				serializer.endTag(null, "steop");
 				serializer.startTag(null, "mode");
+				serializer.text(""+courseList.get(j).getMode());
 				serializer.endTag(null, "mode");
 				serializer.startTag(null, "status");
 				serializer.text(""+courseList.get(j).getStatus());
