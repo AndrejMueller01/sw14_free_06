@@ -349,12 +349,15 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					final int position, long id) {
+				//nicht unbedingt!
 				studyStateChanged = true;
 				final String courseName = courseListViews[semester]
 						.getItemAtPosition(position).toString();
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
+				builder.setView(getLayoutInflater().inflate(R.layout.custom_buttons
+				        , null)); 
 				// build title with course information
 				builder.setTitle(courseName);
 				// builder.setTitle(R.string.choose_progress);
