@@ -71,6 +71,11 @@ public class MainActivity extends Activity {
 	private static int studMode = 0;
 
 	private static String curriculumName = null;
+	//global vars in order to delete easy!
+	//just for first version => think about better solution
+	private String courseSelected = null;
+	private int semesterSelected = -1;
+	private int positionSelected = 0;
 
 	private static Integer FIRST_TIME = 1;
 	private static Integer NOT_FIRST_TIME = 0;
@@ -360,6 +365,9 @@ public class MainActivity extends Activity {
 				        , null)); 
 				// build title with course information
 				builder.setTitle(courseName);
+				courseSelected = courseName;
+				semesterSelected = semester;
+				positionSelected = position;
 				// builder.setTitle(R.string.choose_progress);
 				String courseInformation = "ECTS: ";
 				float courseEcts = parser.getEctsByName(courseName);
@@ -425,6 +433,27 @@ public class MainActivity extends Activity {
 			}
 		};
 	}
+	
+	
+    public void clickHandler(final View v)
+    {
+	    switch(v.getId())
+	    {
+	    case R.id.alert_diag_course_delete_button:
+	    	
+	    	XMLParser.getInstance(null).deleteCourse(courseSelected);
+	    	studyStateChanged = true;
+	    	adapters[semesterSelected].setCourseNames(courseNames, position);;
+	    	Toast.makeText(getApplicationContext(), "You clicked on delete!!", Toast.LENGTH_LONG).show();
+	    	break;
+	    case R.id.alert_diag_course_edit_button:
+	    	Toast.makeText(getApplicationContext(), "You clicked on edit!!",Toast.LENGTH_LONG).show();
+	    	break;
+	    	
+	    
+	    }
+    }
+	
 
 	public void refreshProgress() {
 		ProgressCalculator calculator = new ProgressCalculator(parser);

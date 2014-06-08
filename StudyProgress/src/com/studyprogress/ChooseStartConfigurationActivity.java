@@ -1,12 +1,15 @@
 package com.studyprogress;
 
 import java.io.File;
+import java.util.List;
 
 import com.example.studyprogress.R;
 import com.studyprogress.properties.GlobalProperties;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -81,6 +84,15 @@ public class ChooseStartConfigurationActivity extends Activity {
 				final String url = "fb://page/1503204023244122";
 						Intent facebookAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 						facebookAppIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+						
+				         final PackageManager packageManager = getPackageManager();
+				         List<ResolveInfo> list =
+				             packageManager.queryIntentActivities(facebookAppIntent,
+				             PackageManager.MATCH_DEFAULT_ONLY);
+				         if (list.size() == 0) {
+				             final String urlBrowser = "https://www.facebook.com/groups/253869021486505/";
+				             facebookAppIntent.setData(Uri.parse(urlBrowser));
+				         }		        						
 						startActivity(facebookAppIntent);
 
 			}
