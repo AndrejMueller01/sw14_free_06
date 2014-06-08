@@ -2,30 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/course_list_view_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-	android:background="@color/TODO"
-    >
+    android:layout_height="wrap_content"
+    android:background="@color/TODO"
+    android:orientation="horizontal" >
 
     <TextView
         android:id="@+id/courses_text_view"
-        android:layout_width="wrap_content"
-        android:layout_weight="0.9"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.90"
         android:paddingLeft="1pt"
-        android:layout_height="wrap_content"
-        
-         />
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/courses_list_view_item_image_view"
+    <CheckBox
+        android:id="@+id/course_list_item_checkbox_delete"
         android:layout_width="wrap_content"
-                android:layout_weight="0.1"
-        
-        android:layout_height="wrap_content"
-        android:scaleType="fitEnd"
-        android:src="@drawable/ic_action_x"
-        android:visibility="invisible" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

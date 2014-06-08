@@ -22,6 +22,7 @@
     <string name="inprogress">IN ARBEIT</string>
     <string name="choose_progress">Wähle deinen Fortschritt:</string>
     <string name="semester_descr">SEMESTER</string>
+    <string name ="delete_menu_title">Löschen</string>
     <string name="sem_1">1</string>
     <string name="sem_2">2</string>
     <string name="sem_3">3</string>
@@ -38,6 +39,7 @@
     <string name="save_text_succ">Speichern erfolgreich!</string>
     <string name="file_not_found">Datei nicht gefunden. Entweder haben Sie noch nie gespeichert oder die Datei wurde vom internen Speicher entfernt!</string>
     <string name="menu_item_save">Speichern</string>
+    <string name="menu_item_done">Fertig</string>
     <string name="menu_item_cancel">Abbrechen</string>
     <string name="course_name">Name des Kurses</string>
     <string name="course_name_hint">z.B.: Mathematik 1</string>

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import com.example.studyprogress.R;
+import com.studyprogress.menu.DeleteMenuCallback;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.ProgressCalculator;
 import com.studyprogress.tools.XMLParser;
@@ -14,6 +15,7 @@ import com.studyprogress.adapter.CourseListAdapter;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -50,7 +52,7 @@ public class MainActivity extends Activity {
 	private TextView curriculumNameTextField;
 	private TextView semesterTextField;
 
-	private ListView[] courseListViews;
+	private static ListView[] courseListViews;
 
 	private Button sem1Button;
 	private Button sem2Button;
@@ -59,7 +61,7 @@ public class MainActivity extends Activity {
 	private Button sem5Button;
 	private Button sem6Button;
 	private Button semOptCourses;
-
+	
 	private static boolean studyStateChanged = false;
 
 	private XMLParser parser;
@@ -76,7 +78,6 @@ public class MainActivity extends Activity {
 	private static Integer NOT_FIRST_TIME = 0;
 
 	public View row;
-	private boolean onDelButtonFlag = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -150,17 +151,17 @@ public class MainActivity extends Activity {
 		curriculumNameTextField = (TextView) findViewById(R.id.curriculumNameInMainActivityTextView);
 		curriculumNameTextField.setText(curriculumName);
 
-		courseListViews = new ListView[GlobalProperties.SEM_COUNT];
-		adapters = new CourseListAdapter[GlobalProperties.SEM_COUNT];
+		setCourseListViews(new ListView[GlobalProperties.SEM_COUNT]);
+		setAdapters(new CourseListAdapter[GlobalProperties.SEM_COUNT]);
 
 		semesterTextField = (TextView) findViewById(R.id.semester_line_description_text_view);
-		courseListViews[0] = (ListView) findViewById(R.id.courses_list_view_sem1);
-		courseListViews[1] = (ListView) findViewById(R.id.courses_list_view_sem2);
-		courseListViews[2] = (ListView) findViewById(R.id.courses_list_view_sem3);
-		courseListViews[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
-		courseListViews[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
-		courseListViews[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
-		courseListViews[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
+		getCourseListViews()[0] = (ListView) findViewById(R.id.courses_list_view_sem1);
+		getCourseListViews()[1] = (ListView) findViewById(R.id.courses_list_view_sem2);
+		getCourseListViews()[2] = (ListView) findViewById(R.id.courses_list_view_sem3);
+		getCourseListViews()[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
+		getCourseListViews()[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
+		getCourseListViews()[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
+		getCourseListViews()[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
 
 		sem1Button = (Button) findViewById(R.id.semester_1_name_button);
 		sem2Button = (Button) findViewById(R.id.semester_2_name_button);
@@ -193,10 +194,10 @@ public class MainActivity extends Activity {
 			courseNames[i] = parser.getCourseNamesOfSemester(i + 1);
 
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
-			adapters[i] = new CourseListAdapter(courseNames[i], this);
+			getAdapters()[i] = new CourseListAdapter(courseNames[i], this);
 
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
-			courseListViews[i].setAdapter(adapters[i]);
+			getCourseListViews()[i].setAdapter(getAdapters()[i]);
 
 		setClickListneners();
 		setBackgroudColors();
@@ -207,23 +208,23 @@ public class MainActivity extends Activity {
 		for (int j = 0; j < GlobalProperties.SEM_COUNT; j++)
 			for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
 				if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_DONE) {
-					int position = adapters[j].getPositionByString(parser
+					int position = getAdapters()[j].getPositionByString(parser
 							.getCurrentCourses().get(i).getCourseName());
 					if (position != -1)
-						adapters[j].setViewBackgroundColor(position,
+						getAdapters()[j].setViewBackgroundColor(position,
 								Color.GREEN);
 				} else if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_IN_PROGRESS) {
-					int position = adapters[j].getPositionByString(parser
+					int position = getAdapters()[j].getPositionByString(parser
 							.getCurrentCourses().get(i).getCourseName());
 					if (position != -1)
-						adapters[j].setViewBackgroundColor(position,
+						getAdapters()[j].setViewBackgroundColor(position,
 								Color.YELLOW);
 				} else if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_TO_DO) {
 
-					int position = adapters[j].getPositionByString(parser
+					int position = getAdapters()[j].getPositionByString(parser
 							.getCurrentCourses().get(i).getCourseName());
 					if (position != -1)
-						adapters[j].setViewBackgroundColor(position, Color.RED);
+						getAdapters()[j].setViewBackgroundColor(position, Color.RED);
 				}
 			}
 	}
@@ -239,7 +240,7 @@ public class MainActivity extends Activity {
 		semOptCourses.setOnClickListener(setupOnClickListener(6));
 
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
-			courseListViews[i]
+			getCourseListViews()[i]
 					.setOnItemClickListener(setupOnItemClickListener(i));
 		}
 
@@ -253,13 +254,14 @@ public class MainActivity extends Activity {
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		MenuItem item = menu.findItem(R.id.delete_item);
-		item.getIcon().setAlpha(130);
-		return true;
-	}
+//	@Override
+//	public boolean onPrepareOptionsMenu(Menu menu) {
+//		MenuItem item = menu.findItem(R.id.delete_item);
+//		item.getIcon().setAlpha(130);
+//		return true;
+//	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
@@ -267,27 +269,8 @@ public class MainActivity extends Activity {
 			saveCourse();
 			return true;
 		case R.id.delete_item:
-
-			if (onDelButtonFlag) {
-				for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
-					courseListViews[i]
-							.setOnItemClickListener(setupOnDeleteOptionSelectedClickListener(i + 1));
-					adapters[i].setDelMode(true);
-				}
-				item.getIcon().setAlpha(255);
-				onDelButtonFlag = false;
-			} else {
-				for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
-					courseListViews[i]
-							.setOnItemClickListener(setupOnItemClickListener(i));
-					adapters[i].setDelMode(false);
-
-				}
-				item.getIcon().setAlpha(130);
-
-				onDelButtonFlag = true;
-			}
-
+			DeleteMenuCallback dmc = new DeleteMenuCallback(this);
+			startActionMode(dmc);
 			return true;
 		case R.id.add_item:
 			Intent intent = new Intent(MainActivity.this,
@@ -300,24 +283,6 @@ public class MainActivity extends Activity {
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-	public OnItemClickListener setupOnDeleteOptionSelectedClickListener(
-			final int semester) {
-		return new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					final int position, long id) {
-				final String courseName = courseListViews[semester - 1]
-						.getItemAtPosition(position).toString();
-				parser.deleteCourse(courseName);
-				String[] courseNames = null;
-				courseNames = parser.getCourseNamesOfSemester(semester);
-				adapters[semester - 1].setCourseNames(courseNames, position);
-				studyStateChanged = true;
-
-			}
-		};
-	}
 
 	private void saveCourse() {
 		studyStateChanged = false;
@@ -334,15 +299,35 @@ public class MainActivity extends Activity {
 
 				for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 					if (i == semester) {
-						courseListViews[i].setVisibility(View.VISIBLE);
+						getCourseListViews()[i].setVisibility(View.VISIBLE);
 					} else
-						courseListViews[i].setVisibility(View.INVISIBLE);
-					courseListViews[i].refreshDrawableState();
+						getCourseListViews()[i].setVisibility(View.INVISIBLE);
+					getCourseListViews()[i].refreshDrawableState();
 				}
 			}
 		};
 	}
+	public OnItemClickListener setupOnDeleteOptionSelectedClickListener(
+			final int semester) {
+		return new OnItemClickListener() {
 
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					final int position, long id) {/*
+				final String courseName = getCourseListViews()[semester - 1]
+						.getItemAtPosition(position).toString();
+				parser.deleteCourse(courseName);
+				String[] courseNames = null;
+				courseNames = parser.getCourseNamesOfSemester(semester);
+				getAdapters()[semester - 1].setCourseNames(courseNames, position);
+				studyStateChanged = true;*/
+
+			}
+		};
+	}
+public void deleteItems(){
+	//for(int i = 0; i<parser.getCurrentCourses().)
+}
 	public OnItemClickListener setupOnItemClickListener(final int semester) {
 		return new OnItemClickListener() {
 
@@ -351,13 +336,13 @@ public class MainActivity extends Activity {
 					final int position, long id) {
 				//nicht unbedingt!
 				studyStateChanged = true;
-				final String courseName = courseListViews[semester]
+				final String courseName = getCourseListViews()[semester]
 						.getItemAtPosition(position).toString();
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
-				builder.setView(getLayoutInflater().inflate(R.layout.custom_buttons
-				        , null)); 
+			//	builder.setView(getLayoutInflater().inflate(R.layout.custom_buttons
+			//	        , null)); 
 				// build title with course information
 				builder.setTitle(courseName);
 				// builder.setTitle(R.string.choose_progress);
@@ -385,7 +370,7 @@ public class MainActivity extends Activity {
 
 							public void onClick(DialogInterface dialog,
 									int which) {
-								adapters[semester].setViewBackgroundColor(
+								getAdapters()[semester].setViewBackgroundColor(
 										position, Color.GREEN);
 								setProgressOfCourseDone(courseName);
 
@@ -398,7 +383,7 @@ public class MainActivity extends Activity {
 							public void onClick(DialogInterface dialog,
 									int which) {
 
-								adapters[semester].setViewBackgroundColor(
+								getAdapters()[semester].setViewBackgroundColor(
 										position, Color.RED);
 
 								setProgressOfCourseTodo(courseName);
@@ -412,7 +397,7 @@ public class MainActivity extends Activity {
 							public void onClick(DialogInterface dialog,
 									int which) {
 
-								adapters[semester].setViewBackgroundColor(
+								getAdapters()[semester].setViewBackgroundColor(
 										position, Color.YELLOW);
 
 								setProgressOfCourseInProgress(courseName);
@@ -452,7 +437,9 @@ public class MainActivity extends Activity {
 		refreshProgress();
 
 	}
-
+	public void setStudyStateChanged(){
+		studyStateChanged = true;
+	}
 	private void setProgressOfCourseTodo(String courseName) {
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
 			if (parser.getCurrentCourses().get(i).getCourseName()
@@ -504,6 +491,22 @@ public class MainActivity extends Activity {
 		} else {
 			super.onBackPressed();
 		}
+	}
+
+	public static ListView[] getCourseListViews() {
+		return courseListViews;
+	}
+
+	public  static void setCourseListViews(ListView[] courseListViews) {
+		MainActivity.courseListViews = courseListViews;
+	}
+
+	public static CourseListAdapter[] getAdapters() {
+		return adapters;
+	}
+
+	public static void setAdapters(CourseListAdapter[] adapters) {
+		MainActivity.adapters = adapters;
 	}
 
 }

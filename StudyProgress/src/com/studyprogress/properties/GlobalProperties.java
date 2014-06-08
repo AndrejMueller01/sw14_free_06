@@ -24,6 +24,9 @@ public class GlobalProperties {
 	public static int DIPLSTUD_ECTS = 240;
 	public static int LAMTSTUD_ECTS = 270;
 	public static int PHD_STUD_ECTS = 270;
+	
+	public static final int MAX_COURSES = 100;
+
 
 
 }

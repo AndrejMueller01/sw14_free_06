@@ -3,6 +3,7 @@ package com.studyprogress.adapter;
 import java.util.ArrayList;
 
 import com.example.studyprogress.R;
+import com.studyprogress.properties.GlobalProperties;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -14,6 +15,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,18 +27,28 @@ public class CourseListAdapter extends BaseAdapter {
 	private Context context;
 	private int[] colorList;
 	private int[] visibilityList;
+	private boolean[] deleteBoxCheckList;
 	private View currentView;
-	private static int MAX_COURSES = 99;
+
+	static class ViewHolder {
+		public CheckBox cb;
+		public LinearLayout ll;
+		public TextView tv;
+
+	}
 
 	public CourseListAdapter(String[] courseNames, Context context) {
 
 		this.courses = courseNames;
 		this.context = context;
-		// TODO
-		colorList = new int[MAX_COURSES];
-		visibilityList = new int[MAX_COURSES];
+
+		colorList = new int[GlobalProperties.MAX_COURSES];
+		visibilityList = new int[GlobalProperties.MAX_COURSES];
+		deleteBoxCheckList = new boolean[GlobalProperties.MAX_COURSES];
+		
 		intitializeColorList();
 		initializeVisibiltyList();
+		intitializeDeletBoxCheckList();
 	}
 
 	public int getCount() {
@@ -43,12 +56,16 @@ public class CourseListAdapter extends BaseAdapter {
 	}
 
 	public void intitializeColorList() {
-		for (int i = 0; i < MAX_COURSES; i++)
+		for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 			colorList[i] = 0x00000000;
+	}
+	public void intitializeDeletBoxCheckList() {
+		for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
+			deleteBoxCheckList[i] = false;
 	}
 
 	public void initializeVisibiltyList() {
-		for (int i = 0; i < MAX_COURSES; i++)
+		for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 			visibilityList[i] = View.INVISIBLE;
 	}
 
@@ -59,7 +76,7 @@ public class CourseListAdapter extends BaseAdapter {
 	}
 
 	private void updateColorList(int position) {
-		for (int i = position; i < MAX_COURSES - 1; i++)
+		for (int i = position; i < GlobalProperties.MAX_COURSES - 1; i++)
 			colorList[i] = colorList[i + 1];
 	}
 
@@ -68,25 +85,59 @@ public class CourseListAdapter extends BaseAdapter {
 		notifyDataSetChanged();
 	}
 
+	public boolean getDeleteCheckBoxSatus(int position) {
+		return deleteBoxCheckList[position];
+	}
+
+	public void clearDeleteBoxCheckList() {
+		for (int i = 0; i < GlobalProperties.MAX_COURSES ; i++)
+			deleteBoxCheckList[i] = false;
+	}
+
 	public View getView(int position, View view, ViewGroup parent) {
-		LayoutInflater inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		view = inflater.inflate(R.layout.courses_list_item, null);
+		View rowView = view;
+		//clearDeleteBoxCheckList();
 
-		LinearLayout courseListItem = (LinearLayout) view
-				.findViewById(R.id.course_list_view_item);
+		if (rowView == null) {
 
-		courseListItem.setBackgroundColor(colorList[position]);
-		TextView textViewCourses = (TextView) view
-				.findViewById(R.id.courses_text_view);
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			rowView = inflater.inflate(R.layout.courses_list_item, null);
 
-		textViewCourses.setText(courses[position]);
-		ImageView xImage = (ImageView) view
-				.findViewById(R.id.courses_list_view_item_image_view);
-		xImage.setVisibility(visibilityList[position]);
-		currentView = view;
+			ViewHolder viewHolder = new ViewHolder();
 
-		return view;
+			viewHolder.ll = (LinearLayout) rowView
+					.findViewById(R.id.course_list_view_item);
+
+			viewHolder.tv = (TextView) rowView
+					.findViewById(R.id.courses_text_view);
+
+			viewHolder.cb = (CheckBox) rowView
+					.findViewById(R.id.course_list_item_checkbox_delete);
+			rowView.setTag(viewHolder);
+		}
+
+		ViewHolder holder = (ViewHolder) rowView.getTag();
+		holder.ll.setBackgroundColor(colorList[position]);
+		holder.tv.setText(courses[position]);
+		holder.cb.setVisibility(visibilityList[position]);
+		holder.cb.setTag(position);
+		holder.cb.setChecked(deleteBoxCheckList[position]);
+		holder.cb.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				CheckBox c = (CheckBox) v;
+
+				int row_id = (Integer) v.getTag();
+
+				deleteBoxCheckList[row_id] = c.isChecked();
+				Log.d("t7", "ID: "+row_id+" I:"+deleteBoxCheckList[row_id]);
+			}
+		});
+		currentView = rowView;
+
+		return rowView;
 	}
 
 	public Object getItem(int position) {
@@ -110,10 +161,10 @@ public class CourseListAdapter extends BaseAdapter {
 
 	public void setDelMode(boolean enabled) {
 		if (enabled) {
-			for (int i = 0; i < MAX_COURSES - 1; i++)
+			for (int i = 0; i < GlobalProperties.MAX_COURSES - 1; i++)
 				visibilityList[i] = View.VISIBLE;
 		} else {
-			for (int i = 0; i < MAX_COURSES - 1; i++)
+			for (int i = 0; i < GlobalProperties.MAX_COURSES - 1; i++)
 				visibilityList[i] = View.INVISIBLE;
 
 		}
