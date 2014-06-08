@@ -22,7 +22,7 @@
     <string name="inprogress">IN ARBEIT</string>
     <string name="choose_progress">Wähle deinen Fortschritt:</string>
     <string name="semester_descr">SEMESTER</string>
-    <string name ="delete_menu_title">Löschen</string>
+    <string name ="delete_menu_title">Bitte Kurse auswählen!</string>
     <string name="sem_1">1</string>
     <string name="sem_2">2</string>
     <string name="sem_3">3</string>
