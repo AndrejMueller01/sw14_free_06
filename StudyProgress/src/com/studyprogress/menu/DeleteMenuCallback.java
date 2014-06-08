@@ -46,6 +46,7 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 					String[] courseNames = null;
 					courseNames = parser.getCourseNamesOfSemester(i+1);
 					MainActivity.getAdapters()[i].setCourseNames(courseNames, j);
+					MainActivity.getAdapters()[i].delItemInDeleteBoxCheckList(j);
 					parent.setStudyStateChanged();
 				}
 			}

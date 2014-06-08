@@ -1140,9 +1140,11 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_settings=0x7f06007b;
+        public static final int action_settings=0x7f06007d;
         public static final int activity_chooser_view_content=0x7f060025;
-        public static final int add_item=0x7f060081;
+        public static final int add_item=0x7f060083;
+        public static final int alert_diag_course_delete_button=0x7f060079;
+        public static final int alert_diag_course_edit_button=0x7f06007a;
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
         public static final int checkbox=0x7f06002d;
@@ -1177,10 +1179,10 @@ containing a value of this type.
         public static final int create_course_mode_text_view=0x7f060052;
         public static final int create_course_sem_spinner=0x7f060055;
         public static final int create_course_sem_text_view=0x7f060054;
-        public static final int create_courses_cancel_item=0x7f06007d;
-        public static final int create_courses_ok_item=0x7f06007c;
-        public static final int create_curriculum_cancel_item=0x7f06007f;
-        public static final int create_curriculum_ok_item=0x7f06007e;
+        public static final int create_courses_cancel_item=0x7f06007f;
+        public static final int create_courses_ok_item=0x7f06007e;
+        public static final int create_curriculum_cancel_item=0x7f060081;
+        public static final int create_curriculum_ok_item=0x7f060080;
         public static final int create_new_curr_mode_spinner=0x7f06004b;
         public static final int create_new_curr_mode_text_view=0x7f06004a;
         public static final int create_new_curr_name_edit_text=0x7f060049;
@@ -1191,7 +1193,7 @@ containing a value of this type.
         public static final int curriculum_list_view_item=0x7f060077;
         public static final int curriculum_text_view=0x7f060078;
         public static final int default_activity_button=0x7f060028;
-        public static final int delete_item=0x7f060082;
+        public static final int delete_item=0x7f060084;
         public static final int dialog=0x7f06000e;
         public static final int disableHome=0x7f060008;
         public static final int dropdown=0x7f06000f;
@@ -1217,7 +1219,7 @@ containing a value of this type.
         public static final int progress_line_ll=0x7f06005a;
         public static final int progress_text_view=0x7f06005d;
         public static final int radio=0x7f06002f;
-        public static final int save_item=0x7f060080;
+        public static final int save_item=0x7f060082;
         public static final int search_badge=0x7f060032;
         public static final int search_bar=0x7f060031;
         public static final int search_button=0x7f060033;
@@ -1253,9 +1255,9 @@ containing a value of this type.
         public static final int title=0x7f06002b;
         public static final int top_action_bar=0x7f060020;
         public static final int university_list_view=0x7f060073;
-        public static final int university_list_view_item=0x7f060079;
+        public static final int university_list_view_item=0x7f06007b;
         public static final int university_list_view_search_input_field=0x7f060072;
-        public static final int university_text_view=0x7f06007a;
+        public static final int university_text_view=0x7f06007c;
         public static final int up=0x7f060021;
         public static final int useLogo=0x7f060003;
         public static final int withText=0x7f06000c;
@@ -1321,8 +1323,9 @@ containing a value of this type.
         public static final int activity_university_view=0x7f030020;
         public static final int courses_list_item=0x7f030021;
         public static final int curriculum_list_item=0x7f030022;
-        public static final int support_simple_spinner_dropdown_item=0x7f030023;
-        public static final int university_list_item=0x7f030024;
+        public static final int custom_buttons=0x7f030023;
+        public static final int support_simple_spinner_dropdown_item=0x7f030024;
+        public static final int university_list_item=0x7f030025;
     }
     public static final class menu {
         public static final int choose_start_configuration=0x7f0e0000;
