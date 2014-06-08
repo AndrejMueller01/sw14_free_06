@@ -30,25 +30,25 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 
 	@Override
 	public void onDestroyActionMode(ActionMode mode) {
+		XMLParser parser = XMLParser.getInstance(null);
+
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 			MainActivity.getAdapters()[i].setDelMode(false);
 			for(int j = 0; j < MainActivity.getAdapters()[i].getCount(); j++){
-				Log.d("t2",i+" j:"+j);
-
+				
 				if(MainActivity.getAdapters()[i].getDeleteCheckBoxSatus(j) == true){
-					
-					
 					final String courseName = MainActivity.getCourseListViews()[i]
 							.getItemAtPosition(j).toString();
 					Log.d("t7", "i:"+i+ "j:"+j+" |Löschen von: "+ courseName);
-					XMLParser parser = XMLParser.getInstance(null);
 					parser.deleteCourse(courseName);
 					String[] courseNames = null;
 					courseNames = parser.getCourseNamesOfSemester(i+1);
 					MainActivity.getAdapters()[i].setCourseNames(courseNames, j);
 					MainActivity.getAdapters()[i].delItemInDeleteBoxCheckList(j);
+					j--;
 					parent.setStudyStateChanged();
 				}
+				
 			}
 			MainActivity.getAdapters()[i].clearDeleteBoxCheckList();
 
