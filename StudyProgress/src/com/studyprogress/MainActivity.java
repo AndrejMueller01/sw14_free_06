@@ -428,7 +428,7 @@ public void deleteItems(){
 	    	
 	    	XMLParser.getInstance(null).deleteCourse(courseSelected);
 	    	studyStateChanged = true;
-	    	adapters[semesterSelected].setCourseNames(courseNames, position);;
+	    	//adapters[semesterSelected].setCourseNames(courseNames, position);;
 	    	Toast.makeText(getApplicationContext(), "You clicked on delete!!", Toast.LENGTH_LONG).show();
 	    	break;
 	    case R.id.alert_diag_course_edit_button:
