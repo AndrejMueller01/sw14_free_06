@@ -54,7 +54,10 @@ public class CourseListAdapter extends BaseAdapter {
 	public int getCount() {
 		return courses.length;
 	}
-
+	public void delItemInDeleteBoxCheckList(int pos) {
+		for (int i = pos; i < GlobalProperties.MAX_COURSES-1; i++)
+			deleteBoxCheckList[i] = deleteBoxCheckList[i+1];
+		}
 	public void intitializeColorList() {
 		for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 			colorList[i] = 0x00000000;

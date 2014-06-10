@@ -420,24 +420,25 @@ public void deleteItems(){
 	}
 	
 	
-    public void clickHandler(final View v)
-    {
-	    switch(v.getId())
-	    {
-	    case R.id.alert_diag_course_delete_button:
-	    	
-	    	XMLParser.getInstance(null).deleteCourse(courseSelected);
-	    	studyStateChanged = true;
-	    	//adapters[semesterSelected].setCourseNames(courseNames, position);;
-	    	Toast.makeText(getApplicationContext(), "You clicked on delete!!", Toast.LENGTH_LONG).show();
-	    	break;
-	    case R.id.alert_diag_course_edit_button:
-	    	Toast.makeText(getApplicationContext(), "You clicked on edit!!",Toast.LENGTH_LONG).show();
-	    	break;
-	    	
-	    
-	    }
-    }
+
+//    public void clickHandler(final View v)
+//    {
+//	    switch(v.getId())
+//	    {
+//	    case R.id.alert_diag_course_delete_button:
+//	    	
+//	    	XMLParser.getInstance(null).deleteCourse(courseSelected);
+//	    	studyStateChanged = true;
+//	    	adapters[semesterSelected].setCourseNames(courseNames, position);;
+//	    	Toast.makeText(getApplicationContext(), "You clicked on delete!!", Toast.LENGTH_LONG).show();
+//	    	break;
+//	    case R.id.alert_diag_course_edit_button:
+//	    	Toast.makeText(getApplicationContext(), "You clicked on edit!!",Toast.LENGTH_LONG).show();
+//	    	break;
+//	    	
+//	    
+//	    }
+//    }
 	
 
 	public void refreshProgress() {

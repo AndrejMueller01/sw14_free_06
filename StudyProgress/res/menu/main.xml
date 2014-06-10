@@ -1,14 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/save_item"
-        android:icon="@drawable/ic_action_save"
-        android:showAsAction="always"
-        android:title="@string/menu_item_save">
+        android:id="@+id/overflow_item"
+        android:icon="@drawable/ic_action_overflow"
+        android:orderInCategory="11111"
+        android:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/save_item"
+                android:icon="@drawable/ic_action_save"
+                android:showAsAction="always"
+                android:title="@string/menu_item_save">
+            </item>
+        </menu>
     </item>
     <item
         android:id="@+id/add_item"
-        android:icon="@drawable/ic_action_course_add"
+        android:icon="@drawable/ic_action_new"
         android:showAsAction="always"
         android:title="@string/menu_item_add">
     </item>
