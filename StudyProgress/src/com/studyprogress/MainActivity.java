@@ -306,9 +306,8 @@ public class MainActivity extends Activity {
 		return new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				if (event.getAction() != MotionEvent.ACTION_UP)
-					return false;
-				if (event.getAction() != MotionEvent.ACTION_DOWN) {
+				Log.d("t2",event.toString());
+				if (event.getAction() != MotionEvent.ACTION_DOWN && event.getAction() != MotionEvent.ACTION_MOVE){
 					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 						if (i == semester) {
 							semesterButtons.get(i).setPressed(true);
@@ -322,8 +321,32 @@ public class MainActivity extends Activity {
 
 						getCourseListViews()[i].refreshDrawableState();
 					}
+					return true;
+
 				}
-				return true;
+//				if (event.getAction() == MotionEvent.ACTION_MOVE){
+////					Log.d("t2", "MOVE");
+////					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) 
+////						if(!semesterButtons.get(i).isPressed() && semester != i)
+////							semesterButtons.get(semester).setPressed(true);
+//
+//					return false;
+//				}
+//				if (event.getAction() == MotionEvent.ACTION_CANCEL){
+//					Log.d("t2", "MOVE");
+//					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) 
+//						if(!semesterButtons.get(i).isPressed() && semester != i)
+//							;//semesterButtons.get(semester).setPressed(true);
+//
+//					return false;
+//				}
+//				
+//					//semesterButtons.get(semester).setPressed(true);
+//
+//				if (event.getAction() != MotionEvent.ACTION_UP) {
+//					return false;
+//				}
+				return false;
 			}
 		};
 	}
