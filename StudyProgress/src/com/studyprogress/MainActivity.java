@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import com.example.studyprogress.R;
+import com.example.studyprogress.R.layout;
 import com.studyprogress.menu.DeleteMenuCallback;
+import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.ProgressCalculator;
 import com.studyprogress.tools.XMLParser;
@@ -16,6 +19,7 @@ import com.studyprogress.adapter.CourseListAdapter;
 import android.os.Bundle;
 import android.os.Environment;
 import android.annotation.SuppressLint;
+import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -29,8 +33,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
@@ -54,14 +60,8 @@ public class MainActivity extends Activity {
 
 	private static ListView[] courseListViews;
 
-	private Button sem1Button;
-	private Button sem2Button;
-	private Button sem3Button;
-	private Button sem4Button;
-	private Button sem5Button;
-	private Button sem6Button;
-	private Button semOptCourses;
-	
+	private ArrayList<Button> semesterButtons;
+
 	private static boolean studyStateChanged = false;
 
 	private XMLParser parser;
@@ -73,8 +73,8 @@ public class MainActivity extends Activity {
 	private static int studMode = 0;
 
 	private static String curriculumName = null;
-	//global vars in order to delete easy!
-	//just for first version => think about better solution
+	// global vars in order to delete easy!
+	// just for first version => think about better solution
 	private String courseSelected = null;
 	private int semesterSelected = -1;
 	private int positionSelected = 0;
@@ -84,11 +84,19 @@ public class MainActivity extends Activity {
 
 	public View row;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		ActionBarProperties.standardMainActivityMenu(this);
+		
+		startConfiguration();
+		initComponents();
 
+	}
+	private void startConfiguration(){
 		Bundle extras = getIntent().getExtras();
 		if (extras.containsKey("firstOpen"))
 			firstTimeOpened = extras.getInt("firstOpen");
@@ -143,14 +151,11 @@ public class MainActivity extends Activity {
 			curriculumName = parser.getCurrentCurriculum().getName();
 			studMode = parser.getCurrentCurriculum().getMode();
 		}
-
-		initComponents();
-
 	}
-
 	private void initComponents() {
 
 		studyProgressBar = (ProgressBar) findViewById(R.id.study_progress_bar);
+		semesterButtons = new ArrayList<Button>();
 
 		studyProgressPercentage = (TextView) findViewById(R.id.progress_text_view);
 		curriculumNameTextField = (TextView) findViewById(R.id.curriculumNameInMainActivityTextView);
@@ -168,23 +173,24 @@ public class MainActivity extends Activity {
 		getCourseListViews()[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
 		getCourseListViews()[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
 
-		sem1Button = (Button) findViewById(R.id.semester_1_name_button);
-		sem2Button = (Button) findViewById(R.id.semester_2_name_button);
-		sem3Button = (Button) findViewById(R.id.semester_3_name_button);
-		sem4Button = (Button) findViewById(R.id.semester_4_name_button);
-		sem5Button = (Button) findViewById(R.id.semester_5_name_button);
-		sem6Button = (Button) findViewById(R.id.semester_6_name_button);
-		semOptCourses = (Button) findViewById(R.id.semester_optional_courses);
+		semesterButtons.add((Button) findViewById(R.id.semester_1_name_button));
+		semesterButtons.add((Button) findViewById(R.id.semester_2_name_button));
+		semesterButtons.add((Button) findViewById(R.id.semester_3_name_button));
+		semesterButtons.add((Button) findViewById(R.id.semester_4_name_button));
+		semesterButtons.add((Button) findViewById(R.id.semester_5_name_button));
+		semesterButtons.add((Button) findViewById(R.id.semester_6_name_button));
+		semesterButtons
+				.add((Button) findViewById(R.id.semester_optional_courses));
 
 		if (studMode == GlobalProperties.DIPL_STUD) {
+			for (int i = 3; i < semesterButtons.size() - 1; i++)
+				semesterButtons.get(i).setVisibility(View.INVISIBLE);
 
-			sem4Button.setVisibility(View.INVISIBLE);
-			sem5Button.setVisibility(View.INVISIBLE);
-			sem6Button.setVisibility(View.INVISIBLE);
+			// semesterButtons.get(i).(View.INVISIBLE);
 			semesterTextField.setText("Abschnitt");
 		} else if (studMode == GlobalProperties.MAST_STUD) {
-			sem5Button.setVisibility(View.INVISIBLE);
-			sem6Button.setVisibility(View.INVISIBLE);
+			for (int i = 4; i < semesterButtons.size() - 1; i++)
+				semesterButtons.get(i).setVisibility(View.INVISIBLE);
 		} else if (studMode == GlobalProperties.LA_STUD) {
 			// TODO:+3 Sem Buttons
 		}
@@ -229,20 +235,16 @@ public class MainActivity extends Activity {
 					int position = getAdapters()[j].getPositionByString(parser
 							.getCurrentCourses().get(i).getCourseName());
 					if (position != -1)
-						getAdapters()[j].setViewBackgroundColor(position, Color.RED);
+						getAdapters()[j].setViewBackgroundColor(position,
+								Color.RED);
 				}
 			}
 	}
 
 	private void setClickListneners() {
-
-		sem1Button.setOnClickListener(setupOnClickListener(0));
-		sem2Button.setOnClickListener(setupOnClickListener(1));
-		sem3Button.setOnClickListener(setupOnClickListener(2));
-		sem4Button.setOnClickListener(setupOnClickListener(3));
-		sem5Button.setOnClickListener(setupOnClickListener(4));
-		sem6Button.setOnClickListener(setupOnClickListener(5));
-		semOptCourses.setOnClickListener(setupOnClickListener(6));
+		for (int i = 0; i < semesterButtons.size(); i++) {
+			semesterButtons.get(i).setOnTouchListener(setupOnTouchListeners(i));
+		}
 
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
 			getCourseListViews()[i]
@@ -259,17 +261,21 @@ public class MainActivity extends Activity {
 		return super.onCreateOptionsMenu(menu);
 	}
 
-//	@Override
-//	public boolean onPrepareOptionsMenu(Menu menu) {
-//		MenuItem item = menu.findItem(R.id.delete_item);
-//		item.getIcon().setAlpha(130);
-//		return true;
-//	}
+	// @Override
+	// public boolean onPrepareOptionsMenu(Menu menu) {
+	// MenuItem item = menu.findItem(R.id.delete_item);
+	// item.getIcon().setAlpha(130);
+	// return true;
+	// }
 
 	@SuppressLint("NewApi")
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
+		case android.R.id.home:
+			Log.d("t2",studyStateChanged+"");
+			onBackPressed();
+			return true;
 		case R.id.save_item:
 			saveCourse();
 			return true;
@@ -288,7 +294,6 @@ public class MainActivity extends Activity {
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-
 	private void saveCourse() {
 		studyStateChanged = false;
 		XMLSave saver = new XMLSave(parser.getCurrentCourses());
@@ -297,57 +302,52 @@ public class MainActivity extends Activity {
 				Toast.LENGTH_SHORT).show();
 	}
 
-	public OnClickListener setupOnClickListener(final int semester) {
-		return new OnClickListener() {
+	public OnTouchListener setupOnTouchListeners(final int semester) {
+		return new OnTouchListener() {
 			@Override
-			public void onClick(View v) {
+			public boolean onTouch(View v, MotionEvent event) {
+				if (event.getAction() != MotionEvent.ACTION_UP)
+					return false;
+				if (event.getAction() != MotionEvent.ACTION_DOWN) {
+					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
+						if (i == semester) {
+							semesterButtons.get(i).setPressed(true);
+							getCourseListViews()[i].setVisibility(View.VISIBLE);
+						} else {
+							semesterButtons.get(i).setPressed(false);
 
-				for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
-					if (i == semester) {
-						getCourseListViews()[i].setVisibility(View.VISIBLE);
-					} else
-						getCourseListViews()[i].setVisibility(View.INVISIBLE);
-					getCourseListViews()[i].refreshDrawableState();
+							getCourseListViews()[i]
+									.setVisibility(View.INVISIBLE);
+						}
+
+						getCourseListViews()[i].refreshDrawableState();
+					}
 				}
+				return true;
 			}
 		};
 	}
-	public OnItemClickListener setupOnDeleteOptionSelectedClickListener(
-			final int semester) {
-		return new OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					final int position, long id) {/*
-				final String courseName = getCourseListViews()[semester - 1]
-						.getItemAtPosition(position).toString();
-				parser.deleteCourse(courseName);
-				String[] courseNames = null;
-				courseNames = parser.getCourseNamesOfSemester(semester);
-				getAdapters()[semester - 1].setCourseNames(courseNames, position);
-				studyStateChanged = true;*/
-
-			}
-		};
+	public void deleteItems() {
+		// for(int i = 0; i<parser.getCurrentCourses().)
 	}
-public void deleteItems(){
-	//for(int i = 0; i<parser.getCurrentCourses().)
-}
+
 	public OnItemClickListener setupOnItemClickListener(final int semester) {
 		return new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					final int position, long id) {
-				//nicht unbedingt!
+				// nicht unbedingt!
 				studyStateChanged = true;
+
 				final String courseName = getCourseListViews()[semester]
 						.getItemAtPosition(position).toString();
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
-			//	builder.setView(getLayoutInflater().inflate(R.layout.custom_buttons
-			//	        , null)); 
+				// builder.setView(getLayoutInflater().inflate(R.layout.custom_buttons
+				// , null));
 				// build title with course information
 				builder.setTitle(courseName);
 				courseSelected = courseName;
@@ -418,27 +418,27 @@ public void deleteItems(){
 			}
 		};
 	}
-	
-	
-//    public void clickHandler(final View v)
-//    {
-//	    switch(v.getId())
-//	    {
-//	    case R.id.alert_diag_course_delete_button:
-//	    	
-//	    	XMLParser.getInstance(null).deleteCourse(courseSelected);
-//	    	studyStateChanged = true;
-//	    	adapters[semesterSelected].setCourseNames(courseNames, position);;
-//	    	Toast.makeText(getApplicationContext(), "You clicked on delete!!", Toast.LENGTH_LONG).show();
-//	    	break;
-//	    case R.id.alert_diag_course_edit_button:
-//	    	Toast.makeText(getApplicationContext(), "You clicked on edit!!",Toast.LENGTH_LONG).show();
-//	    	break;
-//	    	
-//	    
-//	    }
-//    }
-	
+
+	// public void clickHandler(final View v)
+	// {
+	// switch(v.getId())
+	// {
+	// case R.id.alert_diag_course_delete_button:
+	//
+	// XMLParser.getInstance(null).deleteCourse(courseSelected);
+	// studyStateChanged = true;
+	// adapters[semesterSelected].setCourseNames(courseNames, position);;
+	// Toast.makeText(getApplicationContext(), "You clicked on delete!!",
+	// Toast.LENGTH_LONG).show();
+	// break;
+	// case R.id.alert_diag_course_edit_button:
+	// Toast.makeText(getApplicationContext(),
+	// "You clicked on edit!!",Toast.LENGTH_LONG).show();
+	// break;
+	//
+	//
+	// }
+	// }
 
 	public void refreshProgress() {
 		ProgressCalculator calculator = new ProgressCalculator(parser);
@@ -466,9 +466,11 @@ public void deleteItems(){
 		refreshProgress();
 
 	}
-	public void setStudyStateChanged(){
+
+	public void setStudyStateChanged() {
 		studyStateChanged = true;
 	}
+
 	private void setProgressOfCourseTodo(String courseName) {
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
 			if (parser.getCurrentCourses().get(i).getCourseName()
@@ -526,7 +528,7 @@ public void deleteItems(){
 		return courseListViews;
 	}
 
-	public  static void setCourseListViews(ListView[] courseListViews) {
+	public static void setCourseListViews(ListView[] courseListViews) {
 		MainActivity.courseListViews = courseListViews;
 	}
 
