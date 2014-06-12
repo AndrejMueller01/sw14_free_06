@@ -12,6 +12,7 @@ import android.util.Log;
 import com.example.studyprogress.R;
 import com.studyprogress.objects.Course;
 import com.studyprogress.objects.University;
+import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.XMLParser;
 
 public class XMLParserTest extends InstrumentationTestCase {
@@ -27,19 +28,20 @@ public class XMLParserTest extends InstrumentationTestCase {
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
-	private void openAndParseXMLFile(String fileName){
-		
-	}
-	public void testGetCurriculaNames() {
+
+	private void initParserAndSetInputStream(String fileName) {
 		parser = new XMLParser(null);
 		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_curricula.xml");
+			is = getInstrumentation().getContext().getAssets().open(fileName);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		parser.setInputStream(is);
+	}
+
+	public void testGetCurriculaNames() {
+		initParserAndSetInputStream("test_curricula.xml");
 		parser.parseCurricula();
 
 		ArrayList<String> testCurricula = new ArrayList<String>();
@@ -72,7 +74,6 @@ public class XMLParserTest extends InstrumentationTestCase {
 	}
 
 	public void testParseUniversities() {
-		parser = new XMLParser(null);
 
 		ArrayList<University> universities = new ArrayList<University>();
 		University uni = new University("TU Graz", 1);
@@ -80,14 +81,7 @@ public class XMLParserTest extends InstrumentationTestCase {
 		uni = new University("KFU Graz", 2);
 		universities.add(uni);
 
-		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_universities.xml");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		parser.setInputStream(is);
+		initParserAndSetInputStream("test_universities.xml");
 		parser.parseUniversities();
 
 		assertEquals(universities, parser.getAllUniversities());
@@ -95,23 +89,16 @@ public class XMLParserTest extends InstrumentationTestCase {
 	}
 
 	public void testParseCourses() {
-		parser = new XMLParser(null);
 
 		ArrayList<Course> courses = new ArrayList<Course>();
 		//
 		Course course = new Course("Analysis T1 VU", 7, 1, "VU");
 		courses.add(course);
 		course = new Course("Einführung in das Studium der Informatik VO", 1,
-				1, "VO");
+				5, "VO");
 		courses.add(course);
 
-		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_courses.xml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		parser.setInputStream(is);
+		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
 		// TODO: override equals Method
 		for (int i = 0; i < courses.size(); i++) {
@@ -128,30 +115,14 @@ public class XMLParserTest extends InstrumentationTestCase {
 	}
 
 	public void testParseCoursesSaveFile() {
-		parser = new XMLParser(null);
-
-		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_courses_saved.xml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		parser.setInputStream(is);
+		initParserAndSetInputStream("test_courses_saved.xml");
 		parser.parseCourses(true);
 		assertEquals("Informatik", parser.getCurrentCurriculum().getName());
 
 	}
 
 	public void testParseCurricula() {
-		parser = new XMLParser(null);
-
-		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_curricula.xml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		parser.setInputStream(is);
+		initParserAndSetInputStream("test_curricula.xml");
 		parser.parseCurricula();
 		for (int i = 0; i < parser.getCurricula().size(); i++)
 			assertEquals("TestCurriculum" + (i + 1),
@@ -160,31 +131,15 @@ public class XMLParserTest extends InstrumentationTestCase {
 	}
 
 	public void testGetCurriculumMode() {
-		parser = new XMLParser(null);
-
-		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_curricula.xml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		parser.setInputStream(is);
+		initParserAndSetInputStream("test_curricula.xml");
 		parser.parseCurricula();
 		assertEquals(parser.getCurriculumMode("TestCurriculum1"), 2);
 
 	}
 
 	public void testGetUniversityNames() {
-		parser = new XMLParser(null);
+		initParserAndSetInputStream("test_universities.xml");
 
-		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_universities.xml");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		parser.setInputStream(is);
 		parser.parseUniversities();
 
 		ArrayList<String> testUniversities = new ArrayList<String>();
@@ -209,75 +164,112 @@ public class XMLParserTest extends InstrumentationTestCase {
 		}
 
 	}
-	public void testGetCurriculumIdWithName(){
-		parser = new XMLParser(null);
 
-		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_curricula.xml");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		parser.setInputStream(is);
+	public void testGetCurriculumIdWithName() {
+		initParserAndSetInputStream("test_curricula.xml");
 		parser.parseCurricula();
 
-		
-		assertEquals("1",parser.getCurriculumIdWithName("TestCurriculum1"));
+		assertEquals(1, parser.getCurriculumIdWithName("TestCurriculum1"));
 	}
-	public void testGetUniversityIdWithName(){
-		parser = new XMLParser(null);
+
+	public void testGetUniversityIdWithName() {
+		initParserAndSetInputStream("test_universities.xml");
+		parser.parseUniversities();
+
+		assertEquals(1, parser.getUniversityIdWithName("TU Graz"));
+	}
+
+	public void testSetStatusOfCurrentCourseTo() {
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
+		parser.setStatusOfCurrentCourseTo(0, GlobalProperties.STATUS_DONE);
+		assertEquals(parser.getCurrentCourses().get(0).getStatus(),
+				GlobalProperties.STATUS_DONE);
+
+	}
+
+	public void testGetCurrentCoursesNames() {
+		String[] courseNames = new String[2];
+		courseNames[0] = "Analysis T1 VU";
+		courseNames[1] = "Einführung in das Studium der Informatik VO";
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
 
 		try {
-			is = getInstrumentation().getContext().getAssets()
-					.open("test_univeristies.xml");
+			assertEquals(parser.getCurrentCoursesNames()[0], courseNames[0]);
+			assertEquals(parser.getCurrentCoursesNames()[1], courseNames[1]);
+
+		} catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		parser.setInputStream(is);
-		parser.parseCurricula();
 
-		
-		assertEquals("1",parser.getUniversityIdWithName("TestCurriculum1"));
+	}
+
+	public void testGetCurrentNamesOfSemester() {
+		String[] courseNames = new String[2];
+		courseNames[0] = "Analysis T1 VU";
+		courseNames[1] = "Einführung in das Studium der Informatik VO";
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
+
+		assertEquals(parser.getCourseNamesOfSemester(1)[0], courseNames[0]);
+		assertEquals(parser.getCourseNamesOfSemester(5)[0], courseNames[1]);
+
+	}
+
+	public void testDeleteCourse() {
+		initParserAndSetInputStream("test_courses.xml");
+		String[] courseNames = new String[1];
+		courseNames[0] = "Einführung in das Studium der Informatik VO";
+		parser.parseCourses(false);
+		parser.deleteCourse("Analysis T1 VU");
+		try {
+			assertEquals(parser.getCurrentCoursesNames()[0], courseNames[0]);
+		} catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void getEctsByName() {
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
+
+		assertEquals(7, parser.getEctsByName("Analysis T1 VU"));
+	}
+
+	public void testGetCourseNumberByName() {
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
+		assertEquals("501.446", parser.getCourseNumberByName("Analysis T1 VU"));
+	}
+	public void testGetCourseSteopByName(){
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
+		assertEquals(parser.getCourseSteopByName("Analysis T1 VU"), GlobalProperties.NO_STEOP);
+	}
+	public void testGetCourseModeByName(){
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
+		assertEquals(parser.getCourseModeByName("Analysis T1 VU"), "VU");
+	}
+	public void testGetCurrentEcts(){
+		initParserAndSetInputStream("test_courses.xml");
+		parser.parseCourses(false);
+		parser.setStatusOfCurrentCourseTo(0, GlobalProperties.STATUS_DONE);
+		parser.setStatusOfCurrentCourseTo(1, GlobalProperties.STATUS_DONE);
+
+		assertEquals(parser.getCurrentEcts(),8.0f);
 	}
 }
-// --------------------------------
-/*
- * 
- * 
- * 
- * public int getUniversityIdWithName(String name) {
- * 
- * public ArrayList<Course> getCurrentCourses() {
- * 
- * 
- * public void setStatusOfCurrentCourseTo(int courseId, int status) {
- * 
- * 
- * public String[] getCurrentCoursesNames() throws XmlPullParserException,
- * IOException {
- * 
- * 
- * public String[] getCourseNamesOfSemester(int semesterNo) {
- * 
- * 
- * public Map<String, Float> getEctsMapOfAllCurrentCourses() {
- * 
- * 
- * public void deleteCourse(String courseName) {
- * 
- * 
- * public float getEctsByName(String courseName)
- * 
- * 
- * public String getCourseNumberByName(String courseName)
- * 
- * 
- * public int getCourseSteopByName(String courseName)
- * 
- * 
- * public String getCourseModeByName(String courseName)
- * 
+
+/* 
  * public float getCurrentEcts() {
  */

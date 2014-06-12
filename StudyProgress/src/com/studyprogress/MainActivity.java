@@ -324,28 +324,6 @@ public class MainActivity extends Activity {
 					return true;
 
 				}
-//				if (event.getAction() == MotionEvent.ACTION_MOVE){
-////					Log.d("t2", "MOVE");
-////					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) 
-////						if(!semesterButtons.get(i).isPressed() && semester != i)
-////							semesterButtons.get(semester).setPressed(true);
-//
-//					return false;
-//				}
-//				if (event.getAction() == MotionEvent.ACTION_CANCEL){
-//					Log.d("t2", "MOVE");
-//					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) 
-//						if(!semesterButtons.get(i).isPressed() && semester != i)
-//							;//semesterButtons.get(semester).setPressed(true);
-//
-//					return false;
-//				}
-//				
-//					//semesterButtons.get(semester).setPressed(true);
-//
-//				if (event.getAction() != MotionEvent.ACTION_UP) {
-//					return false;
-//				}
 				return false;
 			}
 		};

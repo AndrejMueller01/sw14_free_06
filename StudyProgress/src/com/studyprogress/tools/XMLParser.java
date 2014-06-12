@@ -352,9 +352,9 @@ public class XMLParser {
 		return currentCourses;
 	}
 
-	public void setStatusOfCurrentCourseTo(int courseId, int status) {
+	public void setStatusOfCurrentCourseTo(int index, int status) {
 		// 0-not 1-progress 2-done
-		currentCourses.get(courseId).setStatus(status);
+		currentCourses.get(index).setStatus(status);
 	}
 
 	public String[] getCurrentCoursesNames() throws XmlPullParserException,
@@ -376,7 +376,6 @@ public class XMLParser {
 		int numNotUsedArraySlots = 0;
 		for (int i = 0; i < currentCourses.size(); i++) {
 			if (currentCourses.get(i).getSemester() == semesterNo) {
-				Log.d("t4", "S" + i + currentCourses.get(i).getCourseName());
 				coursesNames[j] = currentCourses.get(i).getCourseName();
 				j++;
 			} else {
@@ -389,17 +388,6 @@ public class XMLParser {
 			coursesBySemester[i] = coursesNames[i];
 
 		return coursesBySemester;
-
-	}
-
-	public Map<String, Float> getEctsMapOfAllCurrentCourses() {
-		Map<String, Float> progressMap = new HashMap<String, Float>();
-
-		for (int i = 0; i < currentCourses.size(); i++) {
-			progressMap.put(currentCourses.get(i).getCourseName(),
-					currentCourses.get(i).getEcts());
-		}
-		return progressMap;
 
 	}
 

@@ -25,6 +25,11 @@ public class GlobalProperties {
 	public static int LAMTSTUD_ECTS = 270;
 	public static int PHD_STUD_ECTS = 270;
 	
+	public static int STEOP = 1;
+	public static int NO_STEOP = 0;
+
+
+	
 	public static final int MAX_COURSES = 100;
 	public static final int NUM_SEM_BUTTONS = 7;
 
