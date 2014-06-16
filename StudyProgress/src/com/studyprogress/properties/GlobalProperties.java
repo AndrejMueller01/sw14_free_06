@@ -32,6 +32,8 @@ public class GlobalProperties {
 	
 	public static final int MAX_COURSES = 100;
 	public static final int NUM_SEM_BUTTONS = 7;
+	
+	public static boolean STATIC_ECTS_MODE = true;
 
 
 

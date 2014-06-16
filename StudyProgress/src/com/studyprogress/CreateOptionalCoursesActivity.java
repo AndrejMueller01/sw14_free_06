@@ -62,7 +62,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 			String cid = cidET.getText().toString();
 			String courseMode = modeSP.getSelectedItem().toString();
 			if(TextUtils.isEmpty(cid))
-				cid = "000.000";
+				cid = getResources().getString(R.string.not_avaiable);
 			
 			
 			newCourse.setCourseName(courseName);

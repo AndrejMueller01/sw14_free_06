@@ -16,8 +16,8 @@ public class ProgressCalculator {
 		return currentECTS;
 	}
 
-	public int getMaxECTS() {
-
+	public int getMaxECTS(boolean staticModeOn) {
+		if(staticModeOn){
 		int mode = parser.getCurrentCurriculum().getMode();
 		switch (mode) {
 		case GlobalProperties.BACH_STUD:
@@ -41,6 +41,9 @@ public class ProgressCalculator {
 
 		}
 		return 0;
+		}else{
+			return (int) parser.getAllEcts();
+		}
 
 	}
 

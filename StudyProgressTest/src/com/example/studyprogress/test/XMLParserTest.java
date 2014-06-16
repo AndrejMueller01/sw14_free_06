@@ -34,7 +34,6 @@ public class XMLParserTest extends InstrumentationTestCase {
 		try {
 			is = getInstrumentation().getContext().getAssets().open(fileName);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		parser.setInputStream(is);
@@ -64,10 +63,8 @@ public class XMLParserTest extends InstrumentationTestCase {
 			assertEquals(testCurricula.get(4), actualCurricula.get(4));
 
 		} catch (XmlPullParserException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -156,10 +153,8 @@ public class XMLParserTest extends InstrumentationTestCase {
 			assertEquals(testUniversities.get(1), actualUniversities.get(1));
 
 		} catch (XmlPullParserException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -200,10 +195,8 @@ public class XMLParserTest extends InstrumentationTestCase {
 			assertEquals(parser.getCurrentCoursesNames()[1], courseNames[1]);
 
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -230,10 +223,8 @@ public class XMLParserTest extends InstrumentationTestCase {
 		try {
 			assertEquals(parser.getCurrentCoursesNames()[0], courseNames[0]);
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -270,6 +261,3 @@ public class XMLParserTest extends InstrumentationTestCase {
 	}
 }
 
-/* 
- * public float getCurrentEcts() {
- */

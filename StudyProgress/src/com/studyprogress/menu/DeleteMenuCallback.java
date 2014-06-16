@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-@SuppressLint("NewApi")
 public class DeleteMenuCallback implements ActionMode.Callback {
 	MainActivity parent;
 	boolean onDelButtonFlag = true;
@@ -21,7 +20,6 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 		parent = p;
 	
 	}
-
 
 	@Override
 	public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
@@ -39,12 +37,10 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 				if(MainActivity.getAdapters()[i].getDeleteCheckBoxSatus(j) == true){
 					final String courseName = MainActivity.getCourseListViews()[i]
 							.getItemAtPosition(j).toString();
-					Log.d("t7", "i:"+i+ "j:"+j+" |Löschen von: "+ courseName);
 					parser.deleteCourse(courseName);
 					String[] courseNames = null;
 					courseNames = parser.getCourseNamesOfSemester(i+1);
-					MainActivity.getAdapters()[i].setCourseNames(courseNames, j);
-					MainActivity.getAdapters()[i].delItemInDeleteBoxCheckList(j);
+					MainActivity.getAdapters()[i].setCourseNamesAfterDeletingAnElement(courseNames, j);
 					j--;
 					parent.setStudyStateChanged();
 				}
@@ -71,7 +67,6 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 
 	@Override
 	public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-		Log.d("t7", "click");
 		return false;
 	}
 	

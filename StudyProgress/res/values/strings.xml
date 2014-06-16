@@ -35,6 +35,7 @@
     <string name="new_course_ects_exception">Das "ECTS" - Feld muss eine Zahl >0 beinhalten!</string>
     <string name="new_course_name_exception">Bitte geben Sie einen Kursnamen ein!</string>
     <string name="new_curriculum_name_exception">Bitte geben Sie einen Namen für das Curriculum ein!</string>
+    <string name="not_avaiable">keine Angabe</string>
     
     <string name="save_text_succ">Speichern erfolgreich!</string>
     <string name="file_not_found">Datei nicht gefunden. Entweder haben Sie noch nie gespeichert oder die Datei wurde vom internen Speicher entfernt!</string>

@@ -22,6 +22,7 @@ public class XMLSave {
 		courseList = currentCourses;
 	}
 
+	// TODO: University Names, save file name dynamically
 	public void saveXML(String curriculumName, int curriculumId, int studMode) {
 
 		try {
@@ -80,10 +81,8 @@ public class XMLSave {
 			serializer.flush();
 			out.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
