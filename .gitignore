@@ -27,3 +27,4 @@ local.properties
 
 # PDT-specific
 .buildpath
+StudyProgress/gen/com/example/studyprogress/BuildConfig.java
