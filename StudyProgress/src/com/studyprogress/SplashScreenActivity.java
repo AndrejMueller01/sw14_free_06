@@ -10,7 +10,6 @@ import android.os.Handler;
  
 public class SplashScreenActivity extends Activity {
  
-    // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
  
     @Override
@@ -20,10 +19,8 @@ public class SplashScreenActivity extends Activity {
  
         new Handler().postDelayed(new Runnable() {
 
- 
             @Override
             public void run() {
-                // This method will be executed once the timer is over
 
                 Intent i = new Intent(SplashScreenActivity.this, ChooseStartConfigurationActivity.class);
                 startActivity(i);

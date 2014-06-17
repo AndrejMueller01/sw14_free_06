@@ -42,7 +42,6 @@ public class XMLParser {
 	public static XMLParser getInstance(InputStream is) {
 		if (instance == null) {
 			instance = new XMLParser(is);
-			
 
 		} else {
 			instance.setInputStream(is);
@@ -53,19 +52,23 @@ public class XMLParser {
 	public void setInputStream(InputStream is) {
 		this.inputStream = is;
 	}
-	public void clearCurrentCourses(){
+
+	public void clearCurrentCourses() {
 		currentCourses.clear();
 
 	}
-	public ArrayList<Curriculum> getCurricula(){
+
+	public ArrayList<Curriculum> getCurricula() {
 		return curricula;
 
 	}
+
 	public void addCourseToCurrentCourses(Course course) {
 		currentCourses.add(course);
 
 	}
-	public void parseUniversities(){
+
+	public void parseUniversities() {
 		try {
 			int eventType = 0;
 
@@ -117,11 +120,11 @@ public class XMLParser {
 			e.printStackTrace();
 		}
 	}
-	
-	public ArrayList<University> getAllUniversities(){
+
+	public ArrayList<University> getAllUniversities() {
 		return universities;
 	}
-	
+
 	public void parseCourses(boolean isSavedFile) {
 		if (currentCourses != null)
 			clearCurrentCourses();
@@ -159,7 +162,7 @@ public class XMLParser {
 							int studMode = Integer.parseInt(xmlPullParser
 									.getAttributeValue(null, "cmode"));
 
-							setCurrentCurriculum(studName,studMode,studId);
+							setCurrentCurriculum(studName, studMode, studId);
 
 						}
 						currentCourses = new ArrayList<Course>();
@@ -181,8 +184,7 @@ public class XMLParser {
 									.parseInt(xmlPullParser.nextText()));
 						}
 						if (name.equals("mode")) {
-							currentCourse.setMode(xmlPullParser
-									.nextText());
+							currentCourse.setMode(xmlPullParser.nextText());
 						}
 
 						if (name.equals("id")) {
@@ -220,10 +222,8 @@ public class XMLParser {
 			}
 
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -235,11 +235,13 @@ public class XMLParser {
 		currentCurriculum.setCurriculumId(studId);
 		currentCurriculum.setMode(studMode);
 	}
+
 	public void setCurrentUniversity(String name, int id) {
 
 		currentUniversity.setName(name);
 		currentUniversity.setId(id);
 	}
+
 	// TODO: Variable names
 	public void parseCurricula() {
 		int eventType = 0;
@@ -312,9 +314,11 @@ public class XMLParser {
 	public Curriculum getCurrentCurriculum() {
 		return currentCurriculum;
 	}
+
 	public University getCurrentUniversity() {
 		return currentUniversity;
 	}
+
 	public ArrayList<String> getCurriculaNames(InputStream inputStream)
 			throws XmlPullParserException, IOException {
 		ArrayList<String> curriculaNames = new ArrayList<String>();
@@ -324,6 +328,7 @@ public class XMLParser {
 		}
 		return curriculaNames;
 	}
+
 	public ArrayList<String> getUniversityNames(InputStream inputStream)
 			throws XmlPullParserException, IOException {
 		ArrayList<String> universityNames = new ArrayList<String>();
@@ -333,6 +338,7 @@ public class XMLParser {
 		}
 		return universityNames;
 	}
+
 	public int getCurriculumIdWithName(String name) {
 		for (int i = 0; i < curricula.size(); i++)
 			if (curricula.get(i).getName().equals(name)) {
@@ -348,13 +354,14 @@ public class XMLParser {
 			}
 		return 0;
 	}
+
 	public ArrayList<Course> getCurrentCourses() {
 		return currentCourses;
 	}
 
-	public void setStatusOfCurrentCourseTo(int courseId, int status) {
+	public void setStatusOfCurrentCourseTo(int index, int status) {
 		// 0-not 1-progress 2-done
-		currentCourses.get(courseId).setStatus(status);
+		currentCourses.get(index).setStatus(status);
 	}
 
 	public String[] getCurrentCoursesNames() throws XmlPullParserException,
@@ -376,7 +383,6 @@ public class XMLParser {
 		int numNotUsedArraySlots = 0;
 		for (int i = 0; i < currentCourses.size(); i++) {
 			if (currentCourses.get(i).getSemester() == semesterNo) {
-				Log.d("t4", "S" + i + currentCourses.get(i).getCourseName());
 				coursesNames[j] = currentCourses.get(i).getCourseName();
 				j++;
 			} else {
@@ -392,67 +398,49 @@ public class XMLParser {
 
 	}
 
-	public Map<String, Float> getEctsMapOfAllCurrentCourses() {
-		Map<String, Float> progressMap = new HashMap<String, Float>();
-
-		for (int i = 0; i < currentCourses.size(); i++) {
-			progressMap.put(currentCourses.get(i).getCourseName(),
-					currentCourses.get(i).getEcts());
-		}
-		return progressMap;
-
-	}
-
 	public void deleteCourse(String courseName) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if(currentCourses.get(i).getCourseName().equals(courseName))
+			if (currentCourses.get(i).getCourseName().equals(courseName))
 				currentCourses.remove(i);
 		}
 	}
-	
-	public float getEctsByName(String courseName)
-	{
+
+	public float getEctsByName(String courseName) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if(currentCourses.get(i).getCourseName().equals(courseName))
-			{
+			if (currentCourses.get(i).getCourseName().equals(courseName)) {
 				return currentCourses.get(i).getEcts();
-			}	
+			}
 		}
-		return 0;	
+		return 0;
 	}
-	
-	public String getCourseNumberByName(String courseName)
-	{
+
+	public String getCourseNumberByName(String courseName) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if(currentCourses.get(i).getCourseName().equals(courseName))
-			{
+			if (currentCourses.get(i).getCourseName().equals(courseName)) {
 				return currentCourses.get(i).getCourseNumber();
-			}	
+			}
 		}
-		return "";	
+		return "";
 	}
 
-	public int getCourseSteopByName(String courseName)
-	{
+	public int getCourseSteopByName(String courseName) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if(currentCourses.get(i).getCourseName().equals(courseName))
-			{
+			if (currentCourses.get(i).getCourseName().equals(courseName)) {
 				return currentCourses.get(i).getSteop();
-			}	
+			}
 		}
-		return -1;	
+		return -1;
 	}
 
-	public String getCourseModeByName(String courseName)
-	{
+	public String getCourseModeByName(String courseName) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if(currentCourses.get(i).getCourseName().equals(courseName))
-			{
+			if (currentCourses.get(i).getCourseName().equals(courseName)) {
 				return currentCourses.get(i).getMode();
-			}	
+			}
 		}
-		return "";	
+		return "";
 	}
+
 	public float getCurrentEcts() {
 		float currentEcts = 0;
 		for (int i = 0; i < getCurrentCourses().size(); i++) {
@@ -460,6 +448,15 @@ public class XMLParser {
 				currentEcts += getCurrentCourses().get(i).getEcts();
 		}
 		return currentEcts;
+	}
+
+	public float getAllEcts() {
+		float allEcts = 0;
+		for (int i = 0; i < getCurrentCourses().size(); i++) {
+
+			allEcts += getCurrentCourses().get(i).getEcts();
+		}
+		return allEcts;
 	}
 
 }

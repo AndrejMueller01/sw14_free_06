@@ -1,3 +1,4 @@
+<!-- TADADADA Don't touch this -->
 <?xml version="1.0" encoding="utf-8"?>
 <courses>
 	<course>
@@ -14,7 +15,7 @@
 		<name>Einführung in das Studium der Informatik VO</name>
 		<id>1</id>
 		<ects>1</ects>
-		<semester>1</semester>
+		<semester>5</semester>
 		<bachelor>1</bachelor>
 		<cid>710.104</cid>
 		<steop>1</steop>

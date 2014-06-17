@@ -48,8 +48,7 @@ public class UniversityListViewActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+	
 		universityNamesSearchFaults = new ArrayList<String>();
 		return true;
 	}
@@ -66,10 +65,8 @@ public class UniversityListViewActivity extends Activity {
 		try {
 			universityNames = parser.getUniversityNames(is);
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -50,8 +50,7 @@ public class CurriculumListViewActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+	
 		curriculumNamesSearchFaults = new ArrayList<String>();
 		return true;
 	}
@@ -60,8 +59,7 @@ public class CurriculumListViewActivity extends Activity {
 
 		curriculumListView = (ListView) findViewById(R.id.curriculum_list_view);
 		searchTextField = (EditText) findViewById(R.id.crurriculum_list_view_search_input_field);
-		// FileManager.getCurriculaNames(R.raw.curricula,this)
-
+	
 		InputStream is = null;
 		parser = XMLParser.getInstance(is);
 
@@ -73,7 +71,6 @@ public class CurriculumListViewActivity extends Activity {
 			parser.parseCurricula();
 
 		} catch (NotFoundException ex) {
-			// TODO: error handling
 
 		}
 		parser= XMLParser.getInstance(is);
@@ -81,10 +78,8 @@ public class CurriculumListViewActivity extends Activity {
 		try {
 			curriculumNames = parser.getCurriculaNames(is);
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

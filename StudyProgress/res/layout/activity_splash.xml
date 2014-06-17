@@ -20,6 +20,6 @@
         android:textColor="#454545"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
-        android:text="BETA r1" />
+        android:text="BETA r2" />
  
 </RelativeLayout>

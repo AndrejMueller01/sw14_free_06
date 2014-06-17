@@ -73,18 +73,12 @@ public class MainActivity extends Activity {
 	private static int studMode = 0;
 
 	private static String curriculumName = null;
-	// global vars in order to delete easy!
-	// just for first version => think about better solution
-	private String courseSelected = null;
-	private int semesterSelected = -1;
-	private int positionSelected = 0;
 
 	private static Integer FIRST_TIME = 1;
 	private static Integer NOT_FIRST_TIME = 0;
 
 	public View row;
 
-	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -126,7 +120,6 @@ public class MainActivity extends Activity {
 				parser = XMLParser.getInstance(is);
 				parser.parseCourses(false);
 			} catch (NotFoundException ex) {
-				// TODO:error handling
 
 			}
 		}
@@ -185,8 +178,6 @@ public class MainActivity extends Activity {
 		if (studMode == GlobalProperties.DIPL_STUD) {
 			for (int i = 3; i < semesterButtons.size() - 1; i++)
 				semesterButtons.get(i).setVisibility(View.INVISIBLE);
-
-			// semesterButtons.get(i).(View.INVISIBLE);
 			semesterTextField.setText("Abschnitt");
 		} else if (studMode == GlobalProperties.MAST_STUD) {
 			for (int i = 4; i < semesterButtons.size() - 1; i++)
@@ -195,7 +186,6 @@ public class MainActivity extends Activity {
 			// TODO:+3 Sem Buttons
 		}
 
-		// maxEcts = getAllEcts();
 		refreshProgress();
 
 		String[][] courseNames = null;
@@ -261,14 +251,7 @@ public class MainActivity extends Activity {
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	// @Override
-	// public boolean onPrepareOptionsMenu(Menu menu) {
-	// MenuItem item = menu.findItem(R.id.delete_item);
-	// item.getIcon().setAlpha(130);
-	// return true;
-	// }
 
-	@SuppressLint("NewApi")
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
@@ -324,44 +307,18 @@ public class MainActivity extends Activity {
 					return true;
 
 				}
-//				if (event.getAction() == MotionEvent.ACTION_MOVE){
-////					Log.d("t2", "MOVE");
-////					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) 
-////						if(!semesterButtons.get(i).isPressed() && semester != i)
-////							semesterButtons.get(semester).setPressed(true);
-//
-//					return false;
-//				}
-//				if (event.getAction() == MotionEvent.ACTION_CANCEL){
-//					Log.d("t2", "MOVE");
-//					for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) 
-//						if(!semesterButtons.get(i).isPressed() && semester != i)
-//							;//semesterButtons.get(semester).setPressed(true);
-//
-//					return false;
-//				}
-//				
-//					//semesterButtons.get(semester).setPressed(true);
-//
-//				if (event.getAction() != MotionEvent.ACTION_UP) {
-//					return false;
-//				}
 				return false;
 			}
 		};
 	}
 
-	public void deleteItems() {
-		// for(int i = 0; i<parser.getCurrentCourses().)
-	}
-
+	//TODO: class for AlertDialog!
 	public OnItemClickListener setupOnItemClickListener(final int semester) {
 		return new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					final int position, long id) {
-				// nicht unbedingt!
 				studyStateChanged = true;
 
 				final String courseName = getCourseListViews()[semester]
@@ -369,14 +326,9 @@ public class MainActivity extends Activity {
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
-				// builder.setView(getLayoutInflater().inflate(R.layout.custom_buttons
-				// , null));
-				// build title with course information
+
 				builder.setTitle(courseName);
-				courseSelected = courseName;
-				semesterSelected = semester;
-				positionSelected = position;
-				// builder.setTitle(R.string.choose_progress);
+
 				String courseInformation = "ECTS: ";
 				float courseEcts = parser.getEctsByName(courseName);
 				String ectsString = Float.valueOf(courseEcts).toString();
@@ -440,9 +392,7 @@ public class MainActivity extends Activity {
 
 			}
 		};
-	}
-<<<<<<< HEAD
-	
+	}	
 	
 
 //    public void clickHandler(final View v)
@@ -464,34 +414,11 @@ public class MainActivity extends Activity {
 //	    }
 //    }
 	
-=======
-
-	// public void clickHandler(final View v)
-	// {
-	// switch(v.getId())
-	// {
-	// case R.id.alert_diag_course_delete_button:
-	//
-	// XMLParser.getInstance(null).deleteCourse(courseSelected);
-	// studyStateChanged = true;
-	// adapters[semesterSelected].setCourseNames(courseNames, position);;
-	// Toast.makeText(getApplicationContext(), "You clicked on delete!!",
-	// Toast.LENGTH_LONG).show();
-	// break;
-	// case R.id.alert_diag_course_edit_button:
-	// Toast.makeText(getApplicationContext(),
-	// "You clicked on edit!!",Toast.LENGTH_LONG).show();
-	// break;
-	//
-	//
-	// }
-	// }
->>>>>>> 5bb9eb19dfed4e25057c22b5090c7252a2191c1c
 
 	public void refreshProgress() {
 		ProgressCalculator calculator = new ProgressCalculator(parser);
 		float currentEcts = calculator.calcuateCurrentECTS();
-		int maxECTS = calculator.getMaxECTS();
+		int maxECTS = calculator.getMaxECTS(GlobalProperties.STATIC_ECTS_MODE);
 
 		studyProgressBar.setMax(maxECTS);
 		studyProgressBar.setProgress((int) currentEcts);

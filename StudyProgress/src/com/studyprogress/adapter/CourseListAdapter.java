@@ -3,6 +3,7 @@ package com.studyprogress.adapter;
 import java.util.ArrayList;
 
 import com.example.studyprogress.R;
+import com.studyprogress.MainActivity;
 import com.studyprogress.properties.GlobalProperties;
 
 import android.content.Context;
@@ -37,6 +38,7 @@ public class CourseListAdapter extends BaseAdapter {
 
 	}
 
+	// TODO: dynamic size
 	public CourseListAdapter(String[] courseNames, Context context) {
 
 		this.courses = courseNames;
@@ -45,7 +47,7 @@ public class CourseListAdapter extends BaseAdapter {
 		colorList = new int[GlobalProperties.MAX_COURSES];
 		visibilityList = new int[GlobalProperties.MAX_COURSES];
 		deleteBoxCheckList = new boolean[GlobalProperties.MAX_COURSES];
-		
+
 		intitializeColorList();
 		initializeVisibiltyList();
 		intitializeDeletBoxCheckList();
@@ -54,14 +56,17 @@ public class CourseListAdapter extends BaseAdapter {
 	public int getCount() {
 		return courses.length;
 	}
-	public void delItemInDeleteBoxCheckList(int pos) {
-		for (int i = pos; i < GlobalProperties.MAX_COURSES-1; i++)
-			deleteBoxCheckList[i] = deleteBoxCheckList[i+1];
-		}
+
+	private void delItemInDeleteBoxCheckList(int pos) {
+		for (int i = pos; i < GlobalProperties.MAX_COURSES - 1; i++)
+			deleteBoxCheckList[i] = deleteBoxCheckList[i + 1];
+	}
+
 	public void intitializeColorList() {
 		for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 			colorList[i] = 0x00000000;
 	}
+
 	public void intitializeDeletBoxCheckList() {
 		for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 			deleteBoxCheckList[i] = false;
@@ -72,10 +77,12 @@ public class CourseListAdapter extends BaseAdapter {
 			visibilityList[i] = View.INVISIBLE;
 	}
 
-	public void setCourseNames(String[] courseNames, int position) {
+	public void setCourseNamesAfterDeletingAnElement(String[] courseNames, int currentPosition) {
 		this.courses = courseNames;
 		notifyDataSetChanged();
-		updateColorList(position);
+		updateColorList(currentPosition);
+		delItemInDeleteBoxCheckList(currentPosition);
+
 	}
 
 	private void updateColorList(int position) {
@@ -93,13 +100,12 @@ public class CourseListAdapter extends BaseAdapter {
 	}
 
 	public void clearDeleteBoxCheckList() {
-		for (int i = 0; i < GlobalProperties.MAX_COURSES ; i++)
+		for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 			deleteBoxCheckList[i] = false;
 	}
 
 	public View getView(int position, View view, ViewGroup parent) {
 		View rowView = view;
-		//clearDeleteBoxCheckList();
 
 		if (rowView == null) {
 
@@ -131,11 +137,8 @@ public class CourseListAdapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
 				CheckBox c = (CheckBox) v;
-
 				int row_id = (Integer) v.getTag();
-
 				deleteBoxCheckList[row_id] = c.isChecked();
-				Log.d("t7", "ID: "+row_id+" I:"+deleteBoxCheckList[row_id]);
 			}
 		});
 		currentView = rowView;
@@ -144,7 +147,6 @@ public class CourseListAdapter extends BaseAdapter {
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
 		return courses[position];
 	}
 
@@ -158,16 +160,15 @@ public class CourseListAdapter extends BaseAdapter {
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 
 	public void setDelMode(boolean enabled) {
 		if (enabled) {
-			for (int i = 0; i < GlobalProperties.MAX_COURSES - 1; i++)
+			for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 				visibilityList[i] = View.VISIBLE;
 		} else {
-			for (int i = 0; i < GlobalProperties.MAX_COURSES - 1; i++)
+			for (int i = 0; i < GlobalProperties.MAX_COURSES; i++)
 				visibilityList[i] = View.INVISIBLE;
 
 		}
