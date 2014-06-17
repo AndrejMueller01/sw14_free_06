@@ -203,7 +203,7 @@ public class CurriculaTests extends
 		assertEquals(0, XMLParser.getInstance(null).getCurrentCurriculum().getMode());
 		solo.goBack();
 		solo.waitForActivity(ChooseStartConfigurationActivity.class);
-		//maybe #Semester hier auch testen!!!
+		//TODO: #Semester hier auch testen!!!
 		//-----
 		
 		

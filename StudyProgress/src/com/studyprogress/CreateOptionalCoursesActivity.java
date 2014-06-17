@@ -93,7 +93,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 				return false;
 			}
 			
-			
+			// TODO: 
 			try {
 				newCourse.setSemester(Integer.parseInt(semesterNo));
 			} catch (NumberFormatException ex) {

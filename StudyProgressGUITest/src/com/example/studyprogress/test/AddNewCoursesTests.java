@@ -480,7 +480,9 @@ public class AddNewCoursesTests extends
         modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
         solo.pressSpinnerItem(0, 1);
 		solo.pressSpinnerItem(1, 6);
+		solo.pressMenuItem(0);
 
+		
 		solo.waitForActivity(MainActivity.class);
 		solo = new Solo(getInstrumentation(), getActivity());
 		solo.pressMenuItem(1);
@@ -559,8 +561,11 @@ public class AddNewCoursesTests extends
         modeSP = (Spinner) solo.getView(R.id.create_course_mode_spinner);
         solo.pressSpinnerItem(0, 5);
 		solo.pressSpinnerItem(1, 6);
-
 		solo.pressMenuItem(0);
+
+		solo.waitForActivity(MainActivity.class);
+		solo = new Solo(getInstrumentation(), getActivity());
+		solo.pressMenuItem(1);
 
 
 		solo.waitForActivity(CreateOptionalCoursesActivity.class);
@@ -586,12 +591,12 @@ public class AddNewCoursesTests extends
 		solo.clickOnButton(solo.getString(R.string.sem_add));
 		
 		solo.clickOnView(semopt.getChildAt(0));
-
-		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 5).toString()), "VO");
-		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 4).toString()), "VU");
-		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 3).toString()), "KU");
-		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 2).toString()), "SE");
-		//assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(sem1lv.getCount() - 1).toString()), "SP");		
+		
+		String[] courseModes = {"VO","VU","UE","KU","SE","LU","SP"};
+		for(int i = 0; i< courseModes.length;i++)
+		{
+			assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(i).toString()), courseModes[i]);	
+		}
 	}
 	
 	public void testCIDSimple() throws Exception {
@@ -686,7 +691,7 @@ public class AddNewCoursesTests extends
 		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
 		solo.clickOnButton(solo.getString(R.string.sem_1));
 		assertEquals(XMLParser.getInstance(null).getCourseNumberByName(sem1lv.getAdapter().getItem(sem1lv.getCount() - 1).toString()),
-				"000.000");
+				getActivity().getResources().getString(R.string.not_avaiable));
 		
 	}
 

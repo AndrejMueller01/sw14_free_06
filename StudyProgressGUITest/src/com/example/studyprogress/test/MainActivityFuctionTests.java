@@ -91,7 +91,7 @@ public class MainActivityFuctionTests extends
 		solo.waitForActivity(MainActivity.class);
 		solo.clickOnButton("1");
 		solo.clickOnView(sem1lv.getChildAt(0));
-		solo.clickOnButton("Geschafft");
+		solo.clickOnButton(getActivity().getResources().getString(R.string.done));
 		solo.pressMenuItem(0);
 		solo.goBack();	
 	}

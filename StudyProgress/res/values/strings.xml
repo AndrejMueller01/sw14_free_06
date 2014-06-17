@@ -32,6 +32,7 @@
     <string name="sem_add">+</string>
     <string name="menu_item_add">Wahlfach hinzufügen</string>
     <string name="menu_item_delete">Kurs löschen</string>
+    <string name="menu_item_overflow">Optionen</string>
     <string name="new_course_ects_exception">Das "ECTS" - Feld muss eine Zahl >0 beinhalten!</string>
     <string name="new_course_name_exception">Bitte geben Sie einen Kursnamen ein!</string>
     <string name="new_curriculum_name_exception">Bitte geben Sie einen Namen für das Curriculum ein!</string>

@@ -68,7 +68,7 @@ public class XMLSaveTest extends InstrumentationTestCase {
 		assertEquals(parser.getCurrentCourses().get(0).getCourseName(),
 				"Analysis T1 VU");
 		assertEquals(parser.getCurrentCourses().get(1).getCourseName(),
-				"Einführung in das Studium der Informatik VO");
+				"EinfÃ¼hrung in das Studium der Informatik VO");
 
 	}
 

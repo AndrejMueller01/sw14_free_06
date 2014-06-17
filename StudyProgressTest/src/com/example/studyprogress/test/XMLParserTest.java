@@ -91,7 +91,7 @@ public class XMLParserTest extends InstrumentationTestCase {
 		//
 		Course course = new Course("Analysis T1 VU", 7, 1, "VU");
 		courses.add(course);
-		course = new Course("Einführung in das Studium der Informatik VO", 1,
+		course = new Course("Einfï¿½hrung in das Studium der Informatik VO", 1,
 				5, "VO");
 		courses.add(course);
 
@@ -186,7 +186,7 @@ public class XMLParserTest extends InstrumentationTestCase {
 	public void testGetCurrentCoursesNames() {
 		String[] courseNames = new String[2];
 		courseNames[0] = "Analysis T1 VU";
-		courseNames[1] = "Einführung in das Studium der Informatik VO";
+		courseNames[1] = "Einfï¿½hrung in das Studium der Informatik VO";
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
 
@@ -205,7 +205,7 @@ public class XMLParserTest extends InstrumentationTestCase {
 	public void testGetCurrentNamesOfSemester() {
 		String[] courseNames = new String[2];
 		courseNames[0] = "Analysis T1 VU";
-		courseNames[1] = "Einführung in das Studium der Informatik VO";
+		courseNames[1] = "Einfï¿½hrung in das Studium der Informatik VO";
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
 
@@ -217,7 +217,7 @@ public class XMLParserTest extends InstrumentationTestCase {
 	public void testDeleteCourse() {
 		initParserAndSetInputStream("test_courses.xml");
 		String[] courseNames = new String[1];
-		courseNames[0] = "Einführung in das Studium der Informatik VO";
+		courseNames[0] = "Einfï¿½hrung in das Studium der Informatik VO";
 		parser.parseCourses(false);
 		parser.deleteCourse("Analysis T1 VU");
 		try {
