@@ -22,8 +22,7 @@ public class XMLSave {
 		courseList = currentCourses;
 	}
 
-	// TODO: University Names, save file name dynamically
-	public void saveXML(String curriculumName, int curriculumId, int studMode) {
+	public void saveXML(String fileName, String universityName, String curriculumName, int curriculumId, int studMode) {
 
 		try {
 			File file = new File(appDir, "my_curriculum.xml");
@@ -40,6 +39,7 @@ public class XMLSave {
 					true);
 
 			serializer.startTag(null, "courses");
+			serializer.attribute(null, "uname", universityName);
 			serializer.attribute(null, "cname", curriculumName);
 			serializer.attribute(null, "cid", ""+curriculumId);
 			serializer.attribute(null, "cmode", ""+studMode);

@@ -29,7 +29,7 @@ public class CourseListAdapterTest extends InstrumentationTestCase{
 	public void testSetCourseNamesAfterDeletingAnElement(){
 		String[] new_names = {"Analysis T1 VU"};
 		cla.setCourseNamesAfterDeletingAnElement(new_names, 1);
-		assertEquals(cla.getPositionByString("Einführung in das Studium der Informatik VO"),0);
+		assertEquals(cla.getPositionByString("Analysis T1 VU"),0);
 		
 	}
 	

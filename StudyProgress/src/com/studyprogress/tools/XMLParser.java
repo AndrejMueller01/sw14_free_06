@@ -155,6 +155,11 @@ public class XMLParser {
 					if (name.equals("courses")) {
 						if (xmlPullParser.getAttributeCount() > 0
 								&& isSavedFile == true) {
+							/*
+							 * for later version
+							 * currentUniversity.setName(xmlPullParser
+							 * .getAttributeValue( null, "uname"));
+							 */
 							String studName = xmlPullParser.getAttributeValue(
 									null, "cname");
 							int studId = Integer.parseInt(xmlPullParser

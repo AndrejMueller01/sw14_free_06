@@ -14,6 +14,8 @@ public class University {
 		
 	}
 	public String getName(){
+		if(name == null)
+			return "n/a";
 		return name;
 	}
 	public void setName(String name){

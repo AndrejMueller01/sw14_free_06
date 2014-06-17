@@ -73,6 +73,9 @@ public class MainActivity extends Activity {
 	private static int studMode = 0;
 
 	private static String curriculumName = null;
+	// TODO: for a later version
+	//private static String universityName = null;
+
 
 	private static Integer FIRST_TIME = 1;
 	private static Integer NOT_FIRST_TIME = 0;
@@ -105,6 +108,7 @@ public class MainActivity extends Activity {
 			universityId = parser.getCurrentUniversity().getId();
 
 			curriculumName = parser.getCurrentCurriculum().getName();
+			//universityName = parser.getCurrentUniversity().getName();
 			studMode = parser.getCurrentCurriculum().getMode();
 
 			InputStream is = null;
@@ -142,6 +146,8 @@ public class MainActivity extends Activity {
 
 			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
 			curriculumName = parser.getCurrentCurriculum().getName();
+			//universityName = parser.getCurrentUniversity().getName();
+
 			studMode = parser.getCurrentCurriculum().getMode();
 		}
 	}
@@ -280,7 +286,7 @@ public class MainActivity extends Activity {
 	private void saveCourse() {
 		studyStateChanged = false;
 		XMLSave saver = new XMLSave(parser.getCurrentCourses());
-		saver.saveXML(curriculumName, curriculumId, studMode);
+		saver.saveXML("my_curriculum.xml", "placeholder", curriculumName, curriculumId, studMode);
 		Toast.makeText(getBaseContext(), R.string.save_text_succ,
 				Toast.LENGTH_SHORT).show();
 	}
