@@ -13,45 +13,38 @@
             android:id="@+id/choose_start_configuration_button_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/start_button_selector"
             android:text="@string/new_plan" />
 
         <Button
             android:id="@+id/choose_start_configuration_button_open"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/start_button_selector"
             android:text="@string/open_plan" />
 
         <Button
             android:id="@+id/choose_start_configuration_button_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/start_button_selector"
             android:enabled="true"
             android:text="@string/about" />
 
-        <Button
+       <!--   <Button
             android:id="@+id/choose_start_configuration_button_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/start_button_selector"
             android:enabled="false"
-            android:text="@string/rate" />
+            android:text="@string/rate" /> -->
 
         <Button
             android:id="@+id/choose_start_configuration_button_site"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/start_button_selector"
-            android:enabled="false"
             android:text="@string/site" />
 
         <Button
             android:id="@+id/choose_start_configuration_button_bug"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/start_button_selector"
             android:text="@string/bug" />
     </LinearLayout>
 

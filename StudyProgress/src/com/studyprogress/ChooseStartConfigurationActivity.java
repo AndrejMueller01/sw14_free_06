@@ -24,6 +24,8 @@ public class ChooseStartConfigurationActivity extends Activity {
 	private Button openPlanButton;
 	private Button aboutButton;
 	private Button bugButton;
+	private Button siteButton;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 		openPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_open);
 		aboutButton = (Button) findViewById(R.id.choose_start_configuration_button_about);
 		bugButton = (Button) findViewById(R.id.choose_start_configuration_button_bug);
+		siteButton = (Button) findViewById(R.id.choose_start_configuration_button_site);
 
 		newPlanButton.setOnClickListener(new OnClickListener() {
 
@@ -91,6 +94,20 @@ public class ChooseStartConfigurationActivity extends Activity {
 						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
 
 				startActivity(facebookAppIntent);
+
+			}
+		});
+		siteButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				final String url = "http://www.studyprogress.at";
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri
+						.parse(url));
+				intent
+						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+				startActivity(intent);
 
 			}
 		});

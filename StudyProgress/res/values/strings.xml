@@ -13,9 +13,9 @@
     <string name="new_plan">Neues Studium erstellen</string>
     <string name="empty_plan">Leeren Studienplan erstellen</string>
     <string name="open_plan">Gespeichertes Studium öffnen</string>
-    <string name="about">ÜBER</string>
+    <string name="about">Impressum</string>
     <string name="rate">BEWERTEN</string>
-    <string name="site">PROJEKTSEITE</string>
+    <string name="site">Projektseite</string>
     <string name="bug">Bugreport FB</string>
     <string name="done">GESCHAFFT</string>
     <string name="todo">ZU MACHEN</string>

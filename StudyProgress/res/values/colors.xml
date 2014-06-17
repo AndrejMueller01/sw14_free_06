@@ -5,7 +5,7 @@
     <color name="TODO">#FFFF0000</color>
     <color name="INPROGRESS">#FFFFFF00</color>
     <color name="background_green">#84bc25</color>
-    <color name="background_standard">#f3ee82</color>
+    <color name="background_standard">#eff2c3</color>
     <color name="background_red">#c7bf14</color>
 
 </resources>

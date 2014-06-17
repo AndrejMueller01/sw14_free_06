@@ -318,7 +318,7 @@ public class MainActivity extends Activity {
 		};
 	}
 
-	//TODO: class for AlertDialog!
+	//TODO: class for AlertDialog + no hardcoded stuff
 	public OnItemClickListener setupOnItemClickListener(final int semester) {
 		return new OnItemClickListener() {
 
