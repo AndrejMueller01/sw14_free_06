@@ -39,7 +39,8 @@ public class ChooseStartConfigurationActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
+				Intent intent = new Intent(
+						ChooseStartConfigurationActivity.this,
 						ChooseExistingOrNewCurriculumActivity.class);
 				startActivity(intent);
 
@@ -49,54 +50,50 @@ public class ChooseStartConfigurationActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
+				Intent intent = new Intent(
+						ChooseStartConfigurationActivity.this,
 						MainActivity.class);
 				File file = new File(Environment.getExternalStorageDirectory()
 						.getAbsolutePath() + GlobalProperties.SAVE_FILE_DIR,
 						GlobalProperties.SAVE_FILE_NAME);
-				if(file.exists())   {  
+				if (file.exists()) {
 					intent.putExtra("firstOpen", 0);
-				startActivity(intent);	
-				}
-				else{
-					Toast.makeText(getApplicationContext(), R.string.file_not_found, Toast.LENGTH_LONG).show();
+					startActivity(intent);
+				} else {
+					Toast.makeText(getApplicationContext(),
+							R.string.file_not_found, Toast.LENGTH_LONG).show();
 				}
 
 			}
 		});
-		
+
 		aboutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ChooseStartConfigurationActivity.this,
+				Intent intent = new Intent(
+						ChooseStartConfigurationActivity.this,
 						AboutActivity.class);
 				intent.putExtra("firstOpen", 0);
 				startActivity(intent);
 
 			}
-		
+
 		});
 		bugButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				final String url = "fb://page/1503204023244122";
-						Intent facebookAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-						facebookAppIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-						
-				         final PackageManager packageManager = getPackageManager();
-				         List<ResolveInfo> list =
-				             packageManager.queryIntentActivities(facebookAppIntent,
-				             PackageManager.MATCH_DEFAULT_ONLY);
-				         if (list.size() == 0) {
-				             final String urlBrowser = "https://www.facebook.com/groups/253869021486505/";
-				             facebookAppIntent.setData(Uri.parse(urlBrowser));
-				         }		        						
-						startActivity(facebookAppIntent);
+				final String url = "https://www.facebook.com/groups/253869021486505/";
+				Intent facebookAppIntent = new Intent(Intent.ACTION_VIEW, Uri
+						.parse(url));
+				facebookAppIntent
+						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+				startActivity(facebookAppIntent);
 
 			}
 		});
-		
+
 	}
 }

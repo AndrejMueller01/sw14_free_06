@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.example.studyprogress.R;
+import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.tools.XMLParser;
 
 import android.os.Bundle;
@@ -42,6 +43,8 @@ public class CurriculumListViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_curriculum_view);
+		ActionBarProperties.noTitleText(this);
+
 		initComponents();
 	}
 

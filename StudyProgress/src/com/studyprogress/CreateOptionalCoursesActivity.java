@@ -2,6 +2,7 @@ package com.studyprogress;
 
 import com.example.studyprogress.R;
 import com.studyprogress.objects.Course;
+import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.tools.XMLParser;
 import com.studyprogress.tools.XMLSave;
 
@@ -29,6 +30,8 @@ public class CreateOptionalCoursesActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_optional_course);
+		ActionBarProperties.noTitleText(this);
+
 		courseNameET = (EditText) findViewById(R.id.create_course_course_name_edit_text);
 		ectsET = (EditText) findViewById(R.id.create_course_ects_edit_text);
 		cidET = (EditText) findViewById(R.id.create_course_cid_edit_text);

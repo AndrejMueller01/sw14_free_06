@@ -1,6 +1,7 @@
 package com.studyprogress;
 
 import com.example.studyprogress.R;
+import com.studyprogress.properties.ActionBarProperties;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class AboutActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
+		ActionBarProperties.noTitleText(this);
 
 	}
 }

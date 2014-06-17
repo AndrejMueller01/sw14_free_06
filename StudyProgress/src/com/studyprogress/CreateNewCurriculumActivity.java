@@ -2,6 +2,7 @@ package com.studyprogress;
 
 import com.example.studyprogress.R;
 import com.studyprogress.objects.Course;
+import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.tools.XMLParser;
 
 import android.app.Activity;
@@ -29,6 +30,8 @@ public class CreateNewCurriculumActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_new_curriculum);
+		ActionBarProperties.noTitleText(this);
+
 		currNameField = (EditText) findViewById(R.id.create_new_curr_name_edit_text);
 		currModeSpinner = (Spinner) findViewById(R.id.create_new_curr_mode_spinner);
 	}
