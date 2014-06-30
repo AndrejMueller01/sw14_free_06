@@ -1,0 +1,3 @@
+include ':StudyProgress'
+include ':StudyProgressGUITest'
+include ':StudyProgressTest'
