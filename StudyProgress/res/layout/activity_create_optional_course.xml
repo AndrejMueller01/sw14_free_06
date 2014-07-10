@@ -80,6 +80,14 @@
             android:layout_height="wrap_content"
             android:entries="@array/opt_course_sem_array"
             android:prompt="@string/opt_course_sem" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_course_is_steop_cb"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:text="@string/is_steop" />
     </LinearLayout>
 
 </ScrollView>

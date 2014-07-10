@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 	private EditText cidET;
 	private Spinner semSP;
 	private Spinner modeSP;
+    private CheckBox steopCB;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 		cidET = (EditText) findViewById(R.id.create_course_cid_edit_text);
 		semSP = (Spinner) findViewById(R.id.create_course_sem_spinner);
 		modeSP = (Spinner) findViewById(R.id.create_course_mode_spinner);
+        steopCB = (CheckBox) findViewById(R.id.create_course_is_steop_cb);
 		parser = XMLParser.getInstance(null);
 	}
 
@@ -63,6 +66,8 @@ public class CreateOptionalCoursesActivity extends Activity {
 			String courseMode = modeSP.getSelectedItem().toString();
 			if(TextUtils.isEmpty(cid))
 				cid = getResources().getString(R.string.not_avaiable);
+            if(steopCB.isChecked())
+                newCourse.setSteop(1);
 			
 			
 			newCourse.setCourseName(courseName);

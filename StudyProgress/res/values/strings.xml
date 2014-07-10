@@ -59,7 +59,7 @@
     <string name="about_authors">Autoren: Dominik Hirner, Andrej Müller</string>    
     <string name="about_designer">Designer: Priska Rothammer</string>    
     <string name="about_information">Diese Android-Applikation wurde im Rahmen der Lehrveranstaltung ""Mobile Applications" auf der technischen Universität Graz im SS 2014 entwickelt.\n\nKontakt: - \n </string>    
-    
+    <string name="is_steop">Steop</string>
     
 
     <string-array name="opt_course_sem_array">
