@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.example.studyprogress.R;
 import com.example.studyprogress.R.layout;
 import com.studyprogress.menu.DeleteMenuCallback;
+import com.studyprogress.objects.Course;
 import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.ProgressCalculator;
@@ -29,6 +30,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -206,12 +208,24 @@ public class MainActivity extends Activity {
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
 			getCourseListViews()[i].setAdapter(getAdapters()[i]);
 
-		setClickListneners();
-		setBackgroudColors();
+        for(int i = 0; i< GlobalProperties.SEM_COUNT;i++)
+        {
+            for(int j = 0; j<courseNames[i].length;j++)
+            {
+               Course curr_course = parser.getCourseByName(courseNames[i][j]);
+                String temp_mode = curr_course.getMode();
+                courseNames[i][j] += " ";
+                courseNames[i][j] += temp_mode;
+            }
+        }
+
+
+		setClickListeners();
+		setBackgroundColors();
 
 	}
 
-	private void setBackgroudColors() {
+	private void setBackgroundColors() {
 		for (int j = 0; j < GlobalProperties.SEM_COUNT; j++)
 			for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
 				if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_DONE) {
@@ -237,7 +251,7 @@ public class MainActivity extends Activity {
 			}
 	}
 
-	private void setClickListneners() {
+	private void setClickListeners() {
 		for (int i = 0; i < semesterButtons.size(); i++) {
 			semesterButtons.get(i).setOnTouchListener(setupOnTouchListeners(i));
 		}
@@ -476,6 +490,8 @@ public class MainActivity extends Activity {
 
 	}
 
+
+
 	@Override
 	public void onBackPressed() {
 		if (studyStateChanged) {
@@ -520,5 +536,7 @@ public class MainActivity extends Activity {
 	public static void setAdapters(CourseListAdapter[] adapters) {
 		MainActivity.adapters = adapters;
 	}
+
+
 
 }

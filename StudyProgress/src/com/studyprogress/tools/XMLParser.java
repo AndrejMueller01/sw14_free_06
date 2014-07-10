@@ -464,4 +464,14 @@ public class XMLParser {
 		return allEcts;
 	}
 
+    public Course getCourseByName(String courseName)
+    {
+        for (int i = 0; i < getCurrentCourses().size(); i++) {
+            if(getCurrentCourses().get(i).getCourseName().equals(courseName))
+                return getCurrentCourses().get(i);
+        }
+        return null;
+    }
+
+
 }
