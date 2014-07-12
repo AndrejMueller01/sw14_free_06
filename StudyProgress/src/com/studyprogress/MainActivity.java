@@ -341,6 +341,7 @@ public class MainActivity extends Activity {
 					final int position, long id) {
 				studyStateChanged = true;
 
+                //PROBLEM: below is now WITH Mode, name is WITHOUT!!!
 				final String courseName = getCourseListViews()[semester]
 						.getItemAtPosition(position).toString();
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <courses>
 	<course>
-		<name>Geometrie für Informatiker VU</name>
+		<name>Geometrie für Informatiker</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>1</semester>
@@ -11,7 +11,7 @@
 		<mode>VU</mode>		
 	</course>
 	<course>
-		<name>Numerische Optimierungsverfahren VO</name>
+		<name>Numerische Optimierungsverfahren</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>1</semester>
@@ -21,7 +21,7 @@
 		<mode>VO</mode>		
 	</course>
 	<course>
-		<name>Numerische Optimierungsverfahren UE</name>
+		<name>Numerische Optimierungsverfahren</name>
 		<id>1</id>
 		<ects>2</ects>
 		<semester>1</semester>
@@ -31,7 +31,7 @@
 		<mode>UE</mode>		
 	</course>
 	<course>
-		<name>Compilerbau VO</name>
+		<name>Compilerbau</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -41,7 +41,7 @@
 		<mode>VO</mode>		
 	</course>
 	<course>
-		<name>Compilerbau KU</name>
+		<name>Compilerbau</name>
 		<id>1</id>
 		<ects>2</ects>
 		<semester>2</semester>
@@ -51,7 +51,7 @@
 		<mode>KU</mode>		
 	</course>
 	<course>
-		<name>Diskrete Stochastik und Informationstheorie UE</name>
+		<name>Diskrete Stochastik und Informationstheorie</name>
 		<id>1</id>
 		<ects>1</ects>
 		<semester>2</semester>
@@ -61,7 +61,7 @@
 		<mode>UE</mode>		
 	</course>
 	<course>
-		<name>Diskrete Stochastik und Informationstheorie VO</name>
+		<name>Diskrete Stochastik und Informationstheorie</name>
 		<id>1</id>
 		<ects>4.5</ects>
 		<semester>2</semester>
@@ -71,7 +71,7 @@
 		<mode>VO</mode>		
 	</course>	
 	<course>
-		<name>Enumerative Combinatoric Algorithms VU</name>
+		<name>Enumerative Combinatoric Algorithms</name>
 		<id>1</id>
 		<ects>3.5</ects>
 		<semester>2</semester>
@@ -81,7 +81,7 @@
 		<mode>VU</mode>		
 	</course>				
 	<course>
-		<name>IT-Sicherheit VO</name>
+		<name>IT-Sicherheit</name>
 		<id>1</id>
 		<ects>3</ects>
 		<semester>2</semester>
@@ -91,7 +91,7 @@
 		<mode>VO</mode>		
 	</course>				
 	<course>
-		<name>IT-Sicherheit KU</name>
+		<name>IT-Sicherheit</name>
 		<id>1</id>
 		<ects>2</ects>
 		<semester>2</semester>

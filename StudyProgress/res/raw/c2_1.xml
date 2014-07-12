@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <courses>
 	<course>			
-		<name>Orientierungslehrveranstaltung LV</name>
+		<name>Orientierungslehrveranstaltung</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>0.5</ects>
@@ -11,7 +11,7 @@
 		<mode>LV</mode>
 	</course>
 	<course>			
-		<name>Der juristische Fall als Einstieg in das Recht LV</name>
+		<name>Der juristische Fall als Einstieg in das Recht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>2</ects>
@@ -21,7 +21,7 @@
 		<mode>LV</mode>
 	</course>	
 	<course>			
-		<name>Ausgewählte Kapitel des Privatrechts, Strafrechts und öffentlichen Recht LV</name>
+		<name>Ausgewählte Kapitel des Privatrechts, Strafrechts und öffentlichen Recht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>16.5</ects>
@@ -31,7 +31,7 @@
 		<mode>LV</mode>
 	</course>	
 	<course>			
-		<name>Einführung in die Internationalen Dimensionen des Rechts LV</name>
+		<name>Einführung in die Internationalen Dimensionen des Rechts</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>4</ects>
@@ -41,7 +41,7 @@
 		<mode>LV</mode>
 	</course>
 	<course>			
-		<name>Rechtsethik und Rechtspolitik LV</name>
+		<name>Rechtsethik und Rechtspolitik</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>4</ects>
@@ -51,7 +51,7 @@
 		<mode>LV</mode>
 	</course>
 	<course>			
-		<name>Einführung in die Rechtsinformatik K</name>
+		<name>Einführung in die Rechtsinformatik</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -61,7 +61,7 @@
 		<mode>K</mode>
 	</course>	
 	<course>			
-		<name>Römisches Recht 1 VO</name>
+		<name>Römisches Recht 1</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>2</ects>
@@ -71,7 +71,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Römisches Recht 2 K</name>
+		<name>Römisches Recht 2</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -81,7 +81,7 @@
 		<mode>K</mode>
 	</course>
 	<course>			
-		<name>Österreichische und Europäische Rechtsentwicklung 1 VO</name>
+		<name>Österreichische und Europäische Rechtsentwicklung 1</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>3</ects>
@@ -91,7 +91,7 @@
 		<mode>VO</mode>
 	</course>	
 	<course>			
-		<name>Österreichische und Europäische Rechtsentwicklung 2 VO</name>
+		<name>Österreichische und Europäische Rechtsentwicklung 2</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>3</ects>
@@ -101,7 +101,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Österreichische und Europäische Rechtsentwicklung 3 K</name>
+		<name>Österreichische und Europäische Rechtsentwicklung 3</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -111,7 +111,7 @@
 		<mode>K</mode>
 	</course>
  	<course>			
-		<name>Bürgeliches Recht VO</name>
+		<name>Bürgeliches Recht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>15</ects>
@@ -121,7 +121,7 @@
 		<mode>VO</mode>
 	</course>
  	<course>			
-		<name>Bürgeliches Recht K1</name>
+		<name>Bürgeliches Recht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -131,7 +131,7 @@
 		<mode>K</mode>
 	</course>
  	<course>			
-		<name>Bürgeliches Recht K2</name>
+		<name>Bürgeliches Recht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -141,7 +141,7 @@
 		<mode>K</mode>
 	</course>
  	<course>			
-		<name>Verwaltungsrecht VO</name>
+		<name>Verwaltungsrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>9</ects>
@@ -151,7 +151,7 @@
 		<mode>VO</mode>
 	</course>
  	<course>			
-		<name>Verwaltungsrecht K</name>
+		<name>Verwaltungsrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -161,7 +161,7 @@
 		<mode>K</mode>
 	</course>
  	<course>			
-		<name>Verfassungsrecht VO</name>
+		<name>Verfassungsrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -171,7 +171,7 @@
 		<mode>VO</mode>
 	</course>
  	<course>			
-		<name>Verfassungsrecht K</name>
+		<name>Verfassungsrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -181,7 +181,7 @@
 		<mode>K</mode>
 	</course>
  	<course>			
-		<name>Strafrecht VO</name>
+		<name>Strafrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -191,7 +191,7 @@
 		<mode>VO</mode>
 	</course>
  	<course>			
-		<name>Strafrecht K</name>
+		<name>Strafrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -201,7 +201,7 @@
 		<mode>K</mode>
 	</course>
 	 	<course>			
-		<name>Arbeits- und Sozialrecht VO</name>
+		<name>Arbeits- und Sozialrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>7.5</ects>
@@ -211,7 +211,7 @@
 		<mode>VO</mode>
 	</course>
 	 	<course>			
-		<name>Unternehmensrecht VO</name>
+		<name>Unternehmensrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>7.5</ects>
@@ -221,7 +221,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Zivilgerichtliches Verfahren VO</name>
+		<name>Zivilgerichtliches Verfahren</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>7.5</ects>
@@ -231,7 +231,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Finanzrecht VO</name>
+		<name>Finanzrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -241,7 +241,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Völkerrecht VO</name>
+		<name>Völkerrecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -251,7 +251,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Europarecht VO</name>
+		<name>Europarecht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>6</ects>
@@ -261,7 +261,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Methodenlehre VO</name>
+		<name>Methodenlehre</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>4.5</ects>
@@ -271,7 +271,7 @@
 		<mode>VO</mode>
 	</course>
 	<course>			
-		<name>Wahpflichtkurs 1 K</name>
+		<name>Wahpflichtkurs 1</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
@@ -281,7 +281,7 @@
 		<mode>K</mode>
 	</course>
 	<course>			
-		<name>Wahpflichtkurs 2 K</name>
+		<name>Wahpflichtkurs 2</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>
