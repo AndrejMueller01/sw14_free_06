@@ -13,6 +13,7 @@ import com.studyprogress.objects.Course;
 import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.ProgressCalculator;
+import com.studyprogress.tools.WebXMLLoader;
 import com.studyprogress.tools.XMLParser;
 import com.studyprogress.tools.XMLSave;
 import com.studyprogress.adapter.CourseListAdapter;
@@ -50,7 +51,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends StudyProgressActivity {
 
 	private ProgressBar studyProgressBar;
 	private TextView studyProgressPercentage;
@@ -71,6 +72,7 @@ public class MainActivity extends Activity {
 
 	private static int curriculumId = 0;
 	private static int universityId = 0;
+    private boolean isSavedFile = false;
 
 	private static int studMode = 0;
 
@@ -92,7 +94,6 @@ public class MainActivity extends Activity {
 		ActionBarProperties.standardMainActivityMenu(this);
 		
 		startConfiguration();
-		initComponents();
 
 	}
 	private void startConfiguration(){
@@ -113,18 +114,14 @@ public class MainActivity extends Activity {
 			//universityName = parser.getCurrentUniversity().getName();
 			studMode = parser.getCurrentCurriculum().getMode();
 
-			InputStream is = null;
 			parser.clearCurrentCourses();
 
 			try {
-				is = getResources().openRawResource(
-						getResources().getIdentifier(
-								GlobalProperties.COURSE_XML_PREFIX
-										+ universityId + "_" + curriculumId,
-								"raw", getPackageName()));
+                WebXMLLoader webXMLLoader = new WebXMLLoader(this);
+                String xmlFileName = GlobalProperties.COURSE_XML_PREFIX
+                        + universityId + "_" + curriculumId;
+                webXMLLoader.execute(xmlFileName);
 
-				parser = XMLParser.getInstance(is);
-				parser.parseCourses(false);
 			} catch (NotFoundException ex) {
 
 			}
@@ -143,17 +140,20 @@ public class MainActivity extends Activity {
 				e.printStackTrace();
 			}
 
-			parser = XMLParser.getInstance(fileInputStream);
-			parser.parseCourses(true);
+			parser.setInputStream(fileInputStream);
 
 			curriculumId = parser.getCurrentCurriculum().getCurriculumId();
 			curriculumName = parser.getCurrentCurriculum().getName();
 			//universityName = parser.getCurrentUniversity().getName();
 
 			studMode = parser.getCurrentCurriculum().getMode();
+            isSavedFile = true;
+            initComponents();
 		}
 	}
-	private void initComponents() {
+    @Override
+	public void initComponents() {
+        parser.parseCourses(isSavedFile);
 
 		studyProgressBar = (ProgressBar) findViewById(R.id.study_progress_bar);
 		semesterButtons = new ArrayList<Button>();

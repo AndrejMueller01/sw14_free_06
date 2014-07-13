@@ -111,7 +111,7 @@
 		<mode>K</mode>
 	</course>
  	<course>			
-		<name>Bürgeliches Recht</name>
+		<name>Bürgerliches Recht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>15</ects>
@@ -121,17 +121,7 @@
 		<mode>VO</mode>
 	</course>
  	<course>			
-		<name>Bürgeliches Recht</name>
-		<id>99</id>
-		<diplst>1</diplst>
-		<ects>5</ects>
-		<semester>2</semester>
-		<cid></cid>
-		<steop>0</steop>
-		<mode>K</mode>
-	</course>
- 	<course>			
-		<name>Bürgeliches Recht</name>
+		<name>Bürgerliches Recht</name>
 		<id>99</id>
 		<diplst>1</diplst>
 		<ects>5</ects>

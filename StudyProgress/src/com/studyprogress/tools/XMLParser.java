@@ -128,7 +128,7 @@ public class XMLParser {
 	public void parseCourses(boolean isSavedFile) {
 		if (currentCourses != null)
 			clearCurrentCourses();
-		int eventType = 0;
+		int eventType ;
 		try {
 
 			xmlPullParseFactory = XmlPullParserFactory.newInstance();
@@ -324,7 +324,7 @@ public class XMLParser {
 		return currentUniversity;
 	}
 
-	public ArrayList<String> getCurriculaNames(InputStream inputStream)
+	public ArrayList<String> getCurriculaNames()
 			throws XmlPullParserException, IOException {
 		ArrayList<String> curriculaNames = new ArrayList<String>();
 
@@ -334,7 +334,7 @@ public class XMLParser {
 		return curriculaNames;
 	}
 
-	public ArrayList<String> getUniversityNames(InputStream inputStream)
+	public ArrayList<String> getUniversityNames()
 			throws XmlPullParserException, IOException {
 		ArrayList<String> universityNames = new ArrayList<String>();
 

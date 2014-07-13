@@ -16,7 +16,13 @@ public class GlobalProperties {
 	
 	public static String SAVE_FILE_NAME = "my_curriculum.xml";
 	public static String SAVE_FILE_DIR = "/studyprogress_save";
-	public static String COURSE_XML_PREFIX = "c";
+    public static String WWW_DL_ADDRESS = "http://www.studyprogress.at/downloads/";
+    public static String XML_EXTENSION = ".xml";
+    public static String CURRICULA_XML_PREFIX = "curricula";
+    public static String UNIVERSITY_XML_PREFIX = "universities";
+
+
+    public static String COURSE_XML_PREFIX = "c";
 	public static final int SEM_COUNT = 7;
 	
 	public static int BACH_ECTS = 180;

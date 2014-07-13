@@ -99,5 +99,8 @@
 
     <string name="create_new_curriculum_hint">Curriculum Name</string>
     <string name="create_new_curriculum_modus">Typ des Curriculums</string>
+    <string name="load_xml">Externe Dateien laden</string>
+    <string name="please_wait">Bitte warten ...</string>
+    <string name="download_in_progress">Dateien werden heruntergeladen ...</string>
 
 </resources>

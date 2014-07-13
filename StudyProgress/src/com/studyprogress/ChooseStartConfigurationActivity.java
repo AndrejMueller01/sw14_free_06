@@ -25,6 +25,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 	private Button aboutButton;
 	private Button bugButton;
 	private Button siteButton;
+    private Button loadExternalFilesButton;
 
 
 	@Override
@@ -37,7 +38,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 		aboutButton = (Button) findViewById(R.id.choose_start_configuration_button_about);
 		bugButton = (Button) findViewById(R.id.choose_start_configuration_button_bug);
 		siteButton = (Button) findViewById(R.id.choose_start_configuration_button_site);
-
+        loadExternalFilesButton = (Button) findViewById(R.id.choose_start_configuration_button_load);
 		newPlanButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -112,5 +113,7 @@ public class ChooseStartConfigurationActivity extends Activity {
 			}
 		});
 
-	}
+
+
+    }
 }
