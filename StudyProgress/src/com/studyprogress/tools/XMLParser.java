@@ -382,13 +382,13 @@ public class XMLParser {
 		return coursesNames;
 	}
 
-	public String[] getCourseNamesOfSemester(int semesterNo) {
+	public String[] getCourseNamesWithModesOfSemester(int semesterNo) {
 		String[] coursesNames = new String[currentCourses.size()];
 		int j = 0;
 		int numNotUsedArraySlots = 0;
 		for (int i = 0; i < currentCourses.size(); i++) {
 			if (currentCourses.get(i).getSemester() == semesterNo) {
-				coursesNames[j] = currentCourses.get(i).getCourseName();
+				coursesNames[j] = currentCourses.get(i).getCourseName()+" "+currentCourses.get(i).getMode();
 				j++;
 			} else {
 				numNotUsedArraySlots++;
@@ -403,43 +403,44 @@ public class XMLParser {
 
 	}
 
-	public void deleteCourse(String courseName) {
+
+	public void deleteCourse(Course course) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if (currentCourses.get(i).getCourseName().equals(courseName))
+			if (currentCourses.get(i).equals(course))
 				currentCourses.remove(i);
 		}
 	}
 
-	public float getEctsByName(String courseName) {
+	public float getEctsByCourse(Course course) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if (currentCourses.get(i).getCourseName().equals(courseName)) {
+			if (currentCourses.get(i).equals(course)) {
 				return currentCourses.get(i).getEcts();
 			}
 		}
 		return 0;
 	}
 
-	public String getCourseNumberByName(String courseName) {
+	public String getCourseNumberByCourse(Course course) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if (currentCourses.get(i).getCourseName().equals(courseName)) {
+			if (currentCourses.get(i).equals(course)) {
 				return currentCourses.get(i).getCourseNumber();
 			}
 		}
 		return "";
 	}
 
-	public int getCourseSteopByName(String courseName) {
+	public int getCourseSteopByCourse(Course course) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if (currentCourses.get(i).getCourseName().equals(courseName)) {
+			if (currentCourses.get(i).equals(course)) {
 				return currentCourses.get(i).getSteop();
 			}
 		}
 		return -1;
 	}
 
-	public String getCourseModeByName(String courseName) {
+	public String getCourseModeByCourse(Course course) {
 		for (int i = 0; i < currentCourses.size(); i++) {
-			if (currentCourses.get(i).getCourseName().equals(courseName)) {
+			if (currentCourses.get(i).equals(course)) {
 				return currentCourses.get(i).getMode();
 			}
 		}
@@ -464,10 +465,11 @@ public class XMLParser {
 		return allEcts;
 	}
 
-    public Course getCourseByName(String courseName)
+    public Course getCourseByNameInList(String courseNameInList)
     {
         for (int i = 0; i < getCurrentCourses().size(); i++) {
-            if(getCurrentCourses().get(i).getCourseName().equals(courseName))
+            String tempCourseNameInList = getCurrentCourses().get(i).getCourseName() + " " + getCurrentCourses().get(i).getMode();
+            if(tempCourseNameInList.equals(courseNameInList))
                 return getCurrentCourses().get(i);
         }
         return null;

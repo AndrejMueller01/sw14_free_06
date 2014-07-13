@@ -150,7 +150,7 @@ public class CourseListAdapter extends BaseAdapter {
 		return courses[position];
 	}
 
-	public int getPositionByString(String name) {
+	public int getCoursePosition(String name) {
 		for (int i = 0; i < courses.length; i++) {
 			if (courses[i].equals(name))
 				return i;

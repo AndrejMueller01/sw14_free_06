@@ -91,7 +91,7 @@ public class XMLParserTest extends InstrumentationTestCase {
 		//
 		Course course = new Course("Analysis T1 VU", 7, 1, "VU");
 		courses.add(course);
-		course = new Course("Einf�hrung in das Studium der Informatik VO", 1,
+		course = new Course("Einführung in das Studium der Informatik VO", 1,
 				5, "VO");
 		courses.add(course);
 
@@ -186,7 +186,7 @@ public class XMLParserTest extends InstrumentationTestCase {
 	public void testGetCurrentCoursesNames() {
 		String[] courseNames = new String[2];
 		courseNames[0] = "Analysis T1 VU";
-		courseNames[1] = "Einf�hrung in das Studium der Informatik VO";
+		courseNames[1] = "Einführung in das Studium der Informatik VO";
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
 
@@ -202,24 +202,25 @@ public class XMLParserTest extends InstrumentationTestCase {
 
 	}
 
-	public void testGetCurrentNamesOfSemester() {
+	public void testGetCourseNamesWithModesOfSemester() {
 		String[] courseNames = new String[2];
-		courseNames[0] = "Analysis T1 VU";
-		courseNames[1] = "Einf�hrung in das Studium der Informatik VO";
+		courseNames[0] = "Analysis T1 VU VU";
+		courseNames[1] = "Einführung in das Studium der Informatik VO VO";
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
 
-		assertEquals(parser.getCourseNamesOfSemester(1)[0], courseNames[0]);
-		assertEquals(parser.getCourseNamesOfSemester(5)[0], courseNames[1]);
+		assertEquals(parser.getCourseNamesWithModesOfSemester(1)[0], courseNames[0]);
+		assertEquals(parser.getCourseNamesWithModesOfSemester(5)[0], courseNames[1]);
 
 	}
 
 	public void testDeleteCourse() {
 		initParserAndSetInputStream("test_courses.xml");
 		String[] courseNames = new String[1];
-		courseNames[0] = "Einf�hrung in das Studium der Informatik VO";
+		courseNames[0] = "Einführung in das Studium der Informatik VO";
 		parser.parseCourses(false);
-		parser.deleteCourse("Analysis T1 VU");
+
+		parser.deleteCourse(parser.getCourseByNameInList("Analysis T1 VU VU"));
 		try {
 			assertEquals(parser.getCurrentCoursesNames()[0], courseNames[0]);
 		} catch (XmlPullParserException e) {
@@ -229,27 +230,32 @@ public class XMLParserTest extends InstrumentationTestCase {
 		}
 	}
 
-	public void getEctsByName() {
+	public void testGetEctsByCourse() {
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
+        Course course = parser.getCourseByNameInList("Analysis T1 VU VU");
 
-		assertEquals(7, parser.getEctsByName("Analysis T1 VU"));
+		assertEquals(7.0f, parser.getEctsByCourse(course));
 	}
 
-	public void testGetCourseNumberByName() {
+	public void testGetCourseNumberByCourse() {
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
-		assertEquals("501.446", parser.getCourseNumberByName("Analysis T1 VU"));
+        Course course = parser.getCourseByNameInList("Analysis T1 VU VU");
+
+        assertEquals("501.446", parser.getCourseNumberByCourse(course));
 	}
-	public void testGetCourseSteopByName(){
+	public void testGetCourseSteopByCourse(){
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
-		assertEquals(parser.getCourseSteopByName("Analysis T1 VU"), GlobalProperties.NO_STEOP);
+        Course course = parser.getCourseByNameInList("Analysis T1 VU VU");
+		assertEquals(parser.getCourseSteopByCourse(course), GlobalProperties.NO_STEOP);
 	}
-	public void testGetCourseModeByName(){
+	public void testGetCourseModeByCourse(){
 		initParserAndSetInputStream("test_courses.xml");
 		parser.parseCourses(false);
-		assertEquals(parser.getCourseModeByName("Analysis T1 VU"), "VU");
+        Course course = parser.getCourseByNameInList("Analysis T1 VU VU");
+		assertEquals(parser.getCourseModeByCourse(course), "VU");
 	}
 	public void testGetCurrentEcts(){
 		initParserAndSetInputStream("test_courses.xml");

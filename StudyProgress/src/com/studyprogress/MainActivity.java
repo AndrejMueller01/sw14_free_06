@@ -196,18 +196,18 @@ public class MainActivity extends Activity {
 
 		refreshProgress();
 
-		String[][] courseNames = null;
-		courseNames = new String[GlobalProperties.SEM_COUNT][];
+		String[][] courseNamesInList = null;
+        courseNamesInList = new String[GlobalProperties.SEM_COUNT][];
 
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
-			courseNames[i] = parser.getCourseNamesOfSemester(i + 1);
+            courseNamesInList[i] = parser.getCourseNamesWithModesOfSemester(i + 1);
 
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
-			getAdapters()[i] = new CourseListAdapter(courseNames[i], this);
+			getAdapters()[i] = new CourseListAdapter(courseNamesInList[i], this);
 
 		for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
 			getCourseListViews()[i].setAdapter(getAdapters()[i]);
-
+/*
         for(int i = 0; i< GlobalProperties.SEM_COUNT;i++)
         {
             for(int j = 0; j<courseNames[i].length;j++)
@@ -219,7 +219,7 @@ public class MainActivity extends Activity {
             }
         }
 
-
+*/
 		setClickListeners();
 		setBackgroundColors();
 
@@ -228,22 +228,21 @@ public class MainActivity extends Activity {
 	private void setBackgroundColors() {
 		for (int j = 0; j < GlobalProperties.SEM_COUNT; j++)
 			for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
+                String courseNameInList = parser
+                        .getCurrentCourses().get(i).getCourseName()+" " +parser.getCurrentCourses().get(i).getMode();
 				if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_DONE) {
-					int position = getAdapters()[j].getPositionByString(parser
-							.getCurrentCourses().get(i).getCourseName());
-					if (position != -1)
+					int position = getAdapters()[j].getCoursePosition(courseNameInList);
+                    if (position != -1)
 						getAdapters()[j].setViewBackgroundColor(position,
 								Color.GREEN);
 				} else if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_IN_PROGRESS) {
-					int position = getAdapters()[j].getPositionByString(parser
-							.getCurrentCourses().get(i).getCourseName());
+					int position = getAdapters()[j].getCoursePosition(courseNameInList);
 					if (position != -1)
 						getAdapters()[j].setViewBackgroundColor(position,
 								Color.YELLOW);
 				} else if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_TO_DO) {
 
-					int position = getAdapters()[j].getPositionByString(parser
-							.getCurrentCourses().get(i).getCourseName());
+					int position = getAdapters()[j].getCoursePosition(courseNameInList);
 					if (position != -1)
 						getAdapters()[j].setViewBackgroundColor(position,
 								Color.RED);
@@ -341,31 +340,31 @@ public class MainActivity extends Activity {
 					final int position, long id) {
 				studyStateChanged = true;
 
-                //PROBLEM: below is now WITH Mode, name is WITHOUT!!!
-				final String courseName = getCourseListViews()[semester]
+				final String courseNameInList = getCourseListViews()[semester]
 						.getItemAtPosition(position).toString();
+                final Course currentCourse = parser.getCourseByNameInList(courseNameInList);
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainActivity.this);
 
-				builder.setTitle(courseName);
+				builder.setTitle(courseNameInList);
 
 				String courseInformation = "ECTS: ";
-				float courseEcts = parser.getEctsByName(courseName);
+				float courseEcts = parser.getEctsByCourse(currentCourse);
 				String ectsString = Float.valueOf(courseEcts).toString();
 				courseInformation += ectsString + "\n";
 				courseInformation += "Kursnummer: ";
-				courseInformation += parser.getCourseNumberByName(courseName);
+				courseInformation += parser.getCourseNumberByCourse(currentCourse);
 				courseInformation += "\n";
 				courseInformation += "Steop: ";
-				int courseSteop = parser.getCourseSteopByName(courseName);
+				int courseSteop = parser.getCourseSteopByCourse(currentCourse);
 				if (courseSteop == 1) {
 					courseInformation += "Ja\n";
 				} else
 					courseInformation += "Nein\n";
 
 				courseInformation += "Modus: ";
-				courseInformation += parser.getCourseModeByName(courseName);
+				courseInformation += parser.getCourseModeByCourse(currentCourse);
 				courseInformation += "\n";
 
 				builder.setMessage(courseInformation);
@@ -376,7 +375,7 @@ public class MainActivity extends Activity {
 									int which) {
 								getAdapters()[semester].setViewBackgroundColor(
 										position, Color.GREEN);
-								setProgressOfCourseDone(courseName);
+								setProgressOfCourseDone(currentCourse);
 
 							}
 						});
@@ -390,7 +389,7 @@ public class MainActivity extends Activity {
 								getAdapters()[semester].setViewBackgroundColor(
 										position, Color.RED);
 
-								setProgressOfCourseTodo(courseName);
+								setProgressOfCourseTodo(currentCourse);
 
 							}
 						});
@@ -404,7 +403,7 @@ public class MainActivity extends Activity {
 								getAdapters()[semester].setViewBackgroundColor(
 										position, Color.YELLOW);
 
-								setProgressOfCourseInProgress(courseName);
+								setProgressOfCourseInProgress(currentCourse);
 							}
 						});
 
@@ -451,10 +450,9 @@ public class MainActivity extends Activity {
 				+ progressInPercent + "%)");
 	}
 
-	private void setProgressOfCourseDone(String courseName) {
+	private void setProgressOfCourseDone(Course course) {
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-			if (parser.getCurrentCourses().get(i).getCourseName()
-					.equals(courseName))
+			if (parser.getCurrentCourses().get(i).equals(course))
 				parser.setStatusOfCurrentCourseTo(i,
 						GlobalProperties.STATUS_DONE);
 		}
@@ -467,10 +465,9 @@ public class MainActivity extends Activity {
 		studyStateChanged = true;
 	}
 
-	private void setProgressOfCourseTodo(String courseName) {
+	private void setProgressOfCourseTodo(Course course) {
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-			if (parser.getCurrentCourses().get(i).getCourseName()
-					.equals(courseName))
+			if (parser.getCurrentCourses().get(i).equals(course))
 				parser.setStatusOfCurrentCourseTo(i,
 						GlobalProperties.STATUS_TO_DO);
 		}
@@ -479,10 +476,10 @@ public class MainActivity extends Activity {
 
 	}
 
-	private void setProgressOfCourseInProgress(String courseName) {
+	private void setProgressOfCourseInProgress(Course course) {
 		for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-			if (parser.getCurrentCourses().get(i).getCourseName()
-					.equals(courseName))
+			if (parser.getCurrentCourses().get(i)
+					.equals(course))
 				parser.setStatusOfCurrentCourseTo(i,
 						GlobalProperties.STATUS_IN_PROGRESS);
 		}

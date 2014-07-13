@@ -2,6 +2,7 @@ package com.studyprogress.menu;
 
 import com.example.studyprogress.R;
 import com.studyprogress.MainActivity;
+import com.studyprogress.objects.Course;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.XMLParser;
 
@@ -37,9 +38,10 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 				if(MainActivity.getAdapters()[i].getDeleteCheckBoxSatus(j) == true){
 					final String courseName = MainActivity.getCourseListViews()[i]
 							.getItemAtPosition(j).toString();
-					parser.deleteCourse(courseName);
+                    Course course = parser.getCourseByNameInList(courseName);
+					parser.deleteCourse(course);
 					String[] courseNames = null;
-					courseNames = parser.getCourseNamesOfSemester(i+1);
+					courseNames = parser.getCourseNamesWithModesOfSemester(i+1);
 					MainActivity.getAdapters()[i].setCourseNamesAfterDeletingAnElement(courseNames, j);
 					j--;
 					parent.setStudyStateChanged();

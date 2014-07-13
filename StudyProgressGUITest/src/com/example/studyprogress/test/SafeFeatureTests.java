@@ -278,7 +278,7 @@ public class SafeFeatureTests extends
 		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
 		solo.clickOnButton(solo.getString(R.string.sem_1));
 		for (int i = 0; i < XMLParser.getInstance(null)
-				.getCourseNamesOfSemester(1).length; i++) {
+				.getCourseNamesWithModesOfSemester(1).length; i++) {
 			solo.clickOnView(sem1lv.getChildAt(i));
 			solo.clickOnButton(solo.getString(R.string.done));
 			solo.waitForDialogToClose();
@@ -287,7 +287,7 @@ public class SafeFeatureTests extends
 		sem2lv = (ListView) solo.getView(R.id.courses_list_view_sem2);
 		solo.clickOnButton(solo.getString(R.string.sem_2));
 		for (int i = 0; i < XMLParser.getInstance(null)
-				.getCourseNamesOfSemester(2).length; i++) {
+				.getCourseNamesWithModesOfSemester(2).length; i++) {
 			solo.clickOnView(sem2lv.getChildAt(i));
 			solo.clickOnButton(solo.getString(R.string.done));
 			solo.waitForDialogToClose();
@@ -296,7 +296,7 @@ public class SafeFeatureTests extends
 		sem3lv = (ListView) solo.getView(R.id.courses_list_view_sem3);
 		solo.clickOnButton(solo.getString(R.string.sem_3));
 		for (int i = 0; i < XMLParser.getInstance(null)
-				.getCourseNamesOfSemester(3).length; i++) {
+				.getCourseNamesWithModesOfSemester(3).length; i++) {
 			solo.clickOnView(sem3lv.getChildAt(i));
 			solo.clickOnButton(solo.getString(R.string.done));
 			solo.waitForDialogToClose();
@@ -305,7 +305,7 @@ public class SafeFeatureTests extends
 		sem4lv = (ListView) solo.getView(R.id.courses_list_view_sem4);
 		solo.clickOnButton(solo.getString(R.string.sem_4));
 		for (int i = 0; i < XMLParser.getInstance(null)
-				.getCourseNamesOfSemester(4).length; i++) {
+				.getCourseNamesWithModesOfSemester(4).length; i++) {
 			solo.clickOnView(sem4lv.getChildAt(i));
 			solo.clickOnButton(solo.getString(R.string.done));
 			solo.waitForDialogToClose();
@@ -314,7 +314,7 @@ public class SafeFeatureTests extends
 		sem5lv = (ListView) solo.getView(R.id.courses_list_view_sem5);
 		solo.clickOnButton(solo.getString(R.string.sem_5));
 		for (int i = 0; i < XMLParser.getInstance(null)
-				.getCourseNamesOfSemester(5).length; i++) {
+				.getCourseNamesWithModesOfSemester(5).length; i++) {
 			solo.clickOnView(sem5lv.getChildAt(i));
 			solo.clickOnButton(solo.getString(R.string.done));
 			solo.waitForDialogToClose();
@@ -323,7 +323,7 @@ public class SafeFeatureTests extends
 		sem6lv = (ListView) solo.getView(R.id.courses_list_view_sem5);
 		solo.clickOnButton(solo.getString(R.string.sem_6));
 		for (int i = 0; i < XMLParser.getInstance(null)
-				.getCourseNamesOfSemester(6).length; i++) {
+				.getCourseNamesWithModesOfSemester(6).length; i++) {
 			solo.clickOnView(sem6lv.getChildAt(i));
 			solo.clickOnButton(solo.getString(R.string.done));
 			solo.waitForDialogToClose();
@@ -332,7 +332,7 @@ public class SafeFeatureTests extends
 		semopt = (ListView) solo.getView(R.id.courses_list_view_opt_courses);
 		solo.clickOnButton(solo.getString(R.string.sem_add));
 		for (int i = 0; i < XMLParser.getInstance(null)
-				.getCourseNamesOfSemester(7).length; i++) {
+				.getCourseNamesWithModesOfSemester(7).length; i++) {
 			solo.clickOnView(semopt.getChildAt(i));
 			solo.clickOnButton(solo.getString(R.string.done));
 			solo.waitForDialogToClose();
@@ -379,14 +379,14 @@ public class SafeFeatureTests extends
 
 		solo.pressMenuItem(2);
 		solo.clickOnCheckBox(0);
-		String[] courseNames = parser.getCourseNamesOfSemester(1);
+		String[] courseNames = parser.getCourseNamesWithModesOfSemester(1);
 
 		solo.clickOnMenuItem("Done");
 
 		solo.goBack();
 		solo.clickOnButton(getActivity().getResources().getString(R.string.yes));
 		
-		String[] courseNamesAfter = parser.getCourseNamesOfSemester(1);		
+		String[] courseNamesAfter = parser.getCourseNamesWithModesOfSemester(1);
 	    assertEquals(courseNames[1], courseNamesAfter[0]);
 
 	}
@@ -417,7 +417,7 @@ public class SafeFeatureTests extends
 		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
 		solo.clickOnButton(solo.getString(R.string.sem_1));
 		solo.pressMenuItem(2);
-		String[] courseNames = parser.getCourseNamesOfSemester(1);
+		String[] courseNames = parser.getCourseNamesWithModesOfSemester(1);
 
 		solo.clickOnCheckBox(0);
 		int middle = sem1lv.getAdapter().getCount() / 2;
@@ -428,7 +428,7 @@ public class SafeFeatureTests extends
 		solo.goBack();
 		solo.clickOnButton("Ja");
 
-		String[] courseNamesAfter = parser.getCourseNamesOfSemester(1);
+		String[] courseNamesAfter = parser.getCourseNamesWithModesOfSemester(1);
 
 		int offsetCounter = 0;
 		for (int i = 0; i < courseNamesAfter.length; i++) {

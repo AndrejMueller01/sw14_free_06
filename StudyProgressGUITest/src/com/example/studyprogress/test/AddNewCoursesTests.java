@@ -410,8 +410,9 @@ public class AddNewCoursesTests extends
 		
 		semopt = (ListView) solo.getView(R.id.courses_list_view_opt_courses);
 		solo.clickOnButton(solo.getString(R.string.sem_add));
-		
-		assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(0).toString()), "VU");
+
+        Course course = parser.getCourseByNameInList(semopt.getAdapter().getItem(0).toString());
+		assertEquals(XMLParser.getInstance(null).getCourseModeByCourse(course), "VU");
 
 		
 
@@ -595,7 +596,8 @@ public class AddNewCoursesTests extends
 		String[] courseModes = {"VO","VU","UE","KU","SE","LU","SP"};
 		for(int i = 0; i< courseModes.length;i++)
 		{
-			assertEquals(XMLParser.getInstance(null).getCourseModeByName(semopt.getAdapter().getItem(i).toString()), courseModes[i]);	
+            Course course = parser.getCourseByNameInList(semopt.getAdapter().getItem(i).toString());
+			assertEquals(XMLParser.getInstance(null).getCourseModeByCourse(course), courseModes[i]);
 		}
 	}
 	
@@ -643,7 +645,8 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());
 		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
 		solo.clickOnButton(solo.getString(R.string.sem_1));
-		assertEquals(XMLParser.getInstance(null).getCourseNumberByName(sem1lv.getAdapter().getItem(sem1lv.getCount() - 1).toString()),
+        Course course = parser.getCourseByNameInList(sem1lv.getAdapter().getItem(sem1lv.getCount() - 1).toString());
+        assertEquals(XMLParser.getInstance(null).getCourseNumberByCourse(course),
 				"123.123");	
 		
 	}
@@ -690,7 +693,9 @@ public class AddNewCoursesTests extends
 		solo = new Solo(getInstrumentation(), getActivity());
 		sem1lv = (ListView) solo.getView(R.id.courses_list_view_sem1);
 		solo.clickOnButton(solo.getString(R.string.sem_1));
-		assertEquals(XMLParser.getInstance(null).getCourseNumberByName(sem1lv.getAdapter().getItem(sem1lv.getCount() - 1).toString()),
+        Course course = parser.getCourseByNameInList(sem1lv.getAdapter().getItem(sem1lv.getCount() - 1).toString());
+
+        assertEquals(XMLParser.getInstance(null).getCourseNumberByCourse(course),
 				getActivity().getResources().getString(R.string.not_avaiable));
 		
 	}
