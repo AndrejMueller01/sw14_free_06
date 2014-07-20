@@ -35,7 +35,9 @@
     <string name="menu_item_overflow">Optionen</string>
     <string name="new_course_ects_exception">Das "ECTS" - Feld muss eine Zahl >0 beinhalten!</string>
     <string name="new_course_name_exception">Bitte geben Sie einen Kursnamen ein!</string>
-    <string name="new_curriculum_name_exception">Bitte geben Sie einen Namen für das Curriculum ein!</string>
+    <string name="new_curriculum_cname_exception">Bitte geben Sie einen Namen für das Curriculum ein!</string>
+    <string name="new_curriculum_uname_exception">Bitte geben Sie einen Namen für dir Universität ein!</string>
+
     <string name="not_avaiable">keine Angabe</string>
     
     <string name="save_text_succ">Speichern erfolgreich!</string>
@@ -54,6 +56,8 @@
     <string name="opt_course_sem_hint">z.B.: 2</string>
     <string name="ok">OK</string>
     <string name="changes_save">Es sind Änderungen vorhanden!\n Wollen Sie die Änderungen speichern?</string>
+    <string name="save_xml_message">Bitte geben Sie den Namen für die Speicherdatei ein!</string>
+
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
     <string name="about_authors">Autoren: Dominik Hirner, Andrej Müller</string>    
@@ -85,6 +89,8 @@
     <string name="curr_not_found">Bitte wählen Sie ein neues oder vorgefertigtes Curriculum aus!</string>
     <string name="open_predefined_curriculum">Vorgefertigten Studienplan auswählen</string>
     <string name="create_new_curriculum">Lege ein neues Curriculum an</string>
+
+    <string name="add_new_university_name">Name der Universität:</string>
     <string name="add_new_curriculum_name">Name des Studiums:</string>
     <string name="add_new_curriculum_mode">Modus des Studiums:</string>
     
@@ -97,7 +103,8 @@
         <item>Lehramt</item>
     </string-array>
 
-    <string name="create_new_curriculum_hint">Curriculum Name</string>
+    <string name="create_new_curriculum_curr_name_hint">Name des Lehrganges</string>
+    <string name="create_new_curriculum_univ_name_hint">Name der Universität</string>
     <string name="create_new_curriculum_modus">Typ des Curriculums</string>
     <string name="load_xml">Externe Dateien laden</string>
     <string name="please_wait">Bitte warten ...</string>

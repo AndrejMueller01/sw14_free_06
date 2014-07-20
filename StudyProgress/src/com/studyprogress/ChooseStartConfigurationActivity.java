@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.studyprogress.R;
 import com.studyprogress.properties.GlobalProperties;
+import com.studyprogress.tools.XMLOpen;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,13 +27,17 @@ public class ChooseStartConfigurationActivity extends Activity {
 	private Button bugButton;
 	private Button siteButton;
     private Button loadExternalFilesButton;
+    private XMLOpen xmlOpen = new XMLOpen(this);
 
 
-	@Override
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_start_configuration);
-
+        if(xmlOpen.getFileCount()>0){
+            xmlOpen.performOpen();
+        }
 		newPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_new);
 		openPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_open);
 		aboutButton = (Button) findViewById(R.id.choose_start_configuration_button_about);
@@ -50,24 +55,11 @@ public class ChooseStartConfigurationActivity extends Activity {
 
 			}
 		});
-		openPlanButton.setOnClickListener(new OnClickListener() {
 
+        openPlanButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(
-						ChooseStartConfigurationActivity.this,
-						MainActivity.class);
-				File file = new File(Environment.getExternalStorageDirectory()
-						.getAbsolutePath() + GlobalProperties.SAVE_FILE_DIR,
-						GlobalProperties.SAVE_FILE_NAME);
-				if (file.exists()) {
-					intent.putExtra("firstOpen", 0);
-					startActivity(intent);
-				} else {
-					Toast.makeText(getApplicationContext(),
-							R.string.file_not_found, Toast.LENGTH_LONG).show();
-				}
-
+                xmlOpen.performOpen();
 			}
 		});
 

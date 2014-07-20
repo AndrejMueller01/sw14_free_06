@@ -16,7 +16,7 @@ import com.studyprogress.objects.University;
 import com.studyprogress.properties.GlobalProperties;
 
 import android.util.Log;
-
+// TODO: check if valid file!
 public class XMLParser {
 
 	private XmlPullParserFactory xmlPullParseFactory;
@@ -55,8 +55,12 @@ public class XMLParser {
 
 	public void clearCurrentCourses() {
 		currentCourses.clear();
-
 	}
+    public void clearAllCurrentVaribles(){
+        currentCourses.clear();
+        currentCurriculum = new Curriculum();
+        currentUniversity = new University();
+    }
 
 	public ArrayList<Curriculum> getCurricula() {
 		return curricula;
@@ -155,19 +159,19 @@ public class XMLParser {
 					if (name.equals("courses")) {
 						if (xmlPullParser.getAttributeCount() > 0
 								&& isSavedFile == true) {
-							/*
-							 * for later version
-							 * currentUniversity.setName(xmlPullParser
-							 * .getAttributeValue( null, "uname"));
-							 */
-							String studName = xmlPullParser.getAttributeValue(
+
+                            String universityName = (xmlPullParser
+							 .getAttributeValue( null, "uname"));
+
+							String curriculumName = xmlPullParser.getAttributeValue(
 									null, "cname");
 							int studId = Integer.parseInt(xmlPullParser
 									.getAttributeValue(null, "cid"));
 							int studMode = Integer.parseInt(xmlPullParser
 									.getAttributeValue(null, "cmode"));
 
-							setCurrentCurriculum(studName, studMode, studId);
+							setCurrentCurriculum(universityName, curriculumName, studMode, studId);
+                            setCurrentUniversity(universityName, 99);
 
 						}
 						currentCourses = new ArrayList<Course>();
@@ -234,8 +238,8 @@ public class XMLParser {
 
 	}
 
-	public void setCurrentCurriculum(String studName, int studMode, int studId) {
-
+	public void setCurrentCurriculum(String universityName, String studName, int studMode, int studId) {
+        currentCurriculum.setUniversityName(universityName);
 		currentCurriculum.setName(studName);
 		currentCurriculum.setCurriculumId(studId);
 		currentCurriculum.setMode(studMode);

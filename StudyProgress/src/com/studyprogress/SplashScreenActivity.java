@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.studyprogress.R;
+import com.studyprogress.tools.XMLOpen;
 
 public class SplashScreenActivity extends Activity {
 
@@ -28,6 +29,7 @@ public class SplashScreenActivity extends Activity {
                 finish();
             }
         }, SPLASH_TIME_OUT);
+
     }
 
 }

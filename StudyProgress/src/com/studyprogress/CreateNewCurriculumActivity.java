@@ -1,78 +1,92 @@
 package com.studyprogress;
 
-import com.example.studyprogress.R;
-import com.studyprogress.objects.Course;
-import com.studyprogress.properties.ActionBarProperties;
-import com.studyprogress.tools.XMLParser;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.studyprogress.R;
+import com.studyprogress.properties.ActionBarProperties;
+import com.studyprogress.tools.XMLParser;
+
 public class CreateNewCurriculumActivity extends Activity {
-	private EditText currNameField;
-	private Spinner currModeSpinner;
-	private XMLParser parser;
 
-	private static int studId = 99999;
+    private EditText currNameField;
+    private Spinner currModeSpinner;
+    private EditText univNameField;
 
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_create_new_curriculum);
-		ActionBarProperties.noTitleText(this);
+    private XMLParser parser;
 
-		currNameField = (EditText) findViewById(R.id.create_new_curr_name_edit_text);
-		currModeSpinner = (Spinner) findViewById(R.id.create_new_curr_mode_spinner);
-	}
+    // TODO: Id creator
+    private static int studId = 99999;
+    private static int univId = 99999;
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_new_curriculum);
+        ActionBarProperties.noTitleText(this);
 
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.create_curriculum_menu, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
+        currNameField = (EditText) findViewById(R.id.create_new_curr_name_edit_text);
+        currModeSpinner = (Spinner) findViewById(R.id.create_new_curr_mode_spinner);
+        univNameField = (EditText) findViewById(R.id.create_new_curr_univ_name_edit_text);
 
-	@Override
-	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		Intent intent = new Intent(CreateNewCurriculumActivity.this,
-				MainActivity.class);
-		switch (item.getItemId()) {
-		case R.id.create_curriculum_ok_item:
-			
-			parser = XMLParser.getInstance(null);
-			String studName = currNameField.getText().toString();
-			if(TextUtils.isEmpty(studName))
-			{
-				Toast.makeText(getApplicationContext(), R.string.new_curriculum_name_exception, Toast.LENGTH_LONG).show();
-				return false;
-			}
+    }
 
-			int studMode = currModeSpinner.getSelectedItemPosition();
-			studId++;
-			parser.setCurrentCurriculum(studName, studMode, studId);
-			intent.putExtra("firstOpen", 1);
-			startActivity(intent);
-			finish();
-			return true;
-			
-		case R.id.create_curriculum_cancel_item:
-			onBackPressed();
-			finish();
-			return true;
-		}
-		return super.onMenuItemSelected(featureId, item);
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.create_curriculum_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        Intent intent = new Intent(CreateNewCurriculumActivity.this,
+                MainActivity.class);
+        switch (item.getItemId()) {
+
+            case R.id.create_curriculum_ok_item:
+                parser = XMLParser.getInstance(null);
+                String studName = currNameField.getText().toString();
+                String univName = univNameField.getText().toString();
+
+                if(!checkEditTextFields(univName,studName))
+                    return false;
+
+                int studMode = currModeSpinner.getSelectedItemPosition();
+                studId++;
+                univId++;
+
+                parser.setCurrentUniversity(univName, univId);
+                parser.setCurrentCurriculum(univName, studName, studMode, studId);
+
+                intent.putExtra("firstOpen", 1);
+                startActivity(intent);
+                finish();
+                return true;
+
+            case R.id.create_curriculum_cancel_item:
+                onBackPressed();
+                finish();
+                return true;
+        }
+        return super.onMenuItemSelected(featureId, item);
+    }
+    private boolean checkEditTextFields(String studName, String univName){
+        if (TextUtils.isEmpty(univName)) {
+            Toast.makeText(getApplicationContext(), R.string.new_curriculum_uname_exception, Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (TextUtils.isEmpty(studName)) {
+            Toast.makeText(getApplicationContext(), R.string.new_curriculum_cname_exception, Toast.LENGTH_LONG).show();
+            return false;
+        }
+    return true;
+    }
 }

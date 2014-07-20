@@ -27,7 +27,6 @@ public class CreateOptionalCoursesActivity extends Activity {
 	private Spinner semSP;
 	private Spinner modeSP;
     private CheckBox steopCB;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,6 +40,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 		modeSP = (Spinner) findViewById(R.id.create_course_mode_spinner);
         steopCB = (CheckBox) findViewById(R.id.create_course_is_steop_cb);
 		parser = XMLParser.getInstance(null);
+
 	}
 
 	@Override
@@ -117,7 +117,8 @@ public class CreateOptionalCoursesActivity extends Activity {
 			intent.putExtra("firstOpen", -1);
 			intent.putExtra("changed", true);
 
-			startActivity(intent);
+
+            startActivity(intent);
 			finish();
 			return true;
 
@@ -125,7 +126,8 @@ public class CreateOptionalCoursesActivity extends Activity {
 
 			intent.putExtra("firstOpen", -1);
 			intent.putExtra("changed", false);
-			startActivity(intent);
+
+            startActivity(intent);
 			finish();
 			return true;
 

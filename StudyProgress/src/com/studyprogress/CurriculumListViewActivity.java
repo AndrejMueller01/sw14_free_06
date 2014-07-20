@@ -65,7 +65,7 @@ public class CurriculumListViewActivity extends ListViewActivity {
                 String curriculumName = (String) curriculumListView.getAdapter().getItem(position);
                 int curriculumId = parser.getCurriculumIdWithName(curriculumName);
                 int studMode = parser.getCurriculumMode(curriculumName);
-                parser.setCurrentCurriculum(curriculumName, studMode, curriculumId);
+                parser.setCurrentCurriculum(parser.getCurrentUniversity().getName(),curriculumName, studMode, curriculumId);
 
                 intent.putExtra("firstOpen", 1);
                 startActivity(intent);

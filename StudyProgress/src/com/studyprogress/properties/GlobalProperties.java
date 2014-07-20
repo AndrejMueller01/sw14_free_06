@@ -6,9 +6,12 @@ public class GlobalProperties {
 	public static int STATUS_IN_PROGRESS = 1;
 	public static int STATUS_TO_DO = 0;
 
-	public static int FIRST_TIME = 1;
+    public static int FROM_ADDING_COURSES = -1;
+    public static int FIRST_TIME_HERE = 1;
+    public static int  FROM_OPEN_CURR = 0;
 
-	public static final int BACH_STUD = 0;
+
+    public static final int BACH_STUD = 0;
 	public static final int DIPL_STUD = 1;
 	public static final int MAST_STUD = 2;
 	public static final int PHD_STUD = 3;

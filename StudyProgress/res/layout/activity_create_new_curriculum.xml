@@ -8,7 +8,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+        <TextView
+            android:id="@+id/create_new_curr_univ_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_university_name"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <EditText
+            android:id="@+id/create_new_curr_univ_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/create_new_curriculum_univ_name_hint" >
+
+            <requestFocus />
+        </EditText>
         <TextView
             android:id="@+id/create_new_curr_name_text_view"
             android:layout_width="wrap_content"
@@ -21,9 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/create_new_curriculum_hint" >
+            android:hint="@string/create_new_curriculum_curr_name_hint" >
 
-            <requestFocus />
         </EditText>
 
         <TextView
