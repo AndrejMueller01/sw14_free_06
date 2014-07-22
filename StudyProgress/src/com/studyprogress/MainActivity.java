@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.adapter.CourseListAdapter;
 import com.studyprogress.menu.DeleteMenuCallback;
 import com.studyprogress.objects.Course;
@@ -360,7 +360,7 @@ public class MainActivity extends StudyProgressActivity {
                                                 int which) {
                                 getAdapters()[semester].setViewBackgroundColor(
                                         position, Color.GREEN);
-                                setProgressOfCourseDone(currentCourse);
+                                setProgressOfCourse(currentCourse, GlobalProperties.STATUS_DONE);
 
                             }
                         }
@@ -375,7 +375,7 @@ public class MainActivity extends StudyProgressActivity {
                                 getAdapters()[semester].setViewBackgroundColor(
                                         position, Color.RED);
 
-                                setProgressOfCourseTodo(currentCourse);
+                                setProgressOfCourse(currentCourse, GlobalProperties.STATUS_TO_DO);
 
                             }
                         }
@@ -390,7 +390,7 @@ public class MainActivity extends StudyProgressActivity {
                                 getAdapters()[semester].setViewBackgroundColor(
                                         position, Color.YELLOW);
 
-                                setProgressOfCourseInProgress(currentCourse);
+                                setProgressOfCourse(currentCourse, GlobalProperties.STATUS_IN_PROGRESS);
                             }
                         }
                 );
@@ -404,7 +404,7 @@ public class MainActivity extends StudyProgressActivity {
 
     public void refreshProgress() {
         ProgressCalculator calculator = new ProgressCalculator(parser);
-        float currentEcts = calculator.calcuateCurrentECTS();
+        float currentEcts = calculator.calculateCurrentECTS();
         int maxECTS = calculator.getMaxECTS(GlobalProperties.STATIC_ECTS_MODE);
 
         studyProgressBar.setMax(maxECTS);
@@ -417,42 +417,13 @@ public class MainActivity extends StudyProgressActivity {
                 + progressInPercent + "%)");
     }
 
-    private void setProgressOfCourseDone(Course course) {
-        for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-            if (parser.getCurrentCourses().get(i).equals(course))
-                parser.setStatusOfCurrentCourseTo(i,
-                        GlobalProperties.STATUS_DONE);
-        }
-
-        refreshProgress();
-
-    }
-
     public void setStudyStateChanged() {
         studyStateChanged = true;
     }
 
-    private void setProgressOfCourseTodo(Course course) {
-        for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-            if (parser.getCurrentCourses().get(i).equals(course))
-                parser.setStatusOfCurrentCourseTo(i,
-                        GlobalProperties.STATUS_TO_DO);
-        }
-
+    private void setProgressOfCourse(Course course, int status) {
+        parser.setStatusOfCurrentCourseTo(parser.getCurrentCourses().indexOf(course), status);
         refreshProgress();
-
-    }
-
-    private void setProgressOfCourseInProgress(Course course) {
-        for (int i = 0; i < parser.getCurrentCourses().size(); i++) {
-            if (parser.getCurrentCourses().get(i)
-                    .equals(course))
-                parser.setStatusOfCurrentCourseTo(i,
-                        GlobalProperties.STATUS_IN_PROGRESS);
-        }
-
-        refreshProgress();
-
     }
 
 

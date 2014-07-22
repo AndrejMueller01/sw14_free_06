@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.tools.XMLOpen;
 
 public class SplashScreenActivity extends Activity {

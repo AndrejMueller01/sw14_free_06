@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Environment;
 import android.widget.Toast;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.MainActivity;
 import com.studyprogress.properties.GlobalProperties;
 

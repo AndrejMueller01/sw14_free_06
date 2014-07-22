@@ -370,7 +370,8 @@ public class XMLParser {
 
 	public void setStatusOfCurrentCourseTo(int index, int status) {
 		// 0-not 1-progress 2-done
-		currentCourses.get(index).setStatus(status);
+        if(index != -1 && currentCourses.get(index) != null)
+		    currentCourses.get(index).setStatus(status);
 	}
 
 	public String[] getCurrentCoursesNames() throws XmlPullParserException,

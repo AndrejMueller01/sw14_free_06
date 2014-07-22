@@ -3,7 +3,7 @@ package com.studyprogress;
 import java.io.File;
 import java.util.List;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.XMLOpen;
 

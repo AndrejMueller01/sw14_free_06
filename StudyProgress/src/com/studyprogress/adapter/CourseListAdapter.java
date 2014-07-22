@@ -2,7 +2,7 @@ package com.studyprogress.adapter;
 
 import java.util.ArrayList;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.MainActivity;
 import com.studyprogress.properties.GlobalProperties;
 

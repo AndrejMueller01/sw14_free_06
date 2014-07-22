@@ -10,7 +10,7 @@ import android.util.Xml;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.objects.Course;
 import com.studyprogress.properties.GlobalProperties;
 

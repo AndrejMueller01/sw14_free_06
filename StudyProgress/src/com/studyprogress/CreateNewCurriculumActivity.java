@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.tools.XMLParser;
 

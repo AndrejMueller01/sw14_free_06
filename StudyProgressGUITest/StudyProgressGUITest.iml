@@ -15,6 +15,15 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="robotium-solo-5.1" level="project" />
     <orderEntry type="module" module-name="StudyProgress" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/robotium-solo-5.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
 
