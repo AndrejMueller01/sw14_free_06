@@ -34,6 +34,7 @@ public class XMLSave {
     private String curriculumName;
     private int curriculumId;
     private int studMode;
+    private boolean saveAndClose;
 
 
     public XMLSave(ArrayList<Course> currentCourses, Context context) {
@@ -46,11 +47,12 @@ public class XMLSave {
         this.fileName = fileName;
     }
 
-    public void saveXML(final boolean saveAndClose, boolean withDialog, String universityName, String curriculumName, int curriculumId, int studMode) {
-        this.universityName = universityName;
-        this.curriculumName = curriculumName;
-        this.curriculumId = curriculumId;
-        this.studMode = studMode;
+    public void saveXML(final boolean saveAndClose, final boolean withDialog, String universityNameSave, String curriculumNameSave, int curriculumIdSave, int studModeSave) {
+        this.saveAndClose = saveAndClose;
+        this.universityName = universityNameSave;
+        this.curriculumName = curriculumNameSave;
+        this.curriculumId = curriculumIdSave;
+        this.studMode = studModeSave;
         if (withDialog) {
             final EditText fileNameField = new EditText(context);
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -63,11 +65,12 @@ public class XMLSave {
                                 public void onClick(DialogInterface dialog,
                                                     int id) {
                                     fileName = fileNameField.getText().toString() + GlobalProperties.XML_EXTENSION;
-                                    buildSaveFile();
-                                    if (saveAndClose) {
-                                        ((Activity) context).finish();
+                                    if (fileName.equals(GlobalProperties.XML_EXTENSION)) {
+                                        Toast.makeText(context, R.string.new_course_name_exception, Toast.LENGTH_LONG).show();
+                                        saveXML(saveAndClose, withDialog, universityName, curriculumName, curriculumId, studMode);
+                                        return;
                                     }
-
+                                    buildSaveFile();
                                 }
                             }
                     )
@@ -89,15 +92,11 @@ public class XMLSave {
         }
 
 
-
     }
 
-    private void buildSaveFile() {
+    private void saveProcedure() {
         try {
-            File file = new File(appDir, fileName );
-            if (file.exists())
-                file.delete();
-
+            final File file = new File(appDir, fileName);
             FileOutputStream out = new FileOutputStream(file);
 
             XmlSerializer serializer = Xml.newSerializer();
@@ -155,6 +154,37 @@ public class XMLSave {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+
+    private void buildSaveFile() {
+        final File file = new File(appDir, fileName);
+        if (file.exists()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage(R.string.alert_dialog_curriculum_exists);
+            builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,
+                                    int id) {
+                    file.delete();
+                    saveProcedure();
+                    if (saveAndClose) {
+                        ((Activity) context).finish();
+                    }
+
+                }
+            });
+            builder.setNegativeButton(R.string.no, null);
+            AlertDialog alert = builder.create();
+            alert.show();
+
+        }
+        else
+        {
+            saveProcedure();
+            if (saveAndClose) {
+                ((Activity) context).finish();
+            }
         }
 
     }

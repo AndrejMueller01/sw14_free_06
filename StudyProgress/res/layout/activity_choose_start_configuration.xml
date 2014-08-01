@@ -47,11 +47,6 @@
             android:layout_height="wrap_content"
             android:text="@string/bug" />
 
-        <Button
-            android:id="@+id/choose_start_configuration_button_load"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/load_xml" />
     </LinearLayout>
 
 </ScrollView>

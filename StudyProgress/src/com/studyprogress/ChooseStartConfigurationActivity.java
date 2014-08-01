@@ -35,15 +35,11 @@ public class ChooseStartConfigurationActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_start_configuration);
-        if(xmlOpen.getFileCount()>0){
-            xmlOpen.performOpen();
-        }
-		newPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_new);
+       	newPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_new);
 		openPlanButton = (Button) findViewById(R.id.choose_start_configuration_button_open);
 		aboutButton = (Button) findViewById(R.id.choose_start_configuration_button_about);
 		bugButton = (Button) findViewById(R.id.choose_start_configuration_button_bug);
 		siteButton = (Button) findViewById(R.id.choose_start_configuration_button_site);
-        loadExternalFilesButton = (Button) findViewById(R.id.choose_start_configuration_button_load);
 		newPlanButton.setOnClickListener(new OnClickListener() {
 
 			@Override

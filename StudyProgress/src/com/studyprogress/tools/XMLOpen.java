@@ -21,14 +21,14 @@ import java.io.FilenameFilter;
 public class XMLOpen {
 
     private String[] fileList;
-    private File mPath;
+    private File path;
     private Context context;
     private String chosenFile;
     private static final int DIALOG_LOAD_FILE = 1000;
 
     public XMLOpen(Context context) {
         this.context = context;
-        mPath = new File(Environment.getExternalStorageDirectory().toString() + "/studyprogress_save");
+        path = new File(Environment.getExternalStorageDirectory().toString() + "/studyprogress_save");
     }
 
     public void performOpen() {
@@ -41,17 +41,22 @@ public class XMLOpen {
     }
     private void loadFileList() {
 
-        if (mPath.exists()) {
+        if (path.exists()) {
             FilenameFilter filter = new FilenameFilter() {
                 public boolean accept(File dir, String filename) {
                     File selectedFile = new File(dir, filename);
                     return filename.contains(GlobalProperties.XML_EXTENSION) || selectedFile.isDirectory();
                 }
             };
-            fileList = mPath.list(filter);
+            fileList = path.list(filter);
         } else {
             fileList = new String[0];
         }
+        for(int i = 0; i < fileList.length;i++)
+        {
+            fileList[i] = fileList[i].replaceFirst("[.][^.]+$", "");
+        }
+
     }
 
     protected Dialog onCreateDialog() {
@@ -59,14 +64,14 @@ public class XMLOpen {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
 
-        builder.setTitle("Choose your file");
+        builder.setTitle(R.string.choose_xml_open_message);
         if (fileList == null) {
             dialog = builder.create();
             return dialog;
         }
         builder.setItems(fileList, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                chosenFile = fileList[which];
+                chosenFile = fileList[which] + GlobalProperties.XML_EXTENSION;
                 Intent intent = new Intent(
                         context,
                         MainActivity.class);

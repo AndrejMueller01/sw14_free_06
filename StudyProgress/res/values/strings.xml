@@ -57,6 +57,7 @@
     <string name="ok">OK</string>
     <string name="changes_save">Es sind Änderungen vorhanden!\n Wollen Sie die Änderungen speichern?</string>
     <string name="save_xml_message">Bitte geben Sie den Namen für die Speicherdatei ein!</string>
+    <string name="choose_xml_open_message">Wählen Sie ein Curriculum aus:</string>
 
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
@@ -109,5 +110,7 @@
     <string name="load_xml">Externe Dateien laden</string>
     <string name="please_wait">Bitte warten ...</string>
     <string name="download_in_progress">Dateien werden heruntergeladen ...</string>
+
+    <string name="alert_dialog_curriculum_exists">Diese Datei existiert bereits! Möchten Sie diese überschreiben?</string>
 
 </resources>
