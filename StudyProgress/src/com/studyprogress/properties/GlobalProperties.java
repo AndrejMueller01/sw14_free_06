@@ -7,7 +7,7 @@ public class GlobalProperties {
 	public static int STATUS_TO_DO = 0;
 
     public static int FROM_ADDING_COURSES = -1;
-    public static int FIRST_TIME_HERE = 1;
+    public static int FIRST_TIME_OPENED = 1;
     public static int  FROM_OPEN_CURR = 0;
 
 
@@ -16,8 +16,10 @@ public class GlobalProperties {
 	public static final int MAST_STUD = 2;
 	public static final int PHD_STUD = 3;
 	public static final int LA_STUD = 4;
-	
-	public static String SAVE_FILE_NAME = "my_curriculum.xml";
+
+    public static String SAVE_FILE_NAME = "my_curriculum.xml";
+    public static String FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/253869021486505/";
+    public static String WEBSITE_URL = "http://www.studyprogress.at";
 	public static String SAVE_FILE_DIR = "/studyprogress_save";
     public static String WWW_DL_ADDRESS = "http://www.studyprogress.at/downloads/";
     public static String XML_EXTENSION = ".xml";
@@ -37,8 +39,6 @@ public class GlobalProperties {
 	public static int STEOP = 1;
 	public static int NO_STEOP = 0;
 
-
-	
 	public static final int MAX_COURSES = 100;
 	public static final int NUM_SEM_BUTTONS = 7;
 	

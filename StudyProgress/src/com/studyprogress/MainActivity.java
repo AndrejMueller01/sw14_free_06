@@ -25,6 +25,7 @@ import com.studyprogress.adapter.CourseListAdapter;
 import com.studyprogress.menu.DeleteMenuCallback;
 import com.studyprogress.objects.Course;
 import com.studyprogress.properties.ActionBarProperties;
+import com.studyprogress.properties.ActivityIntentExtras;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.ProgressCalculator;
 import com.studyprogress.tools.WebXMLLoader;
@@ -72,22 +73,21 @@ public class MainActivity extends StudyProgressActivity {
         ActionBarProperties.standardMainActivityMenu(this);
 
         Bundle extras = getIntent().getExtras();
-        if (extras.containsKey("firstOpen"))
-            firstTimeOpened = extras.getInt("firstOpen");
-        if (extras.containsKey("changed"))
-            studyStateChanged = extras.getBoolean("changed");
-        if (extras.containsKey("xmlFileName"))
-            xmlFileName = extras.getString("xmlFileName");
+        if (extras.containsKey(ActivityIntentExtras.FIRST_TIME_OPENED))
+            firstTimeOpened = extras.getInt(ActivityIntentExtras.FIRST_TIME_OPENED);
+        if (extras.containsKey(ActivityIntentExtras.SOMETHING_CHANGED))
+            studyStateChanged = extras.getBoolean(ActivityIntentExtras.SOMETHING_CHANGED);
+        if (extras.containsKey(ActivityIntentExtras.XML_FILE_NAME))
+            xmlFileName = extras.getString(ActivityIntentExtras.XML_FILE_NAME);
 
         parser = XMLParser.getInstance(null);
-
         chooseActivityStartMode();
 
     }
 
     private void chooseActivityStartMode() {
 
-        if (firstTimeOpened == GlobalProperties.FIRST_TIME_HERE) {
+        if (firstTimeOpened == GlobalProperties.FIRST_TIME_OPENED) {
 
             curriculumId = parser.getCurrentCurriculum().getCurriculumId();
             universityId = parser.getCurrentUniversity().getId();
@@ -135,6 +135,7 @@ public class MainActivity extends StudyProgressActivity {
             initComponents();
 
         } else if(firstTimeOpened == GlobalProperties.FROM_ADDING_COURSES){
+
             curriculumId = parser.getCurrentCurriculum().getCurriculumId();
             curriculumName = parser.getCurrentCurriculum().getName();
             universityName = parser.getCurrentUniversity().getName();
@@ -181,7 +182,7 @@ public class MainActivity extends StudyProgressActivity {
         if (studMode == GlobalProperties.DIPL_STUD) {
             for (int i = 3; i < semesterButtons.size() - 1; i++)
                 semesterButtons.get(i).setVisibility(View.INVISIBLE);
-            semesterTextField.setText("Abschnitt");
+            semesterTextField.setText(getString(R.string.study_part));
         } else if (studMode == GlobalProperties.MAST_STUD) {
             for (int i = 4; i < semesterButtons.size() - 1; i++)
                 semesterButtons.get(i).setVisibility(View.INVISIBLE);
@@ -191,7 +192,7 @@ public class MainActivity extends StudyProgressActivity {
 
         refreshProgress();
 
-        String[][] courseNamesInList = null;
+        String[][] courseNamesInList ;
         courseNamesInList = new String[GlobalProperties.SEM_COUNT][];
 
         for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
@@ -286,8 +287,6 @@ public class MainActivity extends StudyProgressActivity {
             saver.setFileName(getXmlFileName());
         saver.saveXML( saveAndClose, saveModeWithDialog, universityName, curriculumName, curriculumId, studMode);
 
-
-
     }
 
     public OnTouchListener setupOnTouchListeners(final int semester) {
@@ -334,23 +333,23 @@ public class MainActivity extends StudyProgressActivity {
 
                 builder.setTitle(courseNameInList);
 
-                String courseInformation = "ECTS: ";
+                String courseInformation = getString(R.string.ects);
                 float courseEcts = parser.getEctsByCourse(currentCourse);
                 String ectsString = Float.valueOf(courseEcts).toString();
-                courseInformation += ectsString + "\n";
-                courseInformation += "Kursnummer: ";
+                courseInformation += ectsString + getString(R.string.new_line);
+                courseInformation += getString(R.string.course_number);
                 courseInformation += parser.getCourseNumberByCourse(currentCourse);
-                courseInformation += "\n";
-                courseInformation += "Steop: ";
+                courseInformation += getString(R.string.new_line);
+                courseInformation += getString(R.string.steop);
                 int courseSteop = parser.getCourseSteopByCourse(currentCourse);
                 if (courseSteop == 1) {
-                    courseInformation += "Ja\n";
+                    courseInformation += getString(R.string.yes) + getString(R.string.new_line);
                 } else
-                    courseInformation += "Nein\n";
+                    courseInformation += getString(R.string.no) + getString(R.string.new_line);
 
-                courseInformation += "Modus: ";
+                courseInformation += getString(R.string.mode);
                 courseInformation += parser.getCourseModeByCourse(currentCourse);
-                courseInformation += "\n";
+                courseInformation += getString(R.string.new_line);
 
                 builder.setMessage(courseInformation);
                 builder.setPositiveButton(R.string.done,
@@ -499,6 +498,10 @@ public class MainActivity extends StudyProgressActivity {
 
     public static void setAdapters(CourseListAdapter[] adapters) {
         MainActivity.adapters = adapters;
+    }
+    public int isFirstTimeOpened(){
+        return  firstTimeOpened;
+
     }
 
 

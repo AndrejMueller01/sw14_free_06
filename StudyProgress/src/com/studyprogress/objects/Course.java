@@ -48,14 +48,6 @@ public class Course {
 		this.courseNumber = courseNumber;
 	}
 
-	public boolean isBachelorCourse() {
-		return isBachelorCourse;
-	}
-
-	public void setBachelorCourse(boolean isBachelorCourse) {
-		this.isBachelorCourse = isBachelorCourse;
-	}
-
 	public int getSemester() {
 		return semester;
 	}

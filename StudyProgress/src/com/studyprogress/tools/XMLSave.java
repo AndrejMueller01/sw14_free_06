@@ -5,12 +5,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Environment;
-import android.util.Log;
 import android.util.Xml;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.studyprogress.R;
+import com.studyprogress.MainActivity;
 import com.studyprogress.objects.Course;
 import com.studyprogress.properties.GlobalProperties;
 
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class XMLSave {
 
     private String rootDir = Environment.getExternalStorageDirectory().toString();
-    private File appDir = new File(rootDir + "/studyprogress_save");
+    private File appDir = new File(rootDir + GlobalProperties.SAVE_FILE_DIR);
     private ArrayList<Course> courseList;
     private Context context;
     private String fileName;
@@ -55,8 +55,8 @@ public class XMLSave {
         this.studMode = studModeSave;
         if (withDialog) {
             final EditText fileNameField = new EditText(context);
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(R.string.save_xml_message)
                     .setView(fileNameField)
                     .setCancelable(false)
@@ -74,21 +74,12 @@ public class XMLSave {
                                 }
                             }
                     )
-                    .setNegativeButton(R.string.menu_item_cancel,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                                    int id) {
-                                    return;
-                                }
-                            }
-                    );
+                    .setNegativeButton(R.string.menu_item_cancel, null);
             AlertDialog alert = builder.create();
             alert.show();
+
         } else {
             buildSaveFile();
-            if (saveAndClose) {
-                ((Activity) context).finish();
-            }
         }
 
 
@@ -160,7 +151,7 @@ public class XMLSave {
 
     private void buildSaveFile() {
         final File file = new File(appDir, fileName);
-        if (file.exists()) {
+        if (file.exists() && ((MainActivity) context).isFirstTimeOpened() == GlobalProperties.FIRST_TIME_OPENED) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(R.string.alert_dialog_curriculum_exists);
             builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
@@ -178,9 +169,7 @@ public class XMLSave {
             AlertDialog alert = builder.create();
             alert.show();
 
-        }
-        else
-        {
+        } else {
             saveProcedure();
             if (saveAndClose) {
                 ((Activity) context).finish();

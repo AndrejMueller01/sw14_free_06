@@ -41,7 +41,8 @@ public class ProgressCalculator {
 
 		}
 		return 0;
-		}else{
+		}
+        else{
 			return (int) parser.getAllEcts();
 		}
 

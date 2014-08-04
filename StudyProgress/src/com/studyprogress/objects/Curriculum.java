@@ -10,9 +10,7 @@ public class Curriculum {
     private int mode;
 
     public Curriculum() {
-
         mode = 0;
-
     }
 
     public void setName(String name) {

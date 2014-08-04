@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.studyprogress.R;
+import com.studyprogress.properties.ActivityIntentExtras;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.WebXMLLoader;
 
@@ -67,7 +68,7 @@ public class CurriculumListViewActivity extends ListViewActivity {
                 int studMode = parser.getCurriculumMode(curriculumName);
                 parser.setCurrentCurriculum(parser.getCurrentUniversity().getName(),curriculumName, studMode, curriculumId);
 
-                intent.putExtra("firstOpen", 1);
+                intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FIRST_TIME_OPENED);
                 startActivity(intent);
                 finish();
 

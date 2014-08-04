@@ -24,6 +24,7 @@ public class WebXMLLoader extends AsyncTask<String, Void, Void> {
     private XMLParser parser;
     private StudyProgressActivity activity;
     private ProgressDialog progressDialog;
+    private int FILE_NAME_PARAMETER_POS = 0;
 
     public WebXMLLoader(StudyProgressActivity activity) {
         this.activity = activity;
@@ -42,7 +43,7 @@ public class WebXMLLoader extends AsyncTask<String, Void, Void> {
 
     @Override
     protected Void doInBackground(String... params) {
-        HttpGet httpPostRequest = new HttpGet(GlobalProperties.WWW_DL_ADDRESS + params[0] +
+        HttpGet httpPostRequest = new HttpGet(GlobalProperties.WWW_DL_ADDRESS + params[FILE_NAME_PARAMETER_POS] +
                                                                     GlobalProperties.XML_EXTENSION);
 
         HttpResponse httpResponse;
@@ -53,7 +54,6 @@ public class WebXMLLoader extends AsyncTask<String, Void, Void> {
             BufferedHttpEntity buffer = new BufferedHttpEntity(httpEntity);
             InputStream is = buffer.getContent();
             parser.setInputStream(is);
-            Log.d("t_loader", "Set inputstream to " + is.toString());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,7 +65,6 @@ public class WebXMLLoader extends AsyncTask<String, Void, Void> {
     @Override
     protected void onPostExecute(Void result) {
         progressDialog.dismiss();
-
         super.onPostExecute(result);
         activity.initComponents();
 

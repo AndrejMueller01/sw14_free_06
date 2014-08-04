@@ -24,7 +24,6 @@ public class XMLParser {
 	private ArrayList<Curriculum> curricula = null;
 	private ArrayList<University> universities = null;
 
-	// private ArrayList<Course> allCourses = null;
 	private static ArrayList<Course> currentCourses = null;
 	private static Curriculum currentCurriculum = null;
 	private static University currentUniversity = null;
@@ -253,7 +252,7 @@ public class XMLParser {
 
 	// TODO: Variable names
 	public void parseCurricula() {
-		int eventType = 0;
+		int eventType;
 		try {
 
 			xmlPullParseFactory = XmlPullParserFactory.newInstance();
@@ -268,7 +267,7 @@ public class XMLParser {
 
 			while (eventType != XmlPullParser.END_DOCUMENT) {
 
-				String name = null;
+				String name;
 				switch (eventType) {
 				case XmlPullParser.START_DOCUMENT:
 					curricula = new ArrayList<Curriculum>();
