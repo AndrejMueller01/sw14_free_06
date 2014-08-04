@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.studyprogress.R;
-
 public class SplashScreenActivity extends Activity {
 
     private static int SPLASH_TIME_OUT = 500;

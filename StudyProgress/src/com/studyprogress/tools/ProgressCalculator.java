@@ -11,7 +11,7 @@ public class ProgressCalculator {
 		this.parser = parser;
 	}
 
-	public float calcuateCurrentECTS() {
+	public float calculateCurrentECTS() {
 		currentECTS = parser.getCurrentEcts();
 		return currentECTS;
 	}

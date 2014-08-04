@@ -4,7 +4,8 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.studyprogress.R;
+
+import com.studyprogress.R;
 import com.studyprogress.MainActivity;
 import com.studyprogress.objects.Course;
 import com.studyprogress.properties.GlobalProperties;

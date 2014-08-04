@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.os.Environment;
 import android.widget.Toast;
 
-import com.example.studyprogress.R;
 import com.studyprogress.MainActivity;
+import com.studyprogress.R;
 import com.studyprogress.properties.ActivityIntentExtras;
 import com.studyprogress.properties.GlobalProperties;
 
@@ -128,7 +128,8 @@ public class XMLOpenDelete {
         dialog = builder.show();
         return dialog;
     }
-    public void performAreYouShureDialog(final File file){
+
+    public void performAreYouShureDialog(final File file) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         String message = context.getString(R.string.are_you_sure_to_delete_message, chosenFile);
         builder.setMessage(message);

@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.ListViewActivity;
 import com.studyprogress.StudyProgressActivity;
 import com.studyprogress.properties.GlobalProperties;

@@ -1,6 +1,6 @@
 package com.studyprogress.objects;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 
 public class University {
 	

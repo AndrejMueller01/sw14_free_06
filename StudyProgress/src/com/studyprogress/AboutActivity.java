@@ -1,6 +1,6 @@
 package com.studyprogress;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.properties.ActionBarProperties;
 
 import android.app.Activity;

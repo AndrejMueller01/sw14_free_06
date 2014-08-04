@@ -10,7 +10,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.properties.GlobalProperties;
 
 public class CourseListAdapter extends BaseAdapter {

@@ -1,6 +1,6 @@
 package com.studyprogress;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.objects.Course;
 import com.studyprogress.properties.ActionBarProperties;
 import com.studyprogress.properties.ActivityIntentExtras;
