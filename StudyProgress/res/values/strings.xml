@@ -13,6 +13,8 @@
     <string name="new_plan">Neues Studium erstellen</string>
     <string name="empty_plan">Leeren Studienplan erstellen</string>
     <string name="open_plan">Gespeichertes Studium öffnen</string>
+    <string name="delete_plan">Gespeichertes Studium löschen</string>
+
     <string name="about">Impressum</string>
     <string name="rate">BEWERTEN</string>
     <string name="site">Projektseite</string>
@@ -57,6 +59,9 @@
     <string name="ok">OK</string>
     <string name="changes_save">Es sind Änderungen vorhanden!\n Wollen Sie die Änderungen speichern?</string>
     <string name="save_xml_message">Bitte geben Sie den Namen für die Speicherdatei ein!</string>
+    <string name="choose_xml_open_message">Wählen Sie eine Speicherdatei aus:</string>
+    <string name="are_you_sure_to_delete_message">Sind Sie sicher, dass Sie die Datei %1$s löschen wollen?</string>
+
 
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
@@ -109,5 +114,13 @@
     <string name="load_xml">Externe Dateien laden</string>
     <string name="please_wait">Bitte warten ...</string>
     <string name="download_in_progress">Dateien werden heruntergeladen ...</string>
+
+    <string name="alert_dialog_curriculum_exists">Diese Datei existiert bereits! Möchten Sie diese überschreiben?</string>
+    <string name="study_part">Abschnitt</string>
+    <string name="new_line">\n</string>
+    <string name="course_number">Kursnummer: </string>
+    <string name="ects">E.C.T.S.: </string>
+    <string name="steop">Steop: </string>
+    <string name="mode">Modus: </string>
 
 </resources>

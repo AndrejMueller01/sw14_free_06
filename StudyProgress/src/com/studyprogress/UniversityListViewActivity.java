@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.example.studyprogress.R;
 import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.WebXMLLoader;
 

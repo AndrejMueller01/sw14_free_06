@@ -1,5 +1,7 @@
 package com.studyprogress.objects;
 
+import com.studyprogress.R;
+
 public class University {
 	
 	private String name;
@@ -15,7 +17,7 @@ public class University {
 	}
 	public String getName(){
 		if(name == null)
-			return "n/a";
+			return String.valueOf(R.string.not_avaiable);
 		return name;
 	}
 	public void setName(String name){

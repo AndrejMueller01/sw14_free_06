@@ -1,6 +1,5 @@
 package com.studyprogress;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,8 +31,6 @@ public class ListViewActivity extends StudyProgressActivity {
         namesSearchFaults = new ArrayList<String>();
 
     }
-
-
 
     protected void updateListViewOnSearching() {
 

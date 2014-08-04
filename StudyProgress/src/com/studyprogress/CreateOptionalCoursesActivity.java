@@ -1,8 +1,10 @@
 package com.studyprogress;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.objects.Course;
 import com.studyprogress.properties.ActionBarProperties;
+import com.studyprogress.properties.ActivityIntentExtras;
+import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.XMLParser;
 import com.studyprogress.tools.XMLSave;
 
@@ -114,8 +116,8 @@ public class CreateOptionalCoursesActivity extends Activity {
 
 			parser.addCourseToCurrentCourses(newCourse);
 
-			intent.putExtra("firstOpen", -1);
-			intent.putExtra("changed", true);
+			intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FROM_ADDING_COURSES);
+			intent.putExtra(ActivityIntentExtras.SOMETHING_CHANGED, true);
 
 
             startActivity(intent);
@@ -124,8 +126,8 @@ public class CreateOptionalCoursesActivity extends Activity {
 
 		case R.id.create_courses_cancel_item:
 
-			intent.putExtra("firstOpen", -1);
-			intent.putExtra("changed", false);
+			intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FROM_ADDING_COURSES);
+			intent.putExtra(ActivityIntentExtras.SOMETHING_CHANGED, false);
 
             startActivity(intent);
 			finish();

@@ -11,8 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.studyprogress.R;
+import com.studyprogress.R;
 import com.studyprogress.properties.ActionBarProperties;
+import com.studyprogress.properties.ActivityIntentExtras;
+import com.studyprogress.properties.GlobalProperties;
 import com.studyprogress.tools.XMLParser;
 
 public class CreateNewCurriculumActivity extends Activity {
@@ -66,7 +68,7 @@ public class CreateNewCurriculumActivity extends Activity {
                 parser.setCurrentUniversity(univName, univId);
                 parser.setCurrentCurriculum(univName, studName, studMode, studId);
 
-                intent.putExtra("firstOpen", 1);
+                intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FIRST_TIME_OPENED);
                 startActivity(intent);
                 finish();
                 return true;
