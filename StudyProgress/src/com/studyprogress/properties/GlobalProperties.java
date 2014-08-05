@@ -25,6 +25,7 @@ public class GlobalProperties {
     public static String XML_EXTENSION = ".xml";
     public static String CURRICULA_XML_PREFIX = "curricula";
     public static String UNIVERSITY_XML_PREFIX = "universities";
+    public static String STANDARD_COURSE_FONT_PATH = "fonts/CandelaBold.otf";
 
 
     public static String COURSE_XML_PREFIX = "c";

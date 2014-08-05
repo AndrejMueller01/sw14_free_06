@@ -21,8 +21,7 @@
             android:id="@+id/curriculumNameInMainActivityTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="@string/hello_world" />
+            android:textStyle="bold" />
 
         <ProgressBar
             android:id="@+id/study_progress_bar"
@@ -35,7 +34,6 @@
             android:id="@+id/progress_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_world"
             android:textAlignment="center" />
     </LinearLayout>
 

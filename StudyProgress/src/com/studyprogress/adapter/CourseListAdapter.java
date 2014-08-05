@@ -1,6 +1,7 @@
 package com.studyprogress.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -117,6 +118,8 @@ public class CourseListAdapter extends BaseAdapter {
         ViewHolder holder = (ViewHolder) rowView.getTag();
         holder.listRowLinearLayout.setBackgroundColor(colorList[position]);
         holder.listRowTextView.setText(courses[position]);
+        Typeface typeFace = Typeface.createFromAsset(context.getAssets(), GlobalProperties.STANDARD_COURSE_FONT_PATH );
+        holder.listRowTextView.setTypeface(typeFace);
         holder.operationCheckBox.setVisibility(visibilityList[position]);
         holder.operationCheckBox.setTag(position);
         holder.operationCheckBox.setChecked(deleteBoxCheckList[position]);

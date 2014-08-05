@@ -1,6 +1,7 @@
 package com.studyprogress.menu;
 
 import android.view.ActionMode;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -25,8 +26,10 @@ public class DeleteMenuCallback implements ActionMode.Callback {
         return false;
     }
 
+
     @Override
     public void onDestroyActionMode(ActionMode mode) {
+        parent.setDeletActionModeIsActive(false);
 
         XMLParser parser = XMLParser.getInstance(null);
 
@@ -56,6 +59,7 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        parent.setDeletActionModeIsActive(true);
         parent.getMenuInflater().inflate(R.menu.delete_menu, menu);
         mode.setTitle(R.string.delete_menu_title);
 
@@ -71,7 +75,6 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-
         return true;
     }
 

@@ -5,8 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,7 +23,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.studyprogress.R;
 import com.studyprogress.adapter.CourseListAdapter;
 import com.studyprogress.menu.DeleteMenuCallback;
 import com.studyprogress.objects.Course;
@@ -54,12 +56,12 @@ public class MainActivity extends StudyProgressActivity {
     private static int universityId = 0;
     private boolean isSavedFile = false;
     private boolean parseModeOn = true;
-    private static boolean saveModeWithDialog ;
-
+    private static boolean saveModeWithDialog;
     private static int studMode = 0;
     private static String xmlFileName;
     private static String curriculumName = null;
     private static String universityName = null;
+    private boolean deletActionModeIsActive = false;
 
     public static String getXmlFileName() {
         return xmlFileName;
@@ -134,7 +136,7 @@ public class MainActivity extends StudyProgressActivity {
             parseModeOn = false;
             initComponents();
 
-        } else if(firstTimeOpened == GlobalProperties.FROM_ADDING_COURSES){
+        } else if (firstTimeOpened == GlobalProperties.FROM_ADDING_COURSES) {
 
             curriculumId = parser.getCurrentCurriculum().getCurriculumId();
             curriculumName = parser.getCurrentCurriculum().getName();
@@ -156,7 +158,7 @@ public class MainActivity extends StudyProgressActivity {
 
         studyProgressPercentage = (TextView) findViewById(R.id.progress_text_view);
         curriculumNameTextField = (TextView) findViewById(R.id.curriculumNameInMainActivityTextView);
-        curriculumNameTextField.setText(universityName + " - " +curriculumName);
+        curriculumNameTextField.setText(universityName + " - " + curriculumName);
 
         setCourseListViews(new ListView[GlobalProperties.SEM_COUNT]);
         setAdapters(new CourseListAdapter[GlobalProperties.SEM_COUNT]);
@@ -181,18 +183,18 @@ public class MainActivity extends StudyProgressActivity {
 
         if (studMode == GlobalProperties.DIPL_STUD) {
             for (int i = 3; i < semesterButtons.size() - 1; i++)
-                semesterButtons.get(i).setVisibility(View.INVISIBLE);
+                semesterButtons.get(i).setVisibility(View.GONE);
             semesterTextField.setText(getString(R.string.study_part));
         } else if (studMode == GlobalProperties.MAST_STUD) {
             for (int i = 4; i < semesterButtons.size() - 1; i++)
-                semesterButtons.get(i).setVisibility(View.INVISIBLE);
+                semesterButtons.get(i).setVisibility(View.GONE);
         } else if (studMode == GlobalProperties.LA_STUD) {
             // TODO:+3 Sem Buttons
         }
 
         refreshProgress();
 
-        String[][] courseNamesInList ;
+        String[][] courseNamesInList;
         courseNamesInList = new String[GlobalProperties.SEM_COUNT][];
 
         for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
@@ -265,8 +267,8 @@ public class MainActivity extends StudyProgressActivity {
                 saveCourse(false);
                 return true;
             case R.id.delete_item:
-                DeleteMenuCallback dmc = new DeleteMenuCallback(this);
-                startActionMode(dmc);
+                DeleteMenuCallback deleteMenuCallback = new DeleteMenuCallback(this);
+                startActionMode(deleteMenuCallback);
                 return true;
             case R.id.add_item:
                 Intent intent = new Intent(MainActivity.this,
@@ -282,10 +284,10 @@ public class MainActivity extends StudyProgressActivity {
     private void saveCourse(boolean saveAndClose) {
         studyStateChanged = false;
 
-        XMLSave saver = new XMLSave(parser.getCurrentCourses(),this);
-        if(!saveModeWithDialog)
+        XMLSave saver = new XMLSave(parser.getCurrentCourses(), this);
+        if (!saveModeWithDialog)
             saver.setFileName(getXmlFileName());
-        saver.saveXML( saveAndClose, saveModeWithDialog, universityName, curriculumName, curriculumId, studMode);
+        saver.saveXML(saveAndClose, saveModeWithDialog, universityName, curriculumName, curriculumId, studMode);
 
     }
 
@@ -360,6 +362,8 @@ public class MainActivity extends StudyProgressActivity {
                                 getAdapters()[semester].setViewBackgroundColor(
                                         position, Color.GREEN);
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_DONE);
+                                MediaPlayer doneSound = MediaPlayer.create(getBaseContext(), R.raw.done);
+                                doneSound.start();
 
                             }
                         }
@@ -375,6 +379,8 @@ public class MainActivity extends StudyProgressActivity {
                                         position, Color.RED);
 
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_TO_DO);
+                                MediaPlayer todo = MediaPlayer.create(getBaseContext(), R.raw.todo);
+                                todo.start();
 
                             }
                         }
@@ -390,6 +396,8 @@ public class MainActivity extends StudyProgressActivity {
                                         position, Color.YELLOW);
 
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_IN_PROGRESS);
+                                MediaPlayer inprogress = MediaPlayer.create(getBaseContext(), R.raw.inprogress);
+                                inprogress.start();
                             }
                         }
                 );
@@ -428,37 +436,40 @@ public class MainActivity extends StudyProgressActivity {
 
     @Override
     public void onBackPressed() {
-        if (studyStateChanged) {
-            studyStateChanged = false;
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(R.string.changes_save)
-                    .setCancelable(false)
-                    .setPositiveButton(R.string.yes,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                                    int id) {
-                                    saveCourse(true);
+            if (studyStateChanged) {
+
+                studyStateChanged = false;
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(R.string.changes_save)
+                        .setCancelable(false)
+                        .setPositiveButton(R.string.yes,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,
+                                                        int id) {
+                                        saveCourse(true);
+                                    }
                                 }
-                            }
-                    )
-                    .setNegativeButton(R.string.no,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                                    int id) {
-                                    MainActivity.this.finish();
+                        )
+                        .setNegativeButton(R.string.no,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,
+                                                        int id) {
+                                        MainActivity.this.finish();
+                                    }
                                 }
-                            }
-                    );
-            AlertDialog alert = builder.create();
-            alert.show();
-        } else {
-            super.onBackPressed();
-        }
+                        );
+                AlertDialog alert = builder.create();
+                alert.show();
+            } else {
+                super.onBackPressed();
+            }
+
     }
 
     public static ListView[] getCourseListViews() {
         return courseListViews;
     }
+
     public static void setCourseListViews(ListView[] courseListViews) {
         MainActivity.courseListViews = courseListViews;
     }
@@ -470,11 +481,23 @@ public class MainActivity extends StudyProgressActivity {
     public static void setAdapters(CourseListAdapter[] adapters) {
         MainActivity.adapters = adapters;
     }
-    public int isFirstTimeOpened(){
-        return  firstTimeOpened;
+
+    public int isFirstTimeOpened() {
+        return firstTimeOpened;
 
     }
-
-
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if(deletActionModeIsActive) {
+            if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+                // handle your back button code here
+                return true; // consumes the back key event - ActionMode is not finished
+            }
+        }
+        return super.dispatchKeyEvent(event);
+    }
+    public void setDeletActionModeIsActive(boolean status){
+        deletActionModeIsActive = status;
+    }
 
 }

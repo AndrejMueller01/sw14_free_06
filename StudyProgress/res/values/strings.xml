@@ -31,7 +31,7 @@
     <string name="sem_4">4</string>
     <string name="sem_5">5</string>
     <string name="sem_6">6</string>
-    <string name="sem_add">+</string>
+    <string name="sem_add">Freifächer</string>
     <string name="menu_item_add">Wahlfach hinzufügen</string>
     <string name="menu_item_delete">Kurs löschen</string>
     <string name="menu_item_overflow">Optionen</string>
@@ -78,7 +78,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
-        <item>+</item>
+        <item>Freifächer</item>
     </string-array>
     <string-array name="opt_course_mode_array">
         <item>VO</item>
@@ -108,8 +108,8 @@
         <item>Lehramt</item>
     </string-array>
 
-    <string name="create_new_curriculum_curr_name_hint">Name des Lehrganges</string>
-    <string name="create_new_curriculum_univ_name_hint">Name der Universität</string>
+    <string name="create_new_curriculum_curr_name_hint">z.B.: Informatik</string>
+    <string name="create_new_curriculum_univ_name_hint">z.B.: KFU Graz</string>
     <string name="create_new_curriculum_modus">Typ des Curriculums</string>
     <string name="load_xml">Externe Dateien laden</string>
     <string name="please_wait">Bitte warten ...</string>
@@ -122,5 +122,7 @@
     <string name="ects">E.C.T.S.: </string>
     <string name="steop">Steop: </string>
     <string name="mode">Modus: </string>
+
+
 
 </resources>

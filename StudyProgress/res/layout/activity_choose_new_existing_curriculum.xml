@@ -13,12 +13,16 @@
             android:id="@+id/choose_existing_new_curriculum_button_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/start_button_selector"
+            style="@style/button_text"
             android:text="@string/empty_plan" />
 
         <Button
             android:id="@+id/choose_existing_new_curriculum_button_open"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/start_button_selector"
+            style="@style/button_text"
             android:text="@string/open_predefined_curriculum" />
     </LinearLayout>
 
