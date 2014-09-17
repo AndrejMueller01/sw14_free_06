@@ -490,13 +490,12 @@ public class MainActivity extends StudyProgressActivity {
     public boolean dispatchKeyEvent(KeyEvent event) {
         if(deletActionModeIsActive) {
             if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-                // handle your back button code here
-                return true; // consumes the back key event - ActionMode is not finished
+                return true;
             }
         }
         return super.dispatchKeyEvent(event);
     }
-    public void setDeletActionModeIsActive(boolean status){
+    public void setDeleteActionModeIsActive(boolean status){
         deletActionModeIsActive = status;
     }
 

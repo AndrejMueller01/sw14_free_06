@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@color/background_green"
         android:gravity="center"
+        android:layout_margin="1pt"
         android:orientation="vertical" >
 
         <TextView
@@ -67,42 +68,56 @@
                     android:id="@+id/semester_1_name_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+
                     android:text="@string/sem_1" />
 
                 <Button
                     android:id="@+id/semester_2_name_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+
                     android:text="@string/sem_2" />
 
                 <Button
                     android:id="@+id/semester_3_name_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+
                     android:text="@string/sem_3" />
 
                 <Button
                     android:id="@+id/semester_4_name_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+
                     android:text="@string/sem_4" />
 
                 <Button
                     android:id="@+id/semester_5_name_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+
                     android:text="@string/sem_5" />
 
                 <Button
                     android:id="@+id/semester_6_name_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+
                     android:text="@string/sem_6" />
 
                 <Button
                     android:id="@+id/semester_optional_courses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+
                     android:text="@string/sem_add" />
             </LinearLayout>
         </HorizontalScrollView>

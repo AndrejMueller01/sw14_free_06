@@ -29,7 +29,7 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        parent.setDeletActionModeIsActive(false);
+        parent.setDeleteActionModeIsActive(false);
 
         XMLParser parser = XMLParser.getInstance(null);
 
@@ -59,7 +59,7 @@ public class DeleteMenuCallback implements ActionMode.Callback {
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        parent.setDeletActionModeIsActive(true);
+        parent.setDeleteActionModeIsActive(true);
         parent.getMenuInflater().inflate(R.menu.delete_menu, menu);
         mode.setTitle(R.string.delete_menu_title);
 

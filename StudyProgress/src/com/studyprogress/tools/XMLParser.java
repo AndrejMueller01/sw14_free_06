@@ -55,12 +55,6 @@ public class XMLParser {
         currentCourses.clear();
     }
 
-    public void clearAllCurrentVaribles() {
-        currentCourses.clear();
-        currentCurriculum = new Curriculum();
-        currentUniversity = new University();
-    }
-
     public ArrayList<Curriculum> getCurricula() {
         return curricula;
 
@@ -73,7 +67,7 @@ public class XMLParser {
 
     public void parseUniversities() {
         try {
-            int eventType = 0;
+            int eventType;
 
             xmlPullParseFactory = XmlPullParserFactory.newInstance();
             xmlPullParseFactory.setNamespaceAware(true);
@@ -250,7 +244,7 @@ public class XMLParser {
         currentUniversity.setId(id);
     }
 
-    // TODO: Variable names
+    // TODO: names
     public void parseCurricula() {
         int eventType;
         try {
@@ -379,7 +373,6 @@ public class XMLParser {
         String[] coursesNames = new String[currentCourses.size()];
 
         for (int i = 0; i < currentCourses.size(); i++) {
-            Log.d("SIZE", currentCourses.get(i).getCourseName());
             coursesNames[i] = currentCourses.get(i).getCourseName();
         }
 

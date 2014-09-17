@@ -117,7 +117,7 @@ public class XMLOpenDelete {
                         chosenFile
                 );
                 if (file.exists()) {
-                    performAreYouShureDialog(file);
+                    performAreYouSureDialog(file);
                 } else {
                     Toast.makeText(context.getApplicationContext(),
                             R.string.file_not_found, Toast.LENGTH_LONG).show();
@@ -129,7 +129,7 @@ public class XMLOpenDelete {
         return dialog;
     }
 
-    public void performAreYouShureDialog(final File file) {
+    public void performAreYouSureDialog(final File file) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         String message = context.getString(R.string.are_you_sure_to_delete_message, chosenFile);
         builder.setMessage(message);

@@ -45,21 +45,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="180f2a0f-8939-4396-88c7-dfcfcb65a83e" name="Default" comment="">
-      <change type="DELETED" beforePath="E:\GIT_repos\sw14_free_06\StudyProgress\src\com\studyprogress\tools\XMLOpen.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgressGUITest/gen/com/studyprogress/test/BuildConfig.java" afterPath="$PROJECT_DIR$/StudyProgressGUITest/gen/com/studyprogress/test/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/adapter/CourseListAdapter.java" afterPath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/adapter/CourseListAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester__button_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_pressed.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_released.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/menu/DeleteMenuCallback.java" afterPath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/menu/DeleteMenuCallback.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/GlobalProperties.java" afterPath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/GlobalProperties.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/MainActivity.java" afterPath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_new_existing_curriculum.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_new_existing_curriculum.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_start_configuration.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_start_configuration.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLOpenDelete.java" afterPath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLOpenDelete.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLParser.java" afterPath="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/values/colors.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/layout/courses_list_item.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/layout/courses_list_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_selector.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_selector.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_released.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_released.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/values/strings.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StudyProgress/res/values/styles.xml" afterPath="$PROJECT_DIR$/StudyProgress/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sw14_free_06.iws" />
@@ -83,53 +78,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_choose_start_configuration.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_start_configuration.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.703704" vertical-offset="0" max-vertical-offset="1360">
-              <caret line="17" column="37" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="37" />
-              <folding>
-                <element signature="e#1021#1039#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logo.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/logo.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_create_new_curriculum.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_create_new_curriculum.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.962963" vertical-offset="51" max-vertical-offset="1071">
-              <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-              <folding>
-                <element signature="e#600#633#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="activity_choose_new_existing_curriculum.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_new_existing_curriculum.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8888888" vertical-offset="0" max-vertical-offset="578">
-              <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+            <state vertical-scroll-proportion="-13.037037" vertical-offset="39" max-vertical-offset="578">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_main.xml">
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5361781" vertical-offset="0" max-vertical-offset="3060">
+              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+              <folding>
+                <element signature="e#4871#4888#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -137,37 +110,7 @@
         <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="884">
-              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="start_button_shape_pressed.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-              <caret line="13" column="10" selection-start-line="10" selection-start-column="2" selection-end-line="13" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30198914" vertical-offset="1703" max-vertical-offset="2261">
-              <caret line="110" column="72" selection-start-line="110" selection-start-column="72" selection-end-line="110" selection-end-column="72" />
+              <caret line="6" column="42" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -177,7 +120,47 @@
         <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_selector.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="7" selection-end-column="11" />
+              <caret line="4" column="65" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="semester__button_selector.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester__button_selector.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+              <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="semester_button_shape_released.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_released.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="start_button_shape_pressed.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+              <caret line="4" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="semester_button_shape_pressed.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_pressed.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+              <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -187,7 +170,17 @@
         <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_released.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <caret line="4" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UniversityListViewActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/UniversityListViewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -206,10 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/StudyProgress/res/layout/activity_create_optional_course.xml" />
-        <option value="$PROJECT_DIR$/StudyProgress/res/raw/c1_1.xml" />
-        <option value="$PROJECT_DIR$/StudyProgress/res/raw/c1_3.xml" />
-        <option value="$PROJECT_DIR$/StudyProgress/res/raw/c1_4.xml" />
         <option value="$PROJECT_DIR$/StudyProgressTest/src/com/example/studyprogress/test/CourseListAdapterTest.java" />
         <option value="$PROJECT_DIR$/StudyProgressTest/src/com/example/studyprogress/test/XMLParserTest.java" />
         <option value="$PROJECT_DIR$/StudyProgressGUITest/src/com/example/studyprogress/test/AddNewCoursesTests.java" />
@@ -236,25 +225,31 @@
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/ChooseStartConfigurationActivity.java" />
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/CurriculumListViewActivity.java" />
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/SplashScreenActivity.java" />
-        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLOpenDelete.java" />
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLSave.java" />
-        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLParser.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/objects/University.java" />
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/UniversityListViewActivity.java" />
-        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/menu/DeleteMenuCallback.java" />
-        <option value="$PROJECT_DIR$/StudyProgress/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/MainActivity.java" />
         <option value="$PROJECT_DIR$/StudyProgress/res/layout/courses_list_item.xml" />
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/adapter/CourseListAdapter.java" />
         <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/GlobalProperties.java" />
-        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml" />
-        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_released.xml" />
         <option value="$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_new_existing_curriculum.xml" />
         <option value="$PROJECT_DIR$/StudyProgress/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/StudyProgress/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_start_configuration.xml" />
         <option value="$PROJECT_DIR$/StudyProgress/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLOpenDelete.java" />
+        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/MainActivity.java" />
+        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/menu/DeleteMenuCallback.java" />
+        <option value="$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLParser.java" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/raw/htaccess.txt" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_selector.xml" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_released.xml" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester__button_selector" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester__button_selector.xml" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_released.xml" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_pressed.xml" />
+        <option value="$PROJECT_DIR$/StudyProgress/res/layout/activity_main.xml" />
       </list>
     </option>
   </component>
@@ -294,7 +289,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="2" />
+    <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -310,7 +305,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -470,6 +464,82 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-w820dp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sw14_free_06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StudyProgress" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-v14" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sw14_free_06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StudyProgress" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-v11" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sw14_free_06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StudyProgress" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-sw720dp-land" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sw14_free_06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StudyProgress" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-sw600dp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -556,6 +626,20 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sw14_free_06" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StudyProgress" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="drawable-hdpi" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
@@ -581,6 +665,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -592,7 +677,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="E:/../TerraApp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -607,29 +692,6 @@
     <property name="SHOW_ALL_PROCESSES" value="false" />
   </component>
   <component name="RunManager" selected="Android Application.StudyProgress">
-    <configuration default="false" name="All Tests" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
-      <module name="StudyProgress" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <RunnerSettings RunnerId="AndroidDebugRunner" />
-      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="All Tests (1)" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
       <module name="StudyProgressTest" />
       <option name="TESTING_TYPE" value="0" />
@@ -706,6 +768,28 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
+      <module name="StudyProgress" />
+      <option name="ACTIVITY_CLASS" value="com.studyprogress.MainActivity" />
+      <option name="MODE" value="specific_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
@@ -869,19 +953,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Android Application.StudyProgress" />
-      <item index="1" class="java.lang.String" itemvalue="Android Tests.All Tests" />
-      <item index="2" class="java.lang.String" itemvalue="Android Tests.All Tests (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Android Tests.testDeleteCourse()" />
-      <item index="4" class="java.lang.String" itemvalue="Android Tests.testGetCourseNames...()" />
-      <item index="5" class="java.lang.String" itemvalue="Android Tests.All Tests (2)" />
+      <item index="1" class="java.lang.String" itemvalue="Android Tests.All Tests (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Android Tests.testDeleteCourse()" />
+      <item index="3" class="java.lang.String" itemvalue="Android Tests.testGetCourseNames...()" />
+      <item index="4" class="java.lang.String" itemvalue="Android Tests.All Tests (2)" />
+      <item index="5" class="java.lang.String" itemvalue="Android Application.MainActivity" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Android Tests.All Tests (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Android Tests.All Tests (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Android Tests.testGetCourseNames...()" />
-        <item index="3" class="java.lang.String" itemvalue="Android Tests.testDeleteCourse()" />
-        <item index="4" class="java.lang.String" itemvalue="Android Tests.All Tests" />
+        <item index="0" class="java.lang.String" itemvalue="Android Application.MainActivity" />
+        <item index="1" class="java.lang.String" itemvalue="Android Tests.All Tests (2)" />
+        <item index="2" class="java.lang.String" itemvalue="Android Tests.All Tests (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Android Tests.testGetCourseNames...()" />
+        <item index="4" class="java.lang.String" itemvalue="Android Tests.testDeleteCourse()" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -947,11 +1031,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32690126" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32576618" sideWeight="0.49973074" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32576618" sideWeight="0.49973074" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25134555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2541734" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3984109" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -962,6 +1045,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="101" y="101" width="1718" height="838" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1017,97 +1101,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/view/Window.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1363" max-vertical-offset="4097">
-          <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/app/Instrumentation.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1724" max-vertical-offset="2720">
-          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/os/Handler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1411">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/os/Looper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="629">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/org/xmlpull/v1/XmlSerializer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="324" max-vertical-offset="915">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/objects/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1105">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/objects/Curriculum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="355" max-vertical-offset="969">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#202#203#0" expanded="false" />
-            <element signature="e#226#227#0" expanded="false" />
-            <element signature="e#699#700#0" expanded="false" />
-            <element signature="e#736#737#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/ProgressCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="236" max-vertical-offset="1071">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/ActionBarProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#347#348#0" expanded="false" />
-            <element signature="e#393#394#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/ActivityIntentExtras.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18085106" vertical-offset="0" max-vertical-offset="564">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/ListViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="797" max-vertical-offset="1360">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/StudyProgress/res/menu/choose_start_configuration.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="564">
@@ -1116,43 +1109,168 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLParser.java">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/example/studyprogress/BuildConfig.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8279">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <element signature="e#1492#1493#0" expanded="false" />
-            <element signature="e#1529#1530#0" expanded="false" />
-            <element signature="e#1570#1571#0" expanded="false" />
-            <element signature="e#1608#1609#0" expanded="false" />
-            <element signature="e#4284#4285#0" expanded="false" />
-            <element signature="e#4319#4320#0" expanded="false" />
-            <element signature="e#12338#12339#0" expanded="false" />
-            <element signature="e#12378#12379#0" expanded="false" />
-            <element signature="e#12426#12427#0" expanded="false" />
-            <element signature="e#12466#12467#0" expanded="false" />
-            <element signature="e#12631#12639#0" expanded="false" />
-            <element signature="e#12969#12977#0" expanded="false" />
-            <element signature="e#13723#13724#0" expanded="false" />
-            <element signature="e#13760#13761#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/CurriculumListViewActivity.java">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/studyprogress/ChooseStartConfigurationActivity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1394">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/app/Activity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33272728" vertical-offset="429" max-vertical-offset="7565">
+          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/studyprogress/SplashScreenActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/studyprogress/tools/XMLSave.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="20111" max-vertical-offset="24701">
+          <caret line="1183" column="7" selection-start-line="1183" selection-start-column="7" selection-end-line="1183" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/curriculum_list_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="539">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/courses_list_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.814815" vertical-offset="0" max-vertical-offset="493">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/university_list_item.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="884">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_start_configuration.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1360">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_create_new_curriculum.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1071">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1421" max-vertical-offset="2261">
+          <caret line="110" column="72" selection-start-line="110" selection-start-column="72" selection-end-line="110" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/objects/University.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/objects/Curriculum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="901">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/os/AsyncTask.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="952">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/ChooseExistingOrNewCurriculumActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="151" max-vertical-offset="714">
+        <state vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="714">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/ChooseStartConfigurationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1258">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1173,111 +1291,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/example/studyprogress/BuildConfig.class">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/CurriculumListViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1139">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/studyprogress/ChooseStartConfigurationActivity.class">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/ListViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="794" max-vertical-offset="1360">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/ChooseStartConfigurationActivity.java">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="1836">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1446#1775#0" expanded="false" />
-            <element signature="e#1764#1765#0" expanded="false" />
-            <element signature="e#1821#1977#0" expanded="false" />
-            <element signature="e#1966#1967#0" expanded="false" />
-            <element signature="e#2024#2182#0" expanded="false" />
-            <element signature="e#2171#2172#0" expanded="false" />
-            <element signature="e#2225#2531#0" expanded="false" />
-            <element signature="e#2519#2520#0" expanded="false" />
-            <element signature="e#2571#3036#0" expanded="false" />
-            <element signature="e#3025#3026#0" expanded="false" />
-            <element signature="e#3077#3477#0" expanded="false" />
-            <element signature="e#3466#3467#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/app/Activity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33272728" vertical-offset="429" max-vertical-offset="7565">
-          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/studyprogress/SplashScreenActivity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6814" max-vertical-offset="7378">
+          <caret line="497" column="25" selection-start-line="497" selection-start-column="25" selection-end-line="497" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/bin/classes/com/studyprogress/tools/XMLSave.class">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/adapter/CourseListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1580" max-vertical-offset="2754">
+          <caret line="120" column="116" selection-start-line="120" selection-start-column="116" selection-end-line="120" selection-end-column="116" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/menu/DeleteMenuCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="20111" max-vertical-offset="24701">
-          <caret line="1183" column="7" selection-start-line="1183" selection-start-column="7" selection-end-line="1183" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1224">
+          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/objects/University.java">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/objects/Course.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1105">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/ActionBarProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/ActivityIntentExtras.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/GlobalProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="952">
+          <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/ProgressCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1071">
+          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/WebXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="1020">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLOpenDelete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2227">
+          <caret line="119" column="34" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7171" max-vertical-offset="7735">
+          <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLSave.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2479" max-vertical-offset="3043">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2122" max-vertical-offset="2686">
           <caret line="68" column="55" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/AboutActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/SplashScreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="e#444#707#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/custom_buttons.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/UniversityListViewActivity.java">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/item_selected.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="564">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1290,156 +1441,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/XMLOpenDelete.java">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/UniversityListViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1017" max-vertical-offset="2550">
-          <caret line="133" column="44" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1037">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.740741" vertical-offset="1360" max-vertical-offset="2805">
-          <caret line="105" column="46" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_new_existing_curriculum.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/tools/WebXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="457" max-vertical-offset="1020">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/curriculum_list_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="539">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/menu/DeleteMenuCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/courses_list_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.814815" vertical-offset="0" max-vertical-offset="493">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-53.42857" vertical-offset="969" max-vertical-offset="7633">
-          <caret line="185" column="62" selection-start-line="185" selection-start-column="62" selection-end-line="185" selection-end-column="62" />
-          <folding>
-            <element signature="e#7889#7919#0" expanded="true" />
-            <element signature="e#13974#13998#0" expanded="true" />
-            <element signature="e#14198#14226#0" expanded="true" />
-            <element signature="e#14265#14298#0" expanded="true" />
-            <element signature="e#14421#14449#0" expanded="true" />
-            <element signature="e#14488#14513#0" expanded="true" />
-            <element signature="e#14676#14699#0" expanded="true" />
-            <element signature="e#14702#14730#0" expanded="true" />
-            <element signature="e#14796#14818#0" expanded="true" />
-            <element signature="e#14821#14849#0" expanded="true" />
-            <element signature="e#14889#14913#0" expanded="true" />
-            <element signature="e#15034#15062#0" expanded="true" />
-            <element signature="e#15162#15175#0" expanded="true" />
-            <element signature="e#15201#15830#0" expanded="true" />
-            <element signature="e#15803#15804#0" expanded="true" />
-            <element signature="e#15893#15906#0" expanded="true" />
-            <element signature="e#16614#16633#0" expanded="true" />
-            <element signature="e#18564#18585#0" expanded="true" />
-            <element signature="e#18676#18688#0" expanded="true" />
-            <element signature="e#18722#19037#0" expanded="true" />
-            <element signature="e#19002#19003#0" expanded="true" />
-            <element signature="e#19107#19118#0" expanded="true" />
-            <element signature="e#19152#19477#0" expanded="true" />
-            <element signature="e#19442#19443#0" expanded="true" />
-            <element signature="e#19721#19722#0" expanded="true" />
-            <element signature="e#19759#19760#0" expanded="true" />
-            <element signature="e#20663#20664#0" expanded="true" />
-            <element signature="e#20711#20712#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/adapter/CourseListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1580" max-vertical-offset="2754">
-          <caret line="120" column="116" selection-start-line="120" selection-start-column="116" selection-end-line="120" selection-end-column="116" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/university_list_item.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/src/com/studyprogress/properties/GlobalProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="952">
-          <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/custom_buttons.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_selector.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="13" column="10" selection-start-line="10" selection-start-column="2" selection-end-line="13" selection-end-column="10" />
+        <state vertical-scroll-proportion="-13.037037" vertical-offset="39" max-vertical-offset="578">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1447,7 +1463,23 @@
     <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_released.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="4" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_selector.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="4" column="65" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/start_button_shape_pressed.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="4" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1455,66 +1487,45 @@
     <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/logo.png">
-      <provider selected="true" editor-type-id="images">
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester__button_selector.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_released.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/drawable-hdpi/semester_button_shape_pressed.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="884">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_start_configuration.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.703704" vertical-offset="0" max-vertical-offset="1360">
-          <caret line="17" column="37" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.5361781" vertical-offset="0" max-vertical-offset="3060">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
           <folding>
-            <element signature="e#1021#1039#0" expanded="true" />
+            <element signature="e#4871#4888#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_choose_new_existing_curriculum.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8888888" vertical-offset="0" max-vertical-offset="578">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/layout/activity_create_new_curriculum.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.962963" vertical-offset="51" max-vertical-offset="1071">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding>
-            <element signature="e#600#633#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudyProgress/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30198914" vertical-offset="1703" max-vertical-offset="2261">
-          <caret line="110" column="72" selection-start-line="110" selection-start-column="72" selection-end-line="110" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
