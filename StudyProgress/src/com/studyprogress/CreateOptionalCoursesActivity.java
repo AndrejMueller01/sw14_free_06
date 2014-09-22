@@ -12,13 +12,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class CreateOptionalCoursesActivity extends Activity {
 	private static final int SEM_PLUS = 7;
@@ -29,12 +33,18 @@ public class CreateOptionalCoursesActivity extends Activity {
 	private Spinner semSP;
 	private Spinner modeSP;
     private CheckBox steopCB;
-	@Override
+    private Intent intent;
+
+    private int studMode;
+    private int studSem = GlobalProperties.SEM_COUNT-1;
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_optional_course);
 		ActionBarProperties.noTitleText(this);
-
+        intent  = new Intent(CreateOptionalCoursesActivity.this,
+                MainActivity.class);
 		courseNameET = (EditText) findViewById(R.id.create_course_course_name_edit_text);
 		ectsET = (EditText) findViewById(R.id.create_course_ects_edit_text);
 		cidET = (EditText) findViewById(R.id.create_course_cid_edit_text);
@@ -43,9 +53,47 @@ public class CreateOptionalCoursesActivity extends Activity {
         steopCB = (CheckBox) findViewById(R.id.create_course_is_steop_cb);
 		parser = XMLParser.getInstance(null);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras.containsKey(ActivityIntentExtras.STUD_MODE))
+            studMode = extras.getInt(ActivityIntentExtras.STUD_MODE);
+        if (extras.containsKey(ActivityIntentExtras.STUD_SEM))
+            studSem = extras.getInt(ActivityIntentExtras.STUD_SEM);
+
+        ArrayList<String> semesterDescription = new ArrayList<String>();
+        fillArrayListWithSemesters(semesterDescription);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, semesterDescription);
+        semSP.setAdapter(adapter);
+        if( studSem< GlobalProperties.SEM_COUNT-1)
+        semSP.setSelection(studSem);
+        else
+         semSP.setSelection(semSP.getCount()-1);
+
 	}
 
-	@Override
+    private void fillArrayListWithSemesters(ArrayList<String> semesterDescription) {
+        int counter = GlobalProperties.SEM_COUNT;
+        if(studMode == GlobalProperties.BACH_STUD)
+            counter -= 3;
+        if(studMode == GlobalProperties.MAST_STUD)
+            counter -= 5;
+        if(studMode == GlobalProperties.DIPL_STUD)
+            counter -= 6;
+        if(studMode == GlobalProperties.PHD_STUD)
+            counter -= 5;
+
+        for(int i = 0; i < counter; i++){
+            if(i == counter -1) {
+                semesterDescription.add("Freifächer");
+                break;
+            }
+            int value = i+1;
+            semesterDescription.add(String.valueOf(value));
+        }
+    }
+
+
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		MenuInflater inflater = getMenuInflater();
@@ -55,8 +103,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		Intent intent = new Intent(CreateOptionalCoursesActivity.this,
-				MainActivity.class);
+
 		switch (item.getItemId()) {
 		case R.id.create_courses_ok_item:
 			Course newCourse = new Course();
@@ -125,16 +172,22 @@ public class CreateOptionalCoursesActivity extends Activity {
 			return true;
 
 		case R.id.create_courses_cancel_item:
-
-			intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FROM_ADDING_COURSES);
-			intent.putExtra(ActivityIntentExtras.SOMETHING_CHANGED, false);
-
-            startActivity(intent);
-			finish();
-			return true;
+            performCancelAction();
+            return true;
 
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}
+    private void performCancelAction(){
 
+        intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FROM_ADDING_COURSES);
+        intent.putExtra(ActivityIntentExtras.SOMETHING_CHANGED, false);
+
+        startActivity(intent);
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        performCancelAction();
+    }
 }

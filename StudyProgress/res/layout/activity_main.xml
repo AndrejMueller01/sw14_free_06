@@ -133,6 +133,13 @@
                     android:background="@drawable/semester__button_selector"
                     android:layout_margin="1pt"
                     android:text="@string/sem_8" />
+                <Button
+                    android:id="@+id/semester_9_name_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/semester__button_selector"
+                    android:layout_margin="1pt"
+                    android:text="@string/sem_9" />
 
 
                 <Button
@@ -196,6 +203,12 @@
         android:visibility="invisible" />
     <ListView
         android:id="@+id/courses_list_view_sem8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sem_line_ll"
+        android:visibility="invisible" />
+    <ListView
+        android:id="@+id/courses_list_view_sem9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sem_line_ll"

@@ -62,6 +62,7 @@ public class MainActivity extends StudyProgressActivity {
     private static String curriculumName = null;
     private static String universityName = null;
     private boolean deleteActionModeIsActive = false;
+    private int currentSemester;
 
     public static String getXmlFileName() {
         return xmlFileName;
@@ -170,9 +171,11 @@ public class MainActivity extends StudyProgressActivity {
         getCourseListViews()[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
         getCourseListViews()[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
         getCourseListViews()[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
-        getCourseListViews()[6] = (ListView) findViewById(R.id.courses_list_view_sem6);
-        getCourseListViews()[7] = (ListView) findViewById(R.id.courses_list_view_sem6);
-        getCourseListViews()[8] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
+        getCourseListViews()[6] = (ListView) findViewById(R.id.courses_list_view_sem7);
+        getCourseListViews()[7] = (ListView) findViewById(R.id.courses_list_view_sem8);
+        getCourseListViews()[8] = (ListView) findViewById(R.id.courses_list_view_sem9);
+
+        getCourseListViews()[9] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
 
         semesterButtons.add((Button) findViewById(R.id.semester_1_name_button));
         semesterButtons.add((Button) findViewById(R.id.semester_2_name_button));
@@ -182,6 +185,8 @@ public class MainActivity extends StudyProgressActivity {
         semesterButtons.add((Button) findViewById(R.id.semester_6_name_button));
         semesterButtons.add((Button) findViewById(R.id.semester_7_name_button));
         semesterButtons.add((Button) findViewById(R.id.semester_8_name_button));
+        semesterButtons.add((Button) findViewById(R.id.semester_9_name_button));
+
         semesterButtons
                 .add((Button) findViewById(R.id.semester_optional_courses));
 
@@ -192,8 +197,6 @@ public class MainActivity extends StudyProgressActivity {
         } else if (studMode == GlobalProperties.MAST_STUD) {
             for (int i = 4; i < semesterButtons.size() - 1; i++)
                 semesterButtons.get(i).setVisibility(View.GONE);
-        } else if (studMode == GlobalProperties.LA_STUD) {
-            // TODO:+3 Sem Buttons
         }
         else if (studMode == GlobalProperties.BACH_STUD) {
             for (int i = 6; i < semesterButtons.size() - 1; i++)
@@ -282,6 +285,9 @@ public class MainActivity extends StudyProgressActivity {
             case R.id.add_item:
                 Intent intent = new Intent(MainActivity.this,
                         CreateOptionalCoursesActivity.class);
+                intent.putExtra(ActivityIntentExtras.STUD_MODE, studMode);
+                intent.putExtra(ActivityIntentExtras.STUD_SEM, currentSemester);
+
                 startActivity(intent);
                 finish();
                 return true;
@@ -307,6 +313,7 @@ public class MainActivity extends StudyProgressActivity {
                 if (event.getAction() != MotionEvent.ACTION_DOWN && event.getAction() != MotionEvent.ACTION_MOVE) {
                     for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
                         if (i == semester) {
+                            currentSemester = i;
                             semesterButtons.get(i).setPressed(true);
                             getCourseListViews()[i].setVisibility(View.VISIBLE);
                         } else {
@@ -434,6 +441,8 @@ public class MainActivity extends StudyProgressActivity {
 
         studyProgressPercentage.setText(currentEcts + "/" + maxECTS + " ECTS ("
                 + progressInPercent + "%)");
+        studyProgressPercentage.setBackgroundColor(Color.argb(100,calculator.calculateRedAmount(),
+                calculator.calculateGreenAmount(),calculator.calculateBlueAmount()));
     }
 
     public void setStudyStateChanged() {

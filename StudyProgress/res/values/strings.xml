@@ -44,6 +44,8 @@
     <string name="sem_6">6</string>
     <string name="sem_7">7</string>
     <string name="sem_8">8</string>
+    <string name="sem_9">9</string>
+
 
     <string name="sem_add">Freifächer</string>
     <string name="menu_item_add">Wahlfach hinzufügen</string>
@@ -94,6 +96,7 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
         <item>Freifächer</item>
     </string-array>
     <string-array name="opt_course_mode_array">

@@ -1,5 +1,7 @@
 package com.studyprogress.tools;
 
+import android.util.Log;
+
 import com.studyprogress.properties.GlobalProperties;
 
 public class ProgressCalculator {
@@ -15,6 +17,17 @@ public class ProgressCalculator {
 		currentECTS = parser.getCurrentEcts();
 		return currentECTS;
 	}
+
+    public int calculateRedAmount(){
+        return (int)(0xFF - (calculatePercentage()*1.6));
+    }
+    public int calculateGreenAmount(){
+        return (int)(calculatePercentage()*1.6);
+
+    }
+    public int calculateBlueAmount(){
+        return 0;
+    }
 
 	public int getMaxECTS(boolean staticModeOn) {
 		if(staticModeOn){
