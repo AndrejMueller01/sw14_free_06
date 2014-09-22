@@ -61,7 +61,7 @@ public class MainActivity extends StudyProgressActivity {
     private static String xmlFileName;
     private static String curriculumName = null;
     private static String universityName = null;
-    private boolean deletActionModeIsActive = false;
+    private boolean deleteActionModeIsActive = false;
 
     public static String getXmlFileName() {
         return xmlFileName;
@@ -170,7 +170,9 @@ public class MainActivity extends StudyProgressActivity {
         getCourseListViews()[3] = (ListView) findViewById(R.id.courses_list_view_sem4);
         getCourseListViews()[4] = (ListView) findViewById(R.id.courses_list_view_sem5);
         getCourseListViews()[5] = (ListView) findViewById(R.id.courses_list_view_sem6);
-        getCourseListViews()[6] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
+        getCourseListViews()[6] = (ListView) findViewById(R.id.courses_list_view_sem6);
+        getCourseListViews()[7] = (ListView) findViewById(R.id.courses_list_view_sem6);
+        getCourseListViews()[8] = (ListView) findViewById(R.id.courses_list_view_opt_courses);
 
         semesterButtons.add((Button) findViewById(R.id.semester_1_name_button));
         semesterButtons.add((Button) findViewById(R.id.semester_2_name_button));
@@ -178,6 +180,8 @@ public class MainActivity extends StudyProgressActivity {
         semesterButtons.add((Button) findViewById(R.id.semester_4_name_button));
         semesterButtons.add((Button) findViewById(R.id.semester_5_name_button));
         semesterButtons.add((Button) findViewById(R.id.semester_6_name_button));
+        semesterButtons.add((Button) findViewById(R.id.semester_7_name_button));
+        semesterButtons.add((Button) findViewById(R.id.semester_8_name_button));
         semesterButtons
                 .add((Button) findViewById(R.id.semester_optional_courses));
 
@@ -191,6 +195,11 @@ public class MainActivity extends StudyProgressActivity {
         } else if (studMode == GlobalProperties.LA_STUD) {
             // TODO:+3 Sem Buttons
         }
+        else if (studMode == GlobalProperties.BACH_STUD) {
+            for (int i = 6; i < semesterButtons.size() - 1; i++)
+                semesterButtons.get(i).setVisibility(View.GONE);
+        }
+
 
         refreshProgress();
 
@@ -220,18 +229,18 @@ public class MainActivity extends StudyProgressActivity {
                     int position = getAdapters()[j].getCoursePosition(courseNameInList);
                     if (position != -1)
                         getAdapters()[j].setViewBackgroundColor(position,
-                                Color.GREEN);
+                                getResources().getColor(R.color.app_dgreen));
                 } else if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_IN_PROGRESS) {
                     int position = getAdapters()[j].getCoursePosition(courseNameInList);
                     if (position != -1)
                         getAdapters()[j].setViewBackgroundColor(position,
-                                Color.YELLOW);
+                                getResources().getColor(R.color.app_yellow));
                 } else if (parser.getCurrentCourses().get(i).getStatus() == GlobalProperties.STATUS_TO_DO) {
 
                     int position = getAdapters()[j].getCoursePosition(courseNameInList);
                     if (position != -1)
                         getAdapters()[j].setViewBackgroundColor(position,
-                                Color.RED);
+                                getResources().getColor(R.color.app_dred));
                 }
             }
     }
@@ -302,7 +311,6 @@ public class MainActivity extends StudyProgressActivity {
                             getCourseListViews()[i].setVisibility(View.VISIBLE);
                         } else {
                             semesterButtons.get(i).setPressed(false);
-
                             getCourseListViews()[i]
                                     .setVisibility(View.INVISIBLE);
                         }
@@ -312,6 +320,10 @@ public class MainActivity extends StudyProgressActivity {
                     return true;
 
                 }
+                for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
+                semesterButtons.get(i).setPressed(false);
+
+
                 return false;
             }
         };
@@ -360,7 +372,7 @@ public class MainActivity extends StudyProgressActivity {
                             public void onClick(DialogInterface dialog,
                                                 int which) {
                                 getAdapters()[semester].setViewBackgroundColor(
-                                        position, Color.GREEN);
+                                        position, getResources().getColor(R.color.app_dgreen));
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_DONE);
                                 MediaPlayer doneSound = MediaPlayer.create(getBaseContext(), R.raw.done);
                                 doneSound.start();
@@ -376,7 +388,7 @@ public class MainActivity extends StudyProgressActivity {
                                                 int which) {
 
                                 getAdapters()[semester].setViewBackgroundColor(
-                                        position, Color.RED);
+                                        position, getResources().getColor(R.color.app_dred));
 
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_TO_DO);
                                 MediaPlayer todo = MediaPlayer.create(getBaseContext(), R.raw.todo);
@@ -393,7 +405,7 @@ public class MainActivity extends StudyProgressActivity {
                                                 int which) {
 
                                 getAdapters()[semester].setViewBackgroundColor(
-                                        position, Color.YELLOW);
+                                        position, getResources().getColor(R.color.app_yellow));
 
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_IN_PROGRESS);
                                 MediaPlayer inprogress = MediaPlayer.create(getBaseContext(), R.raw.inprogress);
@@ -488,7 +500,7 @@ public class MainActivity extends StudyProgressActivity {
     }
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if(deletActionModeIsActive) {
+        if(deleteActionModeIsActive) {
             if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
                 return true;
             }
@@ -496,7 +508,7 @@ public class MainActivity extends StudyProgressActivity {
         return super.dispatchKeyEvent(event);
     }
     public void setDeleteActionModeIsActive(boolean status){
-        deletActionModeIsActive = status;
+        deleteActionModeIsActive = status;
     }
 
 }

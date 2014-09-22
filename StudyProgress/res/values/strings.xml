@@ -10,10 +10,20 @@
     <string name="file_invalid">DB File invalid!</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="choose_start_configuration">Bitte wählen Sie einen Modus aus:</string>
-    <string name="new_plan">Neues Studium erstellen</string>
-    <string name="empty_plan">Leeren Studienplan erstellen</string>
-    <string name="open_plan">Gespeichertes Studium öffnen</string>
-    <string name="delete_plan">Gespeichertes Studium löschen</string>
+    <string name="new_plan">Studium erstellen</string>
+    <string name="empty_plan">Leer</string>
+    <string name="open_plan">Studium öffnen</string>
+    <string name="delete_plan">Studium löschen</string>
+    <string name="open_predefined_curriculum">Vorgefertigt</string>
+    <string name="dialog_new_or_existing_title">Studium erstellen</string>
+
+    <string name="dialog_alert_new_or_existing_title">Achtung!</string>
+    <string name="dialog_alert_new_or_existing_message">Um vorgefertigte Studienpläne auszuwählen
+        wird eine Verbindung mit dem Internet benötigt!\n
+        Wenn keine Verbindung mit dem Internet besteht, schalten Sie es bitte jetzt ein!</string>
+
+
+
 
     <string name="about">Impressum</string>
     <string name="rate">BEWERTEN</string>
@@ -25,12 +35,16 @@
     <string name="choose_progress">Wähle deinen Fortschritt:</string>
     <string name="semester_descr">SEMESTER</string>
     <string name ="delete_menu_title">Bitte Kurse auswählen!</string>
+
     <string name="sem_1">1</string>
     <string name="sem_2">2</string>
     <string name="sem_3">3</string>
     <string name="sem_4">4</string>
     <string name="sem_5">5</string>
     <string name="sem_6">6</string>
+    <string name="sem_7">7</string>
+    <string name="sem_8">8</string>
+
     <string name="sem_add">Freifächer</string>
     <string name="menu_item_add">Wahlfach hinzufügen</string>
     <string name="menu_item_delete">Kurs löschen</string>
@@ -67,7 +81,7 @@
     <string name="no">Nein</string>
     <string name="about_authors">Autoren: Dominik Hirner, Andrej Müller</string>    
     <string name="about_designer">Designer: Priska Rothammer</string>    
-    <string name="about_information">Diese Android-Applikation wurde im Rahmen der Lehrveranstaltung ""Mobile Applications" auf der technischen Universität Graz im SS 2014 entwickelt.\n\nKontakt: - \n </string>    
+    <string name="about_information">Kontakt: office@studyprogress.at</string>
     <string name="is_steop">Steop</string>
 
 
@@ -78,6 +92,8 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
+        <item>8</item>
         <item>Freifächer</item>
     </string-array>
     <string-array name="opt_course_mode_array">
@@ -92,7 +108,6 @@
     
     <string name="choose_existing_new_curriculum">Das von Ihnen gewählte Studium konnte nich gefunden werden. XML Datei fehlerhaft!</string>
     <string name="curr_not_found">Bitte wählen Sie ein neues oder vorgefertigtes Curriculum aus!</string>
-    <string name="open_predefined_curriculum">Vorgefertigten Studienplan auswählen</string>
     <string name="create_new_curriculum">Lege ein neues Curriculum an</string>
 
     <string name="add_new_university_name">Name der Universität:</string>
