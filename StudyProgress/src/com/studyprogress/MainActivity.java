@@ -1,11 +1,13 @@
 package com.studyprogress;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -42,6 +44,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends StudyProgressActivity {
 
+    private int activeSemesterIndex = 0;
     private ProgressBar studyProgressBar;
     private TextView studyProgressPercentage;
     private static CourseListAdapter[] adapters;
@@ -82,7 +85,8 @@ public class MainActivity extends StudyProgressActivity {
             studyStateChanged = extras.getBoolean(ActivityIntentExtras.SOMETHING_CHANGED);
         if (extras.containsKey(ActivityIntentExtras.XML_FILE_NAME))
             xmlFileName = extras.getString(ActivityIntentExtras.XML_FILE_NAME);
-
+        if (extras.containsKey(ActivityIntentExtras.STUD_SEM))
+            activeSemesterIndex = extras.getInt(ActivityIntentExtras.STUD_SEM);
         parser = XMLParser.getInstance(null);
         chooseActivityStartMode();
 
@@ -100,6 +104,7 @@ public class MainActivity extends StudyProgressActivity {
             parser.clearCurrentCourses();
             parseModeOn = true;
             saveModeWithDialog = true;
+
 
             try {
                 WebXMLLoader webXMLLoader = new WebXMLLoader(this);
@@ -220,6 +225,8 @@ public class MainActivity extends StudyProgressActivity {
 
         setClickListeners();
         setBackgroundColors();
+        onSemesterButtonClickRoutine(activeSemesterIndex);
+
 
     }
 
@@ -310,32 +317,30 @@ public class MainActivity extends StudyProgressActivity {
         return new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() != MotionEvent.ACTION_DOWN && event.getAction() != MotionEvent.ACTION_MOVE) {
-                    for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
-                        if (i == semester) {
-                            currentSemester = i;
-                            semesterButtons.get(i).setPressed(true);
-                            getCourseListViews()[i].setVisibility(View.VISIBLE);
-                        } else {
-                            semesterButtons.get(i).setPressed(false);
-                            getCourseListViews()[i]
-                                    .setVisibility(View.INVISIBLE);
-                        }
-
-                        getCourseListViews()[i].refreshDrawableState();
-                    }
-                    return true;
-
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        onSemesterButtonClickRoutine(semester);
                 }
-                for (int i = 0; i < GlobalProperties.SEM_COUNT; i++)
-                semesterButtons.get(i).setPressed(false);
-
-
-                return false;
+                return true;
             }
         };
     }
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void onSemesterButtonClickRoutine(int semester){
+        for (int i = 0; i < GlobalProperties.SEM_COUNT; i++) {
+            if (i == semester) {
+                currentSemester = i;
+                semesterButtons.get(i).setBackground(getResources()
+                        .getDrawable(R.drawable.semester_button_shape_pressed));
+                getCourseListViews()[i].setVisibility(View.VISIBLE);
+            } else {
+                semesterButtons.get(i).setBackground(getResources()
+                        .getDrawable(R.drawable.semester_button_shape_released));
+                getCourseListViews()[i]
+                        .setVisibility(View.INVISIBLE);
+            }
+        }
+    }
     //TODO: class for AlertDialog + no hardcoded stuff
     public OnItemClickListener setupOnItemClickListener(final int semester) {
         return new OnItemClickListener() {
@@ -398,8 +403,8 @@ public class MainActivity extends StudyProgressActivity {
                                         position, getResources().getColor(R.color.app_dred));
 
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_TO_DO);
-                                MediaPlayer todo = MediaPlayer.create(getBaseContext(), R.raw.todo);
-                                todo.start();
+                                MediaPlayer todoSound = MediaPlayer.create(getBaseContext(), R.raw.todo);
+                                todoSound.start();
 
                             }
                         }
@@ -415,8 +420,8 @@ public class MainActivity extends StudyProgressActivity {
                                         position, getResources().getColor(R.color.app_yellow));
 
                                 setProgressOfCourse(currentCourse, GlobalProperties.STATUS_IN_PROGRESS);
-                                MediaPlayer inprogress = MediaPlayer.create(getBaseContext(), R.raw.inprogress);
-                                inprogress.start();
+                                MediaPlayer inprogressSound = MediaPlayer.create(getBaseContext(), R.raw.inprogress);
+                                inprogressSound.start();
                             }
                         }
                 );

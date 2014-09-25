@@ -25,7 +25,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class CreateOptionalCoursesActivity extends Activity {
-	private static final int SEM_PLUS = 7;
 	private XMLParser parser;
 	private EditText courseNameET;
 	private EditText ectsET;
@@ -64,10 +63,10 @@ public class CreateOptionalCoursesActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, semesterDescription);
         semSP.setAdapter(adapter);
-        if( studSem< GlobalProperties.SEM_COUNT-1)
-        semSP.setSelection(studSem);
+        if( studSem < GlobalProperties.SEM_COUNT-1)
+            semSP.setSelection(studSem);
         else
-         semSP.setSelection(semSP.getCount()-1);
+            semSP.setSelection(semSP.getCount()-1);
 
 	}
 
@@ -151,7 +150,7 @@ public class CreateOptionalCoursesActivity extends Activity {
 			try {
 				newCourse.setSemester(Integer.parseInt(semesterNo));
 			} catch (NumberFormatException ex) {
-				newCourse.setSemester(SEM_PLUS);
+				newCourse.setSemester(GlobalProperties.SEM_COUNT);
 			}
 			
 			try {
@@ -161,17 +160,15 @@ public class CreateOptionalCoursesActivity extends Activity {
 			}
 
 
-			parser.addCourseToCurrentCourses(newCourse);
-
-			intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FROM_ADDING_COURSES);
-			intent.putExtra(ActivityIntentExtras.SOMETHING_CHANGED, true);
-
-
-            startActivity(intent);
-			finish();
-			return true;
+			if(!parser.addCourseToCurrentCourses(newCourse)) {
+                Toast.makeText(getApplicationContext(), R.string.course_exists_error, Toast.LENGTH_LONG).show();
+                return false;
+            }
+            startActivity(true);
+            return true;
 
 		case R.id.create_courses_cancel_item:
+
             performCancelAction();
             return true;
 
@@ -179,15 +176,17 @@ public class CreateOptionalCoursesActivity extends Activity {
 		return super.onMenuItemSelected(featureId, item);
 	}
     private void performCancelAction(){
-
-        intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FROM_ADDING_COURSES);
-        intent.putExtra(ActivityIntentExtras.SOMETHING_CHANGED, false);
-
-        startActivity(intent);
-        finish();
+        startActivity(false);
     }
     @Override
     public void onBackPressed() {
         performCancelAction();
+    }
+    private void startActivity(boolean saveChanges){
+        intent.putExtra(ActivityIntentExtras.STUD_SEM, studSem);
+        intent.putExtra(ActivityIntentExtras.FIRST_TIME_OPENED, GlobalProperties.FROM_ADDING_COURSES);
+        intent.putExtra(ActivityIntentExtras.SOMETHING_CHANGED, saveChanges);
+        startActivity(intent);
+        finish();
     }
 }

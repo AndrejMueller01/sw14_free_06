@@ -30,8 +30,9 @@ public class GlobalProperties {
 
     public static String COURSE_XML_PREFIX = "c";
 	public static final int SEM_COUNT = 10;
-	
-	public static int BACH_ECTS = 180;
+
+
+    public static int BACH_ECTS = 180;
 	public static int MASTER_ECTS = 120;
 	public static int DIPLSTUD_ECTS = 240;
 	public static int LAMTSTUD_ECTS = 270;

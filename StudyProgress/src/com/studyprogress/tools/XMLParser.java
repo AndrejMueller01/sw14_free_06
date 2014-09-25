@@ -60,9 +60,13 @@ public class XMLParser {
 
     }
 
-    public void addCourseToCurrentCourses(Course course) {
+    public boolean addCourseToCurrentCourses(Course course) {
+        for(int i = 0; i< currentCourses.size();i++)
+            if(course.getCourseName().equals(currentCourses.get(i).getCourseName()) &&
+                    course.getMode().equals(currentCourses.get(i).getMode()))
+                return false;
         currentCourses.add(course);
-
+        return true;
     }
 
     public void parseUniversities() {
@@ -461,6 +465,7 @@ public class XMLParser {
         }
         return allEcts;
     }
+
 
     public Course getCourseByNameInList(String courseNameInList) {
         for (int i = 0; i < getCurrentCourses().size(); i++) {

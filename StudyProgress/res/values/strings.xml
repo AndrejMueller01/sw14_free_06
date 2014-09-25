@@ -140,7 +140,7 @@
     <string name="ects">E.C.T.S.: </string>
     <string name="steop">Steop: </string>
     <string name="mode">Modus: </string>
-
+    <string name="course_exists_error">Kurs existiert bereits! Bitte geben Sie einen anderen Namen/Modus ein!</string>
 
 
 </resources>
