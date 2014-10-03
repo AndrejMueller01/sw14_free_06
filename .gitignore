@@ -11,10 +11,11 @@ tmp/
 *.bak
 *.swp
 *~.nib
-local.properties
 .classpath
 .settings/
 .loadpath
+
+out/
 
 # External tool builders
 .externalToolBuilders/
@@ -30,7 +31,7 @@ local.properties
 StudyProgress/gen/com/example/studyprogress/BuildConfig.java
 
 # Android Studio
-/.idea/workspace.xml
+.idea/workspace.xml
 .DS_Store
 
 # Built application files
