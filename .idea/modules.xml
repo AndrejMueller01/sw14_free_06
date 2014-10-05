@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/StudyProgress/StudyProgress.iml" filepath="$PROJECT_DIR$/StudyProgress/StudyProgress.iml" />
       <module fileurl="file://$PROJECT_DIR$/StudyProgressGUITest/StudyProgressGUITest.iml" filepath="$PROJECT_DIR$/StudyProgressGUITest/StudyProgressGUITest.iml" />
       <module fileurl="file://$PROJECT_DIR$/StudyProgressTest/StudyProgressTest.iml" filepath="$PROJECT_DIR$/StudyProgressTest/StudyProgressTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sw14_free_06.iml" filepath="$PROJECT_DIR$/sw14_free_06.iml" />
     </modules>
   </component>
 </project>

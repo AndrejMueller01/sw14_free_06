@@ -28,7 +28,7 @@ out/
 
 # PDT-specific
 .buildpath
-StudyProgress/gen/com/example/studyprogress/BuildConfig.java
+StudyProgress/gen/com/studyprogress/BuildConfig.java
 
 # Android Studio
 .idea/workspace.xml

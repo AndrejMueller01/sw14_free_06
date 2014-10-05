@@ -5,6 +5,15 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.11-all" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/StudyProgress" />
+            <option value="$PROJECT_DIR$/StudyProgressGUITest" />
+            <option value="$PROJECT_DIR$/StudyProgressTest" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
